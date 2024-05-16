@@ -1,0 +1,8 @@
+/logs/
+__pycache__/
+/minellama/llm/model/
+/minellama/llm/data/db/
+/record_of_result*.txt
+/log*.txt
+/.DS_Store
+logs/mineflayer/

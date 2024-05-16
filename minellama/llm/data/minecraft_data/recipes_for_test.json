@@ -1,0 +1,12 @@
+{
+    "1": "To make a white_bed, you need 3 white_wool and 3 planks and 1 crafting_table.",
+    "2": "To make a planks, you need 1 log.",
+    "3": "To make a stone_pickaxe, you need 2 stick and 3 cobblestone and 1 crafting_table.",
+    "4": "To make a stick, you need 2 planks.",
+    "5": "To make a iron_pickaxe, you need 2 stick and 3 iron_ingot and 1 crafting_table.",
+    "6": "To make a iron_ingot, you need 1 raw_iron and 1 furnace.",
+    "7": "To make a crafting_table, you need 4 planks.",
+    "8": "To make a cooked_beef, you need 1 beef and 1 furnace.",
+    "9": "To make a wooden_pickaxe, you need 3 planks and 2 stick.",
+    "10": "To craft a furnace, you need 8 cobblestone and 1 crafting_table."
+}
