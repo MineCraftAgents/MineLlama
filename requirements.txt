@@ -117,9 +117,6 @@ tenacity==8.2.3
 threadpoolctl==3.3.0
 tiktoken==0.6.0
 tokenizers==0.15.2
-torch==2.2.0
-torchaudio==2.0.2+cu117
-torchvision==0.15.2+cu117
 tqdm==4.66.2
 transformers==4.37.2
 triton==2.2.0

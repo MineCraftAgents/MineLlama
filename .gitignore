@@ -6,3 +6,4 @@ __pycache__/
 /log*.txt
 /.DS_Store
 logs/mineflayer/
+/main_test.py

@@ -117,6 +117,20 @@ class DecisionMaker:
         else:
             return None
     
+            
+    def reset_memory(self):
+        return
+        
+    def complete_checker(self, goal:dict):
+        for key in list(goal.keys()):
+            diff = self.check_diff(goal, key)
+            if diff == 0:
+                done = True
+            else:
+                done = False
+                return done
+        return done
+   
     # Get item by mining or killing
     def action_code_generator(self, goal:dict):
         minable = ["log","dirt"]
@@ -126,14 +140,14 @@ class DecisionMaker:
         required_tool = self.required_tool(key)
         if required_tool is None:
             if key in minable:
-                code = f"await exploreAndMine(bot, '{key}',{count});"
+                code = f"await mine(bot, '{key}',{count});"
             elif key in animals.keys():
-                code = f"await exploreAndKill(bot, '{animals[key]}', {count});"
+                code = f"await kill(bot, '{animals[key]}', {count});"
             else:
                 print("Could not find the item in the dicts in action_code_generator.")
                 return
         else:
-            code = f"await exploreAndMine(bot, '{key}',{count},'{list(required_tool.keys())[0]}');"
+            code = f"await mine(bot, '{key}',{count},'{list(required_tool.keys())[0]}');"
         return code
     
 
@@ -148,13 +162,13 @@ class DecisionMaker:
                 ingredients = list(self.search_tree(key).keys())[0]
                 coal_diff = self.check_diff({'planks':1}, 'planks')
                 if coal_diff == 0:   
-                    code = f"await smeltItemWithFurnace(bot,'{ingredients}',{count},'planks');"
+                    code = f"await smelt(bot,'{ingredients}',{count},'planks');"
                 else:
                     return "fuel"
             else:
                 return "furnace"
         else:
-            code = f"await craftItemWithCraftingTable(bot,'{key}',{count});"
+            code = f"await craft(bot,'{key}',{count});"
         return code
 
 
