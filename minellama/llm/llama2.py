@@ -32,10 +32,10 @@ class Llama2:
 
 
     ###with RAG
-    def content(self, system_prompt="",  query_str="", index_dir="", data_dir="", persist_index=True, similarity_top_k = 1, context_window=4096, max_new_tokens=1024):
-        data_path = "data/minecraft_data/"+ data_dir
+    def content(self, system_prompt="",  query_str="", index_dir="", persist_index=True, similarity_top_k = 1, context_window=4096, max_new_tokens=1024):
+        data_path = "data/minecraft_data/"+ index_dir
         data_path = Path(__file__).parent / data_path
-        file_path = f"{str(data_path)}/{data_dir}.txt"
+        file_path = f"{str(data_path)}/{index_dir}.txt"
         index_dir = "data/db/"+index_dir
         index_dir = Path(__file__).parent / index_dir
 
