@@ -9,7 +9,7 @@ import minellama.utils as U
 from .env import VoyagerEnv
 
 from .agents import DecisionMaker
-from .agents import DecisionMakerLLM
+from .agents import DecisionMakerLLM, RoleAgent
 from .llm import Llama2,GPT
 
 class Minellama:
@@ -55,6 +55,9 @@ class Minellama:
             print("Without LLM")
             self.llm = None
             self.decision_maker = DecisionMaker()
+
+        self.role_agent = RoleAgent(llm=self.llm)
+        self.role = None
 
         # init variables for rollout
         self.action_agent_rollout_num_iter = -1
@@ -239,7 +242,6 @@ class Minellama:
     
 
     def rollout(self, *, reset_env=True):
-        self.reset(reset_env=reset_env)
         task_done = False
         while True:
             if self.iterations > self.max_iterations:
@@ -306,6 +308,7 @@ class Minellama:
             self.last_events = self.env.step("")
             self.next_task = copy.deepcopy(item)
             print(f"\033[31m=================SET GOAL : {self.next_task} ====================\033[0m")
+            self.reset(reset_env=reset_env)
             success = self.rollout(
                 reset_env=reset_env,
             )
@@ -319,5 +322,30 @@ class Minellama:
         print("FAILED: ", self.failed_list)
         return
 
+    def inference_role(self, role, max_iterations, reset_mode="hard", reset_env=True):
+        print("Role: ",role)
+        self.role = role
+        self.env.reset(
+                options={
+                    "mode": reset_mode,
+                    "wait_ticks": self.env_wait_ticks,
+                }
+            )
+        self.last_events = self.env.step("")
+        self.reset(reset_env=reset_env)
+        for _ in range(max_iterations):
+            self.next_task = self.role_agent.next_task(role=self.role, inventory=self.subgoal_memory)
+            print(f"\033[31m=================SET GOAL : {self.next_task} ====================\033[0m")
+            success = self.rollout(
+                reset_env=reset_env,
+            )
+            print("This is the final record of the inventory: ", self.inventory)
+            with open(self.record_file, "a") as f:
+                f.write(f"\n\nTASK: {self.next_task}\nSUCCESS: {success}\nINVENTORY: {self.inventory}\nSUBGOAL_MEMORY: {self.subgoal_memory}\nACTION_MEMORY: {self.decision_maker.memory}\nLAST_CODE_AND_CONTEXT: {self.decision_maker.current_code} {self.decision_maker.current_context}\nSTEP_COUNT: {self.step_count}\nTIME: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n")
+            
+        print("ALL TASK COMPLETED")
+        print("SUCCESS: ", self.success_list)
+        print("FAILED: ", self.failed_list)
+        return
 
 
