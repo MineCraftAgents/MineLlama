@@ -3,15 +3,12 @@ from ..control_primitives import load_control_primitives
 from ..llm import Llama2,GPT
 
 class DecisionMakerLLM:
-    def __init__(self, llm:str, llm_model:str="", hf_auth_token:str="", local_llm_path:str=None):
+    def __init__(self, llm):
         self.inventory = {}
         self.control_primitives = load_control_primitives()
         # self.control_primitives = []
         self.recipes = {}
-        if llm == "llama":
-            self.llm = Llama2(hf_auth_token=hf_auth_token, name=llm_model, local_llm_path=local_llm_path)
-        elif llm == "gpt":
-            self.llm = GPT(llm_model=llm_model)
+        self.llm = llm
         self.memory = {}
         self.current_context = ""
         self.current_code = ""

@@ -16,9 +16,9 @@ import os
 
 
 class Llama2:
-    def __init__(self,hf_auth_token, name="meta-llama/Llama-2-70b-chat-hf", local_llm_path=None):
+    def __init__(self,hf_auth_token, llm_model="meta-llama/Llama-2-70b-chat-hf", local_llm_path=None):
         self.auth_token = hf_auth_token
-        self.name = name
+        self.name = llm_model
         if local_llm_path:
             cache_dir = Path(local_llm_path)
         else:

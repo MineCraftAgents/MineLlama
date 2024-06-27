@@ -10,7 +10,7 @@ from .env import VoyagerEnv
 
 from .agents import DecisionMaker
 from .agents import DecisionMakerLLM
-
+from .llm import Llama2,GPT
 
 class Minellama:
     def __init__(
@@ -41,16 +41,20 @@ class Minellama:
         self.reset_placed_if_failed = reset_placed_if_failed
         self.max_iterations = max_iterations
 
-        # # set openai api key
-        if openai_api_key is not None:
+        if llm == "llama":
+            print("Llama2 called")
+            self.llm = Llama2(hf_auth_token=hf_auth_token, llm_model=llm_model, local_llm_path=local_llm_path)
+            self.decision_maker = DecisionMakerLLM(llm=self.llm)
+        elif llm == "gpt":
+            print("GPT called")
             os.environ["OPENAI_API_KEY"] = openai_api_key
-
-        if llm is not None:
-            self.decision_maker = DecisionMakerLLM(llm=llm, llm_model=llm_model, hf_auth_token=hf_auth_token, local_llm_path=local_llm_path)
+            self.llm = GPT(llm_model=llm_model)
+            self.decision_maker = DecisionMakerLLM(llm=self.llm)
         else:
             # This is for baseline without LLM
+            print("Without LLM")
+            self.llm = None
             self.decision_maker = DecisionMaker()
-        self.llm = llm
 
         # init variables for rollout
         self.action_agent_rollout_num_iter = -1
