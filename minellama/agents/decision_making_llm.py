@@ -8,7 +8,9 @@ class DecisionMakerLLM:
         self.control_primitives = load_control_primitives()
         # self.control_primitives = []
         self.recipes = {}
-        self.llm = llm
+        from . import RecipeGenerator, ActionGenerator
+        self.recipe_generator = RecipeGenerator(llm=llm)
+        self.action_generator = ActionGenerator(llm=llm)
         self.memory = {}
         self.current_context = ""
         self.current_code = ""
@@ -110,7 +112,7 @@ class DecisionMakerLLM:
             print("Got recipe from the list.")
             return self.recipes[item]
             
-        recipe_list = self.llm.get_recipe([item])
+        recipe_list = self.recipe_generator.get_recipe([item])
         recipe_list = self.item_name_checker(recipe_list)
         print("RESPONSES BY LLAMA: ",recipe_list)
         for key in list(recipe_list.keys()):
@@ -145,7 +147,7 @@ class DecisionMakerLLM:
                 print(f"\nRetrieved code from memory:  {code}\n")
                 return code
         # context = self.llm.get_context(task=goal)
-        code = self.llm.generate_action(task=goal,index_dir="context")
+        code = self.action_generator.generate_action(task=goal,index_dir="context")
 
         # self.current_context = context
         self.current_code = code
