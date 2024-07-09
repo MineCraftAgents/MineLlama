@@ -32,7 +32,7 @@ class Llama2:
 
 
     ###with RAG
-    def content(self, system_prompt="",  query_str="", index_dir="", data_dir="", persist_index=True, similarity_top_k = 1, context_window=4096, max_new_tokens=1024):
+    def content(self, system_prompt="",  query_str="", index_dir="", data_dir="", persist_index=True, similarity_top_k = 1, context_window=4096, max_new_tokens=1024):#persist_index=True, similarity_top_k = 1 から変更している。
         data_path = "data/modified_minecraft_data/"+ data_dir
         data_path = Path(__file__).parent / data_path
         file_path = f"{str(data_path)}/{data_dir}.txt"
@@ -95,7 +95,7 @@ class Llama2:
         file_list = os.listdir(f"{str(data_path)}")
         
         if persist_index:
-            if not os.path.isdir(index_dir):
+            if not os.path.isdir("minellama/llm/data/db/chached_data/"):#index_dir
                 print("No vector index found. Making new one...")
                 nodes=[]
                 for ref_filename in file_list:
@@ -105,10 +105,10 @@ class Llama2:
                             node = TextNode(text=text.strip(), id_=f"line_{line_number}")
                             nodes.append(node)
                 index = VectorStoreIndex(nodes)
-                index.storage_context.persist(persist_dir=index_dir)
+                index.storage_context.persist(persist_dir="minellama/llm/data/db/chached_data/")#index_dir
                 print("Vector index stored.")
 
-            storage_context = StorageContext.from_defaults(persist_dir="minellama/llm/data/db/recipes_dataset/")#index_dir
+            storage_context = StorageContext.from_defaults(persist_dir="minellama/llm/data/db/chached_data/")#index_dir
             index = load_index_from_storage(storage_context)
 
         else:
