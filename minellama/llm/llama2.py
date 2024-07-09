@@ -33,7 +33,7 @@ class Llama2:
 
     ###with RAG
     def content(self, system_prompt="",  query_str="", index_dir="", data_dir="", persist_index=True, similarity_top_k = 1, context_window=4096, max_new_tokens=1024):
-        data_path = "data/minecraft_data/"+ data_dir
+        data_path = "data/modified_minecraft_data/"+ data_dir
         data_path = Path(__file__).parent / data_path
         file_path = f"{str(data_path)}/{data_dir}.txt"
         index_dir = "data/db/"+index_dir
@@ -62,32 +62,68 @@ class Llama2:
         )
         set_global_service_context(service_context)
 
+        #ここでragで参照するためのデータの取り込みを行っている？
+        #----------------------------------------------------------
+        # if persist_index:
+        #     if not os.path.isdir(index_dir):
+        #         print("No vector index found. Making new one...")
+        #         nodes=[]
+        #         with open(file_path, 'r', encoding='utf-8') as file:
+        #             for line_number, text in enumerate(file, start=1):
+        #                 node = TextNode(text=text.strip(), id_=f"line_{line_number}")
+        #                 nodes.append(node)
+        #         index = VectorStoreIndex(nodes)
+        #         index.storage_context.persist(persist_dir=index_dir)
+        #         print("Vector index stored.")
+
+        #     storage_context = StorageContext.from_defaults(persist_dir=index_dir)
+        #     index = load_index_from_storage(storage_context)
+
+        # else:
+        #     print("Without Vector DB.")
+        #     nodes=[]
+        #     with open(file_path, 'r', encoding='utf-8') as file:
+        #         for line_number, text in enumerate(file, start=1):
+        #             node = TextNode(text=text.strip(), id_=f"line_{line_number}")
+        #             nodes.append(node)
+        #     index = VectorStoreIndex(nodes)
+        #---------------------------------------------------------------------------------
+
+
+        # ragのファイルの読み込みを指定したディレクトリ内すべてのファイルにする場合。
+        # -------------------------------------------------------------------------------------------
+        file_list = os.listdir(f"{str(data_path)}")
+        
         if persist_index:
             if not os.path.isdir(index_dir):
                 print("No vector index found. Making new one...")
                 nodes=[]
-                with open(file_path, 'r', encoding='utf-8') as file:
-                    for line_number, text in enumerate(file, start=1):
-                        node = TextNode(text=text.strip(), id_=f"line_{line_number}")
-                        nodes.append(node)
+                for ref_filename in file_list:
+                    ref_path = f"{str(data_path)}/{ref_filename}"
+                    with open(ref_path, 'r', encoding='utf-8') as file:
+                        for line_number, text in enumerate(file, start=1):
+                            node = TextNode(text=text.strip(), id_=f"line_{line_number}")
+                            nodes.append(node)
                 index = VectorStoreIndex(nodes)
                 index.storage_context.persist(persist_dir=index_dir)
                 print("Vector index stored.")
 
-            storage_context = StorageContext.from_defaults(persist_dir=index_dir)
+            storage_context = StorageContext.from_defaults(persist_dir="minellama/llm/data/db/recipes_dataset/")#index_dir
             index = load_index_from_storage(storage_context)
 
         else:
             print("Without Vector DB.")
             nodes=[]
-            with open(file_path, 'r', encoding='utf-8') as file:
-                for line_number, text in enumerate(file, start=1):
-                    node = TextNode(text=text.strip(), id_=f"line_{line_number}")
-                    nodes.append(node)
+            for ref_filename in file_list:
+                ref_path = f"{str(data_path)}/{ref_filename}"
+                with open(ref_path, 'r', encoding='utf-8') as file:
+                    for line_number, text in enumerate(file, start=1):
+                        node = TextNode(text=text.strip(), id_=f"line_{line_number}")
+                        nodes.append(node)
             index = VectorStoreIndex(nodes)
-
+        #-------------------------------------------------------------------------------------------
+        
         query_engine = index.as_query_engine(similarity_top_k=similarity_top_k)
-
         response = query_engine.query(query_str)
         print(response.get_formatted_sources())
         print(response)
@@ -140,7 +176,7 @@ Remember to focus on the format as demonstrated in the examples.
         max_request = 10
         while max_request > 0:
             try:
-                response = self.content(system_prompt=system_prompt, query_str=prompt, index_dir="recipes_dataset")
+                response = self.content(system_prompt=system_prompt, query_str=prompt)#, index_dir="recipes_dataset"
                 # print(response)
                 # print("\n")
                 response = self.extract_dict_from_str(response)
