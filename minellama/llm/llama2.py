@@ -29,15 +29,10 @@ class Llama2:
             cache_dir=cache_dir, use_auth_token=self.auth_token, torch_dtype=torch.float16, 
             rope_scaling={"type": "dynamic", "factor": 2}, load_in_8bit=True, device_map='auto') 
 
-
-
     ###with RAG
-    def content(self, system_prompt="",  query_str="", index_dir="", data_dir="", persist_index=True, similarity_top_k = 1, context_window=4096, max_new_tokens=1024):#persist_index=True, similarity_top_k = 1 から変更している。
-        data_path = "data/modified_minecraft_data/"+ data_dir
-        data_path = Path(__file__).parent / data_path
-        file_path = f"{str(data_path)}/{data_dir}.txt"
-        index_dir = "data/db/"+index_dir
-        index_dir = Path(__file__).parent / index_dir
+    def content(self, system_prompt="",  query_str="", index_dir="", data_dir="", persist_index=True, similarity_top_k = 2, context_window=4096, max_new_tokens=1024):#persist_index=True, similarity_top_k = 1 から変更している。
+        data_path = "minellama/llm/data/modified_minecraft_data/"
+        index_dir = "minellama/llm/data/chached_data/"
 
         print("\n================Called LLM with RAG====================")
         query_wrapper_prompt = PromptTemplate("[INST]<<SYS>>\n" + system_prompt + "<</SYS>>\n\n{query_str}[/INST]")
@@ -62,53 +57,26 @@ class Llama2:
         )
         set_global_service_context(service_context)
 
-        #ここでragで参照するためのデータの取り込みを行っている？
-        #----------------------------------------------------------
-        # if persist_index:
-        #     if not os.path.isdir(index_dir):
-        #         print("No vector index found. Making new one...")
-        #         nodes=[]
-        #         with open(file_path, 'r', encoding='utf-8') as file:
-        #             for line_number, text in enumerate(file, start=1):
-        #                 node = TextNode(text=text.strip(), id_=f"line_{line_number}")
-        #                 nodes.append(node)
-        #         index = VectorStoreIndex(nodes)
-        #         index.storage_context.persist(persist_dir=index_dir)
-        #         print("Vector index stored.")
-
-        #     storage_context = StorageContext.from_defaults(persist_dir=index_dir)
-        #     index = load_index_from_storage(storage_context)
-
-        # else:
-        #     print("Without Vector DB.")
-        #     nodes=[]
-        #     with open(file_path, 'r', encoding='utf-8') as file:
-        #         for line_number, text in enumerate(file, start=1):
-        #             node = TextNode(text=text.strip(), id_=f"line_{line_number}")
-        #             nodes.append(node)
-        #     index = VectorStoreIndex(nodes)
-        #---------------------------------------------------------------------------------
-
-
         # ragのファイルの読み込みを指定したディレクトリ内すべてのファイルにする場合。
         # -------------------------------------------------------------------------------------------
         file_list = os.listdir(f"{str(data_path)}")
-        
         if persist_index:
-            if not os.path.isdir("minellama/llm/data/db/chached_data/"):#index_dir
+            if not os.path.isdir(index_dir):
                 print("No vector index found. Making new one...")
                 nodes=[]
+                idnum = 1
                 for ref_filename in file_list:
-                    ref_path = f"{str(data_path)}/{ref_filename}"
+                    ref_path = f"{str(data_path)}{ref_filename}"
                     with open(ref_path, 'r', encoding='utf-8') as file:
-                        for line_number, text in enumerate(file, start=1):
+                        for line_number, text in enumerate(file, start=idnum):
                             node = TextNode(text=text.strip(), id_=f"line_{line_number}")
-                            nodes.append(node)
+                            idnum = idnum + 1
+                            if node.text:
+                                nodes.append(node)
                 index = VectorStoreIndex(nodes)
-                index.storage_context.persist(persist_dir="minellama/llm/data/db/chached_data/")#index_dir
+                index.storage_context.persist(persist_dir=index_dir)
                 print("Vector index stored.")
-
-            storage_context = StorageContext.from_defaults(persist_dir="minellama/llm/data/db/chached_data/")#index_dir
+            storage_context = StorageContext.from_defaults(persist_dir=index_dir)
             index = load_index_from_storage(storage_context)
 
         else:
@@ -119,7 +87,8 @@ class Llama2:
                 with open(ref_path, 'r', encoding='utf-8') as file:
                     for line_number, text in enumerate(file, start=1):
                         node = TextNode(text=text.strip(), id_=f"line_{line_number}")
-                        nodes.append(node)
+                        if node.text:
+                            nodes.append(node)
             index = VectorStoreIndex(nodes)
         #-------------------------------------------------------------------------------------------
         
