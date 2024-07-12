@@ -1,0 +1,15 @@
+stick: You can craft stick with or without crafting_table.
+beef: You have to kill cow to get beef. You don't need sword to kill it.
+cobblestone: You need wooden_pickaxe to mine cobblestone.
+cooked_beef: You have to smelt beef with furnace.
+log: You can mine log without any tool.
+planks: You can craft planks without crafting_table.
+raw_iron: You need a stone_pickaxe to mine raw_iron.
+iron_ingot: You can get iron_ingot by smelting raw_iron with furnace.
+furnace: You can craft furnace with crafting table.
+white_bed: You can craft white_bed with crafting table.
+white_wool: You have to kill sheep to get white_wool.
+crafting_table: You can craft crafting_table. You don't need any tool.
+stone_pickaxe: You can craft stone_pickaxe with crafting_table.
+iron_pickaxe: You can craft iron_pickaxe with crafting_table.
+wooden_pickaxe: You can craft wooden_pickaxe with crafting_table.

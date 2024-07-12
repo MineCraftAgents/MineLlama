@@ -347,5 +347,3 @@ class Minellama:
         print("SUCCESS: ", self.success_list)
         print("FAILED: ", self.failed_list)
         return
-
-

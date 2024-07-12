@@ -51,7 +51,7 @@ class RoleAgent:
     def next_task(self, role, inventory, memory=None):
         system_prompt = self.role_prompt
         human_prompt = f"Role: {role} Inventory: {inventory} Memory: {memory} What is the next task?"
-        response = self.llm.content(system_prompt, query_str=human_prompt, index_dir="empty", data_dir="empty")
+        response = self.llm.content(system_prompt, query_str=human_prompt, index_dir="", data_dir="")
         print(response)
         extracted_response = self.extract_dict_from_str(response)
         # print(extracted_response)
