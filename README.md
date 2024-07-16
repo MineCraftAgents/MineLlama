@@ -31,6 +31,9 @@ npm install
 ## Minecraft Instance Install 
 MineLlama depends on Minecraft game. You need to install an official [Mineraft](https://www.minecraft.net/en-us) game (version 1.19).
 
+### Fabric Mods install
+You need to install fabric mods. Please follow the instruction by MineDojo/Voyager [here](https://github.com/MineDojo/Voyager/blob/main/installation/fabric_mods_install.md).
+
 After installing, please follow the instructions below:
 1. Select the version you want to play and start the game.
 2. Select `Singleplayer` and create a new world.
@@ -39,8 +42,6 @@ After installing, please follow the instructions below:
 5. Select `Allow cheats: ON` and press `Start LAN World`.
 6. You will see a port number in the chat log, that is your `mc-port`, use this number to instantiate Voyager later.
 
-## Fabric Mods install
-You need to install fabric mods. Please follow the instruction by MineDojo/Voyager [here](https://github.com/MineDojo/Voyager/blob/main/installation/fabric_mods_install.md).
 
 # How to use MineLlama
 

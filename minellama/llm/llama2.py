@@ -36,6 +36,8 @@ class Llama2:
 
         print("\n================Called LLM with RAG====================")
         query_wrapper_prompt = PromptTemplate("[INST]<<SYS>>\n" + system_prompt + "<</SYS>>\n\n{query_str}[/INST]")
+        query_wrapper_prompt.format(query_str=query_str)
+
 
         llm = HuggingFaceLLM(context_window=context_window,
                             # max_new_tokens=256,
@@ -94,8 +96,7 @@ class Llama2:
         
         query_engine = index.as_query_engine(similarity_top_k=similarity_top_k)
         response = query_engine.query(query_str)
-        print(response.get_formatted_sources())
-        print(response)
+        print("alpha:", response.get_formatted_sources())
         return str(response)
     
 
@@ -104,7 +105,7 @@ class Llama2:
         matched = re.search(r'(\{.*\})', response)
         if matched:
             json_dict = matched.group(1).strip()
-            # print("json_dict: ",json_dict)
+            print("json_dict: ",json_dict)
             return json.loads(json_dict)
         else:
             print("No json dict found. Trying again.")
@@ -182,6 +183,7 @@ Remember to focus on the format as demonstrated in the examples.
             
             resolve_count -= 1
             unresolved_edge = list(set(unresolved_edge))
+        print(dependency_list)
         return dependency_list
 
     def create_recipe_dict(self, dependency_list):
@@ -190,6 +192,7 @@ Remember to focus on the format as demonstrated in the examples.
             if item["requirements"] == "None":
                 item["requirements"] = None
             recipe_dict[item["name"]] = item["requirements"]
+        print(recipe_dict)
         return recipe_dict
 
     def get_recipe(self, query_item_list): 
@@ -270,6 +273,7 @@ Task : {task}
             print(output)
             code = self.extract_jscode(response = output)
             if code is not None:
+                print(code)
                 return code
             iterations += 1
             print("Current iterations: ", iterations)
