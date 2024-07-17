@@ -140,3 +140,4 @@ zope.interface==6.2
 zope.lifecycleevent==5.0
 zope.proxy==5.2
 zstandard==0.22.0
+load_dotenv==0.1.0
