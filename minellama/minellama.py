@@ -9,7 +9,7 @@ import minellama.utils as U
 from .env import VoyagerEnv
 
 from .agents import DecisionMaker
-from .agents import DecisionMakerLLM, RoleAgent
+from .agents import DecisionMakerLLM, RoleAgent, DreamAgent
 from .llm import Llama2,GPT
 
 class Minellama:
@@ -57,6 +57,7 @@ class Minellama:
             self.decision_maker = DecisionMaker()
 
         self.role_agent = RoleAgent(llm=self.llm)
+        self.dream_agent = DreamAgent(llm=self.llm)
         self.role = None
 
         # init variables for rollout
@@ -334,7 +335,8 @@ class Minellama:
         self.last_events = self.env.step("")
         self.reset(reset_env=reset_env)
         for _ in range(max_iterations):
-            self.next_task = self.role_agent.next_task(role=self.role, inventory=self.subgoal_memory)
+            self.dream = self.dream_agent.generate_dream(role=self.role)
+            self.next_task = self.role_agent.next_task(role=self.dream, inventory=self.subgoal_memory)
             print(f"\033[31m=================SET GOAL : {self.next_task} ====================\033[0m")
             success = self.rollout(
                 reset_env=reset_env,
