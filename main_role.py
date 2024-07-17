@@ -1,7 +1,8 @@
 from minellama import Minellama
+import config
 
-openai_api_key = "OPEN_AI_API_KEY"
-hf_auth_token = "HUGGING_FACE_AUTH_KEY"
+openai_api_key = config.OPEN_AI_API_KEY
+hf_auth_token = config.HUGGING_FACE_AUTH_KEY
 
 minellama = Minellama(
     openai_api_key=openai_api_key,
