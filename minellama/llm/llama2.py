@@ -30,9 +30,9 @@ class Llama2:
             rope_scaling={"type": "dynamic", "factor": 2}, load_in_8bit=True, device_map='auto') 
 
     ###with RAG
-    def content(self, system_prompt="",  query_str="", index_dir="", data_dir="", persist_index=True, similarity_top_k = 2, context_window=4096, max_new_tokens=1024):#persist_index=True, similarity_top_k = 1 から変更している。
+    def content(self, system_prompt="",  query_str="", data_dir="", persist_index=True, similarity_top_k = 2, context_window=4096, max_new_tokens=1024):#persist_index=True, similarity_top_k = 1 から変更している。
         data_path = "minellama/llm/data/modified_minecraft_data/"
-        index_dir = "minellama/llm/data/chached_data/"
+        index_dir = "minellama/llm/data/chached_data/" + data_dir
 
         print("\n================Called LLM with RAG====================")
         query_wrapper_prompt = PromptTemplate("[INST]<<SYS>>\n" + system_prompt + "<</SYS>>\n\n{query_str}[/INST]")
@@ -58,17 +58,27 @@ class Llama2:
             embed_model=embeddings
         )
         set_global_service_context(service_context)
-
+        
         # ragのファイルの読み込みを指定したディレクトリ内すべてのファイルにする場合。
         # -------------------------------------------------------------------------------------------
-        file_list = os.listdir(f"{str(data_path)}")
+        general_dir = os.path.join(data_path, "general")
+        ref_dir = os.path.join(data_path, data_dir)
+
+        # ファイルとディレクトリのフルパスをリストにする
+        file_list = [
+        os.path.join(general_dir, file_name) 
+            for file_name in os.listdir(general_dir)
+        ] + [
+            os.path.join(ref_dir, file_name) 
+            for file_name in os.listdir(ref_dir)
+        ]
         if persist_index:
             if not os.path.isdir(index_dir):
                 print("No vector index found. Making new one...")
                 nodes=[]
                 idnum = 1
                 for ref_filename in file_list:
-                    ref_path = f"{str(data_path)}{ref_filename}"
+                    ref_path = f"{ref_filename}"
                     with open(ref_path, 'r', encoding='utf-8') as file:
                         for line_number, text in enumerate(file, start=idnum):
                             node = TextNode(text=text.strip(), id_=f"line_{line_number}")
@@ -146,7 +156,7 @@ Remember to focus on the format as demonstrated in the examples.
         max_request = 10
         while max_request > 0:
             try:
-                response = self.content(system_prompt=system_prompt, query_str=prompt)#, index_dir="recipes_dataset"
+                response = self.content(system_prompt=system_prompt, query_str=prompt, data_dir = "recipe")#, index_dir="recipes_dataset"
                 # print(response)
                 # print("\n")
                 response = self.extract_dict_from_str(response)
@@ -269,7 +279,7 @@ Task : {task}
 '''
 
         while iterations < max_iterations:
-            output = self.content(system_prompt=system_prompt,query_str=human_prompt, index_dir=index_dir)
+            output = self.content(system_prompt=system_prompt,query_str=human_prompt, index_dir=index_dir, data_dir = "action")
             print(output)
             code = self.extract_jscode(response = output)
             if code is not None:

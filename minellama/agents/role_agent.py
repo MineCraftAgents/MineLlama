@@ -48,11 +48,36 @@ class RoleAgent:
         return task
 
 
-    def next_task(self, role, inventory, memory=None):
+    def next_task(self, todaysgoal, inventory, memory=None):
         system_prompt = self.role_prompt
-        human_prompt = f"Role: {role} Inventory: {inventory} Memory: {memory} What is the next task?"
-        response = self.llm.content(system_prompt, query_str=human_prompt, index_dir="", data_dir="")
+        human_prompt = f"goal: {todaysgoal} Inventory: {inventory} Memory: {memory} What is the next task?"
+        response = self.llm.content(system_prompt, query_str=human_prompt)
         print(response)
         extracted_response = self.extract_dict_from_str(response)
         # print(extracted_response)
         return extracted_response
+    
+    def make_todaysgoal(self, dream, inventory, memory=None):
+        system_prompt = """
+        You are an assistant of the role playing of Minecraft game.
+        We regard completing role as getting items set as goal.
+        Your task is translating given role texts into item list as a goal.
+        Please answer the item list that a player who is given the role will finaly get.
+        Each time, I give you information below:
+        Role: ... ;This is the role which player will be given.
+        Invenotory: {{"ITEM_NAME":COUNT,...}} : Those are items which player has now.
+        Memory: [{{"TASK":COUNT}},...] ;Those are the tasks you achieved before.
+
+        You must follow the python-dict like format below when you answer:
+        {{"ITEM_NAME":COUNT}}
+
+        Here is an example:
+        {{"diamond_sword":3}}
+        """
+        human_prompt = f"Role: {dream} Inventory: {inventory} Memory: {memory}, what does the player have to get to complete role playing? "
+        response = self.llm.content(system_prompt, query_str=human_prompt)
+        print(response)
+        extracted_response = self.extract_dict_from_str(response)
+        # print(extracted_response)
+        return extracted_response
+        

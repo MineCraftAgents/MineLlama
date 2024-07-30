@@ -9,7 +9,7 @@ import minellama.utils as U
 from .env import VoyagerEnv
 
 from .agents import DecisionMaker
-from .agents import DecisionMakerLLM, RoleAgent
+from .agents import DecisionMakerLLM, RoleAgent, DreamAgent
 from .llm import Llama2,GPT
 
 class Minellama:
@@ -57,9 +57,12 @@ class Minellama:
             self.decision_maker = DecisionMaker()
 
         self.role_agent = RoleAgent(llm=self.llm)
+        self.dream_agent = DreamAgent(llm=self.llm)
         self.role = None
+        self.dream = ""
 
         # init variables for rollout
+        self.num_of_date = 1
         self.action_agent_rollout_num_iter = -1
         self.task = None
         self.context = ""
@@ -77,6 +80,8 @@ class Minellama:
         self.last_code = ""
         self.iterations = 0
 
+        self.todaysgoal = ""
+        self.memory = []
         self.success_list = []
         self.failed_list = []
         self.difficulty = difficulty
@@ -322,6 +327,17 @@ class Minellama:
         print("FAILED: ", self.failed_list)
         return
 
+    def create_daily_report(self):
+        print("~~~~~~~~~~create_daily_report~~~~~~~~~~")
+        results = []
+        for goal in todaysgoal:
+            if self.decision_maker.complete_checker(self, goal):
+                results.append(f"day_{self.num_of_date}, goal:{goal}, result:success")
+            else :
+                error = "demo_error"
+                results.append(f"day:{self.num_of_date}, goal:{goal}, result:failed(error:{error})")
+        return results
+
     def inference_role(self, role, max_iterations, reset_mode="hard", reset_env=True):
         print("Role: ",role)
         self.role = role
@@ -334,7 +350,10 @@ class Minellama:
         self.last_events = self.env.step("")
         self.reset(reset_env=reset_env)
         for _ in range(max_iterations):
-            self.next_task = self.role_agent.next_task(role=self.role, inventory=self.subgoal_memory)
+            self.dream = self.dream_agent.generate_dream(role=self.role, memory=self.memory)
+            self.todaysgoal = self.role_agent.make_todaysgoal(self.dream, self.inventory, self.memory)
+            #roleの場合、next_taskの部分でプロンプトの修正が必要とおもわれます
+            self.next_task = self.role_agent.next_task(role=self.dream, todaysgoal=self.todaysgoal, inventory=self.subgoal_memory)
             print(f"\033[31m=================SET GOAL : {self.next_task} ====================\033[0m")
             success = self.rollout(
                 reset_env=reset_env,
@@ -342,8 +361,10 @@ class Minellama:
             print("This is the final record of the inventory: ", self.inventory)
             with open(self.record_file, "a") as f:
                 f.write(f"\n\nTASK: {self.next_task}\nSUCCESS: {success}\nINVENTORY: {self.inventory}\nSUBGOAL_MEMORY: {self.subgoal_memory}\nACTION_MEMORY: {self.decision_maker.memory}\nLAST_CODE_AND_CONTEXT: {self.decision_maker.current_code} {self.decision_maker.current_context}\nSTEP_COUNT: {self.step_count}\nTIME: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n")
-            
+        
+        daily_result = create_daily_report(self)
+        self.memory.append(daily_result)
         print("ALL TASK COMPLETED")
-        print("SUCCESS: ", self.success_list)
-        print("FAILED: ", self.failed_list)
+        print(daily_result)
         return
+                    
