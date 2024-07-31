@@ -21,9 +21,10 @@ class DreamAgent:
 
 
     def generate_dream(self, role, memory=None):
+        print("~~~~~~~~~~generate_dream~~~~~~~~~~~~")
         system_prompt = self.role_prompt
         human_prompt = f"Wikipedia: {role} Memory: {memory} Using this information, provide a Minecraft-based description for the role."
-        response = self.llm.content(system_prompt, query_str=human_prompt, index_dir="dream")
+        response = self.llm.content(system_prompt, query_str=human_prompt, data_dir="dream")
         print(response)
         return response
 

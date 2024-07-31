@@ -50,7 +50,7 @@ Remember to focus on the format as demonstrated in the examples.
         max_request = 10
         while max_request > 0:
             try:
-                response = self.llm.content(system_prompt=system_prompt, query_str=prompt, index_dir="recipes_dataset")
+                response = self.llm.content(system_prompt=system_prompt, query_str=prompt, data_dir="recipe")
                 # print(response)
                 # print("\n")
                 response = self.extract_dict_from_str(response)

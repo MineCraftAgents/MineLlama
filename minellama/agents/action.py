@@ -16,6 +16,7 @@ class ActionGenerator:
     
 
     def generate_action(self, task="", context="", error_message="", index_dir="context", max_iterations=10):
+        print("~~~~~~~~~~~generate_action~~~~~~~~~~")
         iterations = 0
         system_prompt = '''
 You are a helpful assistant of Minecraft game.
@@ -70,7 +71,7 @@ Task : {task}
 '''
 
         while iterations < max_iterations:
-            output = self.llm.content(system_prompt=system_prompt,query_str=human_prompt, index_dir=index_dir)
+            output = self.llm.content(system_prompt=system_prompt,query_str=human_prompt, data_dir="action")
             print(output)
             code = self.extract_jscode(response = output)
             if code is not None:
