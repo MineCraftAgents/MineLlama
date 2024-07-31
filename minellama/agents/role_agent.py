@@ -47,33 +47,58 @@ class RoleAgent:
             task = {name:json_dict[name]}
         return task
 
+    def check_item_name(self, name:str):
+        with open(f"/home/watanabe/MineLlama/minellama/agents/itemname/items.json", "r") as f:
+            mc_items_data = json.load(f)
+            mc_items_dict = {item['name']: item for item in mc_items_data}
+        if name in mc_items_dict:
+            print(mc_items_dict[name])
+            return True
+        else :
+            return False
+
     def make_todaysgoal(self, dream, inventory, memory):
         print("~~~~~~~~~~make_todaysgoal~~~~~~~~~~~")
         system_prompt = """
-        You are an assistant of the role playing of Minecraft game.
-        We regard completing role as getting item set as goal.
-        Your task is translating given role texts into item list(python-dict-type) as a goal.
-        Please answer the item list that a player who is given the role will finaly get.
-        Each time, I give you information below:
-        Role: ... ;This is the role which player will be given.
-        Invenotory: {{"ITEM_NAME":COUNT,...}} : Those are items which player has now.
-        Memory: [{{"TASK":COUNT}},...] ;Those are the tasks you achieved before.
+        Certainly! Here's the revised prompt in English based on your description:
 
-        Here are what you have to pay attention to.
-        While you are answering, please use correct item name of minecraft. do not use ambiguous name like "fertilizer, animal, food, tool, material".
-        you only have to answer the result. please do not answer other text.
-        You must follow the python-dict like format below when you answer:
-        {{"ITEM_NAME":COUNT}}
+        You are assisting with role-playing in the Minecraft game.
 
-        Here is an example:
-        {{"diamond_sword":3}}
+        To complete a role, you need to achieve a specific item set. Your task is to translate the given role text into a final item list (in Python dictionary format) that represents the goal.
+
+        Each time, you will be given:
+
+        Role: This is the role the player has been assigned.
+        Inventory: {{"ITEM_NAME":COUNT,...}} — These are the items the player currently has.
+        Memory: [{{"TASK":COUNT}},...] — These are the tasks you have completed before.
+        Your goal is to determine and output the final item list that the player should have to complete the given role. The output should be in the following format:
+        {{"ITEM_NAME":COUNT,...}}
+
+        Please follow these instructions:
+
+        1.Use accurate Minecraft item names and avoid ambiguous terms (e.g., fertilizer, animal, food, tool, material).
+        2.Provide your answers in the format of a Python dictionary with the item names and their quantities. Example: {{"diamond_sword":3}}
+        3.Only provide the answer in the specified format and do not include additional explanations or comments.
         """
+        
         human_prompt = f"Role: {dream} Inventory: {inventory} Memory: {memory}, what does the player have to get to complete role playing? "
+        
+        print("dream:", dream)
+        
         response = self.llm.content(system_prompt, query_str=human_prompt, data_dir="recipe")
         print(response)
         extracted_response = self.extract_dict_from_str(response)
+        
+        checked = []
+        for item in extracted_response:
+            print(item)
+            if self.check_item_name(item):
+                print(f"{item} is a correct minecraft item name")
+                checked.append(item)
+        
+        print("checked response : ", checked)
         # print(extracted_response)
-        return extracted_response
+        return checked
     
     def next_task(self, role, todaysgoal, inventory, memory=None):
         print("~~~~~~~~~~next task~~~~~~~~~~~")
