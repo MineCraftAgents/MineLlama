@@ -1,0 +1,201 @@
+{
+ "blaze_rod": [
+  "blaze"
+ ],
+ "string": [
+  "cat",
+  "cave_spider",
+  "spider",
+  "strider"
+ ],
+ "spider_eye": [
+  "cave_spider",
+  "spider",
+  "witch"
+ ],
+ "feather": [
+  "chicken",
+  "parrot"
+ ],
+ "chicken": [
+  "chicken"
+ ],
+ "cod": [
+  "cod",
+  "dolphin",
+  "elder_guardian",
+  "guardian",
+  "polar_bear"
+ ],
+ "bone_meal": [
+  "cod",
+  "pufferfish",
+  "salmon",
+  "tropical_fish"
+ ],
+ "leather": [
+  "cow",
+  "donkey",
+  "hoglin",
+  "horse",
+  "llama",
+  "mooshroom",
+  "mule",
+  "trader_llama"
+ ],
+ "beef": [
+  "cow",
+  "mooshroom"
+ ],
+ "gunpowder": [
+  "creeper",
+  "ghast",
+  "witch"
+ ],
+ "rotten_flesh": [
+  "drowned",
+  "husk",
+  "zoglin",
+  "zombie",
+  "zombie_horse",
+  "zombie_villager",
+  "zombified_piglin"
+ ],
+ "gold_ingot": [
+  "drowned",
+  "zombified_piglin"
+ ],
+ "prismarine_shard": [
+  "elder_guardian",
+  "guardian"
+ ],
+ "prismarine_crystals": [
+  "elder_guardian",
+  "guardian"
+ ],
+ "sponge": [
+  "elder_guardian"
+ ],
+ "ender_pearl": [
+  "enderman"
+ ],
+ "totem_of_undying": [
+  "evoker"
+ ],
+ "emerald": [
+  "evoker",
+  "vindicator"
+ ],
+ "ghast_tear": [
+  "ghast"
+ ],
+ "porkchop": [
+  "hoglin",
+  "pig"
+ ],
+ "iron_ingot": [
+  "husk",
+  "iron_golem",
+  "zombie",
+  "zombie_villager"
+ ],
+ "carrot": [
+  "husk",
+  "zombie",
+  "zombie_villager"
+ ],
+ "potato": [
+  "husk",
+  "zombie",
+  "zombie_villager"
+ ],
+ "red_flower": [
+  "iron_golem"
+ ],
+ "magma_cream": [
+  "magma_cube"
+ ],
+ "bamboo": [
+  "panda"
+ ],
+ "phantom_membrane": [
+  "phantom"
+ ],
+ "salmon": [
+  "polar_bear",
+  "salmon"
+ ],
+ "pufferfish": [
+  "pufferfish"
+ ],
+ "rabbit_hide": [
+  "rabbit"
+ ],
+ "rabbit": [
+  "rabbit"
+ ],
+ "rabbit_foot": [
+  "rabbit"
+ ],
+ "saddle": [
+  "ravager"
+ ],
+ "mutton": [
+  "sheep"
+ ],
+ "shulker_shell": [
+  "shulker"
+ ],
+ "arrow": [
+  "skeleton",
+  "stray"
+ ],
+ "bone": [
+  "skeleton",
+  "skeleton_horse",
+  "stray",
+  "wither_skeleton"
+ ],
+ "slime_ball": [
+  "slime"
+ ],
+ "snowball": [
+  "snow_golem"
+ ],
+ "ink_sac": [
+  "squid"
+ ],
+ "tropical_fish": [
+  "tropical_fish"
+ ],
+ "seagrass": [
+  "turtle"
+ ],
+ "bowl": [
+  "turtle"
+ ],
+ "glowstone_dust": [
+  "witch"
+ ],
+ "sugar": [
+  "witch"
+ ],
+ "redstone": [
+  "witch"
+ ],
+ "glass_bottle": [
+  "witch"
+ ],
+ "stick": [
+  "witch"
+ ],
+ "coal": [
+  "wither_skeleton"
+ ],
+ "skull": [
+  "wither_skeleton"
+ ],
+ "gold_nugget": [
+  "zombified_piglin"
+ ]
+}

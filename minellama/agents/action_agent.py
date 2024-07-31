@@ -1,8 +1,17 @@
 import re
 
-class ActionGenerator:
+class ActionAgent:
     def __init__(self, llm):
         self.llm=llm
+        self.memory = {}
+
+    def save_action(self, subgoal, code):
+        self.memory[str(subgoal)] = code
+        print(f"Saved new code: {self.memory}\n")
+        return
+    
+    def reset_memory(self):
+        self.memory = {}
 
     def extract_jscode(self, response = ""):
         js_code_match = re.search(r'(await.*?;)', response, re.DOTALL)
@@ -67,6 +76,7 @@ await smelt(bot, 'raw_iron', 2, 'planks');
         human_prompt = f'''
 Choose the function with the arguments to achive the task below please.
 Task : {task}
+Context : {context}
 '''
 
         while iterations < max_iterations:
@@ -80,3 +90,13 @@ Task : {task}
 
         print("You reached tha max iterations.")
         return 
+    
+    def get_action(self, goal, context="", retrieval=True, error_massage=""):
+        if retrieval:
+            if str(goal) in self.memory:
+                code = self.memory[str(goal)]
+                print(f"\nRetrieved code from memory:  {code}\n")
+                return code
+        # context = self.llm.get_context(task=goal)
+        code = self.generate_action(task=goal,context=context,index_dir="empty")
+        return code
