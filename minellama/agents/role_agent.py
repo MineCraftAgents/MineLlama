@@ -1,5 +1,7 @@
 import re
 import json
+from pathlib import Path
+
 
 # role_explanation = """
 # You are a smith, who mainly create iron_pickaxe.
@@ -9,6 +11,12 @@ import json
 class RoleAgent:
     def __init__(self, llm):
         self.llm = llm
+
+        data_path = ""
+        data_path = str(Path(__file__).parent / data_path)
+        with open(f"{data_path}/minecraft_dataset/items.json", "r") as f:
+            mc_items_json = json.load(f)
+            self.mc_items = {item['name']: item for item in mc_items_json}
 
         self.role_prompt = """
         You are playing a role in Minecraft game.
@@ -48,11 +56,8 @@ class RoleAgent:
         return task
 
     def check_item_name(self, name:str):
-        with open(f"/home/watanabe/MineLlama/minellama/agents/itemname/items.json", "r") as f:
-            mc_items_data = json.load(f)
-            mc_items_dict = {item['name']: item for item in mc_items_data}
-        if name in mc_items_dict:
-            print(mc_items_dict[name])
+        if name in self.mc_items:
+            print(self.mc_items[name])
             return True
         else :
             return False

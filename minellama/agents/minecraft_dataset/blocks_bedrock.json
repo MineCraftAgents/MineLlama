@@ -1,0 +1,4870 @@
+{
+ "cobblestone": [
+  {
+   "name": "stone",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  },
+  {
+   "name": "cobblestone",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "dirt": [
+  {
+   "name": "grass",
+   "material": "mineable/shovel",
+   "harvestTools": null
+  },
+  {
+   "name": "dirt",
+   "material": "mineable/shovel",
+   "harvestTools": null
+  },
+  {
+   "name": "podzol",
+   "material": "mineable/shovel",
+   "harvestTools": null
+  },
+  {
+   "name": "farmland",
+   "material": "mineable/shovel",
+   "harvestTools": null
+  },
+  {
+   "name": "mycelium",
+   "material": "mineable/shovel",
+   "harvestTools": null
+  },
+  {
+   "name": "grass_path",
+   "material": "mineable/shovel",
+   "harvestTools": null
+  }
+ ],
+ "planks": [
+  {
+   "name": "planks",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "mangrove_planks": [
+  {
+   "name": "mangrove_planks",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "sapling": [
+  {
+   "name": "sapling",
+   "material": "plant;mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "sand": [
+  {
+   "name": "sand",
+   "material": "mineable/shovel",
+   "harvestTools": null
+  }
+ ],
+ "gravel": [
+  {
+   "name": "gravel",
+   "material": "mineable/shovel",
+   "harvestTools": null
+  }
+ ],
+ "raw_gold": [
+  {
+   "name": "gold_ore",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  },
+  {
+   "name": "deepslate_gold_ore",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "raw_iron": [
+  {
+   "name": "iron_ore",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  },
+  {
+   "name": "deepslate_iron_ore",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "coal": [
+  {
+   "name": "coal_ore",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  },
+  {
+   "name": "deepslate_coal_ore",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "gold_nugget": [
+  {
+   "name": "nether_gold_ore",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "log": [
+  {
+   "name": "log",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "log2": [
+  {
+   "name": "log2",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "mangrove_log": [
+  {
+   "name": "mangrove_log",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "mangrove_roots": [
+  {
+   "name": "mangrove_roots",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "muddy_mangrove_roots": [
+  {
+   "name": "muddy_mangrove_roots",
+   "material": "mineable/shovel",
+   "harvestTools": null
+  }
+ ],
+ "stripped_spruce_log": [
+  {
+   "name": "stripped_spruce_log",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "stripped_birch_log": [
+  {
+   "name": "stripped_birch_log",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "stripped_jungle_log": [
+  {
+   "name": "stripped_jungle_log",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "stripped_acacia_log": [
+  {
+   "name": "stripped_acacia_log",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "stripped_dark_oak_log": [
+  {
+   "name": "stripped_dark_oak_log",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "stripped_oak_log": [
+  {
+   "name": "stripped_oak_log",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "stripped_mangrove_log": [
+  {
+   "name": "stripped_mangrove_log",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "wood": [
+  {
+   "name": "wood",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "mangrove_wood": [
+  {
+   "name": "mangrove_wood",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "stripped_mangrove_wood": [
+  {
+   "name": "stripped_mangrove_wood",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "sponge": [
+  {
+   "name": "sponge",
+   "material": "mineable/hoe",
+   "harvestTools": null
+  }
+ ],
+ "lapis_lazuli": [
+  {
+   "name": "lapis_ore",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  },
+  {
+   "name": "deepslate_lapis_ore",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "lapis_block": [
+  {
+   "name": "lapis_block",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "dispenser": [
+  {
+   "name": "dispenser",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "sandstone": [
+  {
+   "name": "sandstone",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "noteblock": [
+  {
+   "name": "noteblock",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "golden_rail": [
+  {
+   "name": "golden_rail",
+   "material": "mineable/pickaxe",
+   "harvestTools": null
+  }
+ ],
+ "detector_rail": [
+  {
+   "name": "detector_rail",
+   "material": "mineable/pickaxe",
+   "harvestTools": null
+  }
+ ],
+ "sticky_piston": [
+  {
+   "name": "sticky_piston",
+   "material": "mineable/pickaxe",
+   "harvestTools": null
+  }
+ ],
+ "string": [
+  {
+   "name": "web",
+   "material": "coweb",
+   "harvestTools": [
+    "wooden_sword",
+    "stone_sword",
+    "golden_sword",
+    "iron_sword",
+    "diamond_sword",
+    "netherite_sword",
+    "shears"
+   ]
+  },
+  {
+   "name": "trip_wire",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "stick": [
+  {
+   "name": "deadbush",
+   "material": "plant;mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "piston": [
+  {
+   "name": "piston",
+   "material": "mineable/pickaxe",
+   "harvestTools": null
+  }
+ ],
+ "wool": [
+  {
+   "name": "wool",
+   "material": "wool",
+   "harvestTools": null
+  }
+ ],
+ "yellow_flower": [
+  {
+   "name": "yellow_flower",
+   "material": "plant",
+   "harvestTools": null
+  }
+ ],
+ "red_flower": [
+  {
+   "name": "red_flower",
+   "material": "plant",
+   "harvestTools": null
+  }
+ ],
+ "wither_rose": [
+  {
+   "name": "wither_rose",
+   "material": "plant",
+   "harvestTools": null
+  }
+ ],
+ "brown_mushroom": [
+  {
+   "name": "brown_mushroom",
+   "material": "plant;mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "red_mushroom": [
+  {
+   "name": "red_mushroom",
+   "material": "plant;mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "gold_block": [
+  {
+   "name": "gold_block",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "iron_block": [
+  {
+   "name": "iron_block",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "brick_block": [
+  {
+   "name": "brick_block",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "tnt": [
+  {
+   "name": "tnt",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "book": [
+  {
+   "name": "bookshelf",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "mossy_cobblestone": [
+  {
+   "name": "mossy_cobblestone",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "obsidian": [
+  {
+   "name": "obsidian",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  },
+  {
+   "name": "ender_chest",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "torch": [
+  {
+   "name": "torch",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "oak_stairs": [
+  {
+   "name": "oak_stairs",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "chest": [
+  {
+   "name": "chest",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "redstone": [
+  {
+   "name": "redstone_wire",
+   "material": "default",
+   "harvestTools": null
+  },
+  {
+   "name": "redstone_ore",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  },
+  {
+   "name": "lit_redstone_ore",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  },
+  {
+   "name": "deepslate_redstone_ore",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  },
+  {
+   "name": "lit_deepslate_redstone_ore",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "diamond": [
+  {
+   "name": "diamond_ore",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  },
+  {
+   "name": "deepslate_diamond_ore",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "diamond_block": [
+  {
+   "name": "diamond_block",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "crafting_table": [
+  {
+   "name": "crafting_table",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "wheat_seeds": [
+  {
+   "name": "wheat",
+   "material": "plant;mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "furnace": [
+  {
+   "name": "lit_furnace",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  },
+  {
+   "name": "furnace",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "oak_sign": [
+  {
+   "name": "standing_sign",
+   "material": "mineable/axe",
+   "harvestTools": null
+  },
+  {
+   "name": "wall_sign",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "spruce_sign": [
+  {
+   "name": "spruce_standing_sign",
+   "material": "mineable/axe",
+   "harvestTools": null
+  },
+  {
+   "name": "spruce_wall_sign",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "birch_sign": [
+  {
+   "name": "birch_standing_sign",
+   "material": "mineable/axe",
+   "harvestTools": null
+  },
+  {
+   "name": "birch_wall_sign",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "acacia_sign": [
+  {
+   "name": "acacia_standing_sign",
+   "material": "mineable/axe",
+   "harvestTools": null
+  },
+  {
+   "name": "acacia_wall_sign",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "jungle_sign": [
+  {
+   "name": "jungle_standing_sign",
+   "material": "mineable/axe",
+   "harvestTools": null
+  },
+  {
+   "name": "jungle_wall_sign",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "dark_oak_sign": [
+  {
+   "name": "darkoak_standing_sign",
+   "material": "mineable/axe",
+   "harvestTools": null
+  },
+  {
+   "name": "darkoak_wall_sign",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "mangrove_sign": [
+  {
+   "name": "mangrove_standing_sign",
+   "material": "mineable/axe",
+   "harvestTools": null
+  },
+  {
+   "name": "mangrove_wall_sign",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "wooden_door": [
+  {
+   "name": "wooden_door",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "ladder": [
+  {
+   "name": "ladder",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "rail": [
+  {
+   "name": "rail",
+   "material": "mineable/pickaxe",
+   "harvestTools": null
+  }
+ ],
+ "stone_stairs": [
+  {
+   "name": "stone_stairs",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "lever": [
+  {
+   "name": "lever",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "stone_pressure_plate": [
+  {
+   "name": "stone_pressure_plate",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "iron_door": [
+  {
+   "name": "iron_door",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "wooden_pressure_plate": [
+  {
+   "name": "wooden_pressure_plate",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "spruce_pressure_plate": [
+  {
+   "name": "spruce_pressure_plate",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "birch_pressure_plate": [
+  {
+   "name": "birch_pressure_plate",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "jungle_pressure_plate": [
+  {
+   "name": "jungle_pressure_plate",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "acacia_pressure_plate": [
+  {
+   "name": "acacia_pressure_plate",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "dark_oak_pressure_plate": [
+  {
+   "name": "dark_oak_pressure_plate",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "mangrove_pressure_plate": [
+  {
+   "name": "mangrove_pressure_plate",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "redstone_torch": [
+  {
+   "name": "redstone_torch",
+   "material": "default",
+   "harvestTools": null
+  },
+  {
+   "name": "unlit_redstone_torch",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "stone_button": [
+  {
+   "name": "stone_button",
+   "material": "mineable/pickaxe",
+   "harvestTools": null
+  }
+ ],
+ "snowball": [
+  {
+   "name": "snow",
+   "material": "mineable/shovel",
+   "harvestTools": [
+    "wooden_shovel",
+    "stone_shovel",
+    "golden_shovel",
+    "iron_shovel",
+    "diamond_shovel",
+    "netherite_shovel"
+   ]
+  }
+ ],
+ "cactus": [
+  {
+   "name": "cactus",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "clay_ball": [
+  {
+   "name": "clay",
+   "material": "mineable/shovel",
+   "harvestTools": null
+  }
+ ],
+ "sugar_cane": [
+  {
+   "name": "reeds",
+   "material": "plant;mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "jukebox": [
+  {
+   "name": "jukebox",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "fence": [
+  {
+   "name": "fence",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "pumpkin": [
+  {
+   "name": "pumpkin",
+   "material": "gourd;mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "netherrack": [
+  {
+   "name": "netherrack",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  },
+  {
+   "name": "warped_nylium",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  },
+  {
+   "name": "crimson_nylium",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "soul_sand": [
+  {
+   "name": "soul_sand",
+   "material": "mineable/shovel",
+   "harvestTools": null
+  }
+ ],
+ "soul_soil": [
+  {
+   "name": "soul_soil",
+   "material": "mineable/shovel",
+   "harvestTools": null
+  },
+  {
+   "name": "soul_campfire",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "basalt": [
+  {
+   "name": "basalt",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "polished_basalt": [
+  {
+   "name": "polished_basalt",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "soul_torch": [
+  {
+   "name": "soul_torch",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "glowstone_dust": [
+  {
+   "name": "glowstone",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "carved_pumpkin": [
+  {
+   "name": "carved_pumpkin",
+   "material": "gourd;mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "lit_pumpkin": [
+  {
+   "name": "lit_pumpkin",
+   "material": "gourd;mineable/axe",
+   "harvestTools": null
+  },
+  {
+   "name": "stone_block_slab4",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  },
+  {
+   "name": "double_stone_block_slab4",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "repeater": [
+  {
+   "name": "powered_repeater",
+   "material": "default",
+   "harvestTools": null
+  },
+  {
+   "name": "unpowered_repeater",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "trapdoor": [
+  {
+   "name": "trapdoor",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "spruce_trapdoor": [
+  {
+   "name": "spruce_trapdoor",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "birch_trapdoor": [
+  {
+   "name": "birch_trapdoor",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "jungle_trapdoor": [
+  {
+   "name": "jungle_trapdoor",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "acacia_trapdoor": [
+  {
+   "name": "acacia_trapdoor",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "dark_oak_trapdoor": [
+  {
+   "name": "dark_oak_trapdoor",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "mangrove_trapdoor": [
+  {
+   "name": "mangrove_trapdoor",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "stonebrick": [
+  {
+   "name": "stonebrick",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "packed_mud": [
+  {
+   "name": "packed_mud",
+   "material": "mineable/pickaxe",
+   "harvestTools": null
+  }
+ ],
+ "mud_bricks": [
+  {
+   "name": "mud_bricks",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "air": [
+  {
+   "name": "brown_mushroom_block",
+   "material": "mineable/axe",
+   "harvestTools": null
+  },
+  {
+   "name": "red_mushroom_block",
+   "material": "mineable/axe",
+   "harvestTools": null
+  },
+  {
+   "name": "chorus_plant",
+   "material": "plant;mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "iron_bars": [
+  {
+   "name": "iron_bars",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "chain": [
+  {
+   "name": "chain",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "melon_slice": [
+  {
+   "name": "melon_block",
+   "material": "gourd;mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "pumpkin_seeds": [
+  {
+   "name": "pumpkin_stem",
+   "material": "plant;mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "melon_seeds": [
+  {
+   "name": "melon_stem",
+   "material": "plant;mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "fence_gate": [
+  {
+   "name": "fence_gate",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "brick_stairs": [
+  {
+   "name": "brick_stairs",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "stone_brick_stairs": [
+  {
+   "name": "stone_brick_stairs",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "mud_brick_stairs": [
+  {
+   "name": "mud_brick_stairs",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "waterlily": [
+  {
+   "name": "waterlily",
+   "material": "plant;mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "nether_brick": [
+  {
+   "name": "nether_brick",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "nether_brick_fence": [
+  {
+   "name": "nether_brick_fence",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "nether_brick_stairs": [
+  {
+   "name": "nether_brick_stairs",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "nether_wart": [
+  {
+   "name": "nether_wart",
+   "material": "plant;mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "enchanting_table": [
+  {
+   "name": "enchanting_table",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "brewing_stand": [
+  {
+   "name": "brewing_stand",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "cauldron": [
+  {
+   "name": "cauldron",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "end_stone": [
+  {
+   "name": "end_stone",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "dragon_egg": [
+  {
+   "name": "dragon_egg",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "redstone_lamp": [
+  {
+   "name": "redstone_lamp",
+   "material": "default",
+   "harvestTools": null
+  },
+  {
+   "name": "lit_redstone_lamp",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "cocoa_beans": [
+  {
+   "name": "cocoa",
+   "material": "plant;mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "sandstone_stairs": [
+  {
+   "name": "sandstone_stairs",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "emerald": [
+  {
+   "name": "emerald_ore",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  },
+  {
+   "name": "deepslate_emerald_ore",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "tripwire_hook": [
+  {
+   "name": "tripwire_hook",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "emerald_block": [
+  {
+   "name": "emerald_block",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "spruce_stairs": [
+  {
+   "name": "spruce_stairs",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "birch_stairs": [
+  {
+   "name": "birch_stairs",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "jungle_stairs": [
+  {
+   "name": "jungle_stairs",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "beacon": [
+  {
+   "name": "beacon",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "cobblestone_wall": [
+  {
+   "name": "cobblestone_wall",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "carrot": [
+  {
+   "name": "carrots",
+   "material": "plant;mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "potato": [
+  {
+   "name": "potatoes",
+   "material": "plant;mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "wooden_button": [
+  {
+   "name": "wooden_button",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "spruce_button": [
+  {
+   "name": "spruce_button",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "birch_button": [
+  {
+   "name": "birch_button",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "jungle_button": [
+  {
+   "name": "jungle_button",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "acacia_button": [
+  {
+   "name": "acacia_button",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "dark_oak_button": [
+  {
+   "name": "dark_oak_button",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "mangrove_button": [
+  {
+   "name": "mangrove_button",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "anvil": [
+  {
+   "name": "anvil",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "trapped_chest": [
+  {
+   "name": "trapped_chest",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "light_weighted_pressure_plate": [
+  {
+   "name": "light_weighted_pressure_plate",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "heavy_weighted_pressure_plate": [
+  {
+   "name": "heavy_weighted_pressure_plate",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "comparator": [
+  {
+   "name": "powered_comparator",
+   "material": "default",
+   "harvestTools": null
+  },
+  {
+   "name": "unpowered_comparator",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "daylight_detector": [
+  {
+   "name": "daylight_detector",
+   "material": "mineable/axe",
+   "harvestTools": null
+  },
+  {
+   "name": "daylight_detector_inverted",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "redstone_block": [
+  {
+   "name": "redstone_block",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "quartz": [
+  {
+   "name": "quartz_ore",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "hopper": [
+  {
+   "name": "hopper",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "quartz_block": [
+  {
+   "name": "quartz_block",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "quartz_stairs": [
+  {
+   "name": "quartz_stairs",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "activator_rail": [
+  {
+   "name": "activator_rail",
+   "material": "mineable/pickaxe",
+   "harvestTools": null
+  }
+ ],
+ "dropper": [
+  {
+   "name": "dropper",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "stained_hardened_clay": [
+  {
+   "name": "stained_hardened_clay",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "acacia_stairs": [
+  {
+   "name": "acacia_stairs",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "dark_oak_stairs": [
+  {
+   "name": "dark_oak_stairs",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "mangrove_stairs": [
+  {
+   "name": "mangrove_stairs",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "slime": [
+  {
+   "name": "slime",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "iron_trapdoor": [
+  {
+   "name": "iron_trapdoor",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "prismarine": [
+  {
+   "name": "prismarine",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "prismarine_stairs": [
+  {
+   "name": "prismarine_stairs",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "prismarine_bricks_stairs": [
+  {
+   "name": "prismarine_bricks_stairs",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "dark_prismarine_stairs": [
+  {
+   "name": "dark_prismarine_stairs",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "prismarine_crystals": [
+  {
+   "name": "sea_lantern",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "hay_block": [
+  {
+   "name": "hay_block",
+   "material": "mineable/hoe",
+   "harvestTools": null
+  }
+ ],
+ "carpet": [
+  {
+   "name": "carpet",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "hardened_clay": [
+  {
+   "name": "hardened_clay",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "coal_block": [
+  {
+   "name": "coal_block",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "double_plant": [
+  {
+   "name": "double_plant",
+   "material": "plant",
+   "harvestTools": null
+  }
+ ],
+ "banner": [
+  {
+   "name": "standing_banner",
+   "material": "mineable/axe",
+   "harvestTools": null
+  },
+  {
+   "name": "wall_banner",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "red_sandstone": [
+  {
+   "name": "red_sandstone",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "red_sandstone_stairs": [
+  {
+   "name": "red_sandstone_stairs",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "wooden_slab": [
+  {
+   "name": "wooden_slab",
+   "material": "mineable/axe",
+   "harvestTools": null
+  },
+  {
+   "name": "double_wooden_slab",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "mangrove_slab": [
+  {
+   "name": "mangrove_double_slab",
+   "material": "mineable/axe",
+   "harvestTools": null
+  },
+  {
+   "name": "mangrove_slab",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "stone_block_slab": [
+  {
+   "name": "stone_block_slab",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  },
+  {
+   "name": "double_stone_block_slab",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "mud_brick_slab": [
+  {
+   "name": "mud_brick_double_slab",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  },
+  {
+   "name": "mud_brick_slab",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "smooth_stone": [
+  {
+   "name": "smooth_stone",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "spruce_fence_gate": [
+  {
+   "name": "spruce_fence_gate",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "birch_fence_gate": [
+  {
+   "name": "birch_fence_gate",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "jungle_fence_gate": [
+  {
+   "name": "jungle_fence_gate",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "acacia_fence_gate": [
+  {
+   "name": "acacia_fence_gate",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "dark_oak_fence_gate": [
+  {
+   "name": "dark_oak_fence_gate",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "mangrove_fence_gate": [
+  {
+   "name": "mangrove_fence_gate",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "mangrove_fence": [
+  {
+   "name": "mangrove_fence",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "spruce_door": [
+  {
+   "name": "spruce_door",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "birch_door": [
+  {
+   "name": "birch_door",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "jungle_door": [
+  {
+   "name": "jungle_door",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "acacia_door": [
+  {
+   "name": "acacia_door",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "dark_oak_door": [
+  {
+   "name": "dark_oak_door",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "mangrove_door": [
+  {
+   "name": "mangrove_door",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "end_rod": [
+  {
+   "name": "end_rod",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "purpur_block": [
+  {
+   "name": "purpur_block",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "purpur_stairs": [
+  {
+   "name": "purpur_stairs",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "end_bricks": [
+  {
+   "name": "end_bricks",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "beetroot_seeds": [
+  {
+   "name": "beetroot",
+   "material": "plant;mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "magma": [
+  {
+   "name": "magma",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "nether_wart_block": [
+  {
+   "name": "nether_wart_block",
+   "material": "mineable/hoe",
+   "harvestTools": null
+  }
+ ],
+ "red_nether_brick": [
+  {
+   "name": "red_nether_brick",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "bone_block": [
+  {
+   "name": "bone_block",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "observer": [
+  {
+   "name": "observer",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "undyed_shulker_box": [
+  {
+   "name": "undyed_shulker_box",
+   "material": "mineable/pickaxe",
+   "harvestTools": null
+  }
+ ],
+ "shulker_box": [
+  {
+   "name": "shulker_box",
+   "material": "mineable/pickaxe",
+   "harvestTools": null
+  }
+ ],
+ "white_glazed_terracotta": [
+  {
+   "name": "white_glazed_terracotta",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "orange_glazed_terracotta": [
+  {
+   "name": "orange_glazed_terracotta",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "magenta_glazed_terracotta": [
+  {
+   "name": "magenta_glazed_terracotta",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "light_blue_glazed_terracotta": [
+  {
+   "name": "light_blue_glazed_terracotta",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "yellow_glazed_terracotta": [
+  {
+   "name": "yellow_glazed_terracotta",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "lime_glazed_terracotta": [
+  {
+   "name": "lime_glazed_terracotta",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "pink_glazed_terracotta": [
+  {
+   "name": "pink_glazed_terracotta",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "gray_glazed_terracotta": [
+  {
+   "name": "gray_glazed_terracotta",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "silver_glazed_terracotta": [
+  {
+   "name": "silver_glazed_terracotta",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "cyan_glazed_terracotta": [
+  {
+   "name": "cyan_glazed_terracotta",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "purple_glazed_terracotta": [
+  {
+   "name": "purple_glazed_terracotta",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "blue_glazed_terracotta": [
+  {
+   "name": "blue_glazed_terracotta",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "brown_glazed_terracotta": [
+  {
+   "name": "brown_glazed_terracotta",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "green_glazed_terracotta": [
+  {
+   "name": "green_glazed_terracotta",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "red_glazed_terracotta": [
+  {
+   "name": "red_glazed_terracotta",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "black_glazed_terracotta": [
+  {
+   "name": "black_glazed_terracotta",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "concrete": [
+  {
+   "name": "concrete",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "concrete_powder": [
+  {
+   "name": "concrete_powder",
+   "material": "mineable/shovel",
+   "harvestTools": null
+  }
+ ],
+ "kelp": [
+  {
+   "name": "kelp",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "dried_kelp_block": [
+  {
+   "name": "dried_kelp_block",
+   "material": "mineable/hoe",
+   "harvestTools": null
+  }
+ ],
+ "frosted_ice": [
+  {
+   "name": "coral_block",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "sea_pickle": [
+  {
+   "name": "sea_pickle",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "conduit": [
+  {
+   "name": "conduit",
+   "material": "mineable/pickaxe",
+   "harvestTools": null
+  }
+ ],
+ "bamboo": [
+  {
+   "name": "bamboo_sapling",
+   "material": "default",
+   "harvestTools": null
+  },
+  {
+   "name": "bamboo",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "polished_granite_stairs": [
+  {
+   "name": "polished_granite_stairs",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "smooth_red_sandstone_stairs": [
+  {
+   "name": "smooth_red_sandstone_stairs",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "mossy_stone_brick_stairs": [
+  {
+   "name": "mossy_stone_brick_stairs",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "polished_diorite_stairs": [
+  {
+   "name": "polished_diorite_stairs",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "mossy_cobblestone_stairs": [
+  {
+   "name": "mossy_cobblestone_stairs",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "end_brick_stairs": [
+  {
+   "name": "end_brick_stairs",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "normal_stone_stairs": [
+  {
+   "name": "normal_stone_stairs",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "smooth_sandstone_stairs": [
+  {
+   "name": "smooth_sandstone_stairs",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "smooth_quartz_stairs": [
+  {
+   "name": "smooth_quartz_stairs",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "granite_stairs": [
+  {
+   "name": "granite_stairs",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "andesite_stairs": [
+  {
+   "name": "andesite_stairs",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "red_nether_brick_stairs": [
+  {
+   "name": "red_nether_brick_stairs",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "polished_andesite_stairs": [
+  {
+   "name": "polished_andesite_stairs",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "diorite_stairs": [
+  {
+   "name": "diorite_stairs",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "mud_brick_wall": [
+  {
+   "name": "mud_brick_wall",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "scaffolding": [
+  {
+   "name": "scaffolding",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "loom": [
+  {
+   "name": "loom",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "barrel": [
+  {
+   "name": "barrel",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "smoker": [
+  {
+   "name": "smoker",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  },
+  {
+   "name": "lit_smoker",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "blast_furnace": [
+  {
+   "name": "lit_blast_furnace",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  },
+  {
+   "name": "blast_furnace",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "cartography_table": [
+  {
+   "name": "cartography_table",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "fletching_table": [
+  {
+   "name": "fletching_table",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "grindstone": [
+  {
+   "name": "grindstone",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "lectern": [
+  {
+   "name": "lectern",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "smithing_table": [
+  {
+   "name": "smithing_table",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "stonecutter_block": [
+  {
+   "name": "stonecutter_block",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "bell": [
+  {
+   "name": "bell",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "lantern": [
+  {
+   "name": "lantern",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "soul_lantern": [
+  {
+   "name": "soul_lantern",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "charcoal": [
+  {
+   "name": "campfire",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "warped_stem": [
+  {
+   "name": "warped_stem",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "stripped_warped_stem": [
+  {
+   "name": "stripped_warped_stem",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "warped_hyphae": [
+  {
+   "name": "warped_hyphae",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "stripped_warped_hyphae": [
+  {
+   "name": "stripped_warped_hyphae",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "warped_fungus": [
+  {
+   "name": "warped_fungus",
+   "material": "plant;mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "warped_wart_block": [
+  {
+   "name": "warped_wart_block",
+   "material": "mineable/hoe",
+   "harvestTools": null
+  }
+ ],
+ "warped_roots": [
+  {
+   "name": "warped_roots",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "crimson_stem": [
+  {
+   "name": "crimson_stem",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "stripped_crimson_stem": [
+  {
+   "name": "stripped_crimson_stem",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "crimson_hyphae": [
+  {
+   "name": "crimson_hyphae",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "stripped_crimson_hyphae": [
+  {
+   "name": "stripped_crimson_hyphae",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "crimson_fungus": [
+  {
+   "name": "crimson_fungus",
+   "material": "plant;mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "shroomlight": [
+  {
+   "name": "shroomlight",
+   "material": "mineable/hoe",
+   "harvestTools": null
+  }
+ ],
+ "crimson_roots": [
+  {
+   "name": "crimson_roots",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "crimson_planks": [
+  {
+   "name": "crimson_planks",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "warped_planks": [
+  {
+   "name": "warped_planks",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "crimson_slab": [
+  {
+   "name": "crimson_double_slab",
+   "material": "mineable/axe",
+   "harvestTools": null
+  },
+  {
+   "name": "crimson_slab",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "warped_slab": [
+  {
+   "name": "warped_double_slab",
+   "material": "mineable/axe",
+   "harvestTools": null
+  },
+  {
+   "name": "warped_slab",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "crimson_pressure_plate": [
+  {
+   "name": "crimson_pressure_plate",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "warped_pressure_plate": [
+  {
+   "name": "warped_pressure_plate",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "crimson_fence": [
+  {
+   "name": "crimson_fence",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "warped_fence": [
+  {
+   "name": "warped_fence",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "crimson_trapdoor": [
+  {
+   "name": "crimson_trapdoor",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "warped_trapdoor": [
+  {
+   "name": "warped_trapdoor",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "crimson_fence_gate": [
+  {
+   "name": "crimson_fence_gate",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "warped_fence_gate": [
+  {
+   "name": "warped_fence_gate",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "crimson_stairs": [
+  {
+   "name": "crimson_stairs",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "warped_stairs": [
+  {
+   "name": "warped_stairs",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "crimson_button": [
+  {
+   "name": "crimson_button",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "warped_button": [
+  {
+   "name": "warped_button",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "crimson_door": [
+  {
+   "name": "crimson_door",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "warped_door": [
+  {
+   "name": "warped_door",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "crimson_sign": [
+  {
+   "name": "crimson_standing_sign",
+   "material": "mineable/axe",
+   "harvestTools": null
+  },
+  {
+   "name": "crimson_wall_sign",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "warped_sign": [
+  {
+   "name": "warped_standing_sign",
+   "material": "mineable/axe",
+   "harvestTools": null
+  },
+  {
+   "name": "warped_wall_sign",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "composter": [
+  {
+   "name": "composter",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "target": [
+  {
+   "name": "target",
+   "material": "mineable/hoe",
+   "harvestTools": null
+  }
+ ],
+ "beehive": [
+  {
+   "name": "beehive",
+   "material": "mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "honey_block": [
+  {
+   "name": "honey_block",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "honeycomb_block": [
+  {
+   "name": "honeycomb_block",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "netherite_block": [
+  {
+   "name": "netherite_block",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "ancient_debris": [
+  {
+   "name": "ancient_debris",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "crying_obsidian": [
+  {
+   "name": "crying_obsidian",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "respawn_anchor": [
+  {
+   "name": "respawn_anchor",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "lodestone": [
+  {
+   "name": "lodestone",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "blackstone": [
+  {
+   "name": "blackstone",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "blackstone_stairs": [
+  {
+   "name": "blackstone_stairs",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "blackstone_wall": [
+  {
+   "name": "blackstone_wall",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "blackstone_slab": [
+  {
+   "name": "blackstone_double_slab",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  },
+  {
+   "name": "blackstone_slab",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "polished_blackstone": [
+  {
+   "name": "polished_blackstone",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "polished_blackstone_bricks": [
+  {
+   "name": "polished_blackstone_bricks",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "cracked_polished_blackstone_bricks": [
+  {
+   "name": "cracked_polished_blackstone_bricks",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "chiseled_polished_blackstone": [
+  {
+   "name": "chiseled_polished_blackstone",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "polished_blackstone_brick_slab": [
+  {
+   "name": "polished_blackstone_brick_double_slab",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  },
+  {
+   "name": "polished_blackstone_brick_slab",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "polished_blackstone_brick_stairs": [
+  {
+   "name": "polished_blackstone_brick_stairs",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "polished_blackstone_brick_wall": [
+  {
+   "name": "polished_blackstone_brick_wall",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "gilded_blackstone": [
+  {
+   "name": "gilded_blackstone",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "polished_blackstone_stairs": [
+  {
+   "name": "polished_blackstone_stairs",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "polished_blackstone_slab": [
+  {
+   "name": "polished_blackstone_double_slab",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  },
+  {
+   "name": "polished_blackstone_slab",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "polished_blackstone_pressure_plate": [
+  {
+   "name": "polished_blackstone_pressure_plate",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "polished_blackstone_button": [
+  {
+   "name": "polished_blackstone_button",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "polished_blackstone_wall": [
+  {
+   "name": "polished_blackstone_wall",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "chiseled_nether_bricks": [
+  {
+   "name": "chiseled_nether_bricks",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "cracked_nether_bricks": [
+  {
+   "name": "cracked_nether_bricks",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "quartz_bricks": [
+  {
+   "name": "quartz_bricks",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "candle": [
+  {
+   "name": "candle",
+   "material": "default",
+   "harvestTools": null
+  },
+  {
+   "name": "candle_cake",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "white_candle": [
+  {
+   "name": "white_candle",
+   "material": "default",
+   "harvestTools": null
+  },
+  {
+   "name": "white_candle_cake",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "orange_candle": [
+  {
+   "name": "orange_candle",
+   "material": "default",
+   "harvestTools": null
+  },
+  {
+   "name": "orange_candle_cake",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "magenta_candle": [
+  {
+   "name": "magenta_candle",
+   "material": "default",
+   "harvestTools": null
+  },
+  {
+   "name": "magenta_candle_cake",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "light_blue_candle": [
+  {
+   "name": "light_blue_candle",
+   "material": "default",
+   "harvestTools": null
+  },
+  {
+   "name": "light_blue_candle_cake",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "yellow_candle": [
+  {
+   "name": "yellow_candle",
+   "material": "default",
+   "harvestTools": null
+  },
+  {
+   "name": "yellow_candle_cake",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "lime_candle": [
+  {
+   "name": "lime_candle",
+   "material": "default",
+   "harvestTools": null
+  },
+  {
+   "name": "lime_candle_cake",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "pink_candle": [
+  {
+   "name": "pink_candle",
+   "material": "default",
+   "harvestTools": null
+  },
+  {
+   "name": "pink_candle_cake",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "gray_candle": [
+  {
+   "name": "gray_candle",
+   "material": "default",
+   "harvestTools": null
+  },
+  {
+   "name": "gray_candle_cake",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "light_gray_candle": [
+  {
+   "name": "light_gray_candle",
+   "material": "default",
+   "harvestTools": null
+  },
+  {
+   "name": "light_gray_candle_cake",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "cyan_candle": [
+  {
+   "name": "cyan_candle",
+   "material": "default",
+   "harvestTools": null
+  },
+  {
+   "name": "cyan_candle_cake",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "purple_candle": [
+  {
+   "name": "purple_candle",
+   "material": "default",
+   "harvestTools": null
+  },
+  {
+   "name": "purple_candle_cake",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "blue_candle": [
+  {
+   "name": "blue_candle",
+   "material": "default",
+   "harvestTools": null
+  },
+  {
+   "name": "blue_candle_cake",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "brown_candle": [
+  {
+   "name": "brown_candle",
+   "material": "default",
+   "harvestTools": null
+  },
+  {
+   "name": "brown_candle_cake",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "green_candle": [
+  {
+   "name": "green_candle",
+   "material": "default",
+   "harvestTools": null
+  },
+  {
+   "name": "green_candle_cake",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "red_candle": [
+  {
+   "name": "red_candle",
+   "material": "default",
+   "harvestTools": null
+  },
+  {
+   "name": "red_candle_cake",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "black_candle": [
+  {
+   "name": "black_candle",
+   "material": "default",
+   "harvestTools": null
+  },
+  {
+   "name": "black_candle_cake",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "amethyst_block": [
+  {
+   "name": "amethyst_block",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "amethyst_shard": [
+  {
+   "name": "amethyst_cluster",
+   "material": "mineable/pickaxe",
+   "harvestTools": null
+  }
+ ],
+ "tuff": [
+  {
+   "name": "tuff",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "calcite": [
+  {
+   "name": "calcite",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "tinted_glass": [
+  {
+   "name": "tinted_glass",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "oxidized_copper": [
+  {
+   "name": "oxidized_copper",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "weathered_copper": [
+  {
+   "name": "weathered_copper",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "exposed_copper": [
+  {
+   "name": "exposed_copper",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "copper_block": [
+  {
+   "name": "copper_block",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "raw_copper": [
+  {
+   "name": "copper_ore",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  },
+  {
+   "name": "deepslate_copper_ore",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "oxidized_cut_copper": [
+  {
+   "name": "oxidized_cut_copper",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "weathered_cut_copper": [
+  {
+   "name": "weathered_cut_copper",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "exposed_cut_copper": [
+  {
+   "name": "exposed_cut_copper",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "cut_copper": [
+  {
+   "name": "cut_copper",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "oxidized_cut_copper_stairs": [
+  {
+   "name": "oxidized_cut_copper_stairs",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "weathered_cut_copper_stairs": [
+  {
+   "name": "weathered_cut_copper_stairs",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "exposed_cut_copper_stairs": [
+  {
+   "name": "exposed_cut_copper_stairs",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "cut_copper_stairs": [
+  {
+   "name": "cut_copper_stairs",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "oxidized_cut_copper_slab": [
+  {
+   "name": "oxidized_double_cut_copper_slab",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  },
+  {
+   "name": "oxidized_cut_copper_slab",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "weathered_cut_copper_slab": [
+  {
+   "name": "weathered_cut_copper_slab",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  },
+  {
+   "name": "weathered_double_cut_copper_slab",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "exposed_cut_copper_slab": [
+  {
+   "name": "exposed_double_cut_copper_slab",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  },
+  {
+   "name": "exposed_cut_copper_slab",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "cut_copper_slab": [
+  {
+   "name": "double_cut_copper_slab",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  },
+  {
+   "name": "cut_copper_slab",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "waxed_copper": [
+  {
+   "name": "waxed_copper",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "waxed_weathered_copper": [
+  {
+   "name": "waxed_weathered_copper",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "waxed_exposed_copper": [
+  {
+   "name": "waxed_exposed_copper",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "waxed_oxidized_copper": [
+  {
+   "name": "waxed_oxidized_copper",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "waxed_oxidized_cut_copper": [
+  {
+   "name": "waxed_oxidized_cut_copper",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "waxed_weathered_cut_copper": [
+  {
+   "name": "waxed_weathered_cut_copper",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "waxed_exposed_cut_copper": [
+  {
+   "name": "waxed_exposed_cut_copper",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "waxed_cut_copper": [
+  {
+   "name": "waxed_cut_copper",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "waxed_oxidized_cut_copper_stairs": [
+  {
+   "name": "waxed_oxidized_cut_copper_stairs",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "waxed_weathered_cut_copper_stairs": [
+  {
+   "name": "waxed_weathered_cut_copper_stairs",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "waxed_exposed_cut_copper_stairs": [
+  {
+   "name": "waxed_exposed_cut_copper_stairs",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "waxed_cut_copper_stairs": [
+  {
+   "name": "waxed_cut_copper_stairs",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "waxed_oxidized_cut_copper_slab": [
+  {
+   "name": "waxed_oxidized_cut_copper_slab",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  },
+  {
+   "name": "waxed_oxidized_double_cut_copper_slab",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "waxed_weathered_cut_copper_slab": [
+  {
+   "name": "waxed_weathered_double_cut_copper_slab",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  },
+  {
+   "name": "waxed_weathered_cut_copper_slab",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "waxed_exposed_cut_copper_slab": [
+  {
+   "name": "waxed_exposed_cut_copper_slab",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  },
+  {
+   "name": "waxed_exposed_double_cut_copper_slab",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "waxed_cut_copper_slab": [
+  {
+   "name": "waxed_double_cut_copper_slab",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  },
+  {
+   "name": "waxed_cut_copper_slab",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "lightning_rod": [
+  {
+   "name": "lightning_rod",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "pointed_dripstone": [
+  {
+   "name": "pointed_dripstone",
+   "material": "mineable/pickaxe",
+   "harvestTools": null
+  }
+ ],
+ "dripstone_block": [
+  {
+   "name": "dripstone_block",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "spore_blossom": [
+  {
+   "name": "spore_blossom",
+   "material": "plant;mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "azalea": [
+  {
+   "name": "azalea",
+   "material": "plant;mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "flowering_azalea": [
+  {
+   "name": "flowering_azalea",
+   "material": "plant;mineable/axe",
+   "harvestTools": null
+  },
+  {
+   "name": "flower_pot",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "moss_carpet": [
+  {
+   "name": "moss_carpet",
+   "material": "plant",
+   "harvestTools": null
+  }
+ ],
+ "moss_block": [
+  {
+   "name": "moss_block",
+   "material": "mineable/hoe",
+   "harvestTools": null
+  }
+ ],
+ "big_dripleaf": [
+  {
+   "name": "big_dripleaf",
+   "material": "plant;mineable/axe",
+   "harvestTools": null
+  }
+ ],
+ "dirt_with_roots": [
+  {
+   "name": "dirt_with_roots",
+   "material": "mineable/shovel",
+   "harvestTools": null
+  }
+ ],
+ "mud": [
+  {
+   "name": "mud",
+   "material": "mineable/shovel",
+   "harvestTools": null
+  }
+ ],
+ "cobbled_deepslate": [
+  {
+   "name": "deepslate",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  },
+  {
+   "name": "cobbled_deepslate",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "cobbled_deepslate_stairs": [
+  {
+   "name": "cobbled_deepslate_stairs",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "cobbled_deepslate_slab": [
+  {
+   "name": "cobbled_deepslate_double_slab",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  },
+  {
+   "name": "cobbled_deepslate_slab",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "cobbled_deepslate_wall": [
+  {
+   "name": "cobbled_deepslate_wall",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "polished_deepslate": [
+  {
+   "name": "polished_deepslate",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "polished_deepslate_stairs": [
+  {
+   "name": "polished_deepslate_stairs",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "polished_deepslate_slab": [
+  {
+   "name": "polished_deepslate_slab",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  },
+  {
+   "name": "polished_deepslate_double_slab",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "polished_deepslate_wall": [
+  {
+   "name": "polished_deepslate_wall",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "deepslate_tiles": [
+  {
+   "name": "deepslate_tiles",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "deepslate_tile_stairs": [
+  {
+   "name": "deepslate_tile_stairs",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "deepslate_tile_slab": [
+  {
+   "name": "deepslate_tile_double_slab",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  },
+  {
+   "name": "deepslate_tile_slab",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "deepslate_tile_wall": [
+  {
+   "name": "deepslate_tile_wall",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "deepslate_bricks": [
+  {
+   "name": "deepslate_bricks",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "deepslate_brick_stairs": [
+  {
+   "name": "deepslate_brick_stairs",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "deepslate_brick_slab": [
+  {
+   "name": "deepslate_brick_double_slab",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  },
+  {
+   "name": "deepslate_brick_slab",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "deepslate_brick_wall": [
+  {
+   "name": "deepslate_brick_wall",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "chiseled_deepslate": [
+  {
+   "name": "chiseled_deepslate",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "cracked_deepslate_bricks": [
+  {
+   "name": "cracked_deepslate_bricks",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "cracked_deepslate_tiles": [
+  {
+   "name": "cracked_deepslate_tiles",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "smooth_basalt": [
+  {
+   "name": "smooth_basalt",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "wooden_pickaxe",
+    "stone_pickaxe",
+    "golden_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "raw_iron_block": [
+  {
+   "name": "raw_iron_block",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "raw_copper_block": [
+  {
+   "name": "raw_copper_block",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "stone_pickaxe",
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "raw_gold_block": [
+  {
+   "name": "raw_gold_block",
+   "material": "mineable/pickaxe",
+   "harvestTools": [
+    "iron_pickaxe",
+    "diamond_pickaxe",
+    "netherite_pickaxe"
+   ]
+  }
+ ],
+ "flower_pot": [
+  {
+   "name": "flower_pot",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "ochre_froglight": [
+  {
+   "name": "ochre_froglight",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "verdant_froglight": [
+  {
+   "name": "verdant_froglight",
+   "material": "default",
+   "harvestTools": null
+  }
+ ],
+ "pearlescent_froglight": [
+  {
+   "name": "pearlescent_froglight",
+   "material": "default",
+   "harvestTools": null
+  }
+ ]
+}

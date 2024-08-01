@@ -8,9 +8,9 @@ from datetime import datetime
 import minellama.utils as U
 from .env import VoyagerEnv
 
-from .agents import DecisionMaker
-from .agents import DecisionMakerLLM, RoleAgent, DreamAgent
+from .agents import RoleAgent, DreamAgent, RecipeAgent, ActionAgent
 from .llm import Llama2,GPT
+from .control_primitives import load_control_primitives
 
 class Minellama:
     def __init__(
@@ -44,22 +44,22 @@ class Minellama:
         if llm == "llama":
             print("Llama2 called")
             self.llm = Llama2(hf_auth_token=hf_auth_token, llm_model=llm_model, local_llm_path=local_llm_path)
-            self.decision_maker = DecisionMakerLLM(llm=self.llm)
         elif llm == "gpt":
             print("GPT called")
             os.environ["OPENAI_API_KEY"] = openai_api_key
             self.llm = GPT(llm_model=llm_model)
-            self.decision_maker = DecisionMakerLLM(llm=self.llm)
         else:
             # This is for baseline without LLM
             print("Without LLM")
             self.llm = None
-            self.decision_maker = DecisionMaker()
 
+        self.recipe_agent = RecipeAgent()
+        self.action_agent = ActionAgent(llm=self.llm)
         self.role_agent = RoleAgent(llm=self.llm)
         self.dream_agent = DreamAgent(llm=self.llm)
         self.role = None
         self.dream = ""
+        self.control_primitives = load_control_primitives()
 
         # init variables for rollout
         self.num_of_date = 1
@@ -72,12 +72,18 @@ class Minellama:
         self.skills = []
         self.skill_count = 0
 
+        # Minecraftゲーム内の環境情報の記録
         self.inventory = {}
         self.nearby_block = []
         self.equipment = []
         self.biome = ""
         self.nearby_entities = []
+        self.time_of_day = ""
+        self.health = 20
+        self.hunger = 20
+
         self.last_code = ""
+        self.last_context = ""
         self.iterations = 0
 
         self.todaysgoal = ""
@@ -88,6 +94,8 @@ class Minellama:
         self.task_list = []
         self.next_task = {}
         self.subgoal_memory = []
+        self.subgoal_memory_success = []
+        self.subgoal_memory_failed = []
         self.step_count = 0
         self.chat_log = ""
         self.error = ""
@@ -96,6 +104,12 @@ class Minellama:
         with open(self.record_file, "a") as f:
             formatted_datetime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             f.write(f"\n=========== The record at {formatted_datetime} ============\n")
+
+    def programs(self):
+        programs = ""
+        for primitives in self.control_primitives:
+            programs += f"{primitives}\n\n"
+        return programs
 
     def event_reader(
         self, *, events, code="", task="", subgoal="", context="", critique=""
@@ -135,23 +149,26 @@ class Minellama:
         if error_messages:
             error = "\n".join(error_messages)
             observation += f"Execution error:\n{error}\n\n"
+            self.error = error
         else:
-            error = ""
             observation += f"Execution error: No error\n\n"
 
         if chat_messages:
             chat_log = "\n".join(chat_messages)
             observation += f"Chat log: {chat_log}\n\n"
+            self.chat_log = chat_log
         else:
-            chat_log = ""
             observation += f"Chat log: None\n\n"
 
         observation += f"Biome: {biome}\n\n"
+        self.biome = biome
 
         observation += f"Time: {time_of_day}\n\n"
+        self.time_of_day = time_of_day
 
         if voxels:
             observation += f"Nearby blocks: {', '.join(voxels)}\n\n"
+            self.nearby_block = voxels
         else:
             observation += f"Nearby blocks: None\n\n"
 
@@ -160,29 +177,32 @@ class Minellama:
                 k for k, v in sorted(entities.items(), key=lambda x: x[1])
             ]
             observation += f"Nearby entities (nearest to farthest): {', '.join(nearby_entities)}\n\n"
+            self.nearby_entities = nearby_entities
         else:
             observation += f"Nearby entities (nearest to farthest): None\n\n"
 
         observation += f"Health: {health:.1f}/20\n\n"
+        self.health = int(health)
 
         observation += f"Hunger: {hunger:.1f}/20\n\n"
+        self.hunger = int(hunger)
 
         observation += f"Position: x={position['x']:.1f}, y={position['y']:.1f}, z={position['z']:.1f}\n\n"
 
         observation += f"Equipment: {equipment}\n\n"
+        self.equipment = equipment
 
         if inventory:
             observation += f"Inventory ({inventory_used}/36): {inventory}\n\n"
+            self.inventory = inventory
         else:
             observation += f"Inventory ({inventory_used}/36): Empty\n\n"
 
         observation += f"Task: {task}\n\n"
         observation += f"Subgoal: {subgoal}\n\n"
-
-        self.inventory = inventory
-        self.error = error
-        self.chat_log = chat_log
-
+        observation += f"Subgoal Memory Success: {self.subgoal_memory_success}\n\n"
+        observation += f"Subgoal Memory Failed: {self.subgoal_memory_failed}\n\n"
+        
         return observation
 
 
@@ -205,14 +225,24 @@ class Minellama:
             events=events,
         )
         print(f"\033[32m****Human message****\n{human_message}\033[0m")
-        self.decision_maker.reset_memory()
+        self.action_agent.reset_memory()
         self.inventory = {}
-        self.decision_maker.update_inventory(inventory=self.inventory)
+        self.recipe_agent.update_inventory(inventory=self.inventory)
         self.subgoal_memory = []
+        self.subgoal_memory_success = []
+        self.subgoal_memory_failed = []
         self.step_count = 0
         self.iterations = 0
-        self.error = ""
-        self.chat_log = ""
+        self.nearby_block = []
+        self.equipment = []
+        self.biome = ""
+        self.nearby_entities = []
+        self.time_of_day = ""
+        self.health = 20
+        self.hunger = 20
+        
+        self.recipe_agent.recipe_memory_success = {}
+        self.recipe_agent.recipe_memory_failed = {}
 
         return 
     
@@ -226,9 +256,8 @@ class Minellama:
         try:
             events = self.env.step(
                 code,
-                programs=self.decision_maker.programs,
+                programs=self.programs(),
             )
-            self.last_code = code
 
             human_message = self.event_reader(
                 events=events,
@@ -257,30 +286,34 @@ class Minellama:
                 break
             next_task = self.next_task
 
-            #With or without LLM. コード生成に関してllmなしの場合と統一できていないため
-            if self.llm is not None:
-                next_subgoal = self.decision_maker.set_current_goal(next_task)
-                self.subgoal_memory.append(next_subgoal)
-                #Retrieve codes from the past. If failed, regenerate it.
-                if self.iterations > 0:
-                    code = self.decision_maker.code_generator(goal=next_subgoal, retrieval=False)
-                else:
-                    code = self.decision_maker.code_generator(goal=next_subgoal, retrieval=True)
+            next_subgoal, context = self.recipe_agent.set_current_goal(next_task)
+            self.subgoal_memory.append(next_subgoal)
+            # print(f"Context:\n{context}")
+            #Retrieve codes from the past. If failed, regenerate it.
+            if self.iterations > 0:
+                code = self.action_agent.get_action(goal=next_subgoal, context=context, nearby_block=self.nearby_block, nearby_entities=self.nearby_entities, error_massage=self.error, retrieval=False)
             else:
-                code = self.decision_maker.set_current_goal(next_task)
+                code = self.action_agent.get_action(goal=next_subgoal, context=context, nearby_block=self.nearby_block, nearby_entities=self.nearby_entities, error_massage=self.error, retrieval=True)
+            self.last_code = code
+            self.last_context = context
 
             self.step(
                 code = code,
                 subgoal = next_subgoal,
             )
-            self.decision_maker.update_inventory(inventory=self.inventory)
-            subgoal_done = self.decision_maker.complete_checker(next_subgoal)
+            self.recipe_agent.update_inventory(inventory=self.inventory)
+            subgoal_done = self.recipe_agent.complete_checker(next_subgoal)
             if subgoal_done:
-                print(f"+++++++SUBGOAL COMPLETED : {next_subgoal}+++++++")
+                print(f"\033[31m+++++++SUBGOAL COMPLETED : {next_subgoal}+++++++\033[0m")
+                self.subgoal_memory_success.append(next_subgoal)
                 self.iterations = 0
-                if self.llm is not None:
-                    self.decision_maker.save_action(next_subgoal, code)
-                task_done = self.decision_maker.complete_checker(self.next_task)
+                self.error = ""
+                self.chat_log = ""
+                # 成功したactionおよびレシピの記録。あとで使い回すため
+                self.action_agent.save_action(next_subgoal, code)
+                self.recipe_agent.recipe_memory_success[list(next_subgoal.keys())[0]] = self.recipe_agent.recipe_dependency_list[list(next_subgoal.keys())[0]]
+                #　もともとinference関数で設定していた大目標の達成の確認
+                task_done = self.recipe_agent.complete_checker(self.next_task)
                 if task_done:
                     print(f"\033[31m*******TASK COMPLETED : {self.next_task}*******\033[0m")
                     self.success_list.append(self.next_task)
@@ -291,11 +324,19 @@ class Minellama:
                     )
                     break
             else:
+                self.subgoal_memory_failed.append(next_subgoal)
                 self.iterations += 1
                 print(f"You are doing the same action for {self.iterations} times.")
-                if self.error != "":
-                    del self.decision_maker.recipes[list(next_subgoal.keys())[0]]
-                    print(f"Deleted {list(next_subgoal.keys())[0]} from the recipe list.")
+                #　タスクを失敗した場合に、recipe_agentの失敗リストに追加。回避するようにする。
+                for key,value in next_subgoal.items():
+                    if key in self.recipe_agent.recipe_memory_failed:
+                        self.recipe_agent.recipe_memory_failed[key].append(self.recipe_agent.recipe_dependency_list[key])
+                    else:
+                        self.recipe_agent.recipe_memory_failed[key] = [self.recipe_agent.recipe_dependency_list[key]]
+                #　2回連続で失敗したら、レシピをもう一度探索し直す。
+                if self.iterations > 0 and self.iterations % 2 == 0:
+                    print("\nYou failed this task twice. Reset recipe.\n")
+                    self.recipe_agent.reset_recipe()
         return success
 
 
@@ -319,7 +360,18 @@ class Minellama:
             )
             print("This is the final record of the inventory: ", self.inventory)
             with open(self.record_file, "a") as f:
-                f.write(f"\n\nTASK: {self.next_task}\nSUCCESS: {success}\nINVENTORY: {self.inventory}\nSUBGOAL_MEMORY: {self.subgoal_memory}\nACTION_MEMORY: {self.decision_maker.memory}\nLAST_CODE_AND_CONTEXT: {self.decision_maker.current_code} {self.decision_maker.current_context}\nSTEP_COUNT: {self.step_count}\nTIME: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n")
+                text = f"\n\nTASK: {self.next_task}\n"
+                text += f"SUCCESS: {success}\n"
+                text += f"INVENTORY: {self.inventory}\n"
+                text += f"SUBGOAL_MEMORY: {self.subgoal_memory}\n"
+                text += f"SUBGOAL_SUCCESS: {self.subgoal_memory_success}\n"
+                text += f"SUBGOAL_FAILED: {self.subgoal_memory_failed}\n"
+                text += f"ACTION_MEMORY: {self.action_agent.memory}\n"
+                text += f"LAST_CODE_AND_CONTEXT: {self.last_code}\n{self.last_context}\n"
+                text += f"RECIPE_PATHS:\n{self.recipe_agent.paths}\n"
+                text += f"STEP_COUNT: {self.step_count}\n"
+                text += f"TIME: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n"
+                f.write(text)
             self.close()
             
         print("ALL TASK COMPLETED")
@@ -331,7 +383,7 @@ class Minellama:
         print("~~~~~~~~~~create_daily_report~~~~~~~~~~")
         results = []
         for goal in todaysgoal:
-            if self.decision_maker.complete_checker(self, goal):
+            if self.recipe_agent.complete_checker(self, goal):
                 results.append(f"day_{self.num_of_date}, goal:{goal}, result:success")
             else :
                 error = "demo_error"
@@ -360,10 +412,23 @@ class Minellama:
             )
             print("This is the final record of the inventory: ", self.inventory)
             with open(self.record_file, "a") as f:
-                f.write(f"\n\nTASK: {self.next_task}\nSUCCESS: {success}\nINVENTORY: {self.inventory}\nSUBGOAL_MEMORY: {self.subgoal_memory}\nACTION_MEMORY: {self.decision_maker.memory}\nLAST_CODE_AND_CONTEXT: {self.decision_maker.current_code} {self.decision_maker.current_context}\nSTEP_COUNT: {self.step_count}\nTIME: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n")
+                text = f"\n\nTASK: {self.next_task}\n"
+                text += f"SUCCESS: {success}\n"
+                text += f"INVENTORY: {self.inventory}\n"
+                text += f"SUBGOAL_MEMORY: {self.subgoal_memory}\n"
+                text += f"SUBGOAL_SUCCESS: {self.subgoal_memory_success}\n"
+                text += f"SUBGOAL_FAILED: {self.subgoal_memory_failed}\n"
+                text += f"ACTION_MEMORY: {self.action_agent.memory}\n"
+                text += f"LAST_CODE_AND_CONTEXT: {self.last_code}\n{self.last_context}\n"
+                text += f"RECIPE_PATHS:\n{self.recipe_agent.paths}\n"
+                text += f"STEP_COUNT: {self.step_count}\n"
+                text += f"TIME: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n"
+                f.write(text)
         
         daily_result = create_daily_report(self)
         self.memory.append(daily_result)
+               
+            
         print("ALL TASK COMPLETED")
         print(daily_result)
         return
