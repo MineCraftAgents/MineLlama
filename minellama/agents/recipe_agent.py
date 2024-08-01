@@ -34,6 +34,9 @@ class RecipeAgent:
         self.recipe_memory_success = {}
         self.recipe_memory_failed = {}
 
+        # crafting_talbeなしで作れるアイテム
+        self.items_without_crafting_table = ["crafting_table", "planks", "stick"]
+
         self.iterations = 0
     
     # item名がMinecraftに存在するかどうか判定
@@ -93,37 +96,40 @@ class RecipeAgent:
             return tools[0]
 
     #　コンテクスト作成。採取に必要なツール、または殺す必要のあるエンティティ
-    def get_context(self, item:str):
+    def get_context(self, item:str, method=None):
         context_text = ""
- 
-        if item in self.blocks_data:
-            blocks = self.blocks_data[item]
-            for block in blocks:
-                harvest_tool = self.required_tool(block["name"])
+
+        if method == "mine" or method is None:
+            if item in self.blocks_data:
+                blocks = self.blocks_data[item]
+                for block in blocks:
+                    harvest_tool = self.required_tool(block["name"])
+                    if harvest_tool is None:
+                        harvest_tool = "no tool"
+                    context_text += f"You can get {item} by breaking {block['name']}. You need {harvest_tool} to break it.\n"
+            
+            if item in self.harvest_tools:
+                harvest_tool = self.required_tool(item)
                 if harvest_tool is None:
                     harvest_tool = "no tool"
-                context_text += f"You can get {item} by breaking {block['name']}. You need {harvest_tool} to break it.\n"
-        
-        if item in self.harvest_tools:
-            harvest_tool = self.required_tool(item)
-            if harvest_tool is None:
-                harvest_tool = "no tool"
-            text = f"You can get {item} by breaking {item}. You need {harvest_tool} to break it.\n"
-            if text not in context_text:
-                context_text += text
+                text = f"You can get {item} by breaking {item}. You need {harvest_tool} to break it.\n"
+                if text not in context_text:
+                    context_text += text
 
-        if item in self.entity_items_data:
-            entity = self.entity_items_data[item]
-            entity_text = ", ".join(entity)
-            context_text += f"You can get {item} by killing {entity_text}. \n"
+            if item in self.entity_items_data:
+                entity = self.entity_items_data[item]
+                entity_text = ", ".join(entity)
+                context_text += f"You can get {item} by killing {entity_text}. \n"
 
-        if item in self.recipe_dependency_list:
-            if self.recipe_dependency_list[item] is not None:
-                tool = self.recipe_dependency_list[item]['type']
-                if tool == "crafting_table":
-                    context_text += f"You can get {item} by crafting with {tool}."
-                elif tool == "furnace":
-                    context_text += f"You can get {item} by smelting with {tool}."
+        if method == "craft" or method is None:
+            if item in self.recipe_dependency_list:
+                if self.recipe_dependency_list[item] is not None:
+                    tool = self.recipe_dependency_list[item]['type']
+                    if tool == "crafting_table":
+                        context_text += f"You can get {item} by crafting with {tool}."
+                    elif tool == "furnace":
+                        for key, value in self.recipe_dependency_list[item]["ingredients"].items():
+                            context_text += f"You can get {item} by smelting {key} with {tool}."
         return context_text
 
 
@@ -186,28 +192,7 @@ class RecipeAgent:
             sub_paths = self.get_recipe_paths(key, required_amount, visited.copy())
             for sub_path in sub_paths:
                 expanded_paths.append(current_path + sub_path)
-        return expanded_paths
-    
-    #  def get_recipe_paths(self, item:str, visited=None):
-    #     recipe_dict=self.recipe_dependency_list
-    #     if visited is None:
-    #         visited = set()
-    #     if item in visited:
-    #         return [[item]]  # Avoid infinite loops
-
-    #     visited.add(item)
-
-    #     if recipe_dict[item] is None:
-    #         return [[item]]
-
-    #     expanded_paths = []
-    #     current_path = [item]
-    #     for ingredient in recipe_dict[item]['ingredients']:
-    #         sub_paths = self.get_recipe_paths(ingredient, visited.copy())
-    #         for sub_path in sub_paths:
-    #             expanded_paths.append(current_path + sub_path)
-    #     return expanded_paths
-    
+        return expanded_paths 
     
     def reset_recipe(self):
         self.recipe_dependency_list = {}
@@ -251,13 +236,17 @@ class RecipeAgent:
 
 
 
-    def current_goal_algorithm(self, task:dict, max_iterations=3):
+    def current_goal_algorithm(self, task:dict, context="", max_iterations=3):
         print("\n============= Current Goal Algorithm ==============")
         print(task)
         for name, count in task.items():
-            if self.get_inventory_diff(task,name) == 0:
-                print(f"You already have {task}.\n")
-                return None
+            # taskのアイテムの不足分
+            lack_task = self.get_inventory_diff(task,name)
+            if lack_task == 0:
+                text = f"You already have {task}.\n"
+                print(text)
+                context += text
+                return None, context
             else:
                 # 無限ループの判定
                 if name in self.current_goal_memory:
@@ -275,12 +264,15 @@ class RecipeAgent:
                             tool_to_mine = None
 
                         if tool_to_mine is None or tool_to_mine in self.inventory:
-                            print("You can collect it now.")
-                            return task
+                            text = f"You can collect {name} now.\n"
+                            print(text)
+                            context += text
+                            context += self.get_context(name, method="mine")
+                            return task, context
                         else:
                             print(f"Craft a tool to mine first: {tool_to_mine}")
-                            next_goal = self.current_goal_algorithm({tool_to_mine:1})
-                            return next_goal
+                            next_goal, context = self.current_goal_algorithm({tool_to_mine:1}, context)
+                            return next_goal, context
                     else:
                         self.iterations += 1
                 else:
@@ -306,44 +298,60 @@ class RecipeAgent:
                         tool_to_mine = None
 
                     if tool_to_mine is None or tool_to_mine in self.inventory:
-                        print("You can collect it now.")
-                        return task
+                        text = f"You can collect {name} now.\n"
+                        print(text)
+                        context += text
+                        context += self.get_context(name, method="mine")
+                        return task, context
                     else:
                         print(f"Craft a tool to mine first: {tool_to_mine}")
-                        next_goal = self.current_goal_algorithm({tool_to_mine:1})
-                        return next_goal
+                        next_goal, context= self.current_goal_algorithm({tool_to_mine:1}, context)
+                        return next_goal, context
 
+                # recipeが存在する場合は、材料をチェックする。
                 for key, value in recipe["ingredients"].items():
-                    if self.get_inventory_diff(recipe["ingredients"],key) == 0:
+                    #　材料の不足数
+                    if name in self.current_goal_memory:
+                        # self.current_goal_memoryに入っている場合は、無限ループの可能性があり、必要数を乗算すると非常に大きな値になってしまうため、デフォルト値を使う。
+                        required_amount = value
+                    else:
+                        required_amount = math.ceil(lack_task / recipe['count']) * value
+                    lack_ingredients = self.get_inventory_diff({key:required_amount},key)
+                    if  lack_ingredients == 0:
                         print(f"You have {key}\n")
                     else:
                         print(f"You don't have {key}. Searching more deeply for {key}...\n")
-                        self.goal_items = [{key:value}] + self.goal_items
-                        next_goal = self.current_goal_algorithm({key:value})
-                        return next_goal
+                        # self.goal_items = [{key:value}] + self.goal_items
+                        next_goal, context = self.current_goal_algorithm({key:required_amount}, context)
+                        return next_goal, context
                 
                 print(f"You already have all ingredients to craft {task}. ")
+
                 tool_to_craft = self.recipe_dependency_list[name]["type"] # crafting_table or furnace
                 #TODO: とりあえずfurnaceのときのみ作成。crafting_tableはアクション関数に組み込んで自動で作成。crafting_tableなしでつくれるアイテムの判定ができないため。
-                if tool_to_craft == "furnace":
+                if tool_to_craft is not None  and  tool_to_craft not in self.inventory  and  name not in self.items_without_crafting_table:
                     print(f"You have to craft {tool_to_craft} first.")
-                    next_goal = self.current_goal_algorithm({tool_to_craft:1})
-                    return next_goal
+                    next_goal, context = self.current_goal_algorithm({tool_to_craft:1}, context)
+                    return next_goal, context
                 else:
-                    print(f"Please craft {task}.")
-                    return task
+                    text = f"You alreaday have all ingredients and tools. Please craft or smelt {task}.\n"
+                    print(text)
+                    context += text
+                    context += self.get_context(name, method="craft")
+                    return task, context
 
     def set_current_goal(self, task:dict):
-        print(f"Called set_current_goal: {task}")
+        # print(f"Called set_current_goal: {task}")
 
         for key, value in task.items():
+            #　念の為アイテム名がマインクラフト内に存在するか確認。
             if self.check_item_name(key):
                 self.current_goal_memory = []
                 self.iterations = 0
-                next_goal = self.current_goal_algorithm(task)
-                return next_goal
+                next_goal, context = self.current_goal_algorithm(task)
+                return next_goal, context
             else:
-                return None
+                return None, None
         
         
 

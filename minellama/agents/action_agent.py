@@ -14,89 +14,96 @@ class ActionAgent:
         self.memory = {}
 
     def extract_jscode(self, response = ""):
+        error_message = ""
         js_code_match = re.search(r'(await.*?;)', response, re.DOTALL)
         if js_code_match:
             js_code = js_code_match.group(1).strip()
             print("============= Code Extraction Success ============= \n",js_code)
-            return js_code
+            return js_code, error_message
         else:
-            print("No JavaScript code found after 'YOUR ANSWER'. Trying again.")
-            return None
+            error_message = "No JavaScript code found after 'YOUR ANSWER'. Trying again.\n"
+            print(error_message)
+            return None, error_message
     
 
-    def generate_action(self, task="", context="", error_message="", index_dir="context", max_iterations=10):
+    def generate_action(self, task="", context="", nearby_block=[], nearby_entities=[], error_message="", index_dir="empty", max_iterations=10):
         iterations = 0
         system_prompt = '''
 You are a helpful assistant of Minecraft game.
 I want you to choose one function to achive the task.
 
 Here are some javascript function:
-1) craft(bot, item, count); //Use this to craft item. 
-2) smelt(bot, item, count, fuel); //Use this to smelt item. fuel should be 'planks'.
-3) mine(bot, item, count, tool); //Use this to mine item. When you need tools to mine, give it as an argument, e.g. 'wooden_pickaxe' to mine stone.
-4) kill(bot, entity, count, tool); //Use this to get item by killing entities. When you need tools to kill, give it as an argument, e.g. 'wooden_sword'.
+1) craft(bot, item_to_craft, count); //Use this to craft item. 
+2) smelt(bot, item_to_smelt, count, fuel); //Use this to smelt item. fuel should be 'planks'.
+3) mine(bot, block_to_mine, count, tool); //Use this to mine block. When you need tools to mine, give it as an argument, e.g. 'wooden_pickaxe' to mine stone.
+4) kill(bot, entity_to_kill, count, tool); //Use this to get item by killing entities. When you need tools to kill, give it as an argument, e.g. 'wooden_sword'.
 
 I will give you the following information for each time:
 Task: {{"name":count}}
+Nearby Block: ["block1", "block2",...] //This could be useful when you mine block.
+Nearby Entities: ["entity1", "entity2",...] //This could be useful when you kill entity to get item.
+Context: ... //This is about how to achieve the task. You should refer to this to decide which action to choose.
+Error Message: ... //This is error messages from the last round.
 
 Please note that
 1) The arguments item should be string and count should be number, and the first argument must be bot.
-2) You have to call only one function with 'await', e.g. await craft(bot, 'stone_pickaxe',1);
+2) You have to call only one function with starting 'await', e.g. await craft(bot, 'stone_pickaxe',1);
 3) Please use underscores _ instead of spaces for the names and tools, e.g. not 'crafting table' but 'crafting_table'
 4) Be careful with the argument 'count', put the correct number in it. Please pay attention to Task dict, which indicates 'count' as the argument.
-5) Context might be wrong. Don't rely too much on it. Don't put the ingredients as the argument. You don't need to care the ingredients. Follow the format above and put the arguments carefully. 
+5) Context is helpful. You shoud choose the correct function with arguments considering both context and nearby block or entities. Don't put the ingredient as the argument. You don't need to care the ingredients. Follow the format above and put the arguments carefully. 
 
 Here are some examples:
 Example 1)
 Task: {{"cobblestone":3}}
-Context: You need wooden_pickaxe to mine cobblestone.
+Nearby Block: ["stone", "dirt", "oak_log"]
+Context: You can get cobblestone by breaking stone. You need wooden_pickaxe to break it. You can get cobblestone by breaking cobblestone. You need wooden_pickaxe to break it.
 Then, you would answer:
-await mine(bot, 'cobblestone', 3, 'wooden_pickaxe');
+await mine(bot, 'stone', 3, 'wooden_pickaxe');
 
 Example 2)
 Task: {{"beef":2}}
-Context: You have to kill a cow to get beef.
+Nearby Entities: ["cow", "pig"]
+Context: You can get beef by killing cow.
 Then, you would answer:
 await kill(bot, 'cow', 2);
 
 Example 3)
 Task: {{"iron_sword":1}}
-Context: You have to craft it with crafting table.
+Context: You alreaday have all ingredients and tools. Please craft or smelt {{'iron_sword': 1}}.
+You can get iron_sword by crafting with crafting_table.
 Then, you would answer:
 await craft(bot, 'iron_sword',1);
 
 Example 4)
 Task: {{"iron_ingot":2}}
-Context: You have to smelt raw_iron to get iron_ingot.
+Context: You can get iron_ingot by smelting raw_iron with furnace.
 Then, you would answer:
 await smelt(bot, 'raw_iron', 2, 'planks');
 
-
-'''
-        human_prompt = f'''
-Choose the function with the arguments to achive the task below please.
-Task : {task}
-Context : {context}
 '''
 
         while iterations < max_iterations:
+            human_prompt = f"Choose the function with the arguments to achive the task below please.\nTask : {task}\nNearby Block : {nearby_block}\nNearby Entities : {nearby_entities}\nContext : {context}\nError Message: {error_message}\n"
+            print("Action agent prompt:\n",human_prompt)
             output = self.llm.content(system_prompt=system_prompt,query_str=human_prompt, index_dir=index_dir)
             print(output)
-            code = self.extract_jscode(response = output)
+            code, js_error = self.extract_jscode(response = output)
             if code is not None:
                 return code
+            error_message += js_error
             iterations += 1
             print("Current iterations: ", iterations)
 
         print("You reached tha max iterations.")
         return 
     
-    def get_action(self, goal, context="", retrieval=True, error_massage=""):
+    def get_action(self, goal, context="", nearby_block=[], nearby_entities=[], error_massage="", retrieval=True):
+        # 過去に成功したアクションを使い回す。
         if retrieval:
             if str(goal) in self.memory:
                 code = self.memory[str(goal)]
                 print(f"\nRetrieved code from memory:  {code}\n")
                 return code
         # context = self.llm.get_context(task=goal)
-        code = self.generate_action(task=goal,context=context,index_dir="empty")
+        code = self.generate_action(task=goal,context=context, nearby_block=nearby_block, nearby_entities=nearby_entities, error_message=error_massage, index_dir="empty")
         return code

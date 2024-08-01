@@ -75,6 +75,10 @@ class Minellama:
         self.equipment = []
         self.biome = ""
         self.nearby_entities = []
+        self.time_of_day = ""
+        self.health = 20
+        self.hunger = 20
+
         self.last_code = ""
         self.last_context = ""
         self.iterations = 0
@@ -85,6 +89,8 @@ class Minellama:
         self.task_list = []
         self.next_task = {}
         self.subgoal_memory = []
+        self.subgoal_memory_success = []
+        self.subgoal_memory_failed = []
         self.step_count = 0
         self.chat_log = ""
         self.error = ""
@@ -138,23 +144,26 @@ class Minellama:
         if error_messages:
             error = "\n".join(error_messages)
             observation += f"Execution error:\n{error}\n\n"
+            self.error = error
         else:
-            error = ""
             observation += f"Execution error: No error\n\n"
 
         if chat_messages:
             chat_log = "\n".join(chat_messages)
             observation += f"Chat log: {chat_log}\n\n"
+            self.chat_log = chat_log
         else:
-            chat_log = ""
             observation += f"Chat log: None\n\n"
 
         observation += f"Biome: {biome}\n\n"
+        self.biome = biome
 
         observation += f"Time: {time_of_day}\n\n"
+        self.time_of_day = time_of_day
 
         if voxels:
             observation += f"Nearby blocks: {', '.join(voxels)}\n\n"
+            self.nearby_block = voxels
         else:
             observation += f"Nearby blocks: None\n\n"
 
@@ -163,29 +172,32 @@ class Minellama:
                 k for k, v in sorted(entities.items(), key=lambda x: x[1])
             ]
             observation += f"Nearby entities (nearest to farthest): {', '.join(nearby_entities)}\n\n"
+            self.nearby_entities = nearby_entities
         else:
             observation += f"Nearby entities (nearest to farthest): None\n\n"
 
         observation += f"Health: {health:.1f}/20\n\n"
+        self.health = int(health)
 
         observation += f"Hunger: {hunger:.1f}/20\n\n"
+        self.hunger = int(hunger)
 
         observation += f"Position: x={position['x']:.1f}, y={position['y']:.1f}, z={position['z']:.1f}\n\n"
 
         observation += f"Equipment: {equipment}\n\n"
+        self.equipment = equipment
 
         if inventory:
             observation += f"Inventory ({inventory_used}/36): {inventory}\n\n"
+            self.inventory = inventory
         else:
             observation += f"Inventory ({inventory_used}/36): Empty\n\n"
 
         observation += f"Task: {task}\n\n"
         observation += f"Subgoal: {subgoal}\n\n"
-
-        self.inventory = inventory
-        self.error = error
-        self.chat_log = chat_log
-
+        observation += f"Subgoal Memory Success: {self.subgoal_memory_success}\n\n"
+        observation += f"Subgoal Memory Failed: {self.subgoal_memory_failed}\n\n"
+        
         return observation
 
 
@@ -212,10 +224,20 @@ class Minellama:
         self.inventory = {}
         self.recipe_agent.update_inventory(inventory=self.inventory)
         self.subgoal_memory = []
+        self.subgoal_memory_success = []
+        self.subgoal_memory_failed = []
         self.step_count = 0
         self.iterations = 0
-        self.error = ""
-        self.chat_log = ""
+        self.nearby_block = []
+        self.equipment = []
+        self.biome = ""
+        self.nearby_entities = []
+        self.time_of_day = ""
+        self.health = 20
+        self.hunger = 20
+        
+        self.recipe_agent.recipe_memory_success = {}
+        self.recipe_agent.recipe_memory_failed = {}
 
         return 
     
@@ -259,15 +281,14 @@ class Minellama:
                 break
             next_task = self.next_task
 
-            next_subgoal = self.recipe_agent.set_current_goal(next_task)
+            next_subgoal, context = self.recipe_agent.set_current_goal(next_task)
             self.subgoal_memory.append(next_subgoal)
-            context = self.recipe_agent.get_context(list(next_subgoal.keys())[0])
-            print(f"Context:\n{context}")
+            # print(f"Context:\n{context}")
             #Retrieve codes from the past. If failed, regenerate it.
             if self.iterations > 0:
-                code = self.action_agent.get_action(goal=next_subgoal,context=context, retrieval=False)
+                code = self.action_agent.get_action(goal=next_subgoal, context=context, nearby_block=self.nearby_block, nearby_entities=self.nearby_entities, error_massage=self.error, retrieval=False)
             else:
-                code = self.action_agent.get_action(goal=next_subgoal,context=context, retrieval=True)
+                code = self.action_agent.get_action(goal=next_subgoal, context=context, nearby_block=self.nearby_block, nearby_entities=self.nearby_entities, error_massage=self.error, retrieval=True)
             self.last_code = code
             self.last_context = context
 
@@ -278,8 +299,11 @@ class Minellama:
             self.recipe_agent.update_inventory(inventory=self.inventory)
             subgoal_done = self.recipe_agent.complete_checker(next_subgoal)
             if subgoal_done:
-                print(f"+++++++SUBGOAL COMPLETED : {next_subgoal}+++++++")
+                print(f"\033[31m+++++++SUBGOAL COMPLETED : {next_subgoal}+++++++\033[0m")
+                self.subgoal_memory_success.append(next_subgoal)
                 self.iterations = 0
+                self.error = ""
+                self.chat_log = ""
                 # 成功したactionおよびレシピの記録。あとで使い回すため
                 self.action_agent.save_action(next_subgoal, code)
                 self.recipe_agent.recipe_memory_success[list(next_subgoal.keys())[0]] = self.recipe_agent.recipe_dependency_list[list(next_subgoal.keys())[0]]
@@ -295,14 +319,15 @@ class Minellama:
                     )
                     break
             else:
+                self.subgoal_memory_failed.append(next_subgoal)
                 self.iterations += 1
                 print(f"You are doing the same action for {self.iterations} times.")
                 #　タスクを失敗した場合に、recipe_agentの失敗リストに追加。回避するようにする。
                 for key,value in next_subgoal.items():
                     if key in self.recipe_agent.recipe_memory_failed:
-                        self.recipe_agent.recipe_memory_failed[key].append(next_subgoal)
+                        self.recipe_agent.recipe_memory_failed[key].append(self.recipe_agent.recipe_dependency_list[key])
                     else:
-                        self.recipe_agent.recipe_memory_failed[key] = [next_subgoal]
+                        self.recipe_agent.recipe_memory_failed[key] = [self.recipe_agent.recipe_dependency_list[key]]
                 #　2回連続で失敗したら、レシピをもう一度探索し直す。
                 if self.iterations > 0 and self.iterations % 2 == 0:
                     print("\nYou failed this task twice. Reset recipe.\n")
@@ -330,7 +355,18 @@ class Minellama:
             )
             print("This is the final record of the inventory: ", self.inventory)
             with open(self.record_file, "a") as f:
-                f.write(f"\n\nTASK: {self.next_task}\nSUCCESS: {success}\nINVENTORY: {self.inventory}\nSUBGOAL_MEMORY: {self.subgoal_memory}\nACTION_MEMORY: {self.action_agent.memory}\nLAST_CODE_AND_CONTEXT: {self.last_code} {self.last_context}\nSTEP_COUNT: {self.step_count}\nTIME: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n")
+                text = f"\n\nTASK: {self.next_task}\n"
+                text += f"SUCCESS: {success}\n"
+                text += f"INVENTORY: {self.inventory}\n"
+                text += f"SUBGOAL_MEMORY: {self.subgoal_memory}\n"
+                text += f"SUBGOAL_SUCCESS: {self.subgoal_memory_success}\n"
+                text += f"SUBGOAL_FAILED: {self.subgoal_memory_failed}\n"
+                text += f"ACTION_MEMORY: {self.action_agent.memory}\n"
+                text += f"LAST_CODE_AND_CONTEXT: {self.last_code}\n{self.last_context}\n"
+                text += f"RECIPE_PATHS:\n{self.recipe_agent.paths}\n"
+                text += f"STEP_COUNT: {self.step_count}\n"
+                text += f"TIME: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n"
+                f.write(text)
             self.close()
             
         print("ALL TASK COMPLETED")

@@ -197,5 +197,8 @@
  ],
  "gold_nugget": [
   "zombified_piglin"
+ ],
+ "wool": [
+    "sheep"
  ]
 }
