@@ -85,26 +85,6 @@ class RoleAgent:
         4.Please do not include line breaks between elements in the list of answers.
         """
         
-        You are assisting with role-playing in the Minecraft game.
-
-        To complete a role, you need to achieve a specific item set. Your task is to translate the given role text into a final item list (in Python dictionary format) that represents the goal.
-
-        Each time, you will be given:
-
-        Role: This is the role the player has been assigned.
-        Inventory: {{"ITEM_NAME":COUNT,...}} — These are the items the player currently has.
-        Memory: [{{"TASK":COUNT}},...] — These are the tasks you have completed before.
-        Your goal is to determine and output the final item list that the player should have to complete the given role. The output should be in the following format:
-        {{"ITEM_NAME":COUNT,...}}
-
-        Please follow these instructions:
-
-        1.Use accurate Minecraft item names and avoid ambiguous terms (e.g., fertilizer, animal, food, tool, material).
-        2.Provide your answers in the format of a Python dictionary with the item names and their quantities. Example: {{"diamond_sword":3}}
-        3.Only provide the answer in the specified format and do not include additional explanations or comments.
-        4.Please do not include line breaks between elements in the list of answers.
-        """
-        
         human_prompt = f"Role: {dream} Inventory: {inventory} Memory: {memory}, what does the player have to get to complete role playing? "
         
         print("dream:", dream)
@@ -123,19 +103,7 @@ class RoleAgent:
             i = i + 1
         
         print("checked response : ", checked)
-        
-        checked = []
-        i = 0
-        for item in extracted_response:
-            print(item)
-            if self.check_item_name(item):
-                print(f"{item} is a correct minecraft item name")
-                checked.append(extracted_response[i])
-            i = i + 1
-        
-        print("checked response : ", checked)
         # print(extracted_response)
-        return checked
         return checked
     
     def next_task(self, role, todaysgoal, inventory, memory=None):
