@@ -60,8 +60,6 @@ class RoleAgent:
     def make_todaysgoal(self, dream, inventory, memory):
         print("~~~~~~~~~~make_todaysgoal~~~~~~~~~~~")
         system_prompt = """
-        Certainly! Here's the revised prompt in English based on your description:
-
         You are assisting with role-playing in the Minecraft game.
 
         To complete a role, you need to achieve a specific item set. Your task is to translate the given role text into a final item list (in Python dictionary format) that represents the goal.
@@ -79,6 +77,7 @@ class RoleAgent:
         1.Use accurate Minecraft item names and avoid ambiguous terms (e.g., fertilizer, animal, food, tool, material).
         2.Provide your answers in the format of a Python dictionary with the item names and their quantities. Example: {{"diamond_sword":3}}
         3.Only provide the answer in the specified format and do not include additional explanations or comments.
+        4.Please do not include line breaks between elements in the list of answers.
         """
         
         human_prompt = f"Role: {dream} Inventory: {inventory} Memory: {memory}, what does the player have to get to complete role playing? "
@@ -90,11 +89,13 @@ class RoleAgent:
         extracted_response = self.extract_dict_from_str(response)
         
         checked = []
+        i = 0
         for item in extracted_response:
             print(item)
             if self.check_item_name(item):
                 print(f"{item} is a correct minecraft item name")
-                checked.append(item)
+                checked.append(extracted_response[i])
+            i = i + 1
         
         print("checked response : ", checked)
         # print(extracted_response)
