@@ -22,7 +22,9 @@ async function mine(bot, name, count, tool=null){
     //     return randomNumber;
     // }
 
-    let itemCount = bot.inventory.count(mcData.itemsByName[name].id);
+    // Inventoryで個数を確認するようにしていたが、block名とitem名が異なることがあるため、単純に回数をカウントするようにした。
+    // let itemCount = bot.inventory.count(mcData.itemsByName[name].id);
+    let itemCount = 0;
     while (itemCount < count){
         // let x = getRandomChoice();
         // let y = getRandomChoice();
@@ -41,7 +43,8 @@ async function mine(bot, name, count, tool=null){
         bot.chat(`This is targetBlock: ${blockName}, ${targetBlock}`);
         await mineBlock(bot, blockName, 1);
         bot.chat(`${targetBlock.length} ${name} mined.`);
-        itemCount = bot.inventory.count(mcData.itemsByName[name].id);
+        // itemCount = bot.inventory.count(mcData.itemsByName[name].id);
+        itemCount += 1;
     }
 
     if (tool !== null){

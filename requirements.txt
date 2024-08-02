@@ -8,7 +8,6 @@ attrs==23.2.0
 backoff==2.2.1
 beautifulsoup4==4.12.3
 bitsandbytes==0.42.0
-cchardet==2.1.7
 certifi==2024.2.2
 chardet==5.2.0
 charset-normalizer==3.3.2
@@ -140,3 +139,4 @@ zope.interface==6.2
 zope.lifecycleevent==5.0
 zope.proxy==5.2
 zstandard==0.22.0
+load_dotenv==0.1.0

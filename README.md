@@ -45,32 +45,35 @@ After installing, please follow the instructions below:
 
 # How to use MineLlama
 
-Please set API Key and the arguments in MineLlama/main.py.
+Please copy and paste .env.template to create .env and set API Key and the arguments in MineLlama/.env.
+```python
+OPEN_AI_API_KEY="your_openai_apikey"
+HUGGING_FACE_AUTH_KEY="your_huggingface_authkey"
+```
+
+Please set the Minecraft port number which you can get by `Open to LAN` in Minecraft game.
 ```python
 from minellama import Minellama
+import config
 
-openai_api_key = "OPEN_AI_API_KEY"
-hf_auth_token = "HUGGING_FACE_AUTH_KEY"
+openai_api_key = config.OPEN_AI_API_KEY
+hf_auth_token = config.HUGGING_FACE_AUTH_KEY
 
 minellama = Minellama(
     openai_api_key=openai_api_key,
     hf_auth_token=hf_auth_token,
     mc_port="MINECRAFT_PORT_KEY",
-    # LLM: "llama" or "gpt".
-    llm = "llama", 
-    # LLM model: "meta-llama/Llama-2-70b-chat-hf"  for Llama2, "gpt-3.5-turbo" or "gpt-4" for GPT.
-    llm_model = "meta-llama/Llama-2-70b-chat-hf",
-    # Local Llama2 path:  If you have local Llama2, set the path to the directory. If None, it will create the model dir in minellama/llm/ .
-    local_llm_path = None, 
+    llm = "llama", #"llama" or "gpt"
+    llm_model = "meta-llama/Llama-2-70b-chat-hf", #"meta-llama/Llama-2-70b-chat-hf" or "meta-llama/Llama-2-7b-chat-hf" for Llama2, "gpt-3.5-turbo" or "gpt-4" for GPT
+    local_llm_path = None, # If you have local Llama2, set the path to the directory. If None, it will create the model dir in minellama/llm/ .
     difficulty= "peaceful",
-    record_file= "./log.txt"
+    record_file= "./log.txt" # the ouput file 
 )
 
 
 task = [{"stick":1},{"crafting_table":1},{"wooden_pickaxe":1},{"stone_pickaxe":1}, {"iron_pickaxe":1},{"cooked_beef":1}, {"white_bed":1}]
 minellama.inference(task=task)
 ```
-Please set the Minecraft port number which you can get by `Open to LAN` in Minecraft game.
 In MineLlama, you can choose LLM from Meta's Llama2 or OpenAI's GPT.
 ### Llama2
 * You need the access tokens by Hugging Face, and set "hf_auth_token".

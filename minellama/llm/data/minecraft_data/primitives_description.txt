@@ -1,5 +1,0 @@
-Here are helpful Mineflyer javascript code.
-1) craftItemWithCraftingTable(bot, item, count); //Use this to craft item. The arguments item should be string and count should be number, and the first argument must be bot.
-2) smeltItemWithFurnace(bot, item, count, fuel); //Use this to smelt item. fuel should be 'oak_planks'. The arguments item should be string and count should be number, and the first argument must be bot.
-3) exploreAndMine(bot, item, count, tool); //Use this to mine item. When you need tools to mine, give it as an argument, e.g. 'wooden_pickaxe' to mine stone. The arguments item should be string and count should be number, and the first argument must be bot.
-4) exploreAndKill(bot, entity, count, tool); //Use this to get item by killing entities. When you need tools to kill, give it as an argument, e.g. 'wooden_sword'. The arguments entity should be string and count should be number, and the first argument must be bot.

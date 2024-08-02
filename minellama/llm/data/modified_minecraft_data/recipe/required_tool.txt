@@ -1,0 +1,5 @@
+"To make (iron_pickaxe, stone_pickaxe, wooden_pickaxe, bed, furnace), you must craft on the crafting table."
+"To get (cooked_beef), you need to smelt (beef) by using furnace"
+"To get (iron_ingot), you need to smelt (iron_ore) by using furnace"
+"To get (beef), you must kill a (cow)."
+"To get (wool), you must kill a (sheep)."
