@@ -5,10 +5,8 @@ async function mine(bot, name, count, tool=null){
     }
 
     let blockName;
-    if (tool !== null){
-        const equipedTool = bot.inventory.findInventoryItem(mcData.itemsByName[tool].id);
-        await bot.equip(equipedTool, "hand");
-    }
+    const maxTryTime = 30 * 1000; // 最大試行時間を30秒に設定
+    const startTime = Date.now();
 
     if (name === "cobblestone") {
         blockName = "stone";
@@ -17,6 +15,23 @@ async function mine(bot, name, count, tool=null){
     } else {
         blockName = name;
     }
+
+    const blocksRequiringIronPickaxe = ["gold_ore", "diamond_ore", "emerald_ore", "redstone_ore"];
+    if (blockName === "iron_ore") {
+        tool = "stone_pickaxe"
+    } else if (blocksRequiringIronPickaxe.includes(blockName)) {
+        tool = "iron_pickaxe";
+    }
+    if (tool !== null){
+        const equipedTool = bot.inventory.findInventoryItem(mcData.itemsByName[tool].id);
+        if(!equipedTool) {
+            bot.chat("you don't have a tool")
+            return
+        }
+        await bot.equip(equipedTool, "hand");
+    }
+
+
     // function getRandomChoice() {
     //     const randomNumber = Math.floor(Math.random() * 3) - 1;
     //     return randomNumber;
@@ -29,6 +44,11 @@ async function mine(bot, name, count, tool=null){
         // let x = getRandomChoice();
         // let y = getRandomChoice();
         // let z = getRandomChoice();
+        const elapsedTime = Date.now() - startTime;
+        if (elapsedTime >= maxTryTime) {
+            bot.chat(`Failed to mine ${name} within ${maxTryTime / 1000} seconds.`);
+            return;
+        }
         const targetBlock = await exploreUntil(bot, new Vec3(1, 0, 1), 60, () => {
             const targetBlock = bot.findBlocks({
                 matching: mcData.blocksByName[blockName].id,

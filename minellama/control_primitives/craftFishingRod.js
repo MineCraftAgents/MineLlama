@@ -1,10 +1,17 @@
 async function craftFishingRod(bot) {
   // Check if we have enough strings
+  const maxTryTime = 30 * 1000; // 最大試行時間を30秒に設定
+  const startTime = Date.now();
   const requiredStrings = 2;
   const stringsCount = bot.inventory.count(mcData.itemsByName.string.id);
   if (stringsCount < requiredStrings) {
     // Find and kill spiders to obtain strings
     while (bot.inventory.count(mcData.itemsByName.string.id) < requiredStrings) {
+      const elapsedTime = Date.now() - startTime;
+      if (elapsedTime >= maxTryTime) {
+          bot.chat(`Failed to craft fishingrod within ${maxTryTime / 1000} seconds.`);
+          return;
+      }
       bot.chat("Finding a spider to obtain strings...");
       const spider = await exploreUntil(bot, new Vec3(1, 0, 1), 60, () => {
         const spider = bot.nearestEntity(entity => {
