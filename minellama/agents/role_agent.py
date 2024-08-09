@@ -64,58 +64,55 @@ class RoleAgent:
 
     def make_todaysgoal(self, dream, inventory, memory):
         print("~~~~~~~~~~make_todaysgoal~~~~~~~~~~~")
-        system_prompt = """
+        system_prompt_todo = """
         You are assisting with role-playing in the Minecraft game.
 
-        Your task is to define the actions needed to achieve the role and the items that these actions will target.
+        To complete a role, you need to achieve a specific item set. Your task is to translate the given role text into a final item list (in Python dictionary format) that represents the goal.
 
         Each time, you will be given:
 
         Role: This is the role the player has been assigned.
         Inventory: {{"ITEM_NAME":COUNT,...}} — These are the items the player currently has.
         Memory: [{{"TASK":COUNT}},...] — These are the tasks you have completed before.
-        Your goal is to determine and output the final action-and-item list that the player should have to complete the given role. The output should be in the following format:
-        {{"ACTION_NAME":"TARGET_ITEM", ...}}
+        Your goal is to determine and output the final item list that the player should have to complete the given role. The output should be in the following format:
+        {{"ITEM_NAME":COUNT,...}}
 
         Please follow these instructions:
 
         1.Use accurate Minecraft item names and avoid ambiguous terms (e.g., fertilizer, animal, food, tool, material).
-        2.Provide your answers in the format of a Python dictionary with the item names and their quantities. Example: {{"mine":"diamond", "craft":"diamond_sword", "kill":"sheep"}}
-        3.As ACTION_NAME, you must use one of (mine, craft, kill, smelt). Do not use other action name.
-        4.Only provide the answer in the specified format and do not include additional explanations or comments.
-        5.Please do not include line breaks between elements in the list of answers.
+        2.Provide your answers in the format of a Python dictionary with the item names and their quantities. Example: {{"diamond_sword":3}}
+        3.Only provide the answer in the specified format and do not include additional explanations or comments.
         """
         
-        human_prompt = f"Role: {dream} Inventory: {inventory} Memory: {memory}, what does the player have to get to complete role playing? "
+        human_prompt_todo = f"Role: {dream} Inventory: {inventory} Memory: {memory}, what does the player have to get to complete role playing? "
         
         print("dream:", dream)
-        
-        response = self.llm.content(system_prompt, query_str=human_prompt, data_dir="recipe")
-        print(response)
+        response = self.llm.content(system_prompt_todo, query_str=human_prompt_todo, data_dir="recipe")
+        print("response:",response)
         extracted_response = self.extract_dict_from_str(response)
         
-        checked = []
-        i = 0
-        for item in extracted_response:
-            print(item)
-            if self.check_item_name(extracted_response[item]):
-                print(f"{item} is a correct minecraft item name")
-                checked.append(extracted_response[i])
-            i = i + 1
+        # checked = []
+        # i = 0
+        # for item in extracted_response:
+        #     print(item)
+        #     if self.check_item_name(extracted_response[item]):
+        #         print(f"{item} is a correct minecraft item name")
+        #         checked.append(extracted_response[i])
+        #     i = i + 1
         
-        print("checked response : ", checked)
+        # print("checked response : ", checked)
         # print(extracted_response)
-        return checked
-    
+        # return checked
+        return extracted_response
+        
     def next_task(self, role, todaysgoal, inventory, memory=None):
         print("~~~~~~~~~~next task~~~~~~~~~~~")
         system_prompt = self.role_prompt
-        human_prompt = f"Role: {role} Inventory: {inventory} Memory: {memory} What is the next task?"
+        human_prompt = f"Today's goal: {todaysgoal} Inventory: {inventory} Memory: {memory} What is the next task?"
         response = self.llm.content(system_prompt, query_str=human_prompt, data_dir="action")
         print(response)
         extracted_response = self.extract_dict_from_str(response)
         # print(extracted_response)
         return extracted_response
-    
 
         
