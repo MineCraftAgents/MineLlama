@@ -64,9 +64,7 @@ class RoleAgent:
 
     def make_todaysgoal(self, dream, inventory, memory):
         print("~~~~~~~~~~make_todaysgoal~~~~~~~~~~~")
-        system_prompt = """
-        Certainly! Here's the revised prompt in English based on your description:
-
+        system_prompt_todo = """
         You are assisting with role-playing in the Minecraft game.
 
         To complete a role, you need to achieve a specific item set. Your task is to translate the given role text into a final item list (in Python dictionary format) that represents the goal.
@@ -86,34 +84,35 @@ class RoleAgent:
         3.Only provide the answer in the specified format and do not include additional explanations or comments.
         """
         
-        human_prompt = f"Role: {dream} Inventory: {inventory} Memory: {memory}, what does the player have to get to complete role playing? "
+        human_prompt_todo = f"Role: {dream} Inventory: {inventory} Memory: {memory}, what does the player have to get to complete role playing? "
         
         print("dream:", dream)
-        
-        response = self.llm.content(system_prompt, query_str=human_prompt, data_dir="recipe")
-        print(response)
+        response = self.llm.content(system_prompt_todo, query_str=human_prompt_todo, data_dir="recipe")
+        print("response:",response)
         extracted_response = self.extract_dict_from_str(response)
         
-        checked = []
-        for item in extracted_response:
-            print(item)
-            if self.check_item_name(item):
-                print(f"{item} is a correct minecraft item name")
-                checked.append(item)
+        # checked = []
+        # i = 0
+        # for item in extracted_response:
+        #     print(item)
+        #     if self.check_item_name(extracted_response[item]):
+        #         print(f"{item} is a correct minecraft item name")
+        #         checked.append(extracted_response[i])
+        #     i = i + 1
         
-        print("checked response : ", checked)
+        # print("checked response : ", checked)
         # print(extracted_response)
-        return checked
-    
+        # return checked
+        return extracted_response
+        
     def next_task(self, role, todaysgoal, inventory, memory=None):
         print("~~~~~~~~~~next task~~~~~~~~~~~")
         system_prompt = self.role_prompt
-        human_prompt = f"Role: {role} Inventory: {inventory} Memory: {memory} What is the next task?"
+        human_prompt = f"Today's goal: {todaysgoal} Inventory: {inventory} Memory: {memory} What is the next task?"
         response = self.llm.content(system_prompt, query_str=human_prompt, data_dir="action")
         print(response)
         extracted_response = self.extract_dict_from_str(response)
         # print(extracted_response)
         return extracted_response
-    
 
         

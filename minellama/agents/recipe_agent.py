@@ -221,6 +221,20 @@ class RecipeAgent:
         for goal_item in self.paths:
             print(goal_item)
 
+    #get_recipe_listメソッドでの結果を返すようにした関数。printだけ省いているがほかは同じ。
+    def get_recipe_list_for_export(self, item_name:str, reset=False):
+        if reset:
+            self.reset_recipe()
+
+        self.recipe_dependency(item_name)
+        #TODO :count
+        self.paths = self.get_recipe_paths(item_name,1) + self.paths
+
+        # show results
+        for key, value in self.recipe_dependency_list.items():
+            print(f"{key}: {value}")
+        return self.paths
+
 
     # ========= Current Goal Algorithm ========
     # インベントリとのアイテムの個数の比較

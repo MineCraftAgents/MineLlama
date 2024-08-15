@@ -381,13 +381,15 @@ class Minellama:
 
     def create_daily_report(self):
         print("~~~~~~~~~~create_daily_report~~~~~~~~~~")
-        results = []
-        for goal in todaysgoal:
-            if self.recipe_agent.complete_checker(self, goal):
-                results.append(f"day_{self.num_of_date}, goal:{goal}, result:success")
-            else :
-                error = "demo_error"
-                results.append(f"day:{self.num_of_date}, goal:{goal}, result:failed(error:{error})")
+        report = f"""
+        day : {num_of_date} \n\n
+        achieved subgoal : {subgoal_memory_success} \n\n
+        failed subgoal : {subgoal_memory_failed} \n\n
+        errors : {self.error}
+        chat log : {self.chat_log}
+        """
+        self.num_of_date = self.num_of_date + 1
+        self.chat_log = ""
         return results
 
     def inference_role(self, role, max_iterations, reset_mode="hard", reset_env=True):
