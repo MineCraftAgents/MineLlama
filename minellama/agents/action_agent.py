@@ -86,6 +86,7 @@ await smelt(bot, 'raw_iron', 2, 'planks');
             human_prompt = f"Choose the function with the arguments to achive the task below please.\nTask : {task}\nNearby Block : {nearby_block}\nNearby Entities : {nearby_entities}\nContext : {context}\nError Message: {error_message}\n"
             print("Action agent prompt:\n",human_prompt)
             output = self.llm.content(system_prompt=system_prompt,query_str=human_prompt, data_dir=data_dir)
+
             print(output)
             code, js_error = self.extract_jscode(response = output)
             if code is not None:
