@@ -26,7 +26,7 @@ class ActionAgent:
             return None, error_message
     
 
-    def generate_action(self, task="", context="", nearby_block=[], nearby_entities=[], error_message="", data_dir="action", max_iterations=10):
+    def generate_action(self, task="", context="", nearby_block=[], nearby_entities=[], last_code="", error_message="", chat_log="", data_dir="action", max_iterations=10):
         iterations = 0
         system_prompt = '''
 You are a helpful assistant of Minecraft game.
@@ -43,7 +43,9 @@ Task: {{"name":count}}
 Nearby Block: ["block1", "block2",...] //This could be useful when you mine block.
 Nearby Entities: ["entity1", "entity2",...] //This could be useful when you kill entity to get item.
 Context: ... //This is about how to achieve the task. You should refer to this to decide which action to choose.
+Code from the last round: ... //This is the code from the last round.
 Error Message: ... //This is error messages from the last round.
+Chat Log: ... //This is chat log from the last round. This is feedback from Minecraft game.
 
 Please note that
 1) The arguments item should be string and count should be number, and the first argument must be bot.
@@ -83,7 +85,7 @@ await smelt(bot, 'raw_iron', 2, 'planks');
 '''
 
         while iterations < max_iterations:
-            human_prompt = f"Choose the function with the arguments to achive the task below please.\nTask : {task}\nNearby Block : {nearby_block}\nNearby Entities : {nearby_entities}\nContext : {context}\nError Message: {error_message}\n"
+            human_prompt = f"Choose the function with the arguments to achive the task below please.\nTask : {task}\nNearby Block : {nearby_block}\nNearby Entities : {nearby_entities}\nContext : {context}\nCode from the last round: {last_code}\nError Message: {error_message}\nChat Log: {chat_log}"
             print("Action agent prompt:\n",human_prompt)
             output = self.llm.content(system_prompt=system_prompt,query_str=human_prompt, data_dir=data_dir)
             print(output)
@@ -97,7 +99,7 @@ await smelt(bot, 'raw_iron', 2, 'planks');
         print("You reached tha max iterations.")
         return 
     
-    def get_action(self, goal, context="", nearby_block=[], nearby_entities=[], error_massage="", retrieval=True):
+    def get_action(self, goal, context="", nearby_block=[], nearby_entities=[], last_code="", error_massage="", chat_log="", retrieval=True):
         # 過去に成功したアクションを使い回す。
         if retrieval:
             if str(goal) in self.memory:
@@ -105,5 +107,5 @@ await smelt(bot, 'raw_iron', 2, 'planks');
                 print(f"\nRetrieved code from memory:  {code}\n")
                 return code
         # context = self.llm.get_context(task=goal)
-        code = self.generate_action(task=goal,context=context, nearby_block=nearby_block, nearby_entities=nearby_entities, error_message=error_massage, data_dir="action")
+        code = self.generate_action(task=goal,context=context, nearby_block=nearby_block, nearby_entities=nearby_entities, last_code=last_code, error_message=error_massage, chat_log=chat_log, data_dir="action")
         return code

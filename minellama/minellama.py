@@ -291,9 +291,9 @@ class Minellama:
             # print(f"Context:\n{context}")
             #Retrieve codes from the past. If failed, regenerate it.
             if self.iterations > 0:
-                code = self.action_agent.get_action(goal=next_subgoal, context=context, nearby_block=self.nearby_block, nearby_entities=self.nearby_entities, error_massage=self.error, retrieval=False)
+                code = self.action_agent.get_action(goal=next_subgoal, context=context, nearby_block=self.nearby_block, nearby_entities=self.nearby_entities, last_code=self.last_code, error_massage=self.error, chat_log=self.chat_log, retrieval=False)
             else:
-                code = self.action_agent.get_action(goal=next_subgoal, context=context, nearby_block=self.nearby_block, nearby_entities=self.nearby_entities, error_massage=self.error, retrieval=True)
+                code = self.action_agent.get_action(goal=next_subgoal, context=context, nearby_block=self.nearby_block, nearby_entities=self.nearby_entities, last_code="", error_massage=self.error, chat_log=self.chat_log, retrieval=True)
             self.last_code = code
             self.last_context = context
 
@@ -367,6 +367,8 @@ class Minellama:
                 text += f"SUBGOAL_SUCCESS: {self.subgoal_memory_success}\n"
                 text += f"SUBGOAL_FAILED: {self.subgoal_memory_failed}\n"
                 text += f"ACTION_MEMORY: {self.action_agent.memory}\n"
+                text += f"LAST_ERROR_MASSAGE: {self.error}\n"
+                text += f"LAST_CHAT_LOG: {self.chat_log}\n"
                 text += f"LAST_CODE_AND_CONTEXT: {self.last_code}\n{self.last_context}\n"
                 text += f"RECIPE_PATHS:\n{self.recipe_agent.paths}\n"
                 text += f"STEP_COUNT: {self.step_count}\n"
@@ -421,6 +423,8 @@ class Minellama:
                 text += f"SUBGOAL_SUCCESS: {self.subgoal_memory_success}\n"
                 text += f"SUBGOAL_FAILED: {self.subgoal_memory_failed}\n"
                 text += f"ACTION_MEMORY: {self.action_agent.memory}\n"
+                text += f"LAST_ERROR_MASSAGE: {self.error}\n"
+                text += f"LAST_CHAT_LOG: {self.chat_log}\n"
                 text += f"LAST_CODE_AND_CONTEXT: {self.last_code}\n{self.last_context}\n"
                 text += f"RECIPE_PATHS:\n{self.recipe_agent.paths}\n"
                 text += f"STEP_COUNT: {self.step_count}\n"
