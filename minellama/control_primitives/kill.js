@@ -5,7 +5,15 @@ async function kill(bot, name, count, tool=null){
     }
 
     let killedCount = 0;
+    const maxTryTime = 30 * 1000; // 最大試行時間を30秒に設定
+    const startTime = Date.now();
+
     while (killedCount < count){
+        const elapsedTime = Date.now() - startTime;
+        if (elapsedTime >= maxTryTime) {
+            bot.chat(`Failed to kill ${name} within ${maxTryTime / 1000} seconds.`);
+            return;
+        }
         const targetEntity = await exploreUntil(bot, new Vec3(1, 0, 1), 60, () => {
             const targetEntity = bot.nearestEntity(entity => {
               return entity.name === name && entity.position.distanceTo(bot.entity.position) < 32;

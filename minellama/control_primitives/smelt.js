@@ -1,8 +1,11 @@
-async function smelt(bot, itemName,　count = 1, fuelName = 'planks') {
+async function smelt(bot, itemName, count = 1, fuelName = 'planks') {
     // Check and craft furnace first
     await craftFurnace(bot);
     // Check fuel
     let fuel;
+    const maxTryTime = 30 * 1000; // 最大試行時間を30秒に設定
+    const startTime = Date.now();
+
     if (fuelName === 'planks') {
       const planksList = ["oak_planks", "birch_planks", "spruce_planks", "jungle_planks", "acacia_planks", "dark_oak_planks", "mangrove_planks"];
       let planksCount = 0;
@@ -30,6 +33,11 @@ async function smelt(bot, itemName,　count = 1, fuelName = 'planks') {
     //Smelt items with furnace
     let itemCount = 0;
     while(itemCount < count) {
+      const elapsedTime = Date.now() - startTime;
+      if (elapsedTime >= maxTryTime) {
+          bot.chat(`Failed to smelt ${itemName} within ${maxTryTime / 1000} seconds.`);
+          return;
+      }
       await smeltItem(bot, itemName, fuel, 1);
       itemCount += 1;
     }

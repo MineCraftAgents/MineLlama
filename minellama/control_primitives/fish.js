@@ -1,4 +1,6 @@
 async function fish(bot, count) {
+  const maxTryTime = 30 * 1000; // 最大試行時間を30秒に設定
+  const startTime = Date.now();
   // Check if the bot has a fishing rod in its inventory
   let fishingRod = bot.inventory.findInventoryItem(mcData.itemsByName.fishing_rod.id);
   if (!fishingRod) {

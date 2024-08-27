@@ -1,6 +1,9 @@
 async function craft(bot, name, count = 1) {
   // items which don't require crafting table
+    const maxTryTime = 30 * 1000; // 最大試行時間を30秒に設定
+    const startTime = Date.now();
     const withoutCraftingTable = ["crafting_table", "stick"]
+
     if (name === "planks") {
       await craftPlanks(bot, count);
       return;
@@ -23,6 +26,11 @@ async function craft(bot, name, count = 1) {
     //Craft items with crafting table
     let itemCount = bot.inventory.count(mcData.itemsByName[name].id);
     while(itemCount < count) {
+      const elapsedTime = Date.now() - startTime;
+      if (elapsedTime >= maxTryTime) {
+          bot.chat(`Failed to craft ${name} within ${maxTryTime / 1000} seconds.`);
+          return;
+      }
       await craftItem(bot, name, 1);
       itemCount = bot.inventory.count(mcData.itemsByName[name].id);
     }
