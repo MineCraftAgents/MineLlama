@@ -5,7 +5,7 @@ async function mine(bot, name, count, tool=null){
     }
 
     let blockName;
-    const maxTryTime = 30 * 1000; // 最大試行時間を30秒に設定
+    const maxTryTime = 90 * 1000; // 最大試行時間を30秒に設定
     const startTime = Date.now();
 
     if (name === "cobblestone") {

@@ -37,4 +37,5 @@ async function craft(bot, name, count = 1) {
     bot.chat(`Crafted ${count} ${name}.`);
     //Collect the crafting table
     await mineBlock(bot, "crafting_table", 1);
+    bot.chat("Collected a crafting table");
   }

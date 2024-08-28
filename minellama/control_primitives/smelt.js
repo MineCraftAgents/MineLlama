@@ -3,7 +3,7 @@ async function smelt(bot, itemName, count = 1, fuelName = 'planks') {
     await craftFurnace(bot);
     // Check fuel
     let fuel;
-    const maxTryTime = 30 * 1000; // 最大試行時間を30秒に設定
+    const maxTryTime = 300 * 1000; // 最大試行時間を30秒に設定
     const startTime = Date.now();
 
     if (fuelName === 'planks') {
@@ -44,4 +44,5 @@ async function smelt(bot, itemName, count = 1, fuelName = 'planks') {
     bot.chat(`${count} ${itemName} smelted.`);
     //Collect furnace and item
     await mineBlock(bot, "furnace", 1);
+    bot.chat("Collected a furnace");
 }

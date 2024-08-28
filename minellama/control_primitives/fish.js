@@ -4,8 +4,8 @@ async function fish(bot, count) {
   // Check if the bot has a fishing rod in its inventory
   let fishingRod = bot.inventory.findInventoryItem(mcData.itemsByName.fishing_rod.id);
   if (!fishingRod) {
-    await craftFishingRod(bot);
-    fishingRod = bot.inventory.findInventoryItem(mcData.itemsByName.fishing_rod.id);
+    bot.chat("I don't have a fishingrod")
+    return
   }
 
   // Find a nearby water block
@@ -46,6 +46,12 @@ async function fish(bot, count) {
 
   // Fish in a loop
   for (let i = 0; i < count; i++) {
+    const elapsedTime = Date.now() - startTime;
+    if (elapsedTime >= maxTryTime) {
+        bot.chat(`Failed to fish within ${maxTryTime / 1000} seconds.`);
+        return;
+    }
+
     try {
       await bot.fish();
       bot.chat(`Fish ${i + 1} caught.`);

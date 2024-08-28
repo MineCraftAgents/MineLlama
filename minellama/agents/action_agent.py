@@ -37,6 +37,8 @@ Here are some javascript function:
 2) smelt(bot, item_to_smelt, count, fuel); //Use this to smelt item. fuel should be 'planks'.
 3) mine(bot, block_to_mine, count, tool); //Use this to mine block. When you need tools to mine, give it as an argument, e.g. 'wooden_pickaxe' to mine stone.
 4) kill(bot, entity_to_kill, count, tool); //Use this to get item by killing entities. When you need tools to kill, give it as an argument, e.g. 'wooden_sword'.
+5) fish(bot, count); //Use this to catch fish.
+6) fillBucketWithWater(bot); //Use this to fill a bucket with water.
 
 I will give you the following information for each time:
 Task: {{"name":count}}
