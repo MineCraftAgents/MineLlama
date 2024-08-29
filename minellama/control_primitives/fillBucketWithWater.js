@@ -1,30 +1,22 @@
 async function fillBucketWithWater(bot) {
+  //地表に移動する
+  await moveToGroundLevel(bot);
+  
   // Find a water block nearby
-  const waterBlock = bot.findBlock({
-    matching: mcData.blocksByName.water.id,
-    maxDistance: 32
-  });
-
-  if (waterBlock) {
-    bot.chat("Found water block")
-  } else {
-    bot.chat("No water block found nearby. Exploring...");
-    waterBlock = await exploreUntil(bot, new Vec3(1, 0, 1), 60, () => {
-      return bot.findBlock({
-        matching: mcData.blocksByName.water.id,
-        maxDistance: 32
-      });
-    });
-    if (!waterBlock) {
-      bot.chat("Still couldn't find any water block.");
-      return; // 水が見つからなければ終了
-    }
+      // 周囲に地表の水源を探す
+  let waterBlock = null;
+  while (!waterBlock) {
+      waterBlock = findSurfaceWaterBlock(bot);
+      bot.chat("No surface water found nearby.");
+      // return;
+      await moveForward(bot, 64);
   }
   
-  // Go to the water block
-  await bot.pathfinder.goto(
-    new GoalGetToBlock(waterBlock.position.x, waterBlock.position.y, waterBlock.position.z)
-  );
+  bot.chat("Water source found. Heading to the water source.");
+  
+  // 水源の5マス以内に入るまで移動
+  await bot.pathfinder.goto(new GoalNear(waterBlock.position.x, waterBlock.position.y, waterBlock.position.z, waterProximityRadius));
+  bot.chat("Arrived near the water source.");
 
   // Equip the bucket
   const bucket = bot.inventory.findInventoryItem(mcData.itemsByName.bucket.id);
@@ -42,6 +34,6 @@ async function fillBucketWithWater(bot) {
   if (water_bucket) {
     bot.chat("Filled the bucket with water.");
   } else {
-    bot.chat("Failed to fill the bucket with water.")
+    bot.chat("Failed to fill the bucket with water.");
   }
 }
