@@ -5,8 +5,8 @@ async function tillAndPlant(bot, seedName="wheat_seeds", count=1, hoeName="woode
     const searchRadius = 12;  // ブロックを探す範囲
     const waterProximityRadius = 5;  // 水源の5マス以内で探索を開始
 
-    bot.chat("/give @s wooden_hoe");
-    bot.chat(`/give @s ${seedName} ${count}`);
+    // bot.chat("/give @s wooden_hoe");
+    // bot.chat(`/give @s ${seedName} ${count}`);
     // bot.chat(`/give @s dirt 64`);
     
 
