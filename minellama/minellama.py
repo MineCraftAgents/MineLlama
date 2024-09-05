@@ -20,7 +20,7 @@ class Minellama:
         server_port: int = 3000,
         openai_api_key: str = None, # OpenAI API Key
         env_wait_ticks: int = 20,
-        env_request_timeout: int = 600,
+        env_request_timeout: int = 6000,
         max_iterations: int = 10, # Max iterations for each task. If reached it, it skips the task to the next.
         reset_placed_if_failed: bool = False,
         difficulty: str = "peaceful", # Difficulty of Minecraft game
