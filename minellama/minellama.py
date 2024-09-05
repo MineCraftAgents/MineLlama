@@ -93,6 +93,7 @@ class Minellama:
         self.difficulty = difficulty
         self.task_list = []
         self.next_task = {}
+        self.todo_detail = {}
         self.subgoal_memory = []
         self.subgoal_memory_success = []
         self.subgoal_memory_failed = []
@@ -407,31 +408,79 @@ class Minellama:
         self.reset(reset_env=reset_env)
         for _ in range(max_iterations):
             self.dream = self.dream_agent.generate_dream(role=self.role, memory=self.memory)
+            print(self.dream)
+            # self.todaysgoal = ["Prepare farmland", "Plant crops", "Build a basic structure"]
+            # self.dream =  "You are a farmer. Your job in Minecraft  is to collect seeds, craft a wooden_hoe, plant seeds, and harvest crops."
             self.todaysgoal = self.role_agent.make_todaysgoal(self.dream, self.inventory, self.memory)
             #roleの場合、next_taskの部分でプロンプトの修正が必要とおもわれます
-            self.next_task = self.role_agent.next_task(role=self.dream, todaysgoal=self.todaysgoal, inventory=self.subgoal_memory)
-            print(f"\033[31m=================SET GOAL : {self.next_task} ====================\033[0m")
-            success = self.rollout(
-                reset_env=reset_env,
-            )
-            print("This is the final record of the inventory: ", self.inventory)
-            with open(self.record_file, "a") as f:
-                text = f"\n\nTASK: {self.next_task}\n"
-                text += f"SUCCESS: {success}\n"
-                text += f"INVENTORY: {self.inventory}\n"
-                text += f"SUBGOAL_MEMORY: {self.subgoal_memory}\n"
-                text += f"SUBGOAL_SUCCESS: {self.subgoal_memory_success}\n"
-                text += f"SUBGOAL_FAILED: {self.subgoal_memory_failed}\n"
-                text += f"ACTION_MEMORY: {self.action_agent.memory}\n"
-                text += f"LAST_ERROR_MASSAGE: {self.error}\n"
-                text += f"LAST_CHAT_LOG: {self.chat_log}\n"
-                text += f"LAST_CODE_AND_CONTEXT: {self.last_code}\n{self.last_context}\n"
-                text += f"RECIPE_PATHS:\n{self.recipe_agent.paths}\n"
-                text += f"STEP_COUNT: {self.step_count}\n"
-                text += f"TIME: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n"
-                f.write(text)
+            #roleを短文→アクション＋アイテム名→（アクションごとの対応）と書き換えていく場合
+            
+            for todo in self.todaysgoal:
+                self.todo_detail = self.role_agent.make_todo_detail(self.dream, todo, self.inventory, self.memory)
+                print(self.todo_detail)
+                #不要？
+                # self.next_task = self.role_agent.next_task(role=self.dream, todaysgoal=self.todaysgoal, inventory=self.subgoal_memory)
+                
+                for task in self.todo_detail:
+                    #currentGoalAlgorithmで対処可能なアクション
+                    
+                    if task["action"] in ["craft", "mine", "smelt", "collect"]:
+                        print(f"\033[31m=================SET GOAL : {task} ====================\033[0m")
+                        self.next_task = {task["item_name"]:task["count"]}
+                        success = self.rollout(
+                            reset_env=reset_env,
+                        )
+                    elif task["action"] == ["kill", "fish", "tillAndPlant", "harvest"]:
+                        #別個に指定しないと達成が困難なアクションがここに来る
+                        success = None
+                        print(f"-------task name :{task['action']},  has been done.-------")
+                        code = f'await {task["action"]}(bot, {task["item_name"]}, {task["count"]});'
+                        self.step(code)
+                    else :
+                        success = None
+                        continue
+                        
+                    print("This is the final record of the inventory: ", self.inventory)
+                    with open(self.record_file, "a") as f:
+                        text = f"\n\nTASK: {self.next_task}\n"
+                        text += f"SUCCESS: {success}\n"
+                        text += f"INVENTORY: {self.inventory}\n"
+                        text += f"SUBGOAL_MEMORY: {self.subgoal_memory}\n"
+                        text += f"SUBGOAL_SUCCESS: {self.subgoal_memory_success}\n"
+                        text += f"SUBGOAL_FAILED: {self.subgoal_memory_failed}\n"
+                        text += f"ACTION_MEMORY: {self.action_agent.memory}\n"
+                        text += f"LAST_ERROR_MASSAGE: {self.error}\n"
+                        text += f"LAST_CHAT_LOG: {self.chat_log}\n"
+                        text += f"LAST_CODE_AND_CONTEXT: {self.last_code}\n{self.last_context}\n"
+                        text += f"RECIPE_PATHS:\n{self.recipe_agent.paths}\n"
+                        text += f"STEP_COUNT: {self.step_count}\n"
+                        text += f"TIME: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n"
+                        f.write(text)
+            
+            
+            # self.next_task = self.role_agent.next_task(role=self.dream, todaysgoal=self.todaysgoal, inventory=self.subgoal_memory)
+            # print(f"\033[31m=================SET GOAL : {self.next_task} ====================\033[0m")
+            # success = self.rollout(
+            #     reset_env=reset_env,
+            # )        
+            # print("This is the final record of the inventory: ", self.inventory)
+            # with open(self.record_file, "a") as f:
+            #     text = f"\n\nTASK: {self.next_task}\n"
+            #     text += f"SUCCESS: {success}\n"
+            #     text += f"INVENTORY: {self.inventory}\n"
+            #     text += f"SUBGOAL_MEMORY: {self.subgoal_memory}\n"
+            #     text += f"SUBGOAL_SUCCESS: {self.subgoal_memory_success}\n"
+            #     text += f"SUBGOAL_FAILED: {self.subgoal_memory_failed}\n"
+            #     text += f"ACTION_MEMORY: {self.action_agent.memory}\n"
+            #     text += f"LAST_ERROR_MASSAGE: {self.error}\n"
+            #     text += f"LAST_CHAT_LOG: {self.chat_log}\n"
+            #     text += f"LAST_CODE_AND_CONTEXT: {self.last_code}\n{self.last_context}\n"
+            #     text += f"RECIPE_PATHS:\n{self.recipe_agent.paths}\n"
+            #     text += f"STEP_COUNT: {self.step_count}\n"
+            #     text += f"TIME: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n"
+            #     f.write(text)
         
-        daily_result = create_daily_report(self)
+        daily_result = self.create_daily_report()
         self.memory.append(daily_result)
                
             
