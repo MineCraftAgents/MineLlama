@@ -59,6 +59,7 @@ class Minellama:
         self.dream_agent = DreamAgent(llm=self.llm)
         self.role = None
         self.dream = ""
+
         self.control_primitives = load_control_primitives()
 
         # init variables for rollout
@@ -483,7 +484,7 @@ class Minellama:
         daily_result = self.create_daily_report()
         self.memory.append(daily_result)
                
-            
+
         print("ALL TASK COMPLETED")
         print(daily_result)
         return
