@@ -1,13 +1,14 @@
-async function farm(bot, count) {
-    const hoeName = "wooden_hoe";
-    const seedName = "wheat_seeds";
+async function tillAndPlant(bot, seedName="wheat_seeds", count=1, hoeName="wooden_hoe") {
+    // const hoeName = "wooden_hoe";
+    // const seedName = "wheat_seeds";
     const maxAttempts = 3;  // 耕す再試行の最大回数
     const searchRadius = 12;  // ブロックを探す範囲
     const waterProximityRadius = 5;  // 水源の5マス以内で探索を開始
 
-    bot.chat("/give @s wooden_hoe");
-    bot.chat(`/give @s ${seedName} ${count}`);
-    bot.chat(`/give @s dirt 64`);
+    // bot.chat("/give @s wooden_hoe");
+    // bot.chat(`/give @s ${seedName} ${count}`);
+    // bot.chat(`/give @s dirt 64`);
+    
 
     await new Promise(resolve => setTimeout(resolve, 2000));
 
@@ -15,8 +16,12 @@ async function farm(bot, count) {
     const seeds = bot.inventory.items().find(item => item.name === seedName);
     const dirt = bot.inventory.items().find(item => item.name === "dirt");
 
-    if (!hoe || !seeds || !dirt) {
-        bot.chat("Required items are missing.");
+    if (!hoe) {
+        bot.chat(`Required items are missing: ${hoeName}`);
+        return;
+    } 
+    if (!seeds){
+        bot.chat(`Required items are missing: ${seedName}`);
         return;
     }
     
@@ -229,3 +234,4 @@ function findSurfaceWaterBlock(bot) {
 
     return null;
 }
+
