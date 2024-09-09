@@ -86,6 +86,7 @@ class RoleAgent:
             1.Provide your answers in the format of a Python dictionary with the item names and their quantities. Example: {{"diamond_sword":3}}
             2.Use specific Minecraft item names in your response. When creating a list of dictionaries, include the items by their specific names rather than grouping them by category.
             3.Only provide the answer in the specified format and do not include additional explanations or comments.
+            
             """
         
             human_prompt_todo = f"Role: {dream} Inventory: {inventory} Memory: {memory}, what does the player have to get to complete role playing? "
