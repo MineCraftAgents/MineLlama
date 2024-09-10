@@ -311,7 +311,7 @@ class Minellama:
                 self.chat_log = ""
                 # 成功したactionおよびレシピの記録。あとで使い回すため
                 self.action_agent.save_action(next_subgoal, code)
-                self.recipe_agent.recipe_memory_success[list(next_subgoal.keys())[0]] = self.recipe_agent.recipe_dependency_list[list(next_subgoal.keys())[0]]
+                self.recipe_agent.save_success_recipe(next_subgoal)
                 #　もともとinference関数で設定していた大目標の達成の確認
                 task_done = self.recipe_agent.complete_checker(self.next_task)
                 if task_done:
@@ -328,11 +328,7 @@ class Minellama:
                 self.iterations += 1
                 print(f"You are doing the same action for {self.iterations} times.")
                 #　タスクを失敗した場合に、recipe_agentの失敗リストに追加。回避するようにする。
-                for key,value in next_subgoal.items():
-                    if key in self.recipe_agent.recipe_memory_failed:
-                        self.recipe_agent.recipe_memory_failed[key].append(self.recipe_agent.recipe_dependency_list[key])
-                    else:
-                        self.recipe_agent.recipe_memory_failed[key] = [self.recipe_agent.recipe_dependency_list[key]]
+                self.recipe_agent.save_faild_recipe(next_subgoal)
                 #　2回連続で失敗したら、レシピをもう一度探索し直す。
                 if self.iterations > 0 and self.iterations % 2 == 0:
                     print("\nYou failed this task twice. Reset recipe.\n")

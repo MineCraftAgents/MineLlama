@@ -6,17 +6,19 @@ import copy
 
 class RecipeAgent:
     def __init__(self,llm=None):
-        data_path = ""
-        data_path = str(Path(__file__).parent / data_path)
-        with open(f"{data_path}/minecraft_dataset/recipes_bedrock.json", "r") as f:
+        self.data_path = ""
+        self.data_path = str(Path(__file__).parent / self.data_path)
+        with open(f"{self.data_path}/minecraft_dataset/recipes_bedrock.json", "r") as f:
             self.recipe_data = json.load(f)
-        with open(f"{data_path}/minecraft_dataset/blocks_bedrock.json", "r") as f:
+        with open(f"{self.data_path}/minecraft_dataset/recipes_success.json", "r") as f:
+            self.recipe_data_success = json.load(f)
+        with open(f"{self.data_path}/minecraft_dataset/blocks_bedrock.json", "r") as f:
             self.blocks_data = json.load(f)
-        with open(f"{data_path}/minecraft_dataset/dropitems_bedrock.json", "r") as f:
+        with open(f"{self.data_path}/minecraft_dataset/dropitems_bedrock.json", "r") as f:
             self.entity_items_data = json.load(f)
-        with open(f"{data_path}/minecraft_dataset/harvest_tools.json", "r") as f:
+        with open(f"{self.data_path}/minecraft_dataset/harvest_tools.json", "r") as f:
             self.harvest_tools = json.load(f)
-        with open(f"{data_path}/minecraft_dataset/items.json", "r") as f:
+        with open(f"{self.data_path}/minecraft_dataset/items.json", "r") as f:
             mc_items_json = json.load(f)
             self.mc_items = {item['name']: item for item in mc_items_json}
 
@@ -36,6 +38,8 @@ class RecipeAgent:
 
         # crafting_talbeなしで作れるアイテム
         self.items_without_crafting_table = ["crafting_table", "planks", "stick"]
+
+        self.use_recipe_data_success = True
 
         self.iterations = 0
     
@@ -143,8 +147,8 @@ class RecipeAgent:
             self.searched_list.append(name)
             if name in self.recipe_data:
                 # 成功リストに存在する場合は、そちらを使う
-                if name in self.recipe_memory_success:
-                    recipe = self.recipe_memory_success[name]
+                if name in self.recipe_data_success and self.use_recipe_data_success:
+                    recipe = random.choice(self.recipe_data_success[name])
                 #　成功リストにない場合はランダムに選ぶ
                 else:
                     # recipeはリスト, [{'count': 1, 'type': 'crafting_table', 'ingredients': {'bamboo': 2}}, {'count': 4, 'type': 'crafting_table', 'ingredients': {'planks': 2}}]
@@ -197,6 +201,31 @@ class RecipeAgent:
     def reset_recipe(self):
         self.recipe_dependency_list = {}
         self.paths = []
+
+    def save_success_recipe(self, subgoal:dict):
+        for key, value in subgoal.items():
+            recipe = self.recipe_dependency_list[key]
+            if recipe is not None:
+                self.recipe_memory_success[key] = recipe
+                if key in self.recipe_data_success:
+                    if recipe not in self.recipe_data_success[key]:
+                        self.recipe_data_success[key].append(recipe)
+                else:
+                    self.recipe_data_success[key] = [recipe]
+                with open(f"{self.data_path}/minecraft_dataset/recipes_success.json", "w") as f:
+                    json.dump(self.recipe_data_success, f, ensure_ascii=False, indent=4)
+        self.use_recipe_data_success = True
+
+    def save_faild_recipe(self, subgoal:dict):
+        for key, value in subgoal.items():
+            if key in self.recipe_memory_failed:
+                self.recipe_memory_failed[key].append(self.recipe_dependency_list[key])
+            else:
+                self.recipe_memory_failed[key] = [self.recipe_dependency_list[key]]
+            
+            if key in self.recipe_data_success:
+                self.use_recipe_data_success = False
+
 
     # レシピルート取得　&　可視化
     def get_recipe_list(self, item_name:str, reset=False):
@@ -365,6 +394,7 @@ class RecipeAgent:
                 next_goal, context = self.current_goal_algorithm(task)
                 return next_goal, context
             else:
+                print(f"There is no such item in Minecraft: {key}")
                 return None, None
         
         
