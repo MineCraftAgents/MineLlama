@@ -1,12 +1,875 @@
-"To make 1 crafting_table, you need 4 planks."
-"To make 1 iron_pickaxe, you need 3 iron_ingot, 2 stick."
-"To make 1 stone_pickaxe, you need 3 cobblestone, 2 stick."
-"To make 4 stick, you need 2 planks."
-"To make 1 wooden_pickaxe, you need 3 planks, 2 stick."
-"To make 1 cooked_beef, you need 1 beef."
-"To make 4 planks, you need 1 log."
-"To make 1 bed, you need 3 wool, 3 planks."
-"To make 1 furnace, you need 8 cobblestone."
-"To make 1 log, no materials are needed."
-"To mine 1 iron_ore, you need 1 stone_pickaxe."
-"To mine 1 cobblestone, you need 1 wooden_pickaxe."
+To get 1 bookshelf, you need 6 planks and 3 book to craft with crafting_table.
+To get 4 bowl, you need 3 planks to craft with crafting_table.
+To get 1 acacia_button, you need 1 planks to craft with crafting_table.
+To get 1 birch_button, you need 1 planks to craft with crafting_table.
+To get 1 dark_oak_button, you need 1 planks to craft with crafting_table.
+To get 1 jungle_button, you need 1 planks to craft with crafting_table.
+To get 1 spruce_button, you need 1 planks to craft with crafting_table.
+To get 1 chest, you need 8 planks to craft with crafting_table.
+To get 1 daylight_detector, you need 3 glass and 3 quartz and 3 wooden_slab to craft with crafting_table.
+To get 1 daylight_detector, you need 3 glass and 3 quartz and 3 crimson_slab to craft with crafting_table.
+To get 1 daylight_detector, you need 3 glass and 3 quartz and 3 mangrove_slab to craft with crafting_table.
+To get 1 daylight_detector, you need 3 glass and 3 quartz and 3 warped_slab to craft with crafting_table.
+To get 3 fire_charge, you need 1 blaze_powder and 1 charcoal and 1 gunpowder to craft with crafting_table.
+To get 3 fire_charge, you need 1 blaze_powder and 1 coal and 1 gunpowder to craft with crafting_table.
+To get 1 jukebox, you need 8 planks and 1 diamond to craft with crafting_table.
+To get 1 note_block, you need 8 planks and 1 redstone to craft with crafting_table.
+To get 6 stone_block_slab, you need 3 cobblestone to craft with crafting_table.
+To get 6 stone_block_slab, you need 3 nether_bricks to craft with crafting_table.
+To get 6 stone_block_slab, you need 3 sandstone to craft with crafting_table.
+To get 6 stone_block_slab, you need 3 bricks to craft with crafting_table.
+To get 6 stone_block_slab, you need 3 stonebrick to craft with crafting_table.
+To get 6 stone_block_slab, you need 3 smooth_stone to craft with crafting_table.
+To get 6 stone_block_slab, you need 3 quartz_block to craft with crafting_table.
+To get 1 painting, you need 8 stick and 1 wool to craft with crafting_table.
+To get 1 piston, you need 3 planks and 4 cobblestone and 1 iron_ingot and 1 redstone to craft with crafting_table.
+To get 1 acacia_pressure_plate, you need 2 planks to craft with crafting_table.
+To get 1 birch_pressure_plate, you need 2 planks to craft with crafting_table.
+To get 1 dark_oak_pressure_plate, you need 2 planks to craft with crafting_table.
+To get 1 jungle_pressure_plate, you need 2 planks to craft with crafting_table.
+To get 1 spruce_pressure_plate, you need 2 planks to craft with crafting_table.
+To get 1 stick, you need 2 bamboo to craft with crafting_table.
+To get 4 stick, you need 2 planks to craft with crafting_table.
+To get 6 stone_block_slab4, you need 3 stone to craft with crafting_table.
+To get 6 stone_block_slab4, you need 3 stonebrick to craft with crafting_table.
+To get 6 stone_block_slab4, you need 3 red_sandstone to craft with crafting_table.
+To get 6 stone_block_slab4, you need 3 sandstone to craft with crafting_table.
+To get 6 stone_block_slab4, you need 3 quartz_block to craft with crafting_table.
+To get 4 torch, you need 1 charcoal and 1 stick to craft with crafting_table.
+To get 4 torch, you need 1 coal and 1 stick to craft with crafting_table.
+To get 2 acacia_trapdoor, you need 6 planks to craft with crafting_table.
+To get 2 birch_trapdoor, you need 6 planks to craft with crafting_table.
+To get 2 dark_oak_trapdoor, you need 6 planks to craft with crafting_table.
+To get 2 jungle_trapdoor, you need 6 planks to craft with crafting_table.
+To get 2 spruce_trapdoor, you need 6 planks to craft with crafting_table.
+To get 2 oak_trapdoor, you need 6 planks to craft with crafting_table.
+To get 2 tripwire_hook, you need 1 iron_ingot and 1 stick and 1 planks to craft with crafting_table.
+To get 1 tripwire_hook, you need 1 iron_ingot and 1 stick and 1 planks to craft with crafting_table.
+To get 1 oak_button, you need 1 planks to craft with crafting_table.
+To get 1 oak_pressure_plate, you need 2 planks to craft with crafting_table.
+To get 1 crafting_table, you need 4 planks to craft with crafting_table.
+To get 4 acacia_stairs, you need 6 planks to craft with crafting_table.
+To get 1 white_bed, you need 3 wool and 3 planks to craft with crafting_table.
+To get 1 white_bed, you need 1 white_bed and 1 ink_sac to craft with crafting_table.
+To get 1 white_bed, you need 1 white_bed and 1 lime_dye to craft with crafting_table.
+To get 1 white_bed, you need 1 white_bed and 1 yellow_dye to craft with crafting_table.
+To get 1 white_bed, you need 1 white_bed and 1 light_blue_dye to craft with crafting_table.
+To get 1 white_bed, you need 1 white_bed and 1 magenta_dye to craft with crafting_table.
+To get 1 white_bed, you need 1 white_bed and 1 orange_dye to craft with crafting_table.
+To get 1 white_bed, you need 1 white_bed and 1 bone_meal to craft with crafting_table.
+To get 1 white_bed, you need 1 white_bed and 1 black_dye to craft with crafting_table.
+To get 1 white_bed, you need 1 white_bed and 1 brown_dye to craft with crafting_table.
+To get 1 white_bed, you need 1 white_bed and 1 blue_dye to craft with crafting_table.
+To get 1 white_bed, you need 1 white_bed and 1 white_dye to craft with crafting_table.
+To get 1 white_bed, you need 1 white_bed and 1 red_dye to craft with crafting_table.
+To get 1 white_bed, you need 1 white_bed and 1 green_dye to craft with crafting_table.
+To get 1 white_bed, you need 1 white_bed and 1 cocoa_beans to craft with crafting_table.
+To get 1 white_bed, you need 1 white_bed and 1 lapis_lazuli to craft with crafting_table.
+To get 1 white_bed, you need 1 white_bed and 1 purple_dye to craft with crafting_table.
+To get 1 white_bed, you need 1 white_bed and 1 cyan_dye to craft with crafting_table.
+To get 1 white_bed, you need 1 white_bed and 1 light_gray_dye to craft with crafting_table.
+To get 1 white_bed, you need 1 white_bed and 1 gray_dye to craft with crafting_table.
+To get 1 white_bed, you need 1 white_bed and 1 pink_dye to craft with crafting_table.
+To get 4 birch_stairs, you need 6 planks to craft with crafting_table.
+To get 1 quartz_block, you need 2 stone_block_slab to craft with crafting_table.
+To get 2 quartz_block, you need 2 quartz_block to craft with crafting_table.
+To get 1 quartz_block, you need 4 quartz to craft with crafting_table.
+To get 1 quartz_block, you need 1 quartz_block to smelt with furnace.
+To get 1 stonebrick, you need 2 stone_block_slab to craft with crafting_table.
+To get 1 stonebrick, you need 1 stonebrick and 1 vine to craft with crafting_table.
+To get 1 stonebrick, you need 1 stonebrick and 1 moss_block to craft with crafting_table.
+To get 4 stonebrick, you need 4 stone to craft with crafting_table.
+To get 1 stonebrick, you need 1 stonebrick to smelt with furnace.
+To get 4 dark_oak_stairs, you need 6 planks to craft with crafting_table.
+To get 1 red_sandstone, you need 2 stone_block_slab2 to craft with crafting_table.
+To get 1 red_sandstone, you need 4 sand to craft with crafting_table.
+To get 4 red_sandstone, you need 4 red_sandstone to craft with crafting_table.
+To get 1 red_sandstone, you need 1 red_sandstone to smelt with furnace.
+To get 1 sandstone, you need 2 stone_block_slab to craft with crafting_table.
+To get 1 sandstone, you need 4 sand to craft with crafting_table.
+To get 4 sandstone, you need 4 sandstone to craft with crafting_table.
+To get 1 sandstone, you need 1 sandstone to smelt with furnace.
+To get 4 jungle_stairs, you need 6 planks to craft with crafting_table.
+To get 1 purpur_block, you need 2 stone_block_slab2 to craft with crafting_table.
+To get 4 purpur_block, you need 4 popped_chorus_fruit to craft with crafting_table.
+To get 1 loom, you need 2 string and 2 planks to craft with crafting_table.
+To get 1 acacia_boat, you need 5 planks and 1 wooden_shovel to craft with crafting_table.
+To get 1 acacia_chest_boat, you need 1 chest and 1 acacia_boat to craft with crafting_table.
+To get 3 acacia_door, you need 6 planks to craft with crafting_table.
+To get 3 fence, you need 4 planks and 2 stick to craft with crafting_table.
+To get 1 acacia_fence_gate, you need 4 stick and 2 planks to craft with crafting_table.
+To get 4 planks, you need 1 log to craft with crafting_table.
+To get 4 planks, you need 1 wood to craft with crafting_table.
+To get 3 wood, you need 4 log to craft with crafting_table.
+To get 6 wooden_slab, you need 3 planks to craft with crafting_table.
+To get 6 activator_rail, you need 6 iron_ingot and 2 stick and 1 redstone_torch to craft with crafting_table.
+To get 1 amethyst_block, you need 4 amethyst_shard to craft with crafting_table.
+To get 2 stone, you need 1 stone and 1 cobblestone to craft with crafting_table.
+To get 2 stone, you need 2 cobblestone and 2 quartz to craft with crafting_table.
+To get 1 stone, you need 1 stone and 1 quartz to craft with crafting_table.
+To get 4 stone, you need 4 stone to craft with crafting_table.
+To get 1 stone, you need 1 cobblestone to smelt with furnace.
+To get 4 andesite_stairs, you need 6 stone to craft with crafting_table.
+To get 6 cobblestone_wall, you need 6 stone to craft with crafting_table.
+To get 6 cobblestone_wall, you need 6 bricks to craft with crafting_table.
+To get 6 cobblestone_wall, you need 6 cobblestone to craft with crafting_table.
+To get 6 cobblestone_wall, you need 6 end_stone_bricks to craft with crafting_table.
+To get 6 cobblestone_wall, you need 6 mossy_cobblestone to craft with crafting_table.
+To get 6 cobblestone_wall, you need 6 stonebrick to craft with crafting_table.
+To get 6 cobblestone_wall, you need 6 nether_bricks to craft with crafting_table.
+To get 6 cobblestone_wall, you need 6 prismarine to craft with crafting_table.
+To get 6 cobblestone_wall, you need 6 red_nether_bricks to craft with crafting_table.
+To get 6 cobblestone_wall, you need 6 red_sandstone to craft with crafting_table.
+To get 6 cobblestone_wall, you need 6 sandstone to craft with crafting_table.
+To get 1 anvil, you need 3 iron_block and 4 iron_ingot to craft with crafting_table.
+To get 1 armor_stand, you need 6 stick and 1 stone_block_slab to craft with crafting_table.
+To get 4 arrow, you need 1 flint and 1 stick and 1 feather to craft with crafting_table.
+To get 8 arrow, you need 8 arrow and 1 lingering_potion to craft with crafting_table.
+To get 1 field_masoned_banner_pattern, you need 1 paper and 1 bricks to craft with crafting_table.
+To get 1 creeper_banner_pattern, you need 1 paper and 1 skull to craft with crafting_table.
+To get 1 flower_banner_pattern, you need 1 paper and 1 red_flower to craft with crafting_table.
+To get 1 skull_banner_pattern, you need 1 paper and 1 skull to craft with crafting_table.
+To get 1 mojang_banner_pattern, you need 1 paper and 1 enchanted_golden_apple to craft with crafting_table.
+To get 1 bordure_indented_banner_pattern, you need 1 paper and 1 vine to craft with crafting_table.
+To get 1 barrel, you need 6 stick and 2 wooden_slab to craft with crafting_table.
+To get 1 barrel, you need 6 stick and 2 crimson_slab to craft with crafting_table.
+To get 1 barrel, you need 6 stick and 2 mangrove_slab to craft with crafting_table.
+To get 1 barrel, you need 6 stick and 2 warped_slab to craft with crafting_table.
+To get 1 empty_map, you need 1 empty_map and 1 compass to craft with crafting_table.
+To get 1 empty_map, you need 8 paper and 1 compass to craft with crafting_table.
+To get 1 empty_map, you need 9 paper to craft with crafting_table.
+To get 1 beacon, you need 5 glass and 1 nether_star and 3 obsidian to craft with crafting_table.
+To get 1 beehive, you need 6 planks and 3 honeycomb to craft with crafting_table.
+To get 1 beetroot_soup, you need 1 bowl and 6 beetroots to craft with crafting_table.
+To get 1 birch_boat, you need 5 planks and 1 wooden_shovel to craft with crafting_table.
+To get 1 birch_chest_boat, you need 1 chest and 1 birch_boat to craft with crafting_table.
+To get 3 birch_door, you need 6 planks to craft with crafting_table.
+To get 1 birch_fence_gate, you need 4 stick and 2 planks to craft with crafting_table.
+To get 1 banner, you need 6 wool and 1 stick to craft with crafting_table.
+To get 1 black_candle, you need 1 candle and 1 black_dye to craft with crafting_table.
+To get 1 black_candle, you need 1 candle and 1 ink_sac to craft with crafting_table.
+To get 3 carpet, you need 2 wool to craft with crafting_table.
+To get 8 carpet, you need 8 carpet and 1 black_dye to craft with crafting_table.
+To get 8 carpet, you need 8 carpet and 1 blue_dye to craft with crafting_table.
+To get 8 carpet, you need 8 carpet and 1 brown_dye to craft with crafting_table.
+To get 8 carpet, you need 8 carpet and 1 cyan_dye to craft with crafting_table.
+To get 8 carpet, you need 8 carpet and 1 gray_dye to craft with crafting_table.
+To get 8 carpet, you need 8 carpet and 1 green_dye to craft with crafting_table.
+To get 8 carpet, you need 8 carpet and 1 light_blue_dye to craft with crafting_table.
+To get 8 carpet, you need 8 carpet and 1 light_gray_dye to craft with crafting_table.
+To get 8 carpet, you need 8 carpet and 1 lime_dye to craft with crafting_table.
+To get 8 carpet, you need 8 carpet and 1 magenta_dye to craft with crafting_table.
+To get 8 carpet, you need 8 carpet and 1 orange_dye to craft with crafting_table.
+To get 8 carpet, you need 8 carpet and 1 pink_dye to craft with crafting_table.
+To get 8 carpet, you need 8 carpet and 1 purple_dye to craft with crafting_table.
+To get 8 carpet, you need 8 carpet and 1 red_dye to craft with crafting_table.
+To get 8 carpet, you need 8 carpet and 1 yellow_dye to craft with crafting_table.
+To get 8 concrete_powder, you need 1 black_dye and 4 sand and 4 gravel to craft with crafting_table.
+To get 8 concrete_powder, you need 1 ink_sac and 4 sand and 4 gravel to craft with crafting_table.
+To get 8 concrete_powder, you need 1 blue_dye and 4 sand and 4 gravel to craft with crafting_table.
+To get 8 concrete_powder, you need 1 lapis_lazuli and 4 sand and 4 gravel to craft with crafting_table.
+To get 8 concrete_powder, you need 1 brown_dye and 4 sand and 4 gravel to craft with crafting_table.
+To get 8 concrete_powder, you need 1 cocoa_beans and 4 sand and 4 gravel to craft with crafting_table.
+To get 8 concrete_powder, you need 1 cyan_dye and 4 sand and 4 gravel to craft with crafting_table.
+To get 8 concrete_powder, you need 1 gray_dye and 4 sand and 4 gravel to craft with crafting_table.
+To get 8 concrete_powder, you need 1 green_dye and 4 sand and 4 gravel to craft with crafting_table.
+To get 8 concrete_powder, you need 1 light_blue_dye and 4 sand and 4 gravel to craft with crafting_table.
+To get 8 concrete_powder, you need 1 light_gray_dye and 4 sand and 4 gravel to craft with crafting_table.
+To get 8 concrete_powder, you need 1 lime_dye and 4 sand and 4 gravel to craft with crafting_table.
+To get 8 concrete_powder, you need 1 magenta_dye and 4 sand and 4 gravel to craft with crafting_table.
+To get 8 concrete_powder, you need 1 orange_dye and 4 sand and 4 gravel to craft with crafting_table.
+To get 8 concrete_powder, you need 1 pink_dye and 4 sand and 4 gravel to craft with crafting_table.
+To get 8 concrete_powder, you need 1 purple_dye and 4 sand and 4 gravel to craft with crafting_table.
+To get 8 concrete_powder, you need 1 red_dye and 4 sand and 4 gravel to craft with crafting_table.
+To get 8 concrete_powder, you need 1 white_dye and 4 sand and 4 gravel to craft with crafting_table.
+To get 8 concrete_powder, you need 1 bone_meal and 4 sand and 4 gravel to craft with crafting_table.
+To get 8 concrete_powder, you need 1 yellow_dye and 4 sand and 4 gravel to craft with crafting_table.
+To get 1 black_dye, you need 1 ink_sac to craft with crafting_table.
+To get 1 black_dye, you need 1 wither_rose to craft with crafting_table.
+To get 8 stained_glass, you need 8 glass and 1 black_dye to craft with crafting_table.
+To get 8 stained_glass, you need 8 glass and 1 ink_sac to craft with crafting_table.
+To get 8 stained_glass, you need 8 glass and 1 blue_dye to craft with crafting_table.
+To get 8 stained_glass, you need 8 glass and 1 lapis_lazuli to craft with crafting_table.
+To get 8 stained_glass, you need 8 glass and 1 brown_dye to craft with crafting_table.
+To get 8 stained_glass, you need 8 glass and 1 cocoa_beans to craft with crafting_table.
+To get 8 stained_glass, you need 8 glass and 1 cyan_dye to craft with crafting_table.
+To get 8 stained_glass, you need 8 glass and 1 gray_dye to craft with crafting_table.
+To get 8 stained_glass, you need 8 glass and 1 green_dye to craft with crafting_table.
+To get 8 stained_glass, you need 8 glass and 1 light_blue_dye to craft with crafting_table.
+To get 8 stained_glass, you need 8 glass and 1 light_gray_dye to craft with crafting_table.
+To get 8 stained_glass, you need 8 glass and 1 lime_dye to craft with crafting_table.
+To get 8 stained_glass, you need 8 glass and 1 magenta_dye to craft with crafting_table.
+To get 8 stained_glass, you need 8 glass and 1 orange_dye to craft with crafting_table.
+To get 8 stained_glass, you need 8 glass and 1 pink_dye to craft with crafting_table.
+To get 8 stained_glass, you need 8 glass and 1 purple_dye to craft with crafting_table.
+To get 8 stained_glass, you need 8 glass and 1 red_dye to craft with crafting_table.
+To get 8 stained_glass, you need 8 glass and 1 white_dye to craft with crafting_table.
+To get 8 stained_glass, you need 8 glass and 1 bone_meal to craft with crafting_table.
+To get 8 stained_glass, you need 8 glass and 1 yellow_dye to craft with crafting_table.
+To get 16 stained_glass_pane, you need 6 stained_glass to craft with crafting_table.
+To get 8 stained_glass_pane, you need 8 glass_pane and 1 black_dye to craft with crafting_table.
+To get 8 stained_glass_pane, you need 8 glass_pane and 1 blue_dye to craft with crafting_table.
+To get 8 stained_glass_pane, you need 8 glass_pane and 1 brown_dye to craft with crafting_table.
+To get 8 stained_glass_pane, you need 8 glass_pane and 1 cyan_dye to craft with crafting_table.
+To get 8 stained_glass_pane, you need 8 glass_pane and 1 gray_dye to craft with crafting_table.
+To get 8 stained_glass_pane, you need 8 glass_pane and 1 green_dye to craft with crafting_table.
+To get 8 stained_glass_pane, you need 8 glass_pane and 1 light_blue_dye to craft with crafting_table.
+To get 8 stained_glass_pane, you need 8 glass_pane and 1 light_gray_dye to craft with crafting_table.
+To get 8 stained_glass_pane, you need 8 glass_pane and 1 lime_dye to craft with crafting_table.
+To get 8 stained_glass_pane, you need 8 glass_pane and 1 magenta_dye to craft with crafting_table.
+To get 8 stained_glass_pane, you need 8 glass_pane and 1 orange_dye to craft with crafting_table.
+To get 8 stained_glass_pane, you need 8 glass_pane and 1 pink_dye to craft with crafting_table.
+To get 8 stained_glass_pane, you need 8 glass_pane and 1 purple_dye to craft with crafting_table.
+To get 8 stained_glass_pane, you need 8 glass_pane and 1 red_dye to craft with crafting_table.
+To get 8 stained_glass_pane, you need 8 glass_pane and 1 white_dye to craft with crafting_table.
+To get 8 stained_glass_pane, you need 8 glass_pane and 1 yellow_dye to craft with crafting_table.
+To get 8 stained_hardened_clay, you need 8 terracotta and 1 black_dye to craft with crafting_table.
+To get 8 stained_hardened_clay, you need 8 terracotta and 1 ink_sac to craft with crafting_table.
+To get 8 stained_hardened_clay, you need 8 terracotta and 1 blue_dye to craft with crafting_table.
+To get 8 stained_hardened_clay, you need 8 terracotta and 1 lapis_lazuli to craft with crafting_table.
+To get 8 stained_hardened_clay, you need 8 terracotta and 1 brown_dye to craft with crafting_table.
+To get 8 stained_hardened_clay, you need 8 terracotta and 1 cocoa_beans to craft with crafting_table.
+To get 8 stained_hardened_clay, you need 8 terracotta and 1 cyan_dye to craft with crafting_table.
+To get 8 stained_hardened_clay, you need 8 terracotta and 1 gray_dye to craft with crafting_table.
+To get 8 stained_hardened_clay, you need 8 terracotta and 1 green_dye to craft with crafting_table.
+To get 8 stained_hardened_clay, you need 8 terracotta and 1 light_blue_dye to craft with crafting_table.
+To get 8 stained_hardened_clay, you need 8 terracotta and 1 light_gray_dye to craft with crafting_table.
+To get 8 stained_hardened_clay, you need 8 terracotta and 1 lime_dye to craft with crafting_table.
+To get 8 stained_hardened_clay, you need 8 terracotta and 1 magenta_dye to craft with crafting_table.
+To get 8 stained_hardened_clay, you need 8 terracotta and 1 orange_dye to craft with crafting_table.
+To get 8 stained_hardened_clay, you need 8 terracotta and 1 pink_dye to craft with crafting_table.
+To get 8 stained_hardened_clay, you need 8 terracotta and 1 purple_dye to craft with crafting_table.
+To get 8 stained_hardened_clay, you need 8 terracotta and 1 red_dye to craft with crafting_table.
+To get 8 stained_hardened_clay, you need 8 terracotta and 1 white_dye to craft with crafting_table.
+To get 8 stained_hardened_clay, you need 8 terracotta and 1 bone_meal to craft with crafting_table.
+To get 8 stained_hardened_clay, you need 8 terracotta and 1 yellow_dye to craft with crafting_table.
+To get 6 blackstone_slab, you need 3 blackstone to craft with crafting_table.
+To get 4 blackstone_stairs, you need 6 blackstone to craft with crafting_table.
+To get 6 blackstone_wall, you need 6 blackstone to craft with crafting_table.
+To get 1 blast_furnace, you need 5 iron_ingot and 1 furnace and 3 smooth_stone to craft with crafting_table.
+To get 2 blaze_powder, you need 1 blaze_rod to craft with crafting_table.
+To get 1 blue_candle, you need 1 candle and 1 blue_dye to craft with crafting_table.
+To get 1 blue_candle, you need 1 candle and 1 lapis_lazuli to craft with crafting_table.
+To get 1 blue_dye, you need 1 red_flower to craft with crafting_table.
+To get 1 blue_dye, you need 1 lapis_lazuli to craft with crafting_table.
+To get 1 blue_ice, you need 9 packed_ice to craft with crafting_table.
+To get 1 oak_boat, you need 5 planks and 1 wooden_shovel to craft with crafting_table.
+To get 1 bone_block, you need 9 bone_meal to craft with crafting_table.
+To get 9 bone_meal, you need 1 bone_block to craft with crafting_table.
+To get 3 bone_meal, you need 1 bone to craft with crafting_table.
+To get 1 book, you need 3 paper and 1 leather to craft with crafting_table.
+To get 1 bow, you need 3 stick and 3 string to craft with crafting_table.
+To get 1 bread, you need 3 wheat to craft with crafting_table.
+To get 1 brewing_stand, you need 1 blaze_rod and 3 cobblestone to craft with crafting_table.
+To get 1 brewing_stand, you need 1 blaze_rod and 3 blackstone to craft with crafting_table.
+To get 1 brewing_stand, you need 1 blaze_rod and 3 cobbled_deepslate to craft with crafting_table.
+To get 1 bricks, you need 4 brick to craft with crafting_table.
+To get 4 brick_stairs, you need 6 bricks to craft with crafting_table.
+To get 1 brown_candle, you need 1 candle and 1 brown_dye to craft with crafting_table.
+To get 1 brown_candle, you need 1 candle and 1 cocoa_beans to craft with crafting_table.
+To get 1 brown_dye, you need 1 cocoa_beans to craft with crafting_table.
+To get 1 bucket, you need 3 iron_ingot to craft with crafting_table.
+To get 3 bucket, you need 3 milk_bucket and 2 sugar and 1 egg and 3 wheat to craft with crafting_table.
+To get 1 cake, you need 3 milk_bucket and 2 sugar and 1 egg and 3 wheat to craft with crafting_table.
+To get 1 campfire, you need 3 stick and 1 coal and 3 log to craft with crafting_table.
+To get 1 campfire, you need 3 stick and 1 charcoal and 3 log to craft with crafting_table.
+To get 1 campfire, you need 3 stick and 1 charcoal and 3 wood to craft with crafting_table.
+To get 1 campfire, you need 3 stick and 1 coal and 3 crimson_stem to craft with crafting_table.
+To get 1 campfire, you need 3 stick and 1 coal and 3 wood to craft with crafting_table.
+To get 1 campfire, you need 3 stick and 1 coal and 3 stripped_crimson_stem to craft with crafting_table.
+To get 1 campfire, you need 3 stick and 1 coal and 3 stripped_warped_stem to craft with crafting_table.
+To get 1 campfire, you need 3 stick and 1 coal and 3 warped_stem to craft with crafting_table.
+To get 1 candle, you need 1 string and 1 honeycomb to craft with crafting_table.
+To get 1 carrot_on_a_stick, you need 1 fishing_rod and 1 carrot to craft with crafting_table.
+To get 1 cartography_table, you need 2 paper and 4 planks to craft with crafting_table.
+To get 1 cauldron, you need 7 iron_ingot to craft with crafting_table.
+To get 1 chain, you need 2 iron_nugget and 1 iron_ingot to craft with crafting_table.
+To get 1 oak_chest_boat, you need 1 chest and 1 oak_boat to craft with crafting_table.
+To get 1 chest_minecart, you need 1 chest and 1 minecart to craft with crafting_table.
+To get 1 chiseled_deepslate, you need 2 cobbled_deepslate_slab to craft with crafting_table.
+To get 1 chiseled_nether_bricks, you need 2 stone_block_slab to craft with crafting_table.
+To get 1 chiseled_polished_blackstone, you need 2 polished_blackstone_slab to craft with crafting_table.
+To get 1 clay, you need 4 clay_ball to craft with crafting_table.
+To get 1 clock, you need 4 gold_ingot and 1 redstone to craft with crafting_table.
+To get 9 coal, you need 1 coal_block to craft with crafting_table.
+To get 1 coal, you need 1 deepslate_coal_ore to smelt with furnace.
+To get 1 coal, you need 1 coal_ore to smelt with furnace.
+To get 1 coal_block, you need 9 coal to craft with crafting_table.
+To get 4 dirt, you need 2 dirt and 2 gravel to craft with crafting_table.
+To get 6 cobbled_deepslate_slab, you need 3 cobbled_deepslate to craft with crafting_table.
+To get 4 cobbled_deepslate_stairs, you need 6 cobbled_deepslate to craft with crafting_table.
+To get 6 cobbled_deepslate_wall, you need 6 cobbled_deepslate to craft with crafting_table.
+To get 4 cobblestone_stairs, you need 6 cobblestone to craft with crafting_table.
+To get 9 string, you need 1 cobweb to craft with crafting_table.
+To get 1 comparator, you need 3 redstone_torch and 1 quartz and 3 stone to craft with crafting_table.
+To get 1 compass, you need 4 iron_ingot and 1 redstone to craft with crafting_table.
+To get 1 composter, you need 7 wooden_slab to craft with crafting_table.
+To get 1 composter, you need 7 crimson_slab to craft with crafting_table.
+To get 1 composter, you need 7 mangrove_slab to craft with crafting_table.
+To get 1 composter, you need 7 warped_slab to craft with crafting_table.
+To get 1 conduit, you need 8 nautilus_shell and 1 heart_of_the_sea to craft with crafting_table.
+To get 8 cookie, you need 2 wheat and 1 cocoa_beans to craft with crafting_table.
+To get 1 copper_block, you need 9 copper_ingot to craft with crafting_table.
+To get 4 cut_copper, you need 4 copper_block to craft with crafting_table.
+To get 6 cut_copper_slab, you need 3 cut_copper to craft with crafting_table.
+To get 4 cut_copper_stairs, you need 6 cut_copper to craft with crafting_table.
+To get 4 exposed_cut_copper, you need 4 exposed_copper to craft with crafting_table.
+To get 6 exposed_cut_copper_slab, you need 3 exposed_cut_copper to craft with crafting_table.
+To get 4 exposed_cut_copper_stairs, you need 6 exposed_cut_copper to craft with crafting_table.
+To get 4 oxidized_cut_copper, you need 4 oxidized_copper to craft with crafting_table.
+To get 6 oxidized_cut_copper_slab, you need 3 oxidized_cut_copper to craft with crafting_table.
+To get 4 oxidized_cut_copper_stairs, you need 6 oxidized_cut_copper to craft with crafting_table.
+To get 4 waxed_cut_copper, you need 4 waxed_copper_block to craft with crafting_table.
+To get 1 waxed_cut_copper, you need 1 cut_copper and 1 honeycomb to craft with crafting_table.
+To get 6 waxed_cut_copper_slab, you need 3 waxed_cut_copper to craft with crafting_table.
+To get 1 waxed_cut_copper_slab, you need 1 cut_copper_slab and 1 honeycomb to craft with crafting_table.
+To get 4 waxed_cut_copper_stairs, you need 6 waxed_cut_copper to craft with crafting_table.
+To get 1 waxed_cut_copper_stairs, you need 1 cut_copper_stairs and 1 honeycomb to craft with crafting_table.
+To get 4 waxed_exposed_cut_copper, you need 4 waxed_exposed_copper to craft with crafting_table.
+To get 1 waxed_exposed_cut_copper, you need 1 exposed_cut_copper and 1 honeycomb to craft with crafting_table.
+To get 6 waxed_exposed_cut_copper_slab, you need 3 waxed_exposed_cut_copper to craft with crafting_table.
+To get 1 waxed_exposed_cut_copper_slab, you need 1 exposed_cut_copper_slab and 1 honeycomb to craft with crafting_table.
+To get 4 waxed_exposed_cut_copper_stairs, you need 6 waxed_exposed_cut_copper to craft with crafting_table.
+To get 1 waxed_exposed_cut_copper_stairs, you need 1 exposed_cut_copper_stairs and 1 honeycomb to craft with crafting_table.
+To get 4 waxed_oxidized_cut_copper, you need 4 waxed_oxidized_copper to craft with crafting_table.
+To get 1 waxed_oxidized_cut_copper, you need 1 oxidized_cut_copper and 1 honeycomb to craft with crafting_table.
+To get 6 waxed_oxidized_cut_copper_slab, you need 3 waxed_oxidized_cut_copper to craft with crafting_table.
+To get 1 waxed_oxidized_cut_copper_slab, you need 1 oxidized_cut_copper_slab and 1 honeycomb to craft with crafting_table.
+To get 4 waxed_oxidized_cut_copper_stairs, you need 6 waxed_oxidized_cut_copper to craft with crafting_table.
+To get 1 waxed_oxidized_cut_copper_stairs, you need 1 oxidized_cut_copper_stairs and 1 honeycomb to craft with crafting_table.
+To get 4 waxed_weathered_cut_copper, you need 4 waxed_weathered_copper to craft with crafting_table.
+To get 1 waxed_weathered_cut_copper, you need 1 weathered_cut_copper and 1 honeycomb to craft with crafting_table.
+To get 6 waxed_weathered_cut_copper_slab, you need 3 waxed_weathered_cut_copper to craft with crafting_table.
+To get 1 waxed_weathered_cut_copper_slab, you need 1 weathered_cut_copper_slab and 1 honeycomb to craft with crafting_table.
+To get 4 waxed_weathered_cut_copper_stairs, you need 6 waxed_weathered_cut_copper to craft with crafting_table.
+To get 1 waxed_weathered_cut_copper_stairs, you need 1 weathered_cut_copper_stairs and 1 honeycomb to craft with crafting_table.
+To get 4 weathered_cut_copper, you need 4 weathered_copper to craft with crafting_table.
+To get 6 weathered_cut_copper_slab, you need 3 weathered_cut_copper to craft with crafting_table.
+To get 4 weathered_cut_copper_stairs, you need 6 weathered_cut_copper to craft with crafting_table.
+To get 1 crimson_button, you need 1 planks to craft with crafting_table.
+To get 3 crimson_door, you need 6 planks to craft with crafting_table.
+To get 3 crimson_fence, you need 4 planks and 2 stick to craft with crafting_table.
+To get 1 crimson_fence_gate, you need 4 stick and 2 planks to craft with crafting_table.
+To get 3 crimson_hyphae, you need 4 crimson_stem to craft with crafting_table.
+To get 1 crimson_pressure_plate, you need 2 planks to craft with crafting_table.
+To get 3 crimson_sign, you need 6 planks and 1 stick to craft with crafting_table.
+To get 6 crimson_slab, you need 3 planks to craft with crafting_table.
+To get 4 crimson_stairs, you need 6 planks to craft with crafting_table.
+To get 2 crimson_trapdoor, you need 6 planks to craft with crafting_table.
+To get 1 crossbow, you need 3 stick and 1 iron_ingot and 2 string and 1 tripwire_hook to craft with crafting_table.
+To get 1 cyan_candle, you need 1 candle and 1 cyan_dye to craft with crafting_table.
+To get 2 cyan_dye, you need 1 blue_dye and 1 green_dye to craft with crafting_table.
+To get 2 cyan_dye, you need 1 lapis_lazuli and 1 green_dye to craft with crafting_table.
+To get 1 dark_oak_boat, you need 5 planks and 1 wooden_shovel to craft with crafting_table.
+To get 1 dark_oak_chest_boat, you need 1 chest and 1 dark_oak_boat to craft with crafting_table.
+To get 3 dark_oak_door, you need 6 planks to craft with crafting_table.
+To get 1 dark_oak_fence_gate, you need 4 stick and 2 planks to craft with crafting_table.
+To get 1 prismarine, you need 8 prismarine_shard and 1 black_dye to craft with crafting_table.
+To get 1 prismarine, you need 8 prismarine_shard and 1 ink_sac to craft with crafting_table.
+To get 1 prismarine, you need 4 prismarine_shard to craft with crafting_table.
+To get 1 prismarine, you need 9 prismarine_shard to craft with crafting_table.
+To get 6 deepslate_brick_slab, you need 3 deepslate_bricks to craft with crafting_table.
+To get 4 deepslate_brick_stairs, you need 6 deepslate_bricks to craft with crafting_table.
+To get 6 deepslate_brick_wall, you need 6 deepslate_bricks to craft with crafting_table.
+To get 4 deepslate_bricks, you need 4 polished_deepslate to craft with crafting_table.
+To get 6 deepslate_tile_slab, you need 3 deepslate_tiles to craft with crafting_table.
+To get 4 deepslate_tile_stairs, you need 6 deepslate_tiles to craft with crafting_table.
+To get 6 deepslate_tile_wall, you need 6 deepslate_tiles to craft with crafting_table.
+To get 4 deepslate_tiles, you need 4 deepslate_bricks to craft with crafting_table.
+To get 6 detector_rail, you need 6 iron_ingot and 1 stone_pressure_plate and 1 redstone to craft with crafting_table.
+To get 9 diamond, you need 1 diamond_block to craft with crafting_table.
+To get 1 diamond, you need 1 deepslate_diamond_ore to smelt with furnace.
+To get 1 diamond, you need 1 diamond_ore to smelt with furnace.
+To get 1 diamond_axe, you need 3 diamond and 2 stick to craft with crafting_table.
+To get 1 diamond_block, you need 9 diamond to craft with crafting_table.
+To get 1 diamond_boots, you need 4 diamond to craft with crafting_table.
+To get 1 diamond_chestplate, you need 8 diamond to craft with crafting_table.
+To get 1 diamond_helmet, you need 5 diamond to craft with crafting_table.
+To get 1 diamond_hoe, you need 2 diamond and 2 stick to craft with crafting_table.
+To get 1 diamond_leggings, you need 7 diamond to craft with crafting_table.
+To get 1 diamond_pickaxe, you need 3 diamond and 2 stick to craft with crafting_table.
+To get 1 diamond_shovel, you need 1 diamond and 2 stick to craft with crafting_table.
+To get 1 diamond_sword, you need 2 diamond and 1 stick to craft with crafting_table.
+To get 4 diorite_stairs, you need 6 stone to craft with crafting_table.
+To get 1 dispenser, you need 7 cobblestone and 1 bow and 1 redstone to craft with crafting_table.
+To get 9 dried_kelp, you need 1 dried_kelp_block to craft with crafting_table.
+To get 1 dried_kelp, you need 1 kelp to smelt with furnace.
+To get 1 dried_kelp_block, you need 9 dried_kelp to craft with crafting_table.
+To get 1 dripstone_block, you need 4 pointed_dripstone to craft with crafting_table.
+To get 1 dropper, you need 7 cobblestone and 1 redstone to craft with crafting_table.
+To get 9 emerald, you need 1 emerald_block to craft with crafting_table.
+To get 1 emerald, you need 1 deepslate_emerald_ore to smelt with furnace.
+To get 1 emerald, you need 1 emerald_ore to smelt with furnace.
+To get 1 emerald_block, you need 9 emerald to craft with crafting_table.
+To get 1 enchanting_table, you need 1 book and 2 diamond and 4 obsidian to craft with crafting_table.
+To get 4 end_stone_brick_stairs, you need 6 end_stone_bricks to craft with crafting_table.
+To get 4 end_stone_bricks, you need 4 end_stone to craft with crafting_table.
+To get 1 end_crystal, you need 7 glass and 1 ender_eye and 1 ghast_tear to craft with crafting_table.
+To get 4 end_rod, you need 1 blaze_rod and 1 popped_chorus_fruit to craft with crafting_table.
+To get 1 ender_chest, you need 8 obsidian and 1 ender_eye to craft with crafting_table.
+To get 1 ender_eye, you need 1 ender_pearl and 1 blaze_powder to craft with crafting_table.
+To get 1 oak_fence_gate, you need 4 stick and 2 planks to craft with crafting_table.
+To get 1 fermented_spider_eye, you need 1 spider_eye and 1 brown_mushroom and 1 sugar to craft with crafting_table.
+To get 1 fishing_rod, you need 3 stick and 2 string to craft with crafting_table.
+To get 1 fletching_table, you need 2 flint and 4 planks to craft with crafting_table.
+To get 1 flint_and_steel, you need 1 iron_ingot and 1 flint to craft with crafting_table.
+To get 1 potted_flowering_azalea_bush, you need 3 brick to craft with crafting_table.
+To get 1 furnace, you need 8 cobblestone to craft with crafting_table.
+To get 1 furnace, you need 8 blackstone to craft with crafting_table.
+To get 1 furnace, you need 8 cobbled_deepslate to craft with crafting_table.
+To get 3 glass_bottle, you need 3 glass to craft with crafting_table.
+To get 4 glass_bottle, you need 4 honey_bottle to craft with crafting_table.
+To get 1 glass_bottle, you need 1 honey_bottle to craft with crafting_table.
+To get 16 glass_pane, you need 6 glass to craft with crafting_table.
+To get 1 glow_frame, you need 1 frame and 1 glow_ink_sac to craft with crafting_table.
+To get 1 glowstone, you need 4 glowstone_dust to craft with crafting_table.
+To get 1 gold_block, you need 9 gold_ingot to craft with crafting_table.
+To get 9 gold_ingot, you need 1 gold_block to craft with crafting_table.
+To get 1 gold_ingot, you need 9 gold_nugget to craft with crafting_table.
+To get 1 gold_ingot, you need 1 deepslate_gold_ore to smelt with furnace.
+To get 1 gold_ingot, you need 1 nether_gold_ore to smelt with furnace.
+To get 1 gold_ingot, you need 1 gold_ore to smelt with furnace.
+To get 1 gold_ingot, you need 1 raw_gold to smelt with furnace.
+To get 9 gold_nugget, you need 1 gold_ingot to craft with crafting_table.
+To get 1 gold_nugget, you need 1 golden_sword to smelt with furnace.
+To get 1 gold_nugget, you need 1 golden_shovel to smelt with furnace.
+To get 1 gold_nugget, you need 1 golden_pickaxe to smelt with furnace.
+To get 1 gold_nugget, you need 1 golden_axe to smelt with furnace.
+To get 1 gold_nugget, you need 1 golden_hoe to smelt with furnace.
+To get 1 gold_nugget, you need 1 golden_helmet to smelt with furnace.
+To get 1 gold_nugget, you need 1 golden_chestplate to smelt with furnace.
+To get 1 gold_nugget, you need 1 golden_leggings to smelt with furnace.
+To get 1 gold_nugget, you need 1 golden_boots to smelt with furnace.
+To get 1 gold_nugget, you need 1 golden_horse_armor to smelt with furnace.
+To get 1 golden_apple, you need 8 gold_ingot and 1 apple to craft with crafting_table.
+To get 1 golden_axe, you need 3 gold_ingot and 2 stick to craft with crafting_table.
+To get 1 golden_boots, you need 4 gold_ingot to craft with crafting_table.
+To get 1 golden_carrot, you need 8 gold_nugget and 1 carrot to craft with crafting_table.
+To get 1 golden_chestplate, you need 8 gold_ingot to craft with crafting_table.
+To get 1 golden_helmet, you need 5 gold_ingot to craft with crafting_table.
+To get 1 golden_hoe, you need 2 gold_ingot and 2 stick to craft with crafting_table.
+To get 1 golden_leggings, you need 7 gold_ingot to craft with crafting_table.
+To get 1 golden_pickaxe, you need 3 gold_ingot and 2 stick to craft with crafting_table.
+To get 6 powered_rail, you need 6 gold_ingot and 1 stick and 1 redstone to craft with crafting_table.
+To get 1 golden_shovel, you need 1 gold_ingot and 2 stick to craft with crafting_table.
+To get 1 golden_sword, you need 2 gold_ingot and 1 stick to craft with crafting_table.
+To get 4 granite_stairs, you need 6 stone to craft with crafting_table.
+To get 1 gray_candle, you need 1 candle and 1 gray_dye to craft with crafting_table.
+To get 2 gray_dye, you need 1 black_dye and 1 white_dye to craft with crafting_table.
+To get 2 gray_dye, you need 1 black_dye and 1 bone_meal to craft with crafting_table.
+To get 2 gray_dye, you need 1 ink_sac and 1 bone_meal to craft with crafting_table.
+To get 2 gray_dye, you need 1 ink_sac and 1 white_dye to craft with crafting_table.
+To get 1 green_candle, you need 1 candle and 1 green_dye to craft with crafting_table.
+To get 1 grindstone, you need 2 stick and 1 stone_block_slab4 and 2 planks to craft with crafting_table.
+To get 1 grindstone, you need 2 stick and 1 stone_block_slab and 2 planks to craft with crafting_table.
+To get 1 grindstone, you need 2 stick and 1 stone_block_slab2 and 2 planks to craft with crafting_table.
+To get 1 grindstone, you need 2 stick and 1 stone_block_slab3 and 2 planks to craft with crafting_table.
+To get 1 hay_block, you need 9 wheat to craft with crafting_table.
+To get 1 heavy_weighted_pressure_plate, you need 2 iron_ingot to craft with crafting_table.
+To get 1 honey_block, you need 4 honey_bottle to craft with crafting_table.
+To get 4 honey_bottle, you need 1 honey_block and 4 glass_bottle to craft with crafting_table.
+To get 3 sugar, you need 1 honey_bottle to craft with crafting_table.
+To get 1 sugar, you need 1 sugar_cane to craft with crafting_table.
+To get 1 honeycomb_block, you need 4 honeycomb to craft with crafting_table.
+To get 1 hopper, you need 5 iron_ingot and 1 chest to craft with crafting_table.
+To get 1 hopper_minecart, you need 1 hopper and 1 minecart to craft with crafting_table.
+To get 9 copper_ingot, you need 1 copper_block to craft with crafting_table.
+To get 9 copper_ingot, you need 1 waxed_copper_block to craft with crafting_table.
+To get 1 copper_ingot, you need 1 deepslate_copper_ore to smelt with furnace.
+To get 1 copper_ingot, you need 1 copper_ore to smelt with furnace.
+To get 1 copper_ingot, you need 1 raw_copper to smelt with furnace.
+To get 1 iron_axe, you need 3 iron_ingot and 2 stick to craft with crafting_table.
+To get 16 iron_bars, you need 6 iron_ingot to craft with crafting_table.
+To get 1 iron_block, you need 9 iron_ingot to craft with crafting_table.
+To get 1 iron_boots, you need 4 iron_ingot to craft with crafting_table.
+To get 1 iron_chestplate, you need 8 iron_ingot to craft with crafting_table.
+To get 3 iron_door, you need 6 iron_ingot to craft with crafting_table.
+To get 1 iron_helmet, you need 5 iron_ingot to craft with crafting_table.
+To get 1 iron_hoe, you need 2 iron_ingot and 2 stick to craft with crafting_table.
+To get 9 iron_ingot, you need 1 iron_block to craft with crafting_table.
+To get 1 iron_ingot, you need 9 iron_nugget to craft with crafting_table.
+To get 1 iron_ingot, you need 1 deepslate_iron_ore to smelt with furnace.
+To get 1 iron_ingot, you need 1 iron_ore to smelt with furnace.
+To get 1 iron_ingot, you need 1 raw_iron to smelt with furnace.
+To get 1 iron_leggings, you need 7 iron_ingot to craft with crafting_table.
+To get 9 iron_nugget, you need 1 iron_ingot to craft with crafting_table.
+To get 1 iron_nugget, you need 1 iron_shovel to smelt with furnace.
+To get 1 iron_nugget, you need 1 iron_pickaxe to smelt with furnace.
+To get 1 iron_nugget, you need 1 iron_axe to smelt with furnace.
+To get 1 iron_nugget, you need 1 iron_sword to smelt with furnace.
+To get 1 iron_nugget, you need 1 iron_hoe to smelt with furnace.
+To get 1 iron_nugget, you need 1 chainmail_helmet to smelt with furnace.
+To get 1 iron_nugget, you need 1 chainmail_chestplate to smelt with furnace.
+To get 1 iron_nugget, you need 1 chainmail_leggings to smelt with furnace.
+To get 1 iron_nugget, you need 1 chainmail_boots to smelt with furnace.
+To get 1 iron_nugget, you need 1 iron_helmet to smelt with furnace.
+To get 1 iron_nugget, you need 1 iron_chestplate to smelt with furnace.
+To get 1 iron_nugget, you need 1 iron_leggings to smelt with furnace.
+To get 1 iron_nugget, you need 1 iron_boots to smelt with furnace.
+To get 1 iron_nugget, you need 1 iron_horse_armor to smelt with furnace.
+To get 1 iron_pickaxe, you need 3 iron_ingot and 2 stick to craft with crafting_table.
+To get 1 iron_shovel, you need 1 iron_ingot and 2 stick to craft with crafting_table.
+To get 1 iron_sword, you need 2 iron_ingot and 1 stick to craft with crafting_table.
+To get 1 iron_trapdoor, you need 4 iron_ingot to craft with crafting_table.
+To get 1 frame, you need 8 stick and 1 leather to craft with crafting_table.
+To get 1 jungle_boat, you need 5 planks and 1 wooden_shovel to craft with crafting_table.
+To get 1 jungle_chest_boat, you need 1 chest and 1 jungle_boat to craft with crafting_table.
+To get 3 jungle_door, you need 6 planks to craft with crafting_table.
+To get 1 jungle_fence_gate, you need 4 stick and 2 planks to craft with crafting_table.
+To get 3 ladder, you need 7 stick to craft with crafting_table.
+To get 1 lantern, you need 8 iron_nugget and 1 torch to craft with crafting_table.
+To get 1 lapis_block, you need 9 lapis_lazuli to craft with crafting_table.
+To get 9 lapis_lazuli, you need 1 lapis_block to craft with crafting_table.
+To get 1 lapis_lazuli, you need 1 deepslate_lapis_ore to smelt with furnace.
+To get 1 lapis_lazuli, you need 1 lapis_ore to smelt with furnace.
+To get 2 lead, you need 4 string and 1 slime_ball to craft with crafting_table.
+To get 1 leather, you need 4 rabbit_hide to craft with crafting_table.
+To get 1 leather_boots, you need 4 leather to craft with crafting_table.
+To get 1 leather_chestplate, you need 8 leather to craft with crafting_table.
+To get 1 leather_helmet, you need 5 leather to craft with crafting_table.
+To get 1 leather_horse_armor, you need 7 leather to craft with crafting_table.
+To get 1 leather_leggings, you need 7 leather to craft with crafting_table.
+To get 1 lectern, you need 4 wooden_slab and 1 bookshelf to craft with crafting_table.
+To get 1 lectern, you need 4 crimson_slab and 1 bookshelf to craft with crafting_table.
+To get 1 lectern, you need 4 mangrove_slab and 1 bookshelf to craft with crafting_table.
+To get 1 lectern, you need 4 warped_slab and 1 bookshelf to craft with crafting_table.
+To get 1 lever, you need 1 stick and 1 cobblestone to craft with crafting_table.
+To get 1 light_blue_candle, you need 1 candle and 1 light_blue_dye to craft with crafting_table.
+To get 2 light_blue_dye, you need 1 blue_dye and 1 white_dye to craft with crafting_table.
+To get 2 light_blue_dye, you need 1 blue_dye and 1 bone_meal to craft with crafting_table.
+To get 1 light_blue_dye, you need 1 red_flower to craft with crafting_table.
+To get 2 light_blue_dye, you need 1 lapis_lazuli and 1 bone_meal to craft with crafting_table.
+To get 2 light_blue_dye, you need 1 lapis_lazuli and 1 white_dye to craft with crafting_table.
+To get 1 light_gray_candle, you need 1 candle and 1 light_gray_dye to craft with crafting_table.
+To get 3 light_gray_dye, you need 1 black_dye and 2 white_dye to craft with crafting_table.
+To get 1 light_gray_dye, you need 1 red_flower to craft with crafting_table.
+To get 3 light_gray_dye, you need 1 black_dye and 2 bone_meal to craft with crafting_table.
+To get 2 light_gray_dye, you need 1 gray_dye and 1 bone_meal to craft with crafting_table.
+To get 2 light_gray_dye, you need 1 gray_dye and 1 white_dye to craft with crafting_table.
+To get 3 light_gray_dye, you need 1 ink_sac and 2 bone_meal to craft with crafting_table.
+To get 3 light_gray_dye, you need 1 ink_sac and 2 white_dye to craft with crafting_table.
+To get 1 light_weighted_pressure_plate, you need 2 gold_ingot to craft with crafting_table.
+To get 1 lightning_rod, you need 3 copper_ingot to craft with crafting_table.
+To get 1 lime_candle, you need 1 candle and 1 lime_dye to craft with crafting_table.
+To get 2 lime_dye, you need 1 green_dye and 1 white_dye to craft with crafting_table.
+To get 2 lime_dye, you need 1 green_dye and 1 bone_meal to craft with crafting_table.
+To get 1 lime_dye, you need 1 sea_pickle to smelt with furnace.
+To get 1 jack_o_lantern, you need 1 carved_pumpkin and 1 torch to craft with crafting_table.
+To get 1 lodestone, you need 8 stonebrick and 1 netherite_ingot to craft with crafting_table.
+To get 1 magenta_candle, you need 1 candle and 1 magenta_dye to craft with crafting_table.
+To get 3 magenta_dye, you need 1 blue_dye and 1 red_dye and 1 pink_dye to craft with crafting_table.
+To get 1 magenta_dye, you need 1 red_flower to craft with crafting_table.
+To get 4 magenta_dye, you need 1 blue_dye and 2 red_dye and 1 bone_meal to craft with crafting_table.
+To get 4 magenta_dye, you need 1 blue_dye and 2 red_dye and 1 white_dye to craft with crafting_table.
+To get 4 magenta_dye, you need 1 lapis_lazuli and 2 red_dye and 1 bone_meal to craft with crafting_table.
+To get 4 magenta_dye, you need 1 lapis_lazuli and 2 red_dye and 1 white_dye to craft with crafting_table.
+To get 3 magenta_dye, you need 1 lapis_lazuli and 1 red_dye and 1 pink_dye to craft with crafting_table.
+To get 2 magenta_dye, you need 1 double_plant to craft with crafting_table.
+To get 2 magenta_dye, you need 1 purple_dye and 1 pink_dye to craft with crafting_table.
+To get 1 magma_block, you need 4 magma_cream to craft with crafting_table.
+To get 1 magma_cream, you need 1 blaze_powder and 1 slime_ball to craft with crafting_table.
+To get 1 mangrove_boat, you need 5 planks and 1 wooden_shovel to craft with crafting_table.
+To get 1 mangrove_button, you need 1 planks to craft with crafting_table.
+To get 1 mangrove_chest_boat, you need 1 chest and 1 mangrove_boat to craft with crafting_table.
+To get 3 mangrove_door, you need 6 planks to craft with crafting_table.
+To get 3 mangrove_fence, you need 4 planks and 2 stick to craft with crafting_table.
+To get 1 mangrove_fence_gate, you need 4 stick and 2 planks to craft with crafting_table.
+To get 1 mangrove_pressure_plate, you need 2 planks to craft with crafting_table.
+To get 3 mangrove_sign, you need 6 planks and 1 stick to craft with crafting_table.
+To get 6 mangrove_slab, you need 3 planks to craft with crafting_table.
+To get 4 mangrove_stairs, you need 6 planks to craft with crafting_table.
+To get 2 mangrove_trapdoor, you need 6 planks to craft with crafting_table.
+To get 1 melon, you need 9 melon_slice to craft with crafting_table.
+To get 1 melon_seeds, you need 1 melon_slice to craft with crafting_table.
+To get 1 minecart, you need 5 iron_ingot to craft with crafting_table.
+To get 3 moss_carpet, you need 2 moss_block to craft with crafting_table.
+To get 1 mossy_cobblestone, you need 1 cobblestone and 1 vine to craft with crafting_table.
+To get 1 mossy_cobblestone, you need 1 cobblestone and 1 moss_block to craft with crafting_table.
+To get 4 mossy_cobblestone_stairs, you need 6 mossy_cobblestone to craft with crafting_table.
+To get 4 mossy_stone_brick_stairs, you need 6 stonebrick to craft with crafting_table.
+To get 6 mud_brick_slab, you need 3 mud_bricks to craft with crafting_table.
+To get 4 mud_brick_stairs, you need 6 mud_bricks to craft with crafting_table.
+To get 6 mud_brick_wall, you need 6 mud_bricks to craft with crafting_table.
+To get 4 mud_bricks, you need 4 packed_mud to craft with crafting_table.
+To get 1 muddy_mangrove_roots, you need 1 mangrove_roots and 1 mud to craft with crafting_table.
+To get 1 mushroom_stew, you need 1 brown_mushroom and 1 red_mushroom and 1 bowl to craft with crafting_table.
+To get 1 nether_bricks, you need 4 netherbrick to craft with crafting_table.
+To get 6 nether_brick_fence, you need 4 nether_bricks and 2 netherbrick to craft with crafting_table.
+To get 4 nether_brick_stairs, you need 6 nether_bricks to craft with crafting_table.
+To get 1 nether_wart_block, you need 9 nether_wart to craft with crafting_table.
+To get 1 netherite_block, you need 9 netherite_ingot to craft with crafting_table.
+To get 1 netherite_ingot, you need 4 netherite_scrap and 4 gold_ingot to craft with crafting_table.
+To get 9 netherite_ingot, you need 1 netherite_block to craft with crafting_table.
+To get 4 oak_stairs, you need 6 planks to craft with crafting_table.
+To get 1 observer, you need 6 cobblestone and 2 redstone and 1 quartz to craft with crafting_table.
+To get 1 orange_candle, you need 1 candle and 1 orange_dye to craft with crafting_table.
+To get 1 orange_dye, you need 1 red_flower to craft with crafting_table.
+To get 2 orange_dye, you need 1 red_dye and 1 yellow_dye to craft with crafting_table.
+To get 1 packed_ice, you need 9 ice to craft with crafting_table.
+To get 1 packed_mud, you need 1 mud and 1 wheat to craft with crafting_table.
+To get 3 paper, you need 3 sugar_cane to craft with crafting_table.
+To get 1 pink_candle, you need 1 candle and 1 pink_dye to craft with crafting_table.
+To get 2 pink_dye, you need 1 red_dye and 1 white_dye to craft with crafting_table.
+To get 2 pink_dye, you need 1 double_plant to craft with crafting_table.
+To get 1 pink_dye, you need 1 red_flower to craft with crafting_table.
+To get 2 pink_dye, you need 1 red_dye and 1 bone_meal to craft with crafting_table.
+To get 4 polished_andesite_stairs, you need 6 stone to craft with crafting_table.
+To get 4 polished_basalt, you need 4 basalt to craft with crafting_table.
+To get 4 polished_blackstone, you need 4 blackstone to craft with crafting_table.
+To get 6 polished_blackstone_brick_slab, you need 3 polished_blackstone_bricks to craft with crafting_table.
+To get 4 polished_blackstone_brick_stairs, you need 6 polished_blackstone_bricks to craft with crafting_table.
+To get 6 polished_blackstone_brick_wall, you need 6 polished_blackstone_bricks to craft with crafting_table.
+To get 4 polished_blackstone_bricks, you need 4 polished_blackstone to craft with crafting_table.
+To get 1 polished_blackstone_button, you need 1 polished_blackstone to craft with crafting_table.
+To get 1 polished_blackstone_pressure_plate, you need 2 polished_blackstone to craft with crafting_table.
+To get 6 polished_blackstone_slab, you need 3 polished_blackstone to craft with crafting_table.
+To get 4 polished_blackstone_stairs, you need 6 polished_blackstone to craft with crafting_table.
+To get 6 polished_blackstone_wall, you need 6 polished_blackstone to craft with crafting_table.
+To get 4 polished_deepslate, you need 4 cobbled_deepslate to craft with crafting_table.
+To get 6 polished_deepslate_slab, you need 3 polished_deepslate to craft with crafting_table.
+To get 4 polished_deepslate_stairs, you need 6 polished_deepslate to craft with crafting_table.
+To get 6 polished_deepslate_wall, you need 6 polished_deepslate to craft with crafting_table.
+To get 4 polished_diorite_stairs, you need 6 stone to craft with crafting_table.
+To get 4 polished_granite_stairs, you need 6 stone to craft with crafting_table.
+To get 4 prismarine_stairs, you need 6 prismarine to craft with crafting_table.
+To get 4 prismarine_brick_stairs, you need 6 prismarine to craft with crafting_table.
+To get 4 dark_prismarine_stairs, you need 6 prismarine to craft with crafting_table.
+To get 1 pumpkin_pie, you need 1 pumpkin and 1 sugar and 1 egg to craft with crafting_table.
+To get 4 pumpkin_seeds, you need 1 pumpkin to craft with crafting_table.
+To get 1 purple_candle, you need 1 candle and 1 purple_dye to craft with crafting_table.
+To get 2 purple_dye, you need 1 blue_dye and 1 red_dye to craft with crafting_table.
+To get 2 purple_dye, you need 1 lapis_lazuli and 1 red_dye to craft with crafting_table.
+To get 4 purpur_stairs, you need 6 purpur_block to craft with crafting_table.
+To get 1 quartz_bricks, you need 4 quartz_block to craft with crafting_table.
+To get 4 quartz_stairs, you need 6 quartz_block to craft with crafting_table.
+To get 1 rabbit_stew, you need 1 bowl and 1 baked_potato and 1 carrot and 1 brown_mushroom and 1 cooked_rabbit to craft with crafting_table.
+To get 1 rabbit_stew, you need 1 bowl and 1 baked_potato and 1 carrot and 1 red_mushroom and 1 cooked_rabbit to craft with crafting_table.
+To get 16 rail, you need 6 iron_ingot and 1 stick to craft with crafting_table.
+To get 9 raw_copper, you need 1 raw_copper_block to craft with crafting_table.
+To get 1 raw_copper_block, you need 9 raw_copper to craft with crafting_table.
+To get 9 raw_gold, you need 1 raw_gold_block to craft with crafting_table.
+To get 1 raw_gold_block, you need 9 raw_gold to craft with crafting_table.
+To get 9 raw_iron, you need 1 raw_iron_block to craft with crafting_table.
+To get 1 raw_iron_block, you need 9 raw_iron to craft with crafting_table.
+To get 1 music_disc_5, you need 9 disc_fragment_5 to craft with crafting_table.
+To get 1 recovery_compass, you need 8 echo_shard and 1 compass to craft with crafting_table.
+To get 1 recovery_compass, you need 8 echo_shard and 1 lodestone_compass to craft with crafting_table.
+To get 1 red_candle, you need 1 candle and 1 red_dye to craft with crafting_table.
+To get 1 red_dye, you need 1 beetroots to craft with crafting_table.
+To get 1 red_dye, you need 1 red_flower to craft with crafting_table.
+To get 2 red_dye, you need 1 double_plant to craft with crafting_table.
+To get 1 red_nether_bricks, you need 2 netherbrick and 2 nether_wart to craft with crafting_table.
+To get 4 red_nether_brick_stairs, you need 6 red_nether_bricks to craft with crafting_table.
+To get 4 red_sandstone_stairs, you need 6 red_sandstone to craft with crafting_table.
+To get 9 redstone, you need 1 redstone_block to craft with crafting_table.
+To get 1 redstone, you need 1 deepslate_redstone_ore to smelt with furnace.
+To get 1 redstone, you need 1 redstone_ore to smelt with furnace.
+To get 1 redstone_block, you need 9 redstone to craft with crafting_table.
+To get 1 redstone_lamp, you need 4 redstone and 1 glowstone to craft with crafting_table.
+To get 1 redstone_torch, you need 1 redstone and 1 stick to craft with crafting_table.
+To get 1 repeater, you need 2 redstone_torch and 1 redstone and 3 stone to craft with crafting_table.
+To get 1 respawn_anchor, you need 6 crying_obsidian and 3 glowstone to craft with crafting_table.
+To get 4 sandstone_stairs, you need 6 sandstone to craft with crafting_table.
+To get 6 scaffolding, you need 6 bamboo and 1 string to craft with crafting_table.
+To get 1 sea_lantern, you need 4 prismarine_shard and 5 prismarine_crystals to craft with crafting_table.
+To get 1 shears, you need 2 iron_ingot to craft with crafting_table.
+To get 1 shield, you need 6 planks and 1 iron_ingot to craft with crafting_table.
+To get 1 shulker_box, you need 2 shulker_shell and 1 chest to craft with crafting_table.
+To get 3 acacia_sign, you need 6 planks and 1 stick to craft with crafting_table.
+To get 3 birch_sign, you need 6 planks and 1 stick to craft with crafting_table.
+To get 3 dark_oak_sign, you need 6 planks and 1 stick to craft with crafting_table.
+To get 3 jungle_sign, you need 6 planks and 1 stick to craft with crafting_table.
+To get 3 oak_sign, you need 6 planks and 1 stick to craft with crafting_table.
+To get 3 spruce_sign, you need 6 planks and 1 stick to craft with crafting_table.
+To get 1 slime_block, you need 9 slime_ball to craft with crafting_table.
+To get 9 slime_ball, you need 1 slime_block to craft with crafting_table.
+To get 1 smithing_table, you need 2 iron_ingot and 4 planks to craft with crafting_table.
+To get 1 smoker, you need 4 log and 1 furnace to craft with crafting_table.
+To get 1 smoker, you need 4 crimson_stem and 1 furnace to craft with crafting_table.
+To get 1 smoker, you need 4 wood and 1 furnace to craft with crafting_table.
+To get 1 smoker, you need 4 stripped_crimson_stem and 1 furnace to craft with crafting_table.
+To get 1 smoker, you need 4 stripped_warped_stem and 1 furnace to craft with crafting_table.
+To get 1 smoker, you need 4 warped_stem and 1 furnace to craft with crafting_table.
+To get 4 smooth_quartz_stairs, you need 6 quartz_block to craft with crafting_table.
+To get 4 smooth_red_sandstone_stairs, you need 6 red_sandstone to craft with crafting_table.
+To get 4 smooth_sandstone_stairs, you need 6 sandstone to craft with crafting_table.
+To get 1 snow_block, you need 4 snowball to craft with crafting_table.
+To get 6 snow, you need 3 snow_block to craft with crafting_table.
+To get 1 soul_campfire, you need 3 stick and 1 soul_soil and 3 crimson_stem to craft with crafting_table.
+To get 1 soul_campfire, you need 3 stick and 1 soul_sand and 3 crimson_stem to craft with crafting_table.
+To get 1 soul_campfire, you need 3 stick and 1 soul_soil and 3 log to craft with crafting_table.
+To get 1 soul_campfire, you need 3 stick and 1 soul_sand and 3 log to craft with crafting_table.
+To get 1 soul_campfire, you need 3 stick and 1 soul_soil and 3 wood to craft with crafting_table.
+To get 1 soul_campfire, you need 3 stick and 1 soul_sand and 3 wood to craft with crafting_table.
+To get 1 soul_campfire, you need 3 stick and 1 soul_soil and 3 stripped_crimson_stem to craft with crafting_table.
+To get 1 soul_campfire, you need 3 stick and 1 soul_sand and 3 stripped_crimson_stem to craft with crafting_table.
+To get 1 soul_campfire, you need 3 stick and 1 soul_soil and 3 stripped_warped_stem to craft with crafting_table.
+To get 1 soul_campfire, you need 3 stick and 1 soul_sand and 3 stripped_warped_stem to craft with crafting_table.
+To get 1 soul_campfire, you need 3 stick and 1 soul_soil and 3 warped_stem to craft with crafting_table.
+To get 1 soul_campfire, you need 3 stick and 1 soul_sand and 3 warped_stem to craft with crafting_table.
+To get 1 soul_lantern, you need 8 iron_nugget and 1 soul_torch to craft with crafting_table.
+To get 4 soul_torch, you need 1 coal and 1 stick and 1 soul_sand to craft with crafting_table.
+To get 4 soul_torch, you need 1 coal and 1 stick and 1 soul_soil to craft with crafting_table.
+To get 1 glistering_melon_slice, you need 8 gold_nugget and 1 melon_slice to craft with crafting_table.
+To get 1 spruce_boat, you need 5 planks and 1 wooden_shovel to craft with crafting_table.
+To get 1 spruce_chest_boat, you need 1 chest and 1 spruce_boat to craft with crafting_table.
+To get 3 spruce_door, you need 6 planks to craft with crafting_table.
+To get 1 spruce_fence_gate, you need 4 stick and 2 planks to craft with crafting_table.
+To get 4 spruce_stairs, you need 6 planks to craft with crafting_table.
+To get 1 spyglass, you need 1 amethyst_shard and 2 copper_ingot to craft with crafting_table.
+To get 1 sticky_piston, you need 1 slime_ball and 1 piston to craft with crafting_table.
+To get 1 stone_axe, you need 3 cobblestone and 2 stick to craft with crafting_table.
+To get 1 stone_axe, you need 3 blackstone and 2 stick to craft with crafting_table.
+To get 1 stone_axe, you need 3 cobbled_deepslate and 2 stick to craft with crafting_table.
+To get 4 stone_brick_stairs, you need 6 stonebrick to craft with crafting_table.
+To get 1 stone_button, you need 1 stone to craft with crafting_table.
+To get 1 stone_hoe, you need 2 cobblestone and 2 stick to craft with crafting_table.
+To get 1 stone_hoe, you need 2 blackstone and 2 stick to craft with crafting_table.
+To get 1 stone_hoe, you need 2 cobbled_deepslate and 2 stick to craft with crafting_table.
+To get 1 stone_pickaxe, you need 3 cobblestone and 2 stick to craft with crafting_table.
+To get 1 stone_pickaxe, you need 3 blackstone and 2 stick to craft with crafting_table.
+To get 1 stone_pickaxe, you need 3 cobbled_deepslate and 2 stick to craft with crafting_table.
+To get 1 stone_pressure_plate, you need 2 stone to craft with crafting_table.
+To get 1 stone_shovel, you need 1 cobblestone and 2 stick to craft with crafting_table.
+To get 1 stone_shovel, you need 1 blackstone and 2 stick to craft with crafting_table.
+To get 1 stone_shovel, you need 1 cobbled_deepslate and 2 stick to craft with crafting_table.
+To get 4 stone_stairs, you need 6 stone to craft with crafting_table.
+To get 1 stone_sword, you need 2 cobblestone and 1 stick to craft with crafting_table.
+To get 1 stone_sword, you need 2 blackstone and 1 stick to craft with crafting_table.
+To get 1 stone_sword, you need 2 cobbled_deepslate and 1 stick to craft with crafting_table.
+To get 1 stonecutter, you need 1 iron_ingot and 3 stone to craft with crafting_table.
+To get 1 wool, you need 4 string to craft with crafting_table.
+To get 1 wool, you need 1 ink_sac and 1 wool to craft with crafting_table.
+To get 1 wool, you need 1 lime_dye and 1 wool to craft with crafting_table.
+To get 1 wool, you need 1 yellow_dye and 1 wool to craft with crafting_table.
+To get 1 wool, you need 1 light_blue_dye and 1 wool to craft with crafting_table.
+To get 1 wool, you need 1 magenta_dye and 1 wool to craft with crafting_table.
+To get 1 wool, you need 1 orange_dye and 1 wool to craft with crafting_table.
+To get 1 wool, you need 1 bone_meal and 1 wool to craft with crafting_table.
+To get 1 wool, you need 1 black_dye and 1 wool to craft with crafting_table.
+To get 1 wool, you need 1 brown_dye and 1 wool to craft with crafting_table.
+To get 1 wool, you need 1 blue_dye and 1 wool to craft with crafting_table.
+To get 1 wool, you need 1 white_dye and 1 wool to craft with crafting_table.
+To get 1 wool, you need 1 red_dye and 1 wool to craft with crafting_table.
+To get 1 wool, you need 1 green_dye and 1 wool to craft with crafting_table.
+To get 1 wool, you need 1 cocoa_beans and 1 wool to craft with crafting_table.
+To get 1 wool, you need 1 lapis_lazuli and 1 wool to craft with crafting_table.
+To get 1 wool, you need 1 purple_dye and 1 wool to craft with crafting_table.
+To get 1 wool, you need 1 cyan_dye and 1 wool to craft with crafting_table.
+To get 1 wool, you need 1 light_gray_dye and 1 wool to craft with crafting_table.
+To get 1 wool, you need 1 gray_dye and 1 wool to craft with crafting_table.
+To get 1 wool, you need 1 pink_dye and 1 wool to craft with crafting_table.
+To get 3 stripped_crimson_hyphae, you need 4 stripped_crimson_stem to craft with crafting_table.
+To get 3 stripped_warped_hyphae, you need 4 stripped_warped_stem to craft with crafting_table.
+To get 1 suspicious_stew, you need 1 brown_mushroom and 1 red_mushroom and 1 bowl and 1 red_flower to craft with crafting_table.
+To get 1 suspicious_stew, you need 1 brown_mushroom and 1 red_mushroom and 1 bowl and 1 dandelion to craft with crafting_table.
+To get 1 suspicious_stew, you need 1 brown_mushroom and 1 red_mushroom and 1 bowl and 1 wither_rose to craft with crafting_table.
+To get 1 target, you need 4 redstone and 1 hay_block to craft with crafting_table.
+To get 2 tinted_glass, you need 4 amethyst_shard and 1 glass to craft with crafting_table.
+To get 1 tnt, you need 5 gunpowder and 4 sand to craft with crafting_table.
+To get 1 tnt_minecart, you need 1 tnt and 1 minecart to craft with crafting_table.
+To get 1 trapped_chest, you need 1 chest and 1 tripwire_hook to craft with crafting_table.
+To get 1 turtle_helmet, you need 5 scute to craft with crafting_table.
+To get 1 warped_button, you need 1 planks to craft with crafting_table.
+To get 3 warped_door, you need 6 planks to craft with crafting_table.
+To get 3 warped_fence, you need 4 planks and 2 stick to craft with crafting_table.
+To get 1 warped_fence_gate, you need 4 stick and 2 planks to craft with crafting_table.
+To get 1 warped_fungus_on_a_stick, you need 1 fishing_rod and 1 warped_fungus to craft with crafting_table.
+To get 3 warped_hyphae, you need 4 warped_stem to craft with crafting_table.
+To get 1 warped_pressure_plate, you need 2 planks to craft with crafting_table.
+To get 3 warped_sign, you need 6 planks and 1 stick to craft with crafting_table.
+To get 6 warped_slab, you need 3 planks to craft with crafting_table.
+To get 4 warped_stairs, you need 6 planks to craft with crafting_table.
+To get 2 warped_trapdoor, you need 6 planks to craft with crafting_table.
+To get 1 waxed_copper_block, you need 1 copper_block and 1 honeycomb to craft with crafting_table.
+To get 1 waxed_exposed_copper, you need 1 exposed_copper and 1 honeycomb to craft with crafting_table.
+To get 1 waxed_oxidized_copper, you need 1 oxidized_copper and 1 honeycomb to craft with crafting_table.
+To get 1 waxed_weathered_copper, you need 1 weathered_copper and 1 honeycomb to craft with crafting_table.
+To get 9 wheat, you need 1 hay_block to craft with crafting_table.
+To get 1 white_candle, you need 1 candle and 1 white_dye to craft with crafting_table.
+To get 1 white_candle, you need 1 candle and 1 bone_meal to craft with crafting_table.
+To get 1 white_dye, you need 1 bone_meal to craft with crafting_table.
+To get 1 white_dye, you need 1 red_flower to craft with crafting_table.
+To get 1 wooden_axe, you need 3 planks and 2 stick to craft with crafting_table.
+To get 3 oak_door, you need 6 planks to craft with crafting_table.
+To get 1 wooden_hoe, you need 2 planks and 2 stick to craft with crafting_table.
+To get 1 wooden_pickaxe, you need 3 planks and 2 stick to craft with crafting_table.
+To get 1 wooden_shovel, you need 1 planks and 2 stick to craft with crafting_table.
+To get 1 wooden_sword, you need 2 planks and 1 stick to craft with crafting_table.
+To get 1 writable_book, you need 1 book and 1 ink_sac and 1 feather to craft with crafting_table.
+To get 1 yellow_candle, you need 1 candle and 1 yellow_dye to craft with crafting_table.
+To get 1 yellow_dye, you need 1 dandelion to craft with crafting_table.
+To get 2 yellow_dye, you need 1 double_plant to craft with crafting_table.
+To get 3 firework_rocket, you need 1 paper and 1 gunpowder and 1 firework_star to craft with crafting_table.
+To get 3 firework_rocket, you need 1 paper and 1 gunpowder to craft with crafting_table.
+To get 1 firework_star, you need 1 gunpowder and 1 ink_sac to craft with crafting_table.
+To get 1 firework_star, you need 1 gunpowder and 1 lime_dye to craft with crafting_table.
+To get 1 firework_star, you need 1 gunpowder and 1 yellow_dye to craft with crafting_table.
+To get 1 firework_star, you need 1 gunpowder and 1 light_blue_dye to craft with crafting_table.
+To get 1 firework_star, you need 1 gunpowder and 1 magenta_dye to craft with crafting_table.
+To get 1 firework_star, you need 1 gunpowder and 1 orange_dye to craft with crafting_table.
+To get 1 firework_star, you need 1 gunpowder and 1 bone_meal to craft with crafting_table.
+To get 1 firework_star, you need 1 gunpowder and 1 black_dye to craft with crafting_table.
+To get 1 firework_star, you need 1 gunpowder and 1 brown_dye to craft with crafting_table.
+To get 1 firework_star, you need 1 gunpowder and 1 blue_dye to craft with crafting_table.
+To get 1 firework_star, you need 1 gunpowder and 1 white_dye to craft with crafting_table.
+To get 1 firework_star, you need 1 gunpowder and 1 red_dye to craft with crafting_table.
+To get 1 firework_star, you need 1 gunpowder and 1 green_dye to craft with crafting_table.
+To get 1 firework_star, you need 1 gunpowder and 1 cocoa_beans to craft with crafting_table.
+To get 1 firework_star, you need 1 gunpowder and 1 lapis_lazuli to craft with crafting_table.
+To get 1 firework_star, you need 1 gunpowder and 1 purple_dye to craft with crafting_table.
+To get 1 firework_star, you need 1 gunpowder and 1 cyan_dye to craft with crafting_table.
+To get 1 firework_star, you need 1 gunpowder and 1 light_gray_dye to craft with crafting_table.
+To get 1 firework_star, you need 1 gunpowder and 1 gray_dye to craft with crafting_table.
+To get 1 firework_star, you need 1 gunpowder and 1 pink_dye to craft with crafting_table.
+To get 6 stone_block_slab3, you need 3 end_stone_bricks to craft with crafting_table.
+To get 6 stone_block_slab3, you need 3 stone to craft with crafting_table.
+To get 6 stone_block_slab3, you need 3 red_sandstone to craft with crafting_table.
+To get 6 stone_block_slab2, you need 3 red_sandstone to craft with crafting_table.
+To get 6 stone_block_slab2, you need 3 prismarine to craft with crafting_table.
+To get 6 stone_block_slab2, you need 3 purpur_block to craft with crafting_table.
+To get 6 stone_block_slab2, you need 3 mossy_cobblestone to craft with crafting_table.
+To get 6 stone_block_slab2, you need 3 red_nether_bricks to craft with crafting_table.
+To get 6 stone_block_slab2, you need 3 sandstone to craft with crafting_table.
+To get 1 charcoal, you need 1 wood to smelt with furnace.
+To get 1 charcoal, you need 1 log to smelt with furnace.
+To get 1 cracked_deepslate_bricks, you need 1 deepslate_bricks to smelt with furnace.
+To get 1 cracked_deepslate_tiles, you need 1 deepslate_tiles to smelt with furnace.
+To get 1 deepslate, you need 1 cobbled_deepslate to smelt with furnace.
+To get 1 cracked_polished_blackstone_bricks, you need 1 polished_blackstone_bricks to smelt with furnace.
+To get 1 netherite_scrap, you need 1 ancient_debris to smelt with furnace.
+To get 1 smooth_basalt, you need 1 basalt to smelt with furnace.
+To get 1 smooth_stone, you need 1 stone to smelt with furnace.
+To get 1 glass, you need 1 sand to smelt with furnace.
+To get 1 sponge, you need 1 sponge to smelt with furnace.
+To get 1 green_dye, you need 1 cactus to smelt with furnace.
+To get 1 terracotta, you need 1 clay to smelt with furnace.
+To get 1 netherbrick, you need 1 netherrack to smelt with furnace.
+To get 1 cracked_nether_bricks, you need 1 nether_bricks to smelt with furnace.
+To get 1 quartz, you need 1 nether_quartz_ore to smelt with furnace.
+To get 1 white_glazed_terracotta, you need 1 stained_hardened_clay to smelt with furnace.
+To get 1 orange_glazed_terracotta, you need 1 stained_hardened_clay to smelt with furnace.
+To get 1 magenta_glazed_terracotta, you need 1 stained_hardened_clay to smelt with furnace.
+To get 1 light_blue_glazed_terracotta, you need 1 stained_hardened_clay to smelt with furnace.
+To get 1 yellow_glazed_terracotta, you need 1 stained_hardened_clay to smelt with furnace.
+To get 1 lime_glazed_terracotta, you need 1 stained_hardened_clay to smelt with furnace.
+To get 1 pink_glazed_terracotta, you need 1 stained_hardened_clay to smelt with furnace.
+To get 1 gray_glazed_terracotta, you need 1 stained_hardened_clay to smelt with furnace.
+To get 1 light_gray_glazed_terracotta, you need 1 stained_hardened_clay to smelt with furnace.
+To get 1 cyan_glazed_terracotta, you need 1 stained_hardened_clay to smelt with furnace.
+To get 1 purple_glazed_terracotta, you need 1 stained_hardened_clay to smelt with furnace.
+To get 1 blue_glazed_terracotta, you need 1 stained_hardened_clay to smelt with furnace.
+To get 1 brown_glazed_terracotta, you need 1 stained_hardened_clay to smelt with furnace.
+To get 1 green_glazed_terracotta, you need 1 stained_hardened_clay to smelt with furnace.
+To get 1 red_glazed_terracotta, you need 1 stained_hardened_clay to smelt with furnace.
+To get 1 black_glazed_terracotta, you need 1 stained_hardened_clay to smelt with furnace.
+To get 1 cooked_porkchop, you need 1 porkchop to smelt with furnace.
+To get 1 cooked_cod, you need 1 cod to smelt with furnace.
+To get 1 cooked_salmon, you need 1 salmon to smelt with furnace.
+To get 1 cooked_beef, you need 1 beef to smelt with furnace.
+To get 1 cooked_chicken, you need 1 chicken to smelt with furnace.
+To get 1 baked_potato, you need 1 potato to smelt with furnace.
+To get 1 cooked_rabbit, you need 1 rabbit to smelt with furnace.
+To get 1 brick, you need 1 clay_ball to smelt with furnace.
+To get 1 cooked_mutton, you need 1 mutton to smelt with furnace.
+To get 1 popped_chorus_fruit, you need 1 chorus_fruit to smelt with furnace.
