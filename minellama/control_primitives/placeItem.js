@@ -71,6 +71,7 @@ async function placeItem(bot, name, position) {
                 `Error placing ${name}: ${err.message}, please find another position to place`
             );
             _placeItemFailCount++;
+            await moveForward(bot, 10);
             if (_placeItemFailCount > 10) {
                 throw new Error(
                     `placeItem failed too many times, please find another position to place.`
