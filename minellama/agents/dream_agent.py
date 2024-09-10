@@ -22,10 +22,14 @@ class DreamAgent:
         """
 
 
-    def generate_dream(self, role, memory=None):
+    def generate_dream(self, role, numofDate, lastDream, memory=None):
         print("~~~~~~~~~~generate_dream~~~~~~~~~~~~")
         system_prompt = self.role_prompt
-        human_prompt = f"Role: {role} Memory: {memory} Using this information, provide a Minecraft-based description for the role."
+        #human_prompt = f"Role: {role} Memory: {memory} Using this information, provide a Minecraft-based description for the role."
+        if numofDate == 1:
+            human_prompt = f"Today is the first day. What should you start doing in the Minecraft game to achieve the Role:{role}?"
+        else :
+            human_prompt = f"Today is the {numofDate}-th day. Yesterday, I received instructions from you with the content Operation:{lastDream}, and I carried it out. What tasks should I continue to work on to achieve the Role:{role}? Here is a detailed record of yesterday's work. Please refer to it. Memory:{memory}"
         response = self.llm.content(system_prompt, query_str=human_prompt, data_dir="recipe")
-        print(response)
+        #print(response)
         return response

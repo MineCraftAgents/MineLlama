@@ -89,7 +89,8 @@ class RoleAgent:
         2.Provide your answers in the format of a Python list.
         3.Clarify the action for each TO-DO. For example, "Collect log", "Craft stone_sword", or "Harvest wheat".
         4.The TO-DO list is only for today. Don't make too much.
-        4.Only provide the answer in the specified format and do not include additional explanations or comments.
+        5.Only provide the answer in the specified format and do not include additional explanations or comments.
+        6.The length of output-list should be 1 or 2.
         """
         
         iterations = 0
@@ -104,18 +105,6 @@ class RoleAgent:
             else:
                 error_message = "Invalid Error. No list found."
         
-        # checked = []
-        # i = 0
-        # for item in extracted_response:
-        #     print(item)
-        #     if self.check_item_name(extracted_response[item]):
-        #         print(f"{item} is a correct minecraft item name")
-        #         checked.append(extracted_response[i])
-        #     i = i + 1
-        
-        # print("checked response : ", checked)
-        # print(extracted_response)
-        # return checked
         return extracted_response
     
     def make_todo_detail(self, dream, todo, inventory, memory, max_iterations=10):
@@ -145,6 +134,7 @@ class RoleAgent:
         3. For action name, choose from ["craft", "mine", "smelt", "collect", "kill", "fish", "tillAndPlant", "harvest"]. Do not use any other names.
         4. Do not output answers that are not listed above. No additional explanations or clarifications are needed.
         5. Under no circumstances should there be any line breaks.
+        5.The length of output-list should be 1 or 2.
         """
         
         #[{{"action": "mine", "item_name": "cobblestone", "count": 3}}, {{"action": "craft", "item_name": "stick", "count": 2}}, {{"action": "craft", "item_name": "stone_pickaxe", "count": 1}}]

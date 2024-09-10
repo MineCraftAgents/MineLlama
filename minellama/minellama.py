@@ -363,7 +363,10 @@ class Minellama:
             )
             print("This is the final record of the inventory: ", self.inventory)
             with open(self.record_file, "a") as f:
-                text = f"\n\nTASK: {self.next_task}\n"
+                text = f"\n\nNUM_OF_DATE: {self.num_of_date}"
+                text += f"DREAM: {self.dream}\n"
+                text += f"SELECTING_TO_DO: {self.todo}"
+                text += f"TASK: {self.next_task}\n"
                 text += f"SUCCESS: {success}\n"
                 text += f"INVENTORY: {self.inventory}\n"
                 text += f"SUBGOAL_MEMORY: {self.subgoal_memory}\n"
@@ -376,7 +379,7 @@ class Minellama:
                 text += f"RECIPE_PATHS:\n{self.recipe_agent.paths}\n"
                 text += f"STEP_COUNT: {self.step_count}\n"
                 text += f"TIME: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n"
-                f.write(text)
+                f.write(text)  
             self.close()
             
         print("ALL TASK COMPLETED")
@@ -390,6 +393,7 @@ class Minellama:
         day : {self.num_of_date} \n
         achieved subgoal : {self.subgoal_memory_success} \n
         failed subgoal : {self.subgoal_memory_failed} \n
+        final inventory : {self.inventory} \n
         errors : {self.error}\n
         chat log : {self.chat_log}\n
         """
@@ -413,18 +417,14 @@ class Minellama:
         self.reset(reset_env=reset_env)
         for _ in range(max_iterations):
             #self.dream =  "You are a farmer. Your job in Minecraft  is to collect seeds, craft a wooden_hoe, plant seeds, and harvest crops."
-            self.dream = self.dream_agent.generate_dream(role=self.role, memory=self.memory)
+            self.dream = self.dream_agent.generate_dream(role=self.role, numofDate = self.num_of_date, lastDream=self.dream, memory=self.memory)
             print(self.dream)
-            self.todaysgoal = ["Prepare farmland"]#, "Plant crops", "Build a basic structure"
-            #self.todaysgoal = self.role_agent.make_todaysgoal(self.dream, self.inventory, self.memory)
-            #roleの場合、next_taskの部分でプロンプトの修正が必要とおもわれます
-            #roleを短文→アクション＋アイテム名→（アクションごとの対応）と書き換えていく場合
-            
+            #self.todaysgoal = ["Prepare farmland"]#, "Plant crops", "Build a basic structure"
+            self.todaysgoal = self.role_agent.make_todaysgoal(self.dream, self.inventory, self.memory)            
             for todo in self.todaysgoal:
-                #self.todo_detail = self.role_agent.make_todo_detail(self.dream, todo, self.inventory, self.memory)
-                self.todo_detail = [{"action": "mine", "item_name": "log", "count": 3}]
+                self.todo_detail = self.role_agent.make_todo_detail(self.dream, todo, self.inventory, self.memory)
+                #self.todo_detail = [{"action": "mine", "item_name": "log", "count": 3}]
                 print(self.todo_detail)
-                #不要？
                 # self.next_task = self.role_agent.next_task(role=self.dream, todaysgoal=self.todaysgoal, inventory=self.subgoal_memory)
                 
                 for task in self.todo_detail:
@@ -456,7 +456,10 @@ class Minellama:
                         
                     print("This is the final record of the inventory: ", self.inventory)
                     with open(self.record_file, "a") as f:
-                        text = f"\n\nTASK: {self.next_task}\n"
+                        text = f"\n\nNUM_OF_DATE: {self.num_of_date}"
+                        text += f"DREAM: {self.dream}\n"
+                        text += f"SELECTING_TO_DO: {self.todo}"
+                        text += f"TASK: {self.next_task}\n"
                         text += f"SUCCESS: {success}\n"
                         text += f"INVENTORY: {self.inventory}\n"
                         text += f"SUBGOAL_MEMORY: {self.subgoal_memory}\n"

@@ -13,6 +13,7 @@ minellama = Minellama(
     local_llm_path ="./minellama/llm/model", # If you have local Llama2, set the path to the directory. If None, it will create the model dir in minellama/llm/ .
     difficulty= "peaceful",
     record_file= "./log.txt" # the ouput file 
+    max_iterations: int = 10
 )
 
 role = "Farmer"
