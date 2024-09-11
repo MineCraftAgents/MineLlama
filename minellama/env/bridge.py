@@ -22,7 +22,7 @@ class VoyagerEnv(gym.Env):
         azure_login=None,
         server_host="http://127.0.0.1",
         server_port=3000,
-        request_timeout=600,
+        request_timeout=6000,
         log_path="./logs",
     ):
         if not mc_port and not azure_login:

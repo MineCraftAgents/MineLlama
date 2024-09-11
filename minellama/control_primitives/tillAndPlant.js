@@ -1,13 +1,14 @@
-async function farm(bot, count) {
-    const hoeName = "wooden_hoe";
-    const seedName = "wheat_seeds";
+async function tillAndPlant(bot, seedName="wheat_seeds", count=1, hoeName="wooden_hoe") {
+    // const hoeName = "wooden_hoe";
+    // const seedName = "wheat_seeds";
     const maxAttempts = 3;  // 耕す再試行の最大回数
     const searchRadius = 12;  // ブロックを探す範囲
     const waterProximityRadius = 5;  // 水源の5マス以内で探索を開始
 
-    bot.chat("/give @s wooden_hoe");
-    bot.chat(`/give @s ${seedName} ${count}`);
-    bot.chat(`/give @s dirt 64`);
+    // bot.chat("/give @s wooden_hoe");
+    // bot.chat(`/give @s ${seedName} ${count}`);
+    // bot.chat(`/give @s dirt 64`);
+    
 
     await new Promise(resolve => setTimeout(resolve, 2000));
 
@@ -15,8 +16,12 @@ async function farm(bot, count) {
     const seeds = bot.inventory.items().find(item => item.name === seedName);
     const dirt = bot.inventory.items().find(item => item.name === "dirt");
 
-    if (!hoe || !seeds || !dirt) {
-        bot.chat("Required items are missing.");
+    if (!hoe) {
+        bot.chat(`Required items are missing: ${hoeName}`);
+        return;
+    } 
+    if (!seeds){
+        bot.chat(`Required items are missing: ${seedName}`);
         return;
     }
     
@@ -125,29 +130,6 @@ async function farm(bot, count) {
     bot.chat(`${plantedCount} seeds planted.`);
 }
 
-async function moveForward(bot, distance) {
-    const currentPosition = bot.entity.position;
-    const forwardVector = bot.entity.yaw; // 現在の向き（yaw）に基づいて前方方向を計算
-
-    // 64ブロック前方の目標位置を計算
-    const targetPosition = currentPosition.offset(
-        Math.cos(forwardVector) * distance, // x方向
-        0,                            // y方向（高さはそのまま）
-        Math.sin(forwardVector) * distance  // z方向
-    );
-
-    bot.chat("Moving forward...");
-    
-    // 目標位置に移動
-    try {
-        // await bot.pathfinder.goto(new GoalNear(targetPosition.x, currentPosition.y, targetPosition.z, 10));
-        await bot.pathfinder.goto(new GoalXZ(targetPosition.x, targetPosition.z));
-        bot.chat("Arrived at the target position.");
-    } catch (err) {
-        bot.chat("Failed to move forward: " + err.message);
-    }
-}
-
 // 周囲の耕作可能な土ブロックまたは地表のブロックを探す関数（最も近いものを返す）
 function findNearestBlock(bot, range, onlyTillable) {
     const botPos = bot.entity.position;
@@ -229,3 +211,4 @@ function findSurfaceWaterBlock(bot) {
 
     return null;
 }
+

@@ -41,13 +41,13 @@ async function placeItem(bot, name, position) {
         bot.chat(
             `No block to place ${name} on. You cannot place a floating block.`
         );
+        await moveRandomly(bot);
         _placeItemFailCount++;
         if (_placeItemFailCount > 10) {
             throw new Error(
                 `placeItem failed too many times. You cannot place a floating block.`
             );
         }
-        // await moveRandomly(bot);
         const digPosition = bot.entity.position.offset(0, -1, 0);
         const block = bot.blockAt(digPosition);
         await bot.dig(block);
@@ -71,6 +71,7 @@ async function placeItem(bot, name, position) {
                 `Error placing ${name}: ${err.message}, please find another position to place`
             );
             _placeItemFailCount++;
+            await moveForward(bot, 10);
             if (_placeItemFailCount > 10) {
                 throw new Error(
                     `placeItem failed too many times, please find another position to place.`

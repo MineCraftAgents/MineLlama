@@ -1,0 +1,29 @@
+{
+    "planks": [
+        {
+            "count": 4,
+            "type": "crafting_table",
+            "ingredients": {
+                "log": 1
+            }
+        }
+    ],
+    "stick": [
+        {
+            "count": 4,
+            "type": "crafting_table",
+            "ingredients": {
+                "planks": 2
+            }
+        }
+    ],
+    "crafting_table": [
+        {
+            "count": 1,
+            "type": "crafting_table",
+            "ingredients": {
+                "planks": 4
+            }
+        }
+    ]
+}

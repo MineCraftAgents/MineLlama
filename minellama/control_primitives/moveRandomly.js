@@ -16,6 +16,6 @@ async function moveRandomly(bot) {
 
     const randomDirection = new Vec3((Math.random() - 0.5) * 2, 0, (Math.random() - 0.5) * 2);
     const newPosition = bot.entity.position.plus(randomDirection);
-    bot.pathfinder.setGoal(new GoalNear(newPosition.x, newPosition.y, newPosition.z));
+    bot.pathfinder.setGoal(new GoalNearXZ(newPosition.x, newPosition.z));
     bot.chat("Moved randomly.")
 }

@@ -8,3 +8,4 @@ __pycache__/
 logs/mineflayer/
 /main_test.py
 .env
+/test.py
