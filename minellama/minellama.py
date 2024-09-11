@@ -8,7 +8,7 @@ from datetime import datetime
 import minellama.utils as U
 from .env import VoyagerEnv
 
-from .agents import RoleAgent, DreamAgent, RecipeAgent, ActionAgent
+from .agents import RoleAgent, DreamAgent, RecipeAgent, ActionAgent, DiaryAgent
 from .llm import Llama2,GPT
 from .control_primitives import load_control_primitives
 
@@ -57,6 +57,7 @@ class Minellama:
         self.action_agent = ActionAgent(llm=self.llm)
         self.role_agent = RoleAgent(llm=self.llm)
         self.dream_agent = DreamAgent(llm=self.llm)
+        self.diary_agent = DiaryAgent(llm=self.llm)
         self.role = None
         self.dream = ""
 
@@ -75,6 +76,8 @@ class Minellama:
 
         # Minecraftゲーム内の環境情報の記録
         self.inventory = {}
+        self.initial_inventory = {}
+        self.final_inventory = {}
         self.nearby_block = []
         self.equipment = []
         self.biome = ""
@@ -90,6 +93,7 @@ class Minellama:
         self.todaysgoal = ""
         self.num_of_date = 1
         self.memory = ""
+        self.daily_executed_tasks = []
         self.success_list = []
         self.failed_list = []
         self.difficulty = difficulty
@@ -416,6 +420,8 @@ class Minellama:
         self.last_events = self.env.step("")
         self.reset(reset_env=reset_env)
         for _ in range(max_iterations):
+            self.initial_inventory = self.inventory
+            self.daily_executed_tasks = []
             #self.dream =  "You are a farmer. Your job in Minecraft  is to collect seeds, craft a wooden_hoe, plant seeds, and harvest crops."
             self.dream = self.dream_agent.generate_dream(role=self.role, numofDate = self.num_of_date, lastDream=self.dream, memory=self.memory)
             print(self.dream)
@@ -423,7 +429,10 @@ class Minellama:
             self.todaysgoal = self.role_agent.make_todaysgoal(self.dream, self.inventory, self.memory)            
             for todo in self.todaysgoal:
                 self.todo_detail = self.role_agent.make_todo_detail(self.dream, todo, self.inventory, self.memory)
-                #self.todo_detail = [{"action": "mine", "item_name": "log", "count": 3}]
+                #self.todo_detail = [{"action": "craft", "item_name": "crafting_table", "count": 1}]
+                
+                self.daily_executed_tasks += self.todo_detail
+                
                 print(self.todo_detail)
                 # self.next_task = self.role_agent.next_task(role=self.dream, todaysgoal=self.todaysgoal, inventory=self.subgoal_memory)
                 
@@ -458,7 +467,7 @@ class Minellama:
                     with open(self.record_file, "a") as f:
                         text = f"\n\nNUM_OF_DATE: {self.num_of_date}"
                         text += f"DREAM: {self.dream}\n"
-                        text += f"SELECTING_TO_DO: {self.todo}"
+                        text += f"SELECTING_TO_DO: {todo}"
                         text += f"TASK: {self.next_task}\n"
                         text += f"SUCCESS: {success}\n"
                         text += f"INVENTORY: {self.inventory}\n"
@@ -472,8 +481,9 @@ class Minellama:
                         text += f"RECIPE_PATHS:\n{self.recipe_agent.paths}\n"
                         text += f"STEP_COUNT: {self.step_count}\n"
                         text += f"TIME: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n"
-                        f.write(text)            
-            
+                        f.write(text)   
+                         
+            self.final_inventory = self.inventory
             # self.next_task = self.role_agent.next_task(role=self.dream, todaysgoal=self.todaysgoal, inventory=self.subgoal_memory)
             # print(f"\033[31m=================SET GOAL : {self.next_task} ====================\033[0m")
             # success = self.rollout(
@@ -496,11 +506,14 @@ class Minellama:
             #     text += f"TIME: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n"
             #     f.write(text)
         
-            daily_result = self.create_daily_report()
+            daily_result = self.diary_agent.generate_diary(self.initial_inventory, self.final_inventory, self.daily_executed_tasks, self.num_of_date)#self.create_daily_report()
+            self.num_of_date += 1
             self.memory += daily_result
             print(daily_result)   
-
-        print("ALL TASK COMPLETED")
-        print(self.memory)
+            print("ALL TASK COMPLETED")
+            print("\n\n---Diary:", self.memory, "-----\n\n")
+            print("\n\n---Tasks:", self.daily_executed_tasks, "-----\n\n")
+            print("\n\n---Initial inventory:", self.initial_inventory, "-----\n\n")
+            print("\n\n---Final inventory:", self.final_inventory, "-----\n\n")
         return
                     
