@@ -25,5 +25,34 @@
                 "planks": 4
             }
         }
+    ],
+    "wooden_pickaxe": [
+        {
+            "count": 1,
+            "type": "crafting_table",
+            "ingredients": {
+                "planks": 3,
+                "stick": 2
+            }
+        }
+    ],
+    "stone_pickaxe": [
+        {
+            "count": 1,
+            "type": "crafting_table",
+            "ingredients": {
+                "cobblestone": 3,
+                "stick": 2
+            }
+        }
+    ],
+    "iron_ingot": [
+        {
+            "count": 1,
+            "type": "furnace",
+            "ingredients": {
+                "raw_iron": 1
+            }
+        }
     ]
 }
