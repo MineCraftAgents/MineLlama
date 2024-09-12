@@ -40,7 +40,7 @@ class DiaryAgent:
     def generate_diary(self, initial, final, tasks, numofday):
         print("~~~~~~~~~~generate_diary~~~~~~~~~~~~")
         system_prompt = self.diary_prompt
-        human_prompt = f"initial_inventory: {initial} , final_inventory: {final}, tasks:{tasks} Using this information, please create the diary."
-        response = self.llm.content(system_prompt, query_str=human_prompt, data_dir="result", similarity_top_k = 8)
+        human_prompt = f"num_of_day:{numofday}, initial_inventory: {initial} , final_inventory: {final}, tasks:{tasks} Using this information, please create the diary."
+        response = self.llm.content(system_prompt, query_str=human_prompt, data_dir="result", similarity_top_k = 7)
         #print(response)
         return response

@@ -397,7 +397,6 @@ class Minellama:
         errors : {self.error}\n
         chat log : {self.chat_log}\n
         """
-
         self.num_of_date = self.num_of_date + 1
         self.subgoal_memory_success = []
         self.subgoal_memory_failed = []
@@ -419,22 +418,18 @@ class Minellama:
             self.initial_inventory = self.inventory
             self.daily_executed_tasks = []
             #self.dream =  "You are a farmer. Your job in Minecraft  is to collect seeds, craft a wooden_hoe, plant seeds, and harvest crops."
-            self.dream = self.dream_agent.generate_dream(role=self.role, numofDate = self.num_of_date, lastDream=self.dream, memory=self.memory)
+            self.dream = self.dream_agent.generate_dream(role=self.role, numofDate = self.num_of_date, lastDream=self.dream, inventory=self.final_inventory, memory=self.memory)
             print(self.dream)
-            #self.todaysgoal = ["Prepare farmland"]#, "Plant crops", "Build a basic structure"
+            #self.todaysgoal = ["craft wooden_hoe"]#, "Plant crops", "Build a basic structure"
             self.todaysgoal = self.role_agent.make_todaysgoal(self.dream, self.inventory, self.memory)            
             for todo in self.todaysgoal:
                 self.todo_detail = self.role_agent.make_todo_detail(self.dream, todo, self.inventory, self.memory)
                 #self.todo_detail = [{"action": "craft", "item_name": "crafting_table", "count": 1}]
-                
                 self.daily_executed_tasks += self.todo_detail
-                
                 print(self.todo_detail)
                 # self.next_task = self.role_agent.next_task(role=self.dream, todaysgoal=self.todaysgoal, inventory=self.subgoal_memory)
-                
                 for task in self.todo_detail:
                     #currentGoalAlgorithmで対処可能なアクション
-                    
                     if task["action"] in ["craft", "mine", "smelt", "collect"]:
                         print(f"\033[31m=================SET GOAL : {task} ====================\033[0m")
                         self.next_task = {task["item_name"]:task["count"]}
@@ -447,18 +442,19 @@ class Minellama:
                             success = False
                     elif task["action"] == ["kill", "fish", "tillAndPlant", "harvest"]:
                         #別個に指定しないと達成が困難なアクションがここに来る
-                        success = False
-                        print(f"-------task name :{task['action']},  has been done.-------")
-                        code = f'await {task["action"]}(bot, {task["item_name"]}, {task["count"]});'
-                        self.step(code)
+                        success = True
+                        try :
+                            print(f"-------task name :{task['action']},  has been done.-------")
+                            code = f'await {task["action"]}(bot, {task["item_name"]}, {task["count"]});'
+                            self.step(code)
+                        except Exception as e :
+                            success = False
                     else :
                         success = False
-                    
                     if success:
                         self.subgoal_memory_success.append(task)
                     else :
                         self.subgoal_memory_failed.append(task)
-                        
                     print("This is the final record of the inventory: ", self.inventory)
                     with open(self.record_file, "a") as f:
                         text = f"\n\nNUM_OF_DATE: {self.num_of_date}"
@@ -478,38 +474,15 @@ class Minellama:
                         text += f"STEP_COUNT: {self.step_count}\n"
                         text += f"TIME: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n"
                         f.write(text)   
-                         
             self.final_inventory = self.inventory
-            # self.next_task = self.role_agent.next_task(role=self.dream, todaysgoal=self.todaysgoal, inventory=self.subgoal_memory)
-            # print(f"\033[31m=================SET GOAL : {self.next_task} ====================\033[0m")
-            # success = self.rollout(
-            #     reset_env=reset_env,
-            # )        
-            # print("This is the final record of the inventory: ", self.inventory)
-            # with open(self.record_file, "a") as f:
-            #     text = f"\n\nTASK: {self.next_task}\n"
-            #     text += f"SUCCESS: {success}\n"
-            #     text += f"INVENTORY: {self.inventory}\n"
-            #     text += f"SUBGOAL_MEMORY: {self.subgoal_memory}\n"
-            #     text += f"SUBGOAL_SUCCESS: {self.subgoal_memory_success}\n"
-            #     text += f"SUBGOAL_FAILED: {self.subgoal_memory_failed}\n"
-            #     text += f"ACTION_MEMORY: {self.action_agent.memory}\n"
-            #     text += f"LAST_ERROR_MASSAGE: {self.error}\n"
-            #     text += f"LAST_CHAT_LOG: {self.chat_log}\n"
-            #     text += f"LAST_CODE_AND_CONTEXT: {self.last_code}\n{self.last_context}\n"
-            #     text += f"RECIPE_PATHS:\n{self.recipe_agent.paths}\n"
-            #     text += f"STEP_COUNT: {self.step_count}\n"
-            #     text += f"TIME: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n"
-            #     f.write(text)
-        
             daily_result = self.diary_agent.generate_diary(self.initial_inventory, self.final_inventory, self.daily_executed_tasks, self.num_of_date)#self.create_daily_report()
             self.num_of_date += 1
             self.memory += daily_result
             print(daily_result)   
             print("ALL TASK COMPLETED")
-            print("\n\n---Diary:", self.memory, "-----\n\n")
-            print("\n\n---Tasks:", self.daily_executed_tasks, "-----\n\n")
-            print("\n\n---Initial inventory:", self.initial_inventory, "-----\n\n")
-            print("\n\n---Final inventory:", self.final_inventory, "-----\n\n")
+            print("\n---Diary:", self.memory, "-----\n")
+            print("\n---Tasks:", self.daily_executed_tasks, "-----\n")
+            print("\n---Initial inventory:", self.initial_inventory, "-----\n")
+            print("\n---Final inventory:", self.final_inventory, "-----\n")
         return
                     
