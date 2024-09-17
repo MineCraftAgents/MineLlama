@@ -54,5 +54,25 @@
                 "raw_iron": 1
             }
         }
+    ],
+    "wooden_hoe": [
+        {
+            "count": 1,
+            "type": "crafting_table",
+            "ingredients": {
+                "planks": 2,
+                "stick": 2
+            }
+        }
+    ],
+    "wooden_shovel": [
+        {
+            "count": 1,
+            "type": "crafting_table",
+            "ingredients": {
+                "planks": 1,
+                "stick": 2
+            }
+        }
     ]
 }

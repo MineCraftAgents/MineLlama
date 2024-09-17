@@ -26,6 +26,7 @@ class RecipeAgent:
         self.llm = llm
 
         self.inventory={}
+        self.initial_inventory = {}
 
         self.recipe_dependency_list = {}
         self.searched_list = []
@@ -60,6 +61,33 @@ class RecipeAgent:
                 done = False
                 return done
         return done
+
+#-------
+    # initial_inventoryのアップデート。item名を整形し、統合する。
+    def update_initial_inventory(self, inventory:dict):
+        log_list = ["oak_log", "birch_log", "spruce_log", "jungle_log", "acacia_log", "dark_oak_log", "mangrove_log"]
+        planks_list = ["oak_planks", "birch_planks", "spruce_planks", "jungle_planks", "acacia_planks", "dark_oak_planks", "mangrove_planks"]
+        self.initial_inventory = copy.deepcopy(inventory)
+        inventory_keys = list(self.initial_inventory.keys())
+        log_count = 0
+        planks_count = 0
+        for key in inventory_keys:
+            if key in log_list:
+                log_count += self.initial_inventory[key]
+                self.initial_inventory.pop(key)
+            elif key in planks_list:
+                planks_count += self.initial_inventory[key]
+                self.initial_inventory.pop(key)
+
+        if log_count > 0 :
+            self.initial_inventory["log"] = log_count
+        if planks_count > 0 :
+            self.initial_inventory["planks"] = planks_count
+            
+        print(f"Updated Initial Inventory: {self.initial_inventory}\n")
+
+
+#-------
 
     # inventoryのアップデート。item名を整形し、統合する。
     def update_inventory(self, inventory:dict):
@@ -267,8 +295,15 @@ class RecipeAgent:
 
     # ========= Current Goal Algorithm ========
     # インベントリとのアイテムの個数の比較
+    #そのループの初期のインベントリのアイテムの状態を記録したことですでに取得済みのアイテムに関してもさらに採取できるように変更。
     def get_inventory_diff(self, item_dict:dict, item_name:str):
-        if item_name in self.inventory:
+        if (item_name in self.inventory) and (item_name in self.initial_inventory) :
+            diff = item_dict[item_name] - (self.inventory[item_name] - self.initial_inventory[item_name])
+            if diff <= 0:
+                return 0
+            else:
+                return diff
+        elif item_name in self.inventory:
             diff = item_dict[item_name] - self.inventory[item_name]
             if diff <= 0:
                 return 0
@@ -276,8 +311,17 @@ class RecipeAgent:
                 return diff
         else:
             return item_dict[item_name]
-
-
+#保存用。
+    # インベントリとのアイテムの個数の比較
+    # def get_inventory_diff(self, item_dict:dict, item_name:str):
+    #     if item_name in self.inventory:
+    #         diff = item_dict[item_name] - self.inventory[item_name]
+    #         if diff <= 0:
+    #             return 0
+    #         else:
+    #             return diff
+    #     else:
+    #         return item_dict[item_name]
 
     def current_goal_algorithm(self, task:dict, context="", max_iterations=3):
         print("\n============= Current Goal Algorithm ==============")

@@ -284,6 +284,7 @@ class Minellama:
 
     def rollout(self, *, reset_env=True):
         task_done = False
+        self.recipe_agent.update_initial_inventory(inventory=self.initial_inventory)
         while True:
             if self.iterations > self.max_iterations:
                 print("\nThe iterations reached the limitaion.\n")
@@ -417,14 +418,14 @@ class Minellama:
         for _ in range(max_iterations):
             self.initial_inventory = self.inventory
             self.daily_executed_tasks = []
-            #self.dream =  "You are a farmer. Your job in Minecraft  is to collect seeds, craft a wooden_hoe, plant seeds, and harvest crops."
-            self.dream = self.dream_agent.generate_dream(role=self.role, numofDate = self.num_of_date, lastDream=self.dream, inventory=self.final_inventory, memory=self.memory)
+            self.dream =  "You are a farmer. Your job in Minecraft  is to collect seeds, craft a wooden_hoe, plant seeds, and harvest crops."
+            #self.dream = self.dream_agent.generate_dream(role=self.role, numofDate = self.num_of_date, lastDream=self.dream, inventory=self.final_inventory, memory=self.memory)
             print(self.dream)
-            #self.todaysgoal = ["craft wooden_hoe"]#, "Plant crops", "Build a basic structure"
-            self.todaysgoal = self.role_agent.make_todaysgoal(self.dream, self.inventory, self.memory)            
+            self.todaysgoal = ["craft wooden_hoe"]#, "Plant crops", "Build a basic structure"
+            #self.todaysgoal = self.role_agent.make_todaysgoal(self.dream, self.inventory, self.memory)            
             for todo in self.todaysgoal:
-                self.todo_detail = self.role_agent.make_todo_detail(self.dream, todo, self.inventory, self.memory)
-                #self.todo_detail = [{"action": "craft", "item_name": "crafting_table", "count": 1}]
+                #self.todo_detail = self.role_agent.make_todo_detail(self.dream, todo, self.inventory, self.memory)
+                self.todo_detail = [{"action": "mine", "item_name": "log", "count": 3}]
                 self.daily_executed_tasks += self.todo_detail
                 print(self.todo_detail)
                 # self.next_task = self.role_agent.next_task(role=self.dream, todaysgoal=self.todaysgoal, inventory=self.subgoal_memory)

@@ -94,8 +94,9 @@ class RoleAgent:
         """
         
         iterations = 0
+        error_message = ""
         while iterations < max_iterations:
-            human_prompt_todo = f"Role: {dream} Inventory: {inventory} Memory: {memory} Error_message: {error_message}, what does the player have to do today to complete role playing? "
+            human_prompt_todo = f"Role: {dream} Inventory: {inventory} Memory: {memory}, Error_message: {error_message}, what does the player have to do today to complete role playing? "
             print(human_prompt_todo)
             response = self.llm.content(system_prompt_todo, query_str=human_prompt_todo, data_dir="recipe")
             print("response:",response)
@@ -130,7 +131,7 @@ class RoleAgent:
 
         Please follow these guidelines when creating your output:
         1. Use item names that exist within Minecraft. For example: stone_pickaxe.
-        2. The output should be in the format of a Python list. Each element should be a dict in the previously mentioned format: [{{"action": action name, "item_name": name of the item, "count": number of items}}]. For example: `[{{"action": "craft", "item_name": "cobblestone", "count": 3}}].
+        2. The output should be in the format of a Python list. Each element should be a dict in the previously mentioned format: [{{"action": action name, "item_name": name of the item, "count": number of items}}]. For example: `[{{"action": "mine", "item_name": "cobblestone", "count": 3}}].
         3. For action name, choose from ["craft", "mine", "smelt", "collect", "kill", "fish", "tillAndPlant", "harvest"]. Do not use any other names.
         4. Do not output answers that are not listed above. No additional explanations or clarifications are needed.
         5. Under no circumstances should there be any line breaks.
@@ -146,7 +147,8 @@ class RoleAgent:
         iterations = 0
         error_message = ""
         while iterations < max_iterations:
-            human_prompt_todo_detail = f"To Do: {todo}, Inventory: {inventory} Memory: {memory}, error messagae:{error_message}, what does the player have to do today? "
+            human_prompt_todo_detail = f"To Do: {todo}, Inventory: {inventory} Memory: {memory}, error messagae:{error_message}, what does the player have to do today? "#
+            error_message = ""#各ループでエラーをリセットしないと、本質の部分が希薄になる
             # print(human_prompt_todo_detail)
             try :
                 response = self.llm.content(system_prompt_todo_detail, query_str=human_prompt_todo_detail, data_dir="recipe")
