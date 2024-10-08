@@ -9,3 +9,7 @@ logs/mineflayer/
 /main_test.py
 .env
 /test.py
+/exp_logs/
+/minellama/llm/data/modified_minecraft_data/unused/
+/minellama/agents/unused/
+/minellama/unused/

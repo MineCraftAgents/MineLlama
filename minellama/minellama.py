@@ -53,7 +53,7 @@ class Minellama:
             print("Without LLM")
             self.llm = None
 
-        self.recipe_agent = RecipeAgent()
+        self.recipe_agent = RecipeAgent(llm=self.llm)
         self.action_agent = ActionAgent(llm=self.llm)
         self.role_agent = RoleAgent(llm=self.llm)
         self.dream_agent = DreamAgent(llm=self.llm)
@@ -92,7 +92,8 @@ class Minellama:
 
         self.todaysgoal = ""
         self.num_of_date = 1
-        self.memory = ""
+        self.memory = ["empty", "empty", "empty"]
+        self.diary_txt = ""
         self.daily_executed_tasks = []
         self.success_list = []
         self.failed_list = []
@@ -169,6 +170,8 @@ class Minellama:
 
         observation += f"Biome: {biome}\n\n"
         self.biome = biome
+        #recipe_agentのほうも更新をかける
+        self.recipe_agent.biome = biome
 
         observation += f"Time: {time_of_day}\n\n"
         self.time_of_day = time_of_day
@@ -235,7 +238,7 @@ class Minellama:
         self.action_agent.reset_memory()
         self.inventory = {}
         self.recipe_agent.update_inventory(inventory=self.inventory)
-        self.subgoal_memory = []
+        self.subgoal_memory = ["", "", ""]
         self.subgoal_memory_success = []
         self.subgoal_memory_failed = []
         self.step_count = 0
@@ -364,7 +367,7 @@ class Minellama:
             )
             print("This is the final record of the inventory: ", self.inventory)
             with open(self.record_file, "a") as f:
-                text = f"\n\nNUM_OF_DATE: {self.num_of_date}"
+                text = f"\n\nNUM_OF_DATE: {self.num_of_date}\n"
                 text += f"DREAM: {self.dream}\n"
                 text += f"SELECTING_TO_DO: {self.todo}"
                 text += f"TASK: {self.next_task}\n"
@@ -387,6 +390,89 @@ class Minellama:
         print("SUCCESS: ", self.success_list)
         print("FAILED: ", self.failed_list)
         return
+
+    # initial_inventoryのアップデート。item名を整形し、統合する。
+    def update_initial_inventory(self, inventory:dict):
+        log_list = ["oak_log", "birch_log", "spruce_log", "jungle_log", "acacia_log", "dark_oak_log", "mangrove_log"]
+        planks_list = ["oak_planks", "birch_planks", "spruce_planks", "jungle_planks", "acacia_planks", "dark_oak_planks", "mangrove_planks"]
+        self.initial_inventory = copy.deepcopy(inventory)
+        inventory_keys = list(self.initial_inventory.keys())
+        log_count = 0
+        planks_count = 0
+        for key in inventory_keys:
+            if key in log_list:
+                log_count += self.initial_inventory[key]
+                self.initial_inventory.pop(key)
+            elif key in planks_list:
+                planks_count += self.initial_inventory[key]
+                self.initial_inventory.pop(key)
+
+        if log_count > 0 :
+            self.initial_inventory["log"] = log_count
+        if planks_count > 0 :
+            self.initial_inventory["planks"] = planks_count
+            
+        print(f"Updated Initial Inventory: {self.initial_inventory}\n")
+        return self.initial_inventory
+
+    # inventoryのアップデート。item名を整形し、統合する。
+    def update_inventory(self, inventory:dict):
+        log_list = ["oak_log", "birch_log", "spruce_log", "jungle_log", "acacia_log", "dark_oak_log", "mangrove_log"]
+        planks_list = ["oak_planks", "birch_planks", "spruce_planks", "jungle_planks", "acacia_planks", "dark_oak_planks", "mangrove_planks"]
+        self.inventory = copy.deepcopy(inventory)
+        inventory_keys = list(self.inventory.keys())
+        log_count = 0
+        planks_count = 0
+        for key in inventory_keys:
+            if key in log_list:
+                log_count += self.inventory[key]
+                self.inventory.pop(key)
+            elif key in planks_list:
+                planks_count += self.inventory[key]
+                self.inventory.pop(key)
+
+        if log_count > 0 :
+            self.inventory["log"] = log_count
+        if planks_count > 0 :
+            self.inventory["planks"] = planks_count
+            
+        print(f"Updated Inventory: {self.inventory}\n")
+        return self.inventory
+
+    def inventory_inc(self, item_dict:dict, item_name:str):
+        #増える分には増えすぎる可能性はそれなりにある→その場合は成功と判断
+        if (item_name in self.inventory) and (item_name in self.initial_inventory) :
+            diff = item_dict[item_name] - (self.inventory[item_name] - self.initial_inventory[item_name])
+            if diff <= 0:
+                return True
+            else:
+                return False
+        elif item_name in self.inventory:
+            diff = item_dict[item_name] - self.inventory[item_name]
+            if diff <= 0:
+                return True
+            else:
+                return False
+        else:
+            return False        
+        
+    def inventory_dec(self, item_dict:dict, item_name:str):
+        #減る場合には、減りすぎているということは能動的に捨てる、またはそれに準ずるアクションをとっている可能性が高い→その場合は失敗と判断
+        if (item_name in self.inventory) and (item_name in self.initial_inventory) :
+            diff = item_dict[item_name] - (self.initial_inventory[item_name] - self.inventory[item_name])
+            if diff == 0:
+                return True
+            else:
+                return False
+        elif item_name in self.initial_inventory:
+            diff = item_dict[item_name] - self.initial_inventory[item_name]
+            if diff == 0:
+                return True
+            else:
+                return False
+        else:
+            return False  
+
 
     def create_daily_report(self):
         print("~~~~~~~~~~create_daily_report~~~~~~~~~~")
@@ -416,20 +502,23 @@ class Minellama:
         self.last_events = self.env.step("")
         self.reset(reset_env=reset_env)
         for _ in range(max_iterations):
-            self.initial_inventory = self.inventory
             self.daily_executed_tasks = []
-            self.dream =  "You are a farmer. Your job in Minecraft  is to collect seeds, craft a wooden_hoe, plant seeds, and harvest crops."
-            #self.dream = self.dream_agent.generate_dream(role=self.role, numofDate = self.num_of_date, lastDream=self.dream, inventory=self.final_inventory, memory=self.memory)
-            print(self.dream)
-            self.todaysgoal = ["craft wooden_hoe"]#, "Plant crops", "Build a basic structure"
-            #self.todaysgoal = self.role_agent.make_todaysgoal(self.dream, self.inventory, self.memory)            
+            
+            #プログラムを用いて機械的にタスクの成功を判断
+            self.diary_txt = f"DAY {self.num_of_date} : "
+            
+            #self.dream =  "You are a farmer. Your job in Minecraft  is to collect seeds, craft a wooden_hoe, plant seeds, and harvest crops."
+            self.dream = self.dream_agent.generate_dream(role=self.role, numofDate = self.num_of_date, lastDream=self.dream, inventory=self.final_inventory, memory=self.memory)
+            print("DREAM:", self.dream)
+            #self.todaysgoal = ["craft wooden_hoe"]#, "Plant crops", "Build a basic structure"
+            self.todaysgoal = self.role_agent.make_todaysgoal(self.dream, self.inventory, self.memory)            
             for todo in self.todaysgoal:
-                #self.todo_detail = self.role_agent.make_todo_detail(self.dream, todo, self.inventory, self.memory)
-                self.todo_detail = [{"action": "mine", "item_name": "log", "count": 3}]
+                #self.todo_detail = [{"action":"craft", "item_name":"wooden_hoe", "count":1}]
+                self.todo_detail = self.role_agent.make_todo_detail(self.dream, todo, self.inventory, self.memory)
                 self.daily_executed_tasks += self.todo_detail
                 print(self.todo_detail)
-                # self.next_task = self.role_agent.next_task(role=self.dream, todaysgoal=self.todaysgoal, inventory=self.subgoal_memory)
                 for task in self.todo_detail:
+                    self.initial_inventory = self.update_initial_inventory(inventory=self.inventory)
                     #currentGoalAlgorithmで対処可能なアクション
                     if task["action"] in ["craft", "mine", "smelt", "collect"]:
                         print(f"\033[31m=================SET GOAL : {task} ====================\033[0m")
@@ -437,25 +526,38 @@ class Minellama:
                         try :
                             success = self.rollout(
                                 reset_env=reset_env,
-                            )
+                            )                
                         except Exception as e :
                             #currentGoalAlgorithmが何らかのエラーを発生させてしまった場合にタスクを失敗判定にする
                             success = False
-                    elif task["action"] == ["kill", "fish", "tillAndPlant", "harvest"]:
-                        #別個に指定しないと達成が困難なアクションがここに来る
-                        success = True
+                    elif task["action"] == ["kill", "fish", "harvest"]:
+                        #別個に指定しないと達成が困難なアクション:その中でも実行後に特定アイテムの数の増加が予想されるタスク
                         try :
-                            print(f"-------task name :{task['action']},  has been done.-------")
+                            print(f"-------task name :{task['action']},  is being done.-------")
                             code = f'await {task["action"]}(bot, {task["item_name"]}, {task["count"]});'
                             self.step(code)
+                            self.final_inventory = self.update_inventory(inventory=self.inventory)
+                            success = self.inventory_dec(item_dict=task, item_name="item_name")
+                        except Exception as e :
+                            success = False
+                    elif task["action"] == ["tillAndPlant"]:
+                        #別個に指定しないと達成が困難なアクション:その中でも実行後に特定アイテムの数の減少が予想されるタスク
+                        try :
+                            print(f"-------task name :{task['action']},  is being done.-------")
+                            code = f'await {task["action"]}(bot, {task["item_name"]}, {task["count"]});'
+                            self.step(code)
+                            self.final_inventory = self.update_inventory(inventory=self.inventory)
+                            success = self.inventory_dec(item_dict=task, item_name="item_name")
                         except Exception as e :
                             success = False
                     else :
                         success = False
                     if success:
                         self.subgoal_memory_success.append(task)
+                        self.diary_txt += f"I completed to {task['action']} {task['count']} {task['item_name']}."
                     else :
                         self.subgoal_memory_failed.append(task)
+                        self.diary_txt += f"I failed to {task['action']} {task['count']} {task['item_name']}."
                     print("This is the final record of the inventory: ", self.inventory)
                     with open(self.record_file, "a") as f:
                         text = f"\n\nNUM_OF_DATE: {self.num_of_date}"
@@ -474,16 +576,19 @@ class Minellama:
                         text += f"RECIPE_PATHS:\n{self.recipe_agent.paths}\n"
                         text += f"STEP_COUNT: {self.step_count}\n"
                         text += f"TIME: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n"
-                        f.write(text)   
-            self.final_inventory = self.inventory
-            daily_result = self.diary_agent.generate_diary(self.initial_inventory, self.final_inventory, self.daily_executed_tasks, self.num_of_date)#self.create_daily_report()
+                        f.write(text)
+            # self.final_inventory = self.inventory
+            #daily_result = self.diary_agent.generate_diary(self.initial_inventory, self.final_inventory, self.daily_executed_tasks, self.num_of_date)#self.create_daily_report()
+            #self.memory += daily_result
+            #print(daily_result)   
             self.num_of_date += 1
-            self.memory += daily_result
-            print(daily_result)   
+            self.memory[2] = self.memory[1]
+            self.memory[1] = self.memory[0]
+            self.memory[0] = self.diary_txt
             print("ALL TASK COMPLETED")
             print("\n---Diary:", self.memory, "-----\n")
-            print("\n---Tasks:", self.daily_executed_tasks, "-----\n")
-            print("\n---Initial inventory:", self.initial_inventory, "-----\n")
-            print("\n---Final inventory:", self.final_inventory, "-----\n")
+            # print("\n---Tasks:", self.daily_executed_tasks, "-----\n")
+            # print("\n---Initial inventory:", self.initial_inventory, "-----\n")
+            # print("\n---Final inventory:", self.final_inventory, "-----\n")
         return
                     

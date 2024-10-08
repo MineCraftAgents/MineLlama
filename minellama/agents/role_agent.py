@@ -98,13 +98,17 @@ class RoleAgent:
         while iterations < max_iterations:
             human_prompt_todo = f"Role: {dream} Inventory: {inventory} Memory: {memory}, Error_message: {error_message}, what does the player have to do today to complete role playing? "
             print(human_prompt_todo)
-            response = self.llm.content(system_prompt_todo, query_str=human_prompt_todo, data_dir="recipe")
-            print("response:",response)
-            extracted_response = self.extract_list_from_str(response)
-            if extracted_response is not None:
-                return extracted_response
-            else:
-                error_message = "Invalid Error. No list found."
+            try :
+                response = self.llm.content(system_prompt_todo, query_str=human_prompt_todo, data_dir="recipe")
+                print("response:",response)
+                extracted_response = self.extract_list_from_str(response)
+                if extracted_response is not None:
+                    return extracted_response
+                else:
+                    error_message = "Invalid Error. No list found."
+            except Exception as e :
+                print("Unexpected error was occured. Trying again ...")
+                continue
         
         return extracted_response
     
@@ -178,7 +182,7 @@ class RoleAgent:
                         done += 1
                 if done == 0:
                     return extracted_response
-                error_message += f'This is your response from last round: {extracted_response}\n'
+                #error_message += f'This is your response from last round: {extracted_response}\n'
                 print(f'\nThis is your response from last round: {extracted_response}\n')
             else:
                 error_message += f"Invalid Error. No list found.\n"

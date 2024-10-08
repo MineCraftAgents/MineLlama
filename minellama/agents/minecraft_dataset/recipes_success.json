@@ -74,5 +74,15 @@
                 "stick": 2
             }
         }
+    ],
+    "stone_shovel": [
+        {
+            "count": 1,
+            "type": "crafting_table",
+            "ingredients": {
+                "cobblestone": 1,
+                "stick": 2
+            }
+        }
     ]
 }
