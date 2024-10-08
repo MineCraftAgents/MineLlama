@@ -418,14 +418,15 @@ class Minellama:
         for _ in range(max_iterations):
             self.initial_inventory = self.inventory
             self.daily_executed_tasks = []
-            self.dream =  "You are a farmer. Your job in Minecraft  is to collect seeds, craft a wooden_hoe, plant seeds, and harvest crops."
-            #self.dream = self.dream_agent.generate_dream(role=self.role, numofDate = self.num_of_date, lastDream=self.dream, inventory=self.final_inventory, memory=self.memory)
+            # self.dream =  "You are a farmer. Your job in Minecraft  is to collect seeds, craft a wooden_hoe, plant seeds, and harvest crops."
+            self.dream = self.dream_agent.generate_dream(role=self.role, numofDate = self.num_of_date, lastDream=self.dream, inventory=self.final_inventory, memory=self.memory)
             print(self.dream)
-            self.todaysgoal = ["craft wooden_hoe"]#, "Plant crops", "Build a basic structure"
-            #self.todaysgoal = self.role_agent.make_todaysgoal(self.dream, self.inventory, self.memory)            
+            # self.todaysgoal = ["craft wooden_hoe"]#, "Plant crops", "Build a basic structure"
+            self.todaysgoal = self.role_agent.make_todaysgoal(self.dream, self.inventory, self.memory)            
             for todo in self.todaysgoal:
-                #self.todo_detail = self.role_agent.make_todo_detail(self.dream, todo, self.inventory, self.memory)
-                self.todo_detail = [{"action": "mine", "item_name": "log", "count": 3}]
+                self.iterations = 0
+                self.todo_detail = self.role_agent.make_todo_detail(self.dream, todo, self.inventory, self.memory)
+                # self.todo_detail = [{"action": "mine", "item_name": "log", "count": 3}]
                 self.daily_executed_tasks += self.todo_detail
                 print(self.todo_detail)
                 # self.next_task = self.role_agent.next_task(role=self.dream, todaysgoal=self.todaysgoal, inventory=self.subgoal_memory)
@@ -478,6 +479,7 @@ class Minellama:
             self.final_inventory = self.inventory
             daily_result = self.diary_agent.generate_diary(self.initial_inventory, self.final_inventory, self.daily_executed_tasks, self.num_of_date)#self.create_daily_report()
             self.num_of_date += 1
+            self.iterations = 0
             self.memory += daily_result
             print(daily_result)   
             print("ALL TASK COMPLETED")
