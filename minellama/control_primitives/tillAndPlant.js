@@ -184,31 +184,4 @@ function isWaterNearby(bot, position, radius) {
     return false;
 }
 
-// 地表の水源ブロックを探す関数
-function findSurfaceWaterBlock(bot) {
-    const range = 256;  // ボットの周囲256ブロック以内を探索
-    const botPos = bot.entity.position;
-    const yRange = 10;  // ボットの現在のY座標から上下に10ブロックの範囲を探索
-    const candidates = [];
-
-    for (let y = botPos.y - yRange; y <= botPos.y + yRange; y++) {
-        for (let x = -range; x <= range; x++) {
-            for (let z = -range; z <= range; z++) {
-                const position = botPos.offset(x, y - botPos.y, z);
-                const block = bot.blockAt(position);
-                if (block && block.name === 'water') {
-                    const distance = botPos.distanceTo(position);
-                    candidates.push({ position, distance });
-                }
-            }
-        }
-    }
-
-    if (candidates.length > 0) {
-        candidates.sort((a, b) => a.distance - b.distance);
-        return candidates[0];  // 最も近い水ブロックの位置を返す
-    }
-
-    return null;
-}
 
