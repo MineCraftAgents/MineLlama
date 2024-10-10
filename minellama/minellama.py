@@ -513,8 +513,9 @@ class Minellama:
             #self.todaysgoal = ["craft wooden_hoe"]#, "Plant crops", "Build a basic structure"
             self.todaysgoal = self.role_agent.make_todaysgoal(self.dream, self.inventory, self.memory)            
             for todo in self.todaysgoal:
-                #self.todo_detail = [{"action":"collect", "item_name":"wheat_seeds", "count":3}]
+                self.iterations = 0
                 self.todo_detail = self.role_agent.make_todo_detail(self.dream, todo, self.inventory, self.memory)
+                # self.todo_detail = [{"action": "mine", "item_name": "log", "count": 3}]
                 self.daily_executed_tasks += self.todo_detail
                 print(self.todo_detail)
                 for task in self.todo_detail:
