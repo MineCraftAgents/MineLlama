@@ -1,0 +1,1 @@
+wheat_seeds: If you want to collect wheat_seeds, you'd better to mine (fern, grass, large_fern, large_grass). You must not mine or harvest wheat.
