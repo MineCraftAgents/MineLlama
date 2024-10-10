@@ -514,8 +514,8 @@ class Minellama:
             self.todaysgoal = self.role_agent.make_todaysgoal(self.dream, self.inventory, self.memory)            
             for todo in self.todaysgoal:
                 self.iterations = 0
-                self.todo_detail = self.role_agent.make_todo_detail(self.dream, todo, self.inventory, self.memory)
                 # self.todo_detail = [{"action": "mine", "item_name": "log", "count": 3}]
+                self.todo_detail = self.role_agent.make_todo_detail(self.dream, todo, self.inventory, self.memory)
                 self.daily_executed_tasks += self.todo_detail
                 print(self.todo_detail)
                 for task in self.todo_detail:
