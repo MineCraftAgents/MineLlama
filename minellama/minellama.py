@@ -287,8 +287,8 @@ class Minellama:
 
     def rollout(self, *, reset_env=True):
         task_done = False
-        self.recipe_agent.update_initial_inventory(inventory=self.initial_inventory)
         while True:
+            self.recipe_agent.update_initial_inventory(inventory=self.initial_inventory)
             if self.iterations > self.max_iterations:
                 print("\nThe iterations reached the limitaion.\n")
                 print(f"\033[31m*******YOU FAILED THE TASK: {self.next_task}*******\033[0m")
@@ -514,7 +514,7 @@ class Minellama:
             self.todaysgoal = self.role_agent.make_todaysgoal(self.dream, self.inventory, self.memory)            
             for todo in self.todaysgoal:
                 self.iterations = 0
-                # self.todo_detail = [{"action": "mine", "item_name": "log", "count": 3}]
+                #self.todo_detail = [{"action": "collect", "item_name": "wheat_seeds", "count": 1}]
                 self.todo_detail = self.role_agent.make_todo_detail(self.dream, todo, self.inventory, self.memory)
                 self.daily_executed_tasks += self.todo_detail
                 print(self.todo_detail)
