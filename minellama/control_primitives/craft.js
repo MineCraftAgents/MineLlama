@@ -24,8 +24,9 @@ async function craft(bot, name, count = 1) {
     }
     await placeItem(bot, "crafting_table", suitablePosition);
     //Craft items with crafting table
-    let itemCount = bot.inventory.count(mcData.itemsByName[name].id);
-    while(itemCount < count) {
+    const initialCount = bot.inventory.count(mcData.itemsByName[name].id);
+    let itemCount = initialCount;
+    while((itemCount - initialCount) < count) {
       const elapsedTime = Date.now() - startTime;
       if (elapsedTime >= maxTryTime) {
           bot.chat(`Failed to craft ${name} within ${maxTryTime / 1000} seconds.`);
