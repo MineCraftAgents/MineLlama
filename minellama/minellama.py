@@ -368,8 +368,6 @@ class Minellama:
             print("This is the final record of the inventory: ", self.inventory)
             with open(self.record_file, "a") as f:
                 text = f"\n\nNUM_OF_DATE: {self.num_of_date}\n"
-                text += f"DREAM: {self.dream}\n"
-                text += f"SELECTING_TO_DO: {self.todo}"
                 text += f"TASK: {self.next_task}\n"
                 text += f"SUCCESS: {success}\n"
                 text += f"INVENTORY: {self.inventory}\n"

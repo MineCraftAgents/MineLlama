@@ -290,7 +290,7 @@ class RecipeAgent:
                         print("Unexpected error was occured. Trying again ...")
                     iterations = iterations + 1
                 #規定回数で正しい回答を出せなかった場合
-                if iteratons >= max_iterations:
+                if iterations >= max_iterations:
                     print("The number of iteration reached the limit. Choosing a recipe randomly...")
                     recipe= self.search_recipe(name=name)
             else:
