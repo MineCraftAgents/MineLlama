@@ -10,7 +10,7 @@ class ActionAgent:
         print(f"Saved new code: {self.memory}\n")
         return
     
-    def reset_memory(self):
+    def reset(self):
         self.memory = {}
 
     def extract_jscode(self, response = ""):

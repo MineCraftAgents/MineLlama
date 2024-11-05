@@ -28,8 +28,12 @@ class RecipeAgent:
 
         self.inventory={}
         self.initial_inventory = {}
-
-        self.biome = {}
+        self.biome = ""
+        self.nearby_block = []
+        self.nearby_entities = []
+        self.equipment = []
+        self.chat_log = ""
+        self.error = ""
 
         self.recipe_dependency_list = {}
         self.searched_list = []
@@ -64,7 +68,46 @@ class RecipeAgent:
                 done = False
                 return done
         return done
+    
+    def reset(self):
+        self.inventory={}
+        self.initial_inventory = {}
+        self.biome = ""
+        self.nearby_block = []
+        self.nearby_entities = []
+        self.equipment = []
+        self.chat_log = ""
+        self.error = ""
+        self.recipe_dependency_list = {}
+        self.searched_list = []
+        self.paths = []
+        self.goal_items = []
+        self.current_goal_memory = []
+        self.recipe_memory_success = {}
+        self.recipe_memory_failed = {}
+    
+    def update_info(self, inventory=None, biome=None, nearby_block=None, nearby_entities=None, equipment=None, chat_log=None, error=None):
+        if inventory is not None:
+            self.inventory = inventory
 
+        if biome is not None: 
+            self.biome = biome
+
+        if nearby_block is not None:
+            self.nearby_block = nearby_block
+
+        if nearby_entities is not None:
+            self.nearby_entities = nearby_entities
+        
+        if equipment is not None:
+            self.equipment = equipment
+
+        if chat_log is not None:
+            self.chat_log = chat_log
+        
+        if error is not None:
+            self.error = error
+        
 #-------
     # initial_inventoryのアップデート。item名を整形し、統合する。
     def update_initial_inventory(self, inventory:dict):
@@ -335,6 +378,7 @@ class RecipeAgent:
     def reset_recipe(self):
         self.recipe_dependency_list = {}
         self.paths = []
+        self.searched_list = []
 
     def save_success_recipe(self, subgoal:dict):
         for key, value in subgoal.items():

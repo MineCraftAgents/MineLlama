@@ -9,8 +9,9 @@ async function craft(bot, name, count = 1) {
       return;
     } 
     if (withoutCraftingTable.includes(name)) {
-      let itemCount = bot.inventory.count(mcData.itemsByName[name].id);
-      while(itemCount < count) {
+      const initialCount = bot.inventory.count(mcData.itemsByName[name].id);
+      let itemCount = initialCount;
+      while((itemCount - initialCount) < count) {
         await craftItem(bot,name,1);
         itemCount = bot.inventory.count(mcData.itemsByName[name].id);
       }

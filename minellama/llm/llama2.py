@@ -30,19 +30,20 @@ class Llama2:
             rope_scaling={"type": "dynamic", "factor": 2}, load_in_8bit=True, device_map='auto') 
 
     ###with RAG
-    def content(self, system_prompt="",  query_str="", data_dir="", persist_index=True, similarity_top_k = 4, context_window=4096, max_new_tokens=1024):#persist_index=True, similarity_top_k = 1 から変更している。
+    def content(self, system_prompt="", human_prompt="", query_str="", data_dir="", persist_index=True, similarity_top_k = 4, context_window=4096, max_new_tokens=1024):#persist_index=True, similarity_top_k = 1 から変更している。
         data_path = "minellama/llm/data/modified_minecraft_data/"
         index_dir = "minellama/llm/data/chached_data/" + data_dir
 
         print("\n================Called LLM with RAG====================")
-        query_wrapper_prompt = PromptTemplate("[INST]<<SYS>>\n" + system_prompt + "<</SYS>>\n\n{query_str}[/INST]")
-        query_wrapper_prompt.format(query_str=query_str)
+        query_wrapper_prompt = PromptTemplate("[INST]<<SYS>>\n" + system_prompt + "<</SYS>>\n"+ human_prompt + "\n{query_str}[/INST]")
+        # query_wrapper_prompt.format(query_str=query_str)
 
 
         llm = HuggingFaceLLM(context_window=context_window,
                             # max_new_tokens=256,
                             max_new_tokens=max_new_tokens,
                             # system_prompt=system_prompt,
+                            # generate_kwargs={"temperature": 0.0, "do_sample": False},
                             query_wrapper_prompt=query_wrapper_prompt,
                             model=self.model,
                             device_map="auto",
