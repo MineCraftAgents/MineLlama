@@ -112,7 +112,7 @@ class RoleAgent:
         
         return extracted_response
     
-    def make_todo_detail(self, dream, todo, inventory, memory, max_iterations=10):
+    def make_todo_detail(self, dream, todo, inventory, nearby_block, nearby_entities, memory, max_iterations=10):
         system_prompt_todo_detail = """
         You are providing support for Minecraft gameplay. Your task is to output the actions the player should take in Minecraft based on the given short sentences according to the instructions below. The output should be a list with elements of type Python dict. Each dict should have the format:
         [{{"action": action name, "item_name": name of the item, "count": number of items}}]
@@ -151,7 +151,7 @@ class RoleAgent:
         iterations = 0
         error_message = ""
         while iterations < max_iterations:
-            human_prompt_todo_detail = f"To Do: {todo}, Inventory: {inventory} Memory: {memory}, error messagae:{error_message}, what does the player have to do today? "#
+            human_prompt_todo_detail = f"To Do: {todo}, Inventory: {inventory}, Nearby block: {nearby_block}, Nearby entities: {nearby_entities}, Memory: {memory}, error messagae:{error_message}, what does the player have to do today? "#
             error_message = ""#各ループでエラーをリセットしないと、本質の部分が希薄になる
             # print(human_prompt_todo_detail)
             try :

@@ -518,6 +518,8 @@ class Minellama:
         else:
             result_txt = f"I failed the task: {task['action']} {task['count']} {task['item_name']}."
 
+        print(f"\033[34m\n**** Executed Task ****\n\nDAY {self.num_of_date}\n\nTask:\n{task}\n\nResult:\n{result_txt}\n\033[0m")
+
         return result_txt
     
     def execute_task(self, task:dict):
@@ -543,6 +545,8 @@ class Minellama:
             except Exception as e :
                 print(f"Error occurred in execute_task:\n{e}")
                 result_txt = f"I failed the task: {task['action']} {task['count']} {task['item_name']}, because an error occurrred during task execution."
+
+        print(f"\033[34m\n**** Executed Task ****\n\nDAY {self.num_of_date}\n\nTask:\n{task}\n\nResult:\n{result_txt}\n\033[0m")
         
         return result_txt
     
@@ -570,7 +574,7 @@ class Minellama:
             for todo in self.todaysgoal:
                 # --- Generate TODO_datail ---
                 #self.todo_detail = [{"action": "collect", "item_name": "wheat_seeds", "count": 1}]
-                self.todo_detail = self.role_agent.make_todo_detail(self.dream, todo, self.inventory, self.memory)
+                self.todo_detail = self.role_agent.make_todo_detail(self.dream, todo, self.inventory, self.nearby_block, self.nearby_entities, self.memory)
                 print(f"\033[34m\n**** TODO datail ****\n\nDAY {self.num_of_date}\n\nTODO:\n{todo}\n\nTODO detail:\n{self.todo_detail}\n\033[0m")  
                 self.daily_executed_tasks += self.todo_detail
 
