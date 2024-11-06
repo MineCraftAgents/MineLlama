@@ -84,5 +84,24 @@
                 "stick": 2
             }
         }
+    ],
+    "furnace": [
+        {
+            "count": 1,
+            "type": "crafting_table",
+            "ingredients": {
+                "cobblestone": 8
+            }
+        }
+    ],
+    "wooden_sword": [
+        {
+            "count": 1,
+            "type": "crafting_table",
+            "ingredients": {
+                "planks": 2,
+                "stick": 1
+            }
+        }
     ]
 }

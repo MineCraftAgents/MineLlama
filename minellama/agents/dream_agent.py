@@ -21,9 +21,7 @@ class DreamAgent:
         3. Use only Minecraft item names in your answer. Do not use any other names.
         """
 
-
     def generate_dream(self, role, numofDate, lastDream, inventory, memory=None):
-        print("~~~~~~~~~~generate_dream~~~~~~~~~~~~")
         system_prompt = self.role_prompt
         #human_prompt = f"Role: {role} Memory: {memory} Using this information, provide a Minecraft-based description for the role."
         if numofDate == 1:

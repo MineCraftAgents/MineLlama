@@ -107,55 +107,10 @@ class RecipeAgent:
         
         if error is not None:
             self.error = error
-        
-#-------
-    # initial_inventoryのアップデート。item名を整形し、統合する。
+
     def update_initial_inventory(self, inventory:dict):
-        log_list = ["oak_log", "birch_log", "spruce_log", "jungle_log", "acacia_log", "dark_oak_log", "mangrove_log"]
-        planks_list = ["oak_planks", "birch_planks", "spruce_planks", "jungle_planks", "acacia_planks", "dark_oak_planks", "mangrove_planks"]
-        self.initial_inventory = copy.deepcopy(inventory)
-        inventory_keys = list(self.initial_inventory.keys())
-        log_count = 0
-        planks_count = 0
-        for key in inventory_keys:
-            if key in log_list:
-                log_count += self.initial_inventory[key]
-                self.initial_inventory.pop(key)
-            elif key in planks_list:
-                planks_count += self.initial_inventory[key]
-                self.initial_inventory.pop(key)
+        self.initial_inventory = inventory
 
-        if log_count > 0 :
-            self.initial_inventory["log"] = log_count
-        if planks_count > 0 :
-            self.initial_inventory["planks"] = planks_count
-            
-        print(f"Updated Initial Inventory: {self.initial_inventory}\n")
-
-#-------
-
-    # inventoryのアップデート。item名を整形し、統合する。
-    def update_inventory(self, inventory:dict):
-        log_list = ["oak_log", "birch_log", "spruce_log", "jungle_log", "acacia_log", "dark_oak_log", "mangrove_log"]
-        planks_list = ["oak_planks", "birch_planks", "spruce_planks", "jungle_planks", "acacia_planks", "dark_oak_planks", "mangrove_planks"]
-        self.inventory = copy.deepcopy(inventory)
-        inventory_keys = list(self.inventory.keys())
-        log_count = 0
-        planks_count = 0
-        for key in inventory_keys:
-            if key in log_list:
-                log_count += self.inventory[key]
-                self.inventory.pop(key)
-            elif key in planks_list:
-                planks_count += self.inventory[key]
-                self.inventory.pop(key)
-
-        if log_count > 0 :
-            self.inventory["log"] = log_count
-        if planks_count > 0 :
-            self.inventory["planks"] = planks_count
-            
-        print(f"Updated Inventory: {self.inventory}\n")
 
     # ========= geratate context =========
     #　必要なツールを探す。inventoryに入っていたらそのツールを、入っていなければ最も簡単なツールを示す。ツールが必要なければNoneを返す
