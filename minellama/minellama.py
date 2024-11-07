@@ -48,11 +48,12 @@ class Minellama:
         else:
             # This is for baseline without LLM
             raise ValueError("No LLM selected.")
-            
+        
+        self.func_list=["craft", "mine", "smelt", "collect", "kill", "fish", "tillAndPlant", "harvest"]    
 
         self.recipe_agent = RecipeAgent(llm=self.llm)
         self.action_agent = ActionAgent(llm=self.llm)
-        self.role_agent = RoleAgent(llm=self.llm)
+        self.role_agent = RoleAgent(llm=self.llm, func_list=self.func_list)
         self.dream_agent = DreamAgent(llm=self.llm)
         self.diary_agent = DiaryAgent(llm=self.llm)
 
@@ -62,7 +63,6 @@ class Minellama:
         self.inventory_rawdata = {}
         self.inventory = {} # processed inventory for log and planks
         self.initial_inventory = {}
-        self.final_inventory = {}
         self.nearby_block = []
         self.equipment = []
         self.biome = ""
@@ -429,40 +429,6 @@ class Minellama:
 
 
     # ======== ROLE ========= 
-    def inventory_inc(self, item_dict:dict, item_name:str):
-        #増える分には増えすぎる可能性はそれなりにある→その場合は成功と判断
-        if (item_name in self.inventory) and (item_name in self.initial_inventory) :
-            diff = item_dict[item_name] - (self.inventory[item_name] - self.initial_inventory[item_name])
-            if diff <= 0:
-                return True
-            else:
-                return False
-        elif item_name in self.inventory:
-            diff = item_dict[item_name] - self.inventory[item_name]
-            if diff <= 0:
-                return True
-            else:
-                return False
-        else:
-            return False        
-        
-    def inventory_dec(self, item_dict:dict, item_name:str):
-        #減る場合には、減りすぎているということは能動的に捨てる、またはそれに準ずるアクションをとっている可能性が高い→その場合は失敗と判断
-        if (item_name in self.inventory) and (item_name in self.initial_inventory) :
-            diff = item_dict[item_name] - (self.initial_inventory[item_name] - self.inventory[item_name])
-            if diff == 0:
-                return True
-            else:
-                return False
-        elif item_name in self.initial_inventory:
-            diff = item_dict[item_name] - self.initial_inventory[item_name]
-            if diff == 0:
-                return True
-            else:
-                return False
-        else:
-            return False  
-
 
     def create_daily_report(self):
         print("~~~~~~~~~~create_daily_report~~~~~~~~~~")
@@ -479,48 +445,7 @@ class Minellama:
         self.subgoal_memory_failed = []
         self.chat_log = ""
         return report
-    
-    def execute_task_manually(self, task:dict):
-        # functions which are used through Current Goal Algorithm in rollout
-        rollout_functions =["craft", "mine", "smelt", "collect"]
-        result_txt = ""
 
-        self.initial_inventory = self.inventory
-        
-        if task["action"] in rollout_functions:
-            next_task = {task["item_name"]:task["count"]}
-            success = self.rollout(task=next_task)
-        elif task["action"] == ["kill", "fish", "harvest"]:
-            #別個に指定しないと達成が困難なアクション:その中でも実行後に特定アイテムの数の増加が予想されるタスク
-            try :
-                print(f"-------task name :{task['action']},  is being done.-------")
-                code = f'await {task["action"]}(bot, {task["item_name"]}, {task["count"]});'
-                self.step(code)
-                self.final_inventory = self.inventory
-                success = self.inventory_dec(item_dict=task, item_name="item_name")
-            except Exception as e :
-                print(f"Error occurred in execute_task:\n{e}")
-                success = False
-        elif task["action"] == ["tillAndPlant"]:
-            #別個に指定しないと達成が困難なアクション:その中でも実行後に特定アイテムの数の減少が予想されるタスク
-            try :
-                print(f"-------task name :{task['action']},  is being done.-------")
-                code = f'await {task["action"]}(bot, {task["item_name"]}, {task["count"]});'
-                self.step(code)
-                self.final_inventory = self.inventory
-                success = self.inventory_dec(item_dict=task, item_name="item_name")
-            except Exception as e :
-                print(f"Error occurred in execute_task:\n{e}")
-                success = False
-
-        if success:
-            result_txt =  f"I completed the task: {task['action']} {task['count']} {task['item_name']}."
-        else:
-            result_txt = f"I failed the task: {task['action']} {task['count']} {task['item_name']}."
-
-        print(f"\033[34m\n**** Executed Task ****\n\nDAY {self.num_of_date}\n\nTask:\n{task}\n\nResult:\n{result_txt}\n\033[0m")
-
-        return result_txt
     
     def execute_task(self, task:dict):
         # If the function is in this list, use current goal algorithm to decompose recipes.
@@ -530,21 +455,20 @@ class Minellama:
         self.initial_inventory = self.inventory
 
         if task["action"] in rollout_functions:
-            next_task = {task["item_name"]:task["count"]}
+            next_task = {task["name"]:task["count"]}
             success = self.rollout(task=next_task)
             if success:
-                result_txt =  f"I completed the task: {task['action']} {task['count']} {task['item_name']}."
+                result_txt =  f"I completed the task: {task['action']} {task['count']} {task['name']}."
             else:
-                result_txt = f"I failed the task: {task['action']} {task['count']} {task['item_name']}."
+                result_txt = f"I failed the task: {task['action']} {task['count']} {task['name']}."
         else:
             try:
-                code = f'await {task["action"]}(bot, {task["item_name"]}, {task["count"]});'
+                code = f'await {task["action"]}(bot, "{task["name"]}", {task["count"]});'
                 self.step(code=code)
-                self.final_inventory = self.inventory
-                result_txt = self.diary_agent.evaluate_result()
+                result_txt = self.diary_agent.evaluate_result(task=task, final_inventory=self.inventory, initial_inventory=self.initial_inventory, nearby_block=self.nearby_block, chat_log=self.chat_log, error=self.error)
             except Exception as e :
                 print(f"Error occurred in execute_task:\n{e}")
-                result_txt = f"I failed the task: {task['action']} {task['count']} {task['item_name']}, because an error occurrred during task execution."
+                result_txt = f"I failed the task: {task['action']} {task['count']} {task['name']}, because an error occurrred during task execution."
 
         print(f"\033[34m\n**** Executed Task ****\n\nDAY {self.num_of_date}\n\nTask:\n{task}\n\nResult:\n{result_txt}\n\033[0m")
         
@@ -552,7 +476,7 @@ class Minellama:
     
 
     def inference_role(self, role, max_number_of_days, reset_mode="hard", reset_env=True):
-        print("Role: ",role)
+        print(f"\033[31m\n**** Role ****\n{role}\n\033[0m")
         self.role = role
         self.reset(reset_env=reset_env, reset_mode=reset_mode)
         
@@ -563,18 +487,18 @@ class Minellama:
             
             # --- Generate Dream ---
             #self.dream =  "You are a farmer. Your job in Minecraft  is to collect seeds, craft a wooden_hoe, plant seeds, and harvest crops."
-            self.dream = self.dream_agent.generate_dream(role=self.role, numofDate = self.num_of_date, lastDream=self.dream, inventory=self.final_inventory, memory=self.memory)
+            self.dream = self.dream_agent.generate_dream(role=self.role, numofDate = self.num_of_date, lastDream=self.dream, inventory=self.inventory, memory=self.memory)
             print(f"\033[34m\n**** Dream ****\n\nDAY {self.num_of_date}\n\nDream:\n{self.dream}\n\033[0m")
 
             # --- Generate Today's Goal TODO_list ---
             # self.todaysgoal = ["craft wooden_hoe", "Plant crops", "Build a basic structure"]
-            self.todaysgoal = self.role_agent.make_todaysgoal(self.dream, self.inventory, self.memory)   
+            self.todaysgoal = self.role_agent.make_todaysgoal(dream=self.dream, inventory=self.inventory, biome=self.biome, nearby_block=self.nearby_block, nearby_entities=self.nearby_entities, memory=self.memory)   
             print(f"\033[34m\n**** Today's Goal ****\n\nDAY {self.num_of_date}\n\nToday's Goal:\n{self.todaysgoal}\n\033[0m")  
 
             for todo in self.todaysgoal:
                 # --- Generate TODO_datail ---
-                #self.todo_detail = [{"action": "collect", "item_name": "wheat_seeds", "count": 1}]
-                self.todo_detail = self.role_agent.make_todo_detail(self.dream, todo, self.inventory, self.nearby_block, self.nearby_entities, self.memory)
+                #self.todo_detail = [{"action": "collect", "name": "wheat_seeds", "count": 1}]
+                self.todo_detail = self.role_agent.make_todo_detail(dream=self.dream, todo=todo, inventory=self.inventory, biome=self.biome, nearby_block=self.nearby_block, nearby_entities=self.nearby_entities, memory=self.memory)
                 print(f"\033[34m\n**** TODO datail ****\n\nDAY {self.num_of_date}\n\nTODO:\n{todo}\n\nTODO detail:\n{self.todo_detail}\n\033[0m")  
                 self.daily_executed_tasks += self.todo_detail
 
@@ -582,15 +506,13 @@ class Minellama:
                     # --- Execute Task ---
                     print(f"Set task from TODO detail: {task}\n")
                     result_txt = self.execute_task(task=task)
-                    # result_txt = self.execute_task_manually(task=task)
 
                     self.diary_txt += result_txt
 
                     print("This is the final record of the inventory: ", self.inventory)
                     self.record_log(success=result_txt, todo=todo)
 
-            # self.final_inventory = self.inventory
-            #daily_result = self.diary_agent.generate_diary(self.initial_inventory, self.final_inventory, self.daily_executed_tasks, self.num_of_date)#self.create_daily_report()
+            #daily_result = self.diary_agent.generate_diary(self.initial_inventory, self.inventory, self.daily_executed_tasks, self.num_of_date)#self.create_daily_report()
             #self.memory += daily_result
             #print(daily_result)   
             self.memory.append(self.diary_txt)

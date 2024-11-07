@@ -75,8 +75,9 @@ class DiaryAgent:
         Since you lost only 1 wheat_seeds, it seems that you only planted 1 seed, which means you failed planting 2 seeds.
         """
         iterations = 0
+        print("Evaluating the Result...")
         while iterations < max_iterations:
-            task_txt = f"{task['action']} {task['count']} {task['item_name']}"
+            task_txt = f"{task['action']} {task['count']} {task['name']}"
             inventory_txt = self.summarize_inventory(final_inventory=final_inventory, initial_inventory=initial_inventory)
             query = f"Task:{task_txt} \nInventory diff:{inventory_txt} \nNearby block:{nearby_block} \nChat log:{chat_log} \nError: {error}"
             try:
@@ -98,13 +99,13 @@ class DiaryAgent:
         num_of_day: int //The number of the day.
         initial_inventory:[{{"ITEM_NAME":"COUNT"}}, …]   //The list of items you had at the beginning of the day.
         final_inventory:[{{"ITEM_NAME":"COUNT"}}, …]   //The list of items you had at the end of the day after completing the tasks.
-        tasks:[{{"action": action name, "item_name": name of the item, "count": number of items}}, …]   //The list of tasks you were supposed to complete that day.
+        tasks:[{{"action": action name, "item": name of the item, "count": number of items}}, …]   //The list of tasks you were supposed to complete that day.
 
         For example, if you receive the following information:
         num_of_day : 4
         initial_inventory:[{{"stick":2}}, …]  
         final_inventory:[{{"stick":"2"}}, {{"cobblestone":1}}, {{"wooden_pickaxe":1}}]
-        tasks:[{{"action": "mine", "item_name": "cobblestone", "count": 3}}, {{"action": "craft", "item_name": "wooden_pickaxe", "count": 1}}, {{"action": "harvest", "item_name": "wheat", "count": 3}}]  
+        tasks:[{{"action": "mine", "item": "cobblestone", "count": 3}}, {{"action": "craft", "item": "wooden_pickaxe", "count": 1}}, {{"action": "harvest", "item": "wheat", "count": 3}}]  
         You would create a diary entry as follows:
         - Since only one cobblestone was gained from the initial_inventory to the final_inventory, and the task was to mine 3 cobblestone, it means "failed to mine 3 cobblestone."
         - Next, since a wooden_pickaxe was gained and the original task was to craft 1 wooden_pickaxe, it means "succeeded in crafting 1 wooden_pickaxe."
