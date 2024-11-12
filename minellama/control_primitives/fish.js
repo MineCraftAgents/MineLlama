@@ -1,5 +1,5 @@
 async function fish(bot, count) {
-  const maxTryTime = 30 * 1000; // 最大試行時間を30秒に設定
+  const maxTryTime = 90 * 1000 * count; // 最大試行時間を30秒に設定
   const startTime = Date.now();
   
   // 釣り竿をインベントリから探す
@@ -87,7 +87,8 @@ async function fish(bot, count) {
   await bot.equip(fishingRod, "hand");
 
   // 釣りを繰り返すループ
-  for (let i = 0; i < count; i++) {
+  let fishCount = 0;
+  while (fishCount < count) {
     const elapsedTime = Date.now() - startTime;
     if (elapsedTime >= maxTryTime) {
       bot.chat(`Failed to fish within ${maxTryTime / 1000} seconds.`);
@@ -96,14 +97,15 @@ async function fish(bot, count) {
 
     try {
       await bot.fish();
-      bot.chat(`Fish ${i + 1} caught.`);
+      bot.chat(`Fish caught.`);
+      fishCount += 1;
     } catch (error) {
       if (error.message === "Fishing cancelled") {
         bot.chat("Fishing was cancelled. Trying again...");
-        i--; // 同じ試行を再試行
       } else {
         throw error;
       }
     }
   }
+  bot.chat(`Result: Caught ${fishCount} fish in total.`);
 }

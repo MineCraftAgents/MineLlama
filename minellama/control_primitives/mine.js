@@ -25,19 +25,13 @@ async function mine(bot, name, count, tool=null){
     if (tool !== null){
         const equipedTool = bot.inventory.findInventoryItem(mcData.itemsByName[tool].id);
         if(!equipedTool) {
-            bot.chat("you don't have a tool")
+            bot.chat(`You don't have a tool: ${tool} `)
             return
         }
         await bot.equip(equipedTool, "hand");
     }
 
 
-    // function getRandomChoice() {
-    //     const randomNumber = Math.floor(Math.random() * 3) - 1;
-    //     return randomNumber;
-    // }
-
-    // Inventoryで個数を確認するようにしていたが、block名とitem名が異なることがあるため、単純に回数をカウントするようにした。
     // let itemCount = bot.inventory.count(mcData.itemsByName[name].id);
     let itemCount = 0;
     while (itemCount < count){
@@ -66,6 +60,8 @@ async function mine(bot, name, count, tool=null){
         // itemCount = bot.inventory.count(mcData.itemsByName[name].id);
         itemCount += 1;
     }
+
+    bot.chat(`Result: Mined ${itemCount} ${name} in total.`);
 
     if (tool !== null){
         await bot.unequip("hand");

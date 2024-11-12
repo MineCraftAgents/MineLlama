@@ -73,8 +73,8 @@ class RoleAgent:
         error_message = ""
         while iterations < max_iterations:
             print("Generating Today's Goal...")
-            query_str = f"Role: {dream} Inventory: {inventory} Biome: {biome} Nearby Block: {nearby_block} Nearby Entities: {nearby_entities},  what does the player have to do today to complete role playing? "
-            human_prompt = f"Memory: {memory}, Error_message: {error_message}"
+            query_str = f"Role: {dream} Inventory: {inventory} Biome: {biome} Nearby Block: {nearby_block} Nearby Entities: {nearby_entities} Memory: {memory} Error_message: {error_message},  what does the player have to do today to complete role playing? "
+            human_prompt = ""
             try :
                 response = self.llm.content(system_prompt=system_prompt, human_prompt=human_prompt, query_str=query_str, data_dir="recipe")
                 # print("response:",response)
@@ -87,6 +87,7 @@ class RoleAgent:
                     error_message = "Invalid Error. No list found."
             except Exception as e :
                 print("Unexpected error was occured. Trying again ...")
+                print(e)
                 continue
         
         return extracted_response
@@ -106,7 +107,7 @@ class RoleAgent:
         2) smelt:Use this to smelt item.
         3) mine:Use this to mine block. 
         4) collect:Use this to collect item.
-        5) kill:Use this to kill entity. 
+        5) kill:Use this to kill entity. This includes collecting dropped items.
         6) fish:Use this to catch fish.
         7) tillAndPlant :Use this to plant seeds. You need seeds and hoe first. You will find and go to water, till  farmland with hoe, and plant seeds with this function.
         8) harvest:Use this to harvest wheat. You have to plant seeds first. You will wait for wheat around you to grow and harvest them with this.
@@ -124,8 +125,8 @@ class RoleAgent:
         iterations = 0
         error_message = ""
         while iterations < max_iterations:
-            query_str = f"To Do: {todo}, Inventory: {inventory}, Nearby block: {nearby_block}, Nearby entities: {nearby_entities}, Memory: {memory}, error messagae:{error_message}, what does the player have to do today? "
-            human_prompt = f"Dream: {dream}"
+            query_str = f"To Do: {todo}, Inventory: {inventory}, Nearby block: {nearby_block}, Nearby entities: {nearby_entities}, Dream: {dream}, Memory: {memory}, error message:{error_message}, what does the player have to do today? "
+            human_prompt = ""
             error_message = ""
             try :
                 response = self.llm.content(system_prompt=system_prompt, human_prompt=human_prompt, query_str=query_str, data_dir="result")

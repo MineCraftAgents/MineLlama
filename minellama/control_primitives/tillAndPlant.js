@@ -123,11 +123,10 @@ async function tillAndPlant(bot, seedName="wheat_seeds", count=1, hoeName="woode
         } catch (err) {
             bot.chat("An error occurred: " + err.message + " Trying another block.");
             return;
-            continue;  // 別のブロックで再試行
         }
     }
     
-    bot.chat(`${plantedCount} seeds planted.`);
+    bot.chat(`Result: ${plantedCount} ${seedName} planted in total.`);
 }
 
 // 周囲の耕作可能な土ブロックまたは地表のブロックを探す関数（最も近いものを返す）

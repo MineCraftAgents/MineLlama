@@ -543,8 +543,9 @@ class RecipeAgent:
                 next_goal, context = self.current_goal_algorithm(task)
                 return next_goal, context
             else:
-                print(f"There is no such item in Minecraft: {key}")
-                return None, None
+                error = f"There is no such item in Minecraft: {key}"
+                print(error)
+                return None, error
         
         
 

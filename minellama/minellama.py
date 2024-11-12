@@ -328,21 +328,26 @@ class Minellama:
         self.next_task = copy.deepcopy(task)
         print(f"\033[31m=================　SET TASK : {self.next_task} ====================\033[0m")
         iterations = 0
+        success = False
+        task_done = False
+        self.initial_inventory = self.inventory
+        self.recipe_agent.update_initial_inventory(inventory=self.initial_inventory)
         try:
-            task_done = False
-            self.initial_inventory = self.inventory
-            self.recipe_agent.update_initial_inventory(inventory=self.initial_inventory)
             while True:
                 if iterations > self.max_iterations_rollout:
                     print("\nThe iterations reached the limitaion.\n")
                     print(f"\033[31m*******YOU FAILED THE TASK: {self.next_task}*******\033[0m")
                     self.failed_list.append(self.next_task)
-                    success = False
                     break
                 
                 next_task = self.next_task
 
                 subgoal, context = self.recipe_agent.set_current_goal(next_task)
+                if subgoal is None:
+                    self.last_context = context
+                    self.error = context
+                    break
+
                 self.subgoal_memory.append(subgoal)
 
                 # Retrieve codes from the past. If failed, regenerate it.
@@ -407,7 +412,6 @@ class Minellama:
                         self.recipe_agent.reset_recipe()
         except Exception as e:
             print(e)
-            success = False
 
         return success
 
@@ -475,7 +479,7 @@ class Minellama:
         return result_txt
     
 
-    def inference_role(self, role, max_number_of_days, reset_mode="hard", reset_env=True):
+    def inference_role(self, role, max_number_of_days, memory_duration = 3, reset_mode="hard", reset_env=True):
         print(f"\033[31m\n**** Role ****\n{role}\n\033[0m")
         self.role = role
         self.reset(reset_env=reset_env, reset_mode=reset_mode)
@@ -483,22 +487,27 @@ class Minellama:
         for day in range(max_number_of_days):
             self.daily_executed_tasks = []
             self.num_of_date = day + 1
-            self.diary_txt = f"DAY {self.num_of_date} : "
+            self.diary_txt = f"DAY {self.num_of_date}:\n"
+
+            memory_txt = ""
+            for memory in self.memory[-memory_duration: ]:
+                memory_txt += memory
+            print(f"\033[31m\n**** Day {self.num_of_date} Start ****\nMemory:\n{memory_txt}\n\033[0m")
             
             # --- Generate Dream ---
             #self.dream =  "You are a farmer. Your job in Minecraft  is to collect seeds, craft a wooden_hoe, plant seeds, and harvest crops."
-            self.dream = self.dream_agent.generate_dream(role=self.role, numofDate = self.num_of_date, lastDream=self.dream, inventory=self.inventory, memory=self.memory)
+            self.dream = self.dream_agent.generate_dream(role=self.role, numofDate = self.num_of_date, lastDream=self.dream, inventory=self.inventory, memory=memory_txt)
             print(f"\033[34m\n**** Dream ****\n\nDAY {self.num_of_date}\n\nDream:\n{self.dream}\n\033[0m")
 
             # --- Generate Today's Goal TODO_list ---
             # self.todaysgoal = ["craft wooden_hoe", "Plant crops", "Build a basic structure"]
-            self.todaysgoal = self.role_agent.make_todaysgoal(dream=self.dream, inventory=self.inventory, biome=self.biome, nearby_block=self.nearby_block, nearby_entities=self.nearby_entities, memory=self.memory)   
+            self.todaysgoal = self.role_agent.make_todaysgoal(dream=self.dream, inventory=self.inventory, biome=self.biome, nearby_block=self.nearby_block, nearby_entities=self.nearby_entities, memory=memory_txt)   
             print(f"\033[34m\n**** Today's Goal ****\n\nDAY {self.num_of_date}\n\nToday's Goal:\n{self.todaysgoal}\n\033[0m")  
 
             for todo in self.todaysgoal:
                 # --- Generate TODO_datail ---
                 #self.todo_detail = [{"action": "collect", "name": "wheat_seeds", "count": 1}]
-                self.todo_detail = self.role_agent.make_todo_detail(dream=self.dream, todo=todo, inventory=self.inventory, biome=self.biome, nearby_block=self.nearby_block, nearby_entities=self.nearby_entities, memory=self.memory)
+                self.todo_detail = self.role_agent.make_todo_detail(dream=self.dream, todo=todo, inventory=self.inventory, biome=self.biome, nearby_block=self.nearby_block, nearby_entities=self.nearby_entities, memory=memory_txt)
                 print(f"\033[34m\n**** TODO datail ****\n\nDAY {self.num_of_date}\n\nTODO:\n{todo}\n\nTODO detail:\n{self.todo_detail}\n\033[0m")  
                 self.daily_executed_tasks += self.todo_detail
 
@@ -507,16 +516,18 @@ class Minellama:
                     print(f"Set task from TODO detail: {task}\n")
                     result_txt = self.execute_task(task=task)
 
-                    self.diary_txt += result_txt
+                    self.diary_txt += f" TODO: {todo}, TODO detail: {task}, Result: {result_txt}. \n"
 
                     print("This is the final record of the inventory: ", self.inventory)
                     self.record_log(success=result_txt, todo=todo)
 
-            #daily_result = self.diary_agent.generate_diary(self.initial_inventory, self.inventory, self.daily_executed_tasks, self.num_of_date)#self.create_daily_report()
-            #self.memory += daily_result
-            #print(daily_result)   
             self.memory.append(self.diary_txt)
-            print(f"\033[31m\n**** Day {self.num_of_date} END ****\n{self.memory}\n\033[0m")
+            print(f"\033[31m\n**** Day {self.num_of_date} END ****\n{self.diary_txt}\n\033[0m")
 
+        print(f"Compeleted role for {max_number_of_days} days.")
+        memory_txt = ""
+        for memory in self.memory:
+            memory_txt += memory
+        print(f"Here is the memory: \n{memory_txt}")
         return
                     

@@ -96,7 +96,7 @@ class Llama2:
             print("Without Vector DB.")
             nodes=[]
             for ref_filename in file_list:
-                ref_path = f"{str(data_path)}/{ref_filename}"
+                ref_path = f"{ref_filename}"
                 with open(ref_path, 'r', encoding='utf-8') as file:
                     for line_number, text in enumerate(file, start=1):
                         node = TextNode(text=text.strip(), id_=f"line_{line_number}")

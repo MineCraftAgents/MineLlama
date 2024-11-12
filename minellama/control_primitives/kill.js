@@ -5,7 +5,7 @@ async function kill(bot, name, count, tool=null){
     }
 
     let killedCount = 0;
-    const maxTryTime = 30 * 1000; // 最大試行時間を30秒に設定
+    const maxTryTime = 90 * 1000 * count; 
     const startTime = Date.now();
 
     while (killedCount < count){
@@ -31,6 +31,7 @@ async function kill(bot, name, count, tool=null){
           await bot.pathfinder.goto(new GoalBlock(targetEntity.position.x, targetEntity.position.y, targetEntity.position.z));
           bot.chat("Collected dropped items.");
 
-          killedCount += 1
+          killedCount += 1;
     }
+    bot.chat(`Result: I killed ${killedCount} ${name} in total.`);
 }
