@@ -413,7 +413,7 @@ class Minellama:
                         self.recipe_agent.reset_recipe(all_reset=False, recursive_reset=True, recipe=subgoal)
                     elif iterations > 0 and iterations % recipe_reset_count == 0:
                         print(f"\nYou failed this task {recipe_reset_count} times in row. Reset recipe.\n")
-                        self.recipe_agent.reset_recipe(all_reset=False, recipe=subgoal)
+                        self.recipe_agent.reset_recipe(all_reset=False, recursive_reset=False, recipe=subgoal)
 
         except Exception as e:
             print(e)

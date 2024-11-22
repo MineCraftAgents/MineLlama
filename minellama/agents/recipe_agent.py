@@ -272,8 +272,8 @@ class RecipeAgent:
             # 再帰的に辿ってレシピをすべて削除
             def recursive_remove(key):
                 if key in self.recipe_dependency_list:
-                    removed_value = self.recipe_dependency_list.pop(key)
                     self.save_faild_recipe({key:1})
+                    removed_value = self.recipe_dependency_list.pop(key)
                     print(f"Removed from recipe dependency list: {removed_value}")
 
                     # このキーを required_items に含む他のアイテムを探索して削除
@@ -284,15 +284,15 @@ class RecipeAgent:
             # 一つ上の親のみ削除
             def remove_direct_dependencies(key):
                 if key in self.recipe_dependency_list:
-                    removed_value = self.recipe_dependency_list.pop(key)
                     self.save_faild_recipe({key:1})
+                    removed_value = self.recipe_dependency_list.pop(key)
                     print(f"Removed from recipe dependency list: {removed_value}")
 
                     # このキーを required_items に直接含むアイテムを削除（再帰しない）
                     for dependent_key, item in list(self.recipe_dependency_list.items()):
                         if item['required_items'] and key in item['required_items']:
-                            removed_value = self.recipe_dependency_list.pop(dependent_key)
                             self.save_faild_recipe({dependent_key:1})
+                            removed_value = self.recipe_dependency_list.pop(dependent_key)
                             print(f"Directly removed: {removed_value}")
 
             for key in recipe:
