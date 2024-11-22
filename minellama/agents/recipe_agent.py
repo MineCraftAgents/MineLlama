@@ -7,19 +7,18 @@ import copy
 
 class RecipeAgent:
     def __init__(self,llm=None):
-        self.data_path = ""
-        self.data_path = str(Path(__file__).parent / self.data_path)
-        with open(f"{self.data_path}/minecraft_dataset/recipes_bedrock.json", "r") as f:
+        self.data_path = str(Path(__file__).parent / "minecraft_dataset")
+        with open(f"{self.data_path}/recipes_bedrock.json", "r") as f:
             self.recipe_data = json.load(f)
-        with open(f"{self.data_path}/minecraft_dataset/recipes_success.json", "r") as f:
+        with open(f"{self.data_path}/recipes_success.json", "r") as f:
             self.recipe_data_success = json.load(f)
-        with open(f"{self.data_path}/minecraft_dataset/blocks_bedrock.json", "r") as f:
+        with open(f"{self.data_path}/blocks_bedrock.json", "r") as f:
             self.blocks_data = json.load(f)
-        with open(f"{self.data_path}/minecraft_dataset/dropitems_bedrock.json", "r") as f:
+        with open(f"{self.data_path}/dropitems_bedrock.json", "r") as f:
             self.entity_items_data = json.load(f)
-        with open(f"{self.data_path}/minecraft_dataset/harvest_tools.json", "r") as f:
+        with open(f"{self.data_path}/harvest_tools.json", "r") as f:
             self.harvest_tools = json.load(f)
-        with open(f"{self.data_path}/minecraft_dataset/items.json", "r") as f:
+        with open(f"{self.data_path}/items.json", "r") as f:
             mc_items_json = json.load(f)
             self.mc_items = {item['name']: item for item in mc_items_json}
 
@@ -196,25 +195,14 @@ class RecipeAgent:
         
         return recipe
     
-    def extract_list_from_str(self,response):
-        matched = re.search(r'(\[.*?\])', response, re.DOTALL)
-        if matched:
-            json_list = matched.group(1).strip()
-            # print("json_list: ",json_list)
-            return json.loads(json_list)
-        else:
-            print("No list found. Trying again.")
-            return None
     
     def extract_dict_from_str(self,response:str)->dict:
         matched = re.search(r'(\{.*\})', response)
         if matched:
             json_dict = matched.group(1).strip()
-            # print("json_dict: ",json_dict)
             return json.loads(json_dict.replace("'", '"'))
         else:
-            print("No json dict found. Trying again.")
-            raise Exception("Invalid Format Error")    
+            raise Exception("No json dict found. Trying again.")    
 
     #　LLMを使用して現在いるバイオームに適したレシピを選択する
     def recipe_choose_by_llm(self, biome:str, name:str, max_iterations=10):
@@ -254,39 +242,27 @@ class RecipeAgent:
                 4. Use double quotes when you write the property name of the dict in answer.
                 """
                 iterations = 0
+                error = "None"
+                print("Choosing recipe by LLM...")
                 while iterations < max_iterations:
                     extracted_response = None #初期化をかけておく
-                    human_prompt_biome = f"BIOME: {biome}, RECIPE_LIST: {self.recipe_data[name]}, which recipe should be done? "
+                    human_prompt_biome = f"BIOME: {biome}, RECIPE_LIST: {self.recipe_data[name]}, which recipe should be done? Error from the last round: {error}"
                     try :
                         response = self.llm.content(system_prompt, query_str=human_prompt_biome, data_dir="recipe")
-                        print("biome: ", biome)
-                        print("recipes: ", self.recipe_data[name])
-                        print("response:",response)
                         extracted_response = self.extract_dict_from_str(response)
-                        #print("extracted_response:", extracted_response)
-                        if extracted_response is not None:
-                            #レシピを選択できている場合
-                            itemname_list = ["stone","grass","dirt","cobblestone","planks","sapling","bedrock","sand","gravel","gold_ore","iron_ore","coal_ore","log","leaves","sponge","glass","lapis_ore","lapis_block","dispenser","sandstone","noteblock","golden_rail","detector_rail","sticky_piston","web","tallgrass","deadbush","piston","wool","yellow_flower","red_flower","brown_mushroom","red_mushroom","gold_block","iron_block","stone_slab","brick_block","tnt","bookshelf","mossy_cobblestone","obsidian","torch","mob_spawner","oak_stairs","chest","diamond_ore","diamond_block","crafting_table","farmland","furnace","ladder","rail","stone_stairs","lever","stone_pressure_plate","wooden_pressure_plate","redstone_ore","redstone_torch","stone_button","snow_layer","ice","snow","cactus","clay","jukebox","fence","pumpkin","netherrack","soul_sand","glowstone","lit_pumpkin","stained_glass","trapdoor","monster_egg","stonebrick","brown_mushroom_block","red_mushroom_block","iron_bars","glass_pane","melon_block","vine","fence_gate","brick_stairs","stone_brick_stairs","mycelium","waterlily","nether_brick","nether_brick_fence","nether_brick_stairs","enchanting_table","end_portal_frame","end_stone","dragon_egg","redstone_lamp","wooden_slab","sandstone_stairs","emerald_ore","ender_chest","tripwire_hook","emerald_block","spruce_stairs","birch_stairs","jungle_stairs","command_block","beacon","cobblestone_wall","wooden_button","anvil","trapped_chest","light_weighted_pressure_plate","heavy_weighted_pressure_plate","daylight_detector","redstone_block","quartz_ore","hopper","quartz_block","quartz_stairs","activator_rail","dropper","stained_hardened_clay","stained_glass_pane","leaves2","log2","acacia_stairs","dark_oak_stairs","slime","barrier","iron_trapdoor","prismarine","sea_lantern","hay_block","carpet","hardened_clay","coal_block","packed_ice","double_plant","red_sandstone","red_sandstone_stairs","stone_slab2","spruce_fence_gate","birch_fence_gate","jungle_fence_gate","dark_oak_fence_gate","acacia_fence_gate","spruce_fence","birch_fence","jungle_fence","dark_oak_fence","acacia_fence","end_rod","chorus_plant","chorus_flower","purpur_block","purpur_pillar","purpur_stairs","purpur_slab","end_bricks","grass_path","repeating_command_block","chain_command_block","iron_shovel","iron_pickaxe","iron_axe","flint_and_steel","apple","bow","arrow","coal","diamond","iron_ingot","gold_ingot","iron_sword","wooden_sword","wooden_shovel","wooden_pickaxe","wooden_axe","stone_sword","stone_shovel","stone_pickaxe","stone_axe","diamond_sword","diamond_shovel","diamond_pickaxe","diamond_axe","stick","bowl","mushroom_stew","golden_sword","golden_shovel","golden_pickaxe","golden_axe","string","feather","gunpowder","wooden_hoe","stone_hoe","iron_hoe","diamond_hoe","golden_hoe","wheat_seeds","wheat","bread","leather_helmet","leather_chestplate","leather_leggings","leather_boots","chainmail_helmet","chainmail_chestplate","chainmail_leggings","chainmail_boots","iron_helmet","iron_chestplate","iron_boots","diamond_helmet","diamond_chestplate","diamond_leggings","diamond_boots","golden_helmet","golden_chestplate","golden_leggings","flint","porkchop","cooked_porkchop","painting","golden_apple","sign","wooden_door","bucket","water_bucket","lava_bucket","minecart","saddle","iron_door","redstone","snowball","boat","leather","milk_bucket","brick","clay_ball","reeds","paper","book","slime_ball","chest_minecart","furnace_minecart","egg","compass","fishing_rod","clock","glowstone_dust","fish","cooked_fish","dye","bone","sugar","cake","bed","repeater","cookie","filled_map","shears","melon","pumpkin_seeds","melon_seeds","beef","cooked_beef","chicken","cooked_chicken","rotten_flesh","ender_pearl","blaze_rod","ghast_tear","gold_nugget","nether_wart","potion","glass_bottle","spider_eye","fermented_spider_eye","blaze_powder","magma_cream","brewing_stand","cauldron","ender_eye","speckled_melon","spawn_egg","experience_bottle","fire_charge","writable_book","written_book","emerald","item_frame","flower_pot","carrot","potato","baked_potato","poisonous_potato","map","golden_carrot","skull","carrot_on_a_stick","nether_star","pumpkin_pie","fireworks","firework_charge","enchanted_book","comparator","netherbrick","quartz","tnt_minecart","hopper_minecart","prismarine_shard","prismarine_crystals","rabbit","cooked_rabbit","rabbit_stew","rabbit_foot","rabbit_hide","armor_stand","iron_horse_armor","golden_horse_armor","diamond_horse_armor","lead","name_tag","command_block_minecart","mutton","cooked_mutton","banner","end_crystal","spruce_door","birch_door","jungle_door","acacia_door","dark_oak_door","chorus_fruit","chorus_fruit_popped","beetroot","beetroot_seeds","beetroot_soup","dragon_breath","splash_potion","spectral_arrow","tipped_arrow","lingering_potion","shield","elytra","spruce_boat","birch_boat","jungle_boat","acacia_boat","dark_oak_boat","record_13","record_cat","record_blocks","record_chirp","record_far","record_mall","record_mellohi","record_stal","record_strad","record_ward","record_11","record_wait"]
-                            done = 0
-                            try:                            
-                                for item in extracted_response["ingredients"].keys():
-                                    if item not in itemname_list:                                
-                                        print(f"\nThere is no item called {item['item_name']}.\n")
-                                        done += 1
-                            except Exception as e:
-                                print(e)
-                                print(f"\nFormat was invalid.\n")
-                                done += 1
-                            if done == 0:
-                                recipe = extracted_response
-                                self.recipe_dependency_list[name] = recipe
-                                return recipe
+                        if extracted_response is not None: 
+                            for item in extracted_response["ingredients"].keys():
+                                if item in self.mc_items:      
+                                    self.recipe_dependency_list[name] = extracted_response
+                                    return extracted_response   
+                                else:
+                                    raise Exception(f"There is no item called {item}.\n")
                         else:
-                            error_message = "Invalid Error. No dict found."
+                            raise Exception("Invalid Error. No dict found.")
                     except Exception as e :
-                        print(e)
-                        print("Unexpected error was occured. Trying again ...")
-                    iterations = iterations + 1
+                        error = e
+                        print(f"\nFormat was invalid. {e} \n")
+                        iterations += 1
                 #規定回数で正しい回答を出せなかった場合
                 if iterations >= max_iterations:
                     print("The number of iteration reached the limit. Choosing a recipe randomly...")
@@ -345,7 +321,7 @@ class RecipeAgent:
                         self.recipe_data_success[key].append(recipe)
                 else:
                     self.recipe_data_success[key] = [recipe]
-                with open(f"{self.data_path}/minecraft_dataset/recipes_success.json", "w") as f:
+                with open(f"{self.data_path}/recipes_success.json", "w") as f:
                     json.dump(self.recipe_data_success, f, ensure_ascii=False, indent=4)
         self.use_recipe_data_success = True
 
