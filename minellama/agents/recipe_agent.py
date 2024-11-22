@@ -306,8 +306,15 @@ class RecipeAgent:
                 expanded_paths.append(current_path + sub_path)
         return expanded_paths 
     
-    def reset_recipe(self):
-        self.recipe_dependency_list = {}
+    def reset_recipe(self, all_reset=True, recipe={}):
+        if all_reset:
+            self.recipe_dependency_list = {}
+            print("Reset all recipe dependency")
+        else:
+            for key in recipe:
+                removed_value = self.recipe_dependency_list.pop(key)
+                print(f"Removed from recipe dependency list: {removed_value}")
+
         self.paths = []
         self.searched_list = []
 
