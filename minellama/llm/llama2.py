@@ -30,7 +30,7 @@ class Llama2:
             rope_scaling={"type": "dynamic", "factor": 2}, load_in_8bit=True, device_map='auto') 
 
     ###with RAG
-    def content(self, system_prompt="", human_prompt="", query_str="", data_dir="", persist_index=True, similarity_top_k = 4, context_window=4096, max_new_tokens=1024):#persist_index=True, similarity_top_k = 1 から変更している。
+    def content(self, system_prompt="", human_prompt="", query_str="", data_dir="", persist_index=True, use_general_dir=True, similarity_top_k = 4, context_window=4096, max_new_tokens=1024):#persist_index=True, similarity_top_k = 1 から変更している。
         data_path = "minellama/llm/data/minecraft_data/"
         index_dir = "minellama/llm/data/chached_data/" + data_dir
 
@@ -65,14 +65,16 @@ class Llama2:
         general_dir = os.path.join(data_path, "general")
         ref_dir = os.path.join(data_path, data_dir)
 
-        # ファイルとディレクトリのフルパスをリストにする
-        file_list = [
-        os.path.join(general_dir, file_name) 
-            for file_name in os.listdir(general_dir)
-        ] + [
+        file_list =[
             os.path.join(ref_dir, file_name) 
             for file_name in os.listdir(ref_dir)
         ]
+        if use_general_dir:
+            file_list = file_list + [
+            os.path.join(general_dir, file_name) 
+                for file_name in os.listdir(general_dir)
+            ] 
+
         if persist_index:
             if not os.path.isdir(index_dir):
                 print("No vector index found. Making new one...")
