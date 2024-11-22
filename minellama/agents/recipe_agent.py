@@ -123,6 +123,11 @@ class RecipeAgent:
     def check_keys_of_response(self,response:dict) -> None:
         if not (set(response.keys()) == set(["name", "count", "required_items", "action"])):
             raise KeyError
+        
+    def check_infinit_loop(self, key):
+        if key in self.recipe_dependency_list:
+            if self.recipe_dependency_list[key]["required_items"] and key in self.recipe_dependency_list[key]["required_items"]:
+                raise Exception(f"There is an infinit loop in recipe list. Please avoid {key}.")
     
     def item_name_validation(self, response:dict) -> None:
         name = response["name"]
@@ -131,6 +136,7 @@ class RecipeAgent:
         if isinstance(required_items, dict):
             for key in required_items:
                 self.check_item_name(key)
+                self.check_infinit_loop(key)
 
     def inventory_to_sentence(self):
         items = [f"{value} {key}" for key, value in self.inventory.items()]
@@ -140,6 +146,15 @@ class RecipeAgent:
             return f"I have {items[0]}."
         else:
             return "I have nothing."
+        
+    def failed_memory_to_sentence(self, item:str):
+        if item in self.recipe_memory_failed:
+            sentence = f"I failed obtaining {item} when you suggested me the following required_items. Please avoid these; "
+            for item in self.recipe_memory_failed[item]:
+                sentence += f"{item['required_items'] }"
+        else:
+            sentence = "None"
+        return sentence
 
     def query_wrapper(self, query_item:str)->dict[int]:
         system_prompt = """
@@ -186,11 +201,13 @@ class RecipeAgent:
         max_request = 10
         inventory = self.inventory_to_sentence()
         error = self.error
+        failed_memory = self.failed_memory_to_sentence(item=query_item)
 
         while max_request > 0:
             try:
                 query_str = f'Please tell me how to obtain "{query_item}". To get some "{query_item}", you need '
-                human_prompt = f"This is the current status. Inventory: {inventory} Nearby block: {self.nearby_block} Biome: I am in {self.biome}. Error from the last round: {error}"
+                human_prompt = f"This is the current status. Inventory: {inventory} Nearby block: {self.nearby_block} Biome: I am in {self.biome}. Memory: {failed_memory}  Error from the last round: {error}"
+                print(human_prompt)
                 response = self.llm.content(system_prompt=system_prompt, human_prompt=human_prompt, query_str=query_str, data_dir = "recipe", persist_index=True, use_general_dir=False, similarity_top_k=3)
                 # print(response)
                 # print("\n")
@@ -230,8 +247,6 @@ class RecipeAgent:
             
             resolve_count -= 1
             unresolved_edge = list(set(unresolved_edge))
-        # print("Dependency_list: ")
-        # print(dependency_list)
         return dependency_list
 
     def create_recipe_dict(self, dependency_list:list):
@@ -240,25 +255,51 @@ class RecipeAgent:
             if item["required_items"] == "None":
                 item["required_items"] = None
             recipe_dict[item["name"]] = item
-        print("create_recipe_dict")
-        print(recipe_dict)
         return recipe_dict
 
     def get_recipe(self, query_item_name:str): 
-        print("Resolving recipe dependencies...")
+        print("\nResolving recipe dependencies...")
         dependency_list = self.resolve_dependency_all([query_item_name])
         self.recipe_dependency_list = self.create_recipe_dict(dependency_list=dependency_list)
 
 
     
-    def reset_recipe(self, all_reset=True, recipe={}):
+    def reset_recipe(self, all_reset=True, recursive_reset=False, recipe={}):
         if all_reset:
             self.recipe_dependency_list = {}
             print("Reset all recipe dependency")
         else:
+            # 再帰的に辿ってレシピをすべて削除
+            def recursive_remove(key):
+                if key in self.recipe_dependency_list:
+                    removed_value = self.recipe_dependency_list.pop(key)
+                    self.save_faild_recipe({key:1})
+                    print(f"Removed from recipe dependency list: {removed_value}")
+
+                    # このキーを required_items に含む他のアイテムを探索して削除
+                    for dependent_key, item in list(self.recipe_dependency_list.items()):
+                        if item['required_items'] and key in item['required_items']:
+                            recursive_remove(dependent_key)
+            
+            # 一つ上の親のみ削除
+            def remove_direct_dependencies(key):
+                if key in self.recipe_dependency_list:
+                    removed_value = self.recipe_dependency_list.pop(key)
+                    self.save_faild_recipe({key:1})
+                    print(f"Removed from recipe dependency list: {removed_value}")
+
+                    # このキーを required_items に直接含むアイテムを削除（再帰しない）
+                    for dependent_key, item in list(self.recipe_dependency_list.items()):
+                        if item['required_items'] and key in item['required_items']:
+                            removed_value = self.recipe_dependency_list.pop(dependent_key)
+                            self.save_faild_recipe({dependent_key:1})
+                            print(f"Directly removed: {removed_value}")
+
             for key in recipe:
-                removed_value = self.recipe_dependency_list.pop(key)
-                print(f"Removed from recipe dependency list: {removed_value}")
+                if recursive_reset:
+                    recursive_remove(key)
+                else:
+                    remove_direct_dependencies(key)
 
         self.paths = []
         self.searched_list = []

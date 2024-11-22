@@ -117,11 +117,10 @@ Then, you would answer:
 await smelt(bot, 'raw_iron', 2, 'planks');
 
 '''
-        print("Generating action by action agent...")
+        print("\nGenerating action by action agent...")
         while iterations < max_iterations:
             try:
                 human_prompt = f"Choose the function with the arguments to achive the task below please.\nTask : {task}\nNearby Block : {nearby_block}\nNearby Entities : {nearby_entities}\nContext : {context}\nCode from the last round: {last_code}\nError Message: {error_message}\nChat Log: {chat_log}"
-                print("Action agent prompt:\n",human_prompt)
                 output = self.llm.content(system_prompt=system_prompt,query_str=human_prompt, data_dir=data_dir)
                 code = self.extract_jscode(response = output)
                 self.check_name(code=code)

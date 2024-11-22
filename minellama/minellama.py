@@ -328,7 +328,7 @@ class Minellama:
         self.next_task = copy.deepcopy(task)
         print(f"\033[31m=================　SET TASK : {self.next_task} ====================\033[0m")
         iterations = 0
-        recipe_reset_count = 3
+        recipe_reset_count = 2
         all_recipe_reset_count = 6
         success = False
         task_done = False
@@ -406,15 +406,15 @@ class Minellama:
                     iterations += 1
                     print(f"You faild the task: {subgoal}")
                     print(f"You are doing the same action for {iterations} times.")
-                    #　タスクを失敗した場合に、recipe_agentの失敗リストに追加。回避するようにする。
-                    self.recipe_agent.save_faild_recipe(subgoal)
-                    #　3回連続で失敗したら、レシピをもう一度探索し直す。
+                
+                    #　連続で失敗したら、レシピをもう一度探索し直す。
                     if iterations > 0 and iterations % all_recipe_reset_count == 0:
                         print(f"\nYou failed this task {all_recipe_reset_count} times in row. Reset all recipe.\n")
-                        self.recipe_agent.reset_recipe(all_reset=True)
+                        self.recipe_agent.reset_recipe(all_reset=False, recursive_reset=True, recipe=subgoal)
                     elif iterations > 0 and iterations % recipe_reset_count == 0:
                         print(f"\nYou failed this task {recipe_reset_count} times in row. Reset recipe.\n")
                         self.recipe_agent.reset_recipe(all_reset=False, recipe=subgoal)
+
         except Exception as e:
             print(e)
 

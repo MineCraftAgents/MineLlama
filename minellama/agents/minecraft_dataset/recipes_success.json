@@ -6,6 +6,15 @@
             "ingredients": {
                 "log": 1
             }
+        },
+        {
+            "name": "planks",
+            "count": 4,
+            "required_items": {
+                "log": 1,
+                "crafting_table": 1
+            },
+            "action": "You can craft planks with crafting_table."
         }
     ],
     "stick": [
@@ -15,6 +24,15 @@
             "ingredients": {
                 "planks": 2
             }
+        },
+        {
+            "name": "stick",
+            "count": 4,
+            "required_items": {
+                "planks": 2,
+                "crafting_table": 1
+            },
+            "action": "You can craft stick with crafting_table."
         }
     ],
     "crafting_table": [
@@ -24,6 +42,14 @@
             "ingredients": {
                 "planks": 4
             }
+        },
+        {
+            "name": "crafting_table",
+            "count": 1,
+            "required_items": {
+                "planks": 4
+            },
+            "action": "You can craft crafting_table with 4 planks."
         }
     ],
     "wooden_pickaxe": [
@@ -34,6 +60,16 @@
                 "planks": 3,
                 "stick": 2
             }
+        },
+        {
+            "name": "wooden_pickaxe",
+            "count": 1,
+            "required_items": {
+                "planks": 3,
+                "stick": 2,
+                "crafting_table": 1
+            },
+            "action": "You can craft wooden_pickaxe with crafting_table."
         }
     ],
     "stone_pickaxe": [
@@ -102,6 +138,22 @@
                 "planks": 2,
                 "stick": 1
             }
+        }
+    ],
+    "log": [
+        {
+            "name": "log",
+            "count": 1,
+            "required_items": null,
+            "action": "You can get log by breaking log block without any tool."
+        }
+    ],
+    "sand": [
+        {
+            "name": "sand",
+            "count": 1,
+            "required_items": null,
+            "action": "You can get sand by breaking sand block without any tool."
         }
     ]
 }
