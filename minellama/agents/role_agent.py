@@ -14,12 +14,11 @@ class RoleAgent:
         self.llm = llm
         self.func_list = func_list
 
-        data_path = ""
-        data_path = str(Path(__file__).parent / data_path)
-        with open(f"{data_path}/minecraft_dataset/items.json", "r") as f:
+        data_path = str(Path(__file__).parent / "minecraft_dataset")
+        with open(f"{data_path}/items.json", "r") as f:
             mc_items_json = json.load(f)
             self.mc_items = {item['name']: item for item in mc_items_json}
-        with open(f"{data_path}/minecraft_dataset/entities.json", "r") as f:
+        with open(f"{data_path}/entities.json", "r") as f:
             entities_json = json.load(f)
             self.mc_entities = {item['name']: item for item in entities_json}
 

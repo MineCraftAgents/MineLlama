@@ -7,19 +7,18 @@ import copy
 
 class RecipeAgent:
     def __init__(self,llm=None):
-        self.data_path = ""
-        self.data_path = str(Path(__file__).parent / self.data_path)
-        with open(f"{self.data_path}/minecraft_dataset/recipes_bedrock.json", "r") as f:
+        self.data_path = str(Path(__file__).parent / "minecraft_dataset")
+        with open(f"{self.data_path}/recipes_bedrock.json", "r") as f:
             self.recipe_data = json.load(f)
-        with open(f"{self.data_path}/minecraft_dataset/recipes_success.json", "r") as f:
+        with open(f"{self.data_path}/recipes_success.json", "r") as f:
             self.recipe_data_success = json.load(f)
-        with open(f"{self.data_path}/minecraft_dataset/blocks_bedrock.json", "r") as f:
+        with open(f"{self.data_path}/blocks_bedrock.json", "r") as f:
             self.blocks_data = json.load(f)
-        with open(f"{self.data_path}/minecraft_dataset/dropitems_bedrock.json", "r") as f:
+        with open(f"{self.data_path}/dropitems_bedrock.json", "r") as f:
             self.entity_items_data = json.load(f)
-        with open(f"{self.data_path}/minecraft_dataset/harvest_tools.json", "r") as f:
+        with open(f"{self.data_path}/harvest_tools.json", "r") as f:
             self.harvest_tools = json.load(f)
-        with open(f"{self.data_path}/minecraft_dataset/items.json", "r") as f:
+        with open(f"{self.data_path}/items.json", "r") as f:
             mc_items_json = json.load(f)
             self.mc_items = {item['name']: item for item in mc_items_json}
 
@@ -117,11 +116,9 @@ class RecipeAgent:
         matched = re.search(r'(\{.*\})', response)
         if matched:
             json_dict = matched.group(1).strip()
-            print("json_dict: ",json_dict)
-            return json.loads(json_dict)
+            return json.loads(json_dict.replace("'", '"'))
         else:
-            error = "No json dict found."
-            raise Exception(error)
+            raise Exception("No json dict found. Trying again.")
         
     def check_keys_of_response(self,response:dict) -> None:
         if not (set(response.keys()) == set(["name", "count", "required_items", "action"])):
@@ -269,7 +266,7 @@ class RecipeAgent:
                         self.recipe_data_success[key].append(recipe)
                 else:
                     self.recipe_data_success[key] = [recipe]
-                with open(f"{self.data_path}/minecraft_dataset/recipes_success.json", "w") as f:
+                with open(f"{self.data_path}/recipes_success.json", "w") as f:
                     json.dump(self.recipe_data_success, f, ensure_ascii=False, indent=4)
         self.use_recipe_data_success = True
 

@@ -1,9 +1,18 @@
 import re
+import json 
+from pathlib import Path
 
 class ActionAgent:
     def __init__(self, llm):
         self.llm=llm
         self.memory = {}
+        data_path = str(Path(__file__).parent / "minecraft_dataset")
+        with open(f"{data_path}/items.json", "r") as f:
+            mc_items_json = json.load(f)
+            self.mc_items = {item['name']: item for item in mc_items_json}
+        with open(f"{data_path}/entities.json", "r") as f:
+            entities_json = json.load(f)
+            self.mc_entities = {item['name']: item for item in entities_json}
 
     def save_action(self, subgoal, code):
         self.memory[str(subgoal)] = code
@@ -14,16 +23,37 @@ class ActionAgent:
         self.memory = {}
 
     def extract_jscode(self, response = ""):
-        error_message = ""
         js_code_match = re.search(r'(await.*?;)', response, re.DOTALL)
         if js_code_match:
             js_code = js_code_match.group(1).strip()
             print("============= Code Extraction Success ============= \n",js_code)
-            return js_code, error_message
+            return js_code
         else:
-            error_message = "No JavaScript code found after 'YOUR ANSWER'. Trying again.\n"
-            print(error_message)
-            return None, error_message
+            error = "No JavaScript code found after 'YOUR ANSWER'. Trying again.\n"
+            raise Exception(error)
+        
+    
+    def check_name(self, code = ""):
+        match = re.search(r'\((.*?)\)', code)
+        if match:
+            inside_parentheses = match.group(1)
+            elements = [elem.strip() for elem in inside_parentheses.split(',')]
+            if len(elements) > 1:
+                second_value = elements[1]
+                # アイテム名が ' または " で囲まれている場合、囲みを削除
+                if (second_value.startswith("'") and second_value.endswith("'")) or (second_value.startswith('"') and second_value.endswith('"')):
+                    name = second_value[1:-1]
+                    if name in self.mc_items or name in self.mc_entities:
+                        print("Validated item name:", name)
+                        return 
+                    else:
+                        error = f"There is no item or entity called {name} in Minecraft.\n"
+                        raise Exception(error)
+            error = "No second value found after bot\n"
+            raise Exception(error)
+        else:
+            error = "No parentheses found\n"
+            raise Exception(error)
     
 
     def generate_action(self, task="", context="", nearby_block=[], nearby_entities=[], last_code="", error_message="", chat_log="", data_dir="action", max_iterations=10):
@@ -32,7 +62,7 @@ class ActionAgent:
 You are a helpful assistant of Minecraft game.
 I want you to choose one function to achive the task.
 
-Here are some javascript function:
+Here are some javascript functions:
 1) craft(bot, item_to_craft, count); //Use this to craft item.
 2) smelt(bot, item_to_smelt, count, fuel); //Use this to smelt item. fuel should be 'planks'.
 3) mine(bot, block_to_mine, count, tool); //Use this to mine block. When you need tools to mine, give it as an argument, e.g. 'wooden_pickaxe' to mine stone.
@@ -87,20 +117,22 @@ Then, you would answer:
 await smelt(bot, 'raw_iron', 2, 'planks');
 
 '''
-
+        print("Generating action by action agent...")
         while iterations < max_iterations:
-            human_prompt = f"Choose the function with the arguments to achive the task below please.\nTask : {task}\nNearby Block : {nearby_block}\nNearby Entities : {nearby_entities}\nContext : {context}\nCode from the last round: {last_code}\nError Message: {error_message}\nChat Log: {chat_log}"
-            print("Action agent prompt:\n",human_prompt)
-            output = self.llm.content(system_prompt=system_prompt,query_str=human_prompt, data_dir=data_dir)
-            print(output)
-            code, js_error = self.extract_jscode(response = output)
-            if code is not None:
+            try:
+                human_prompt = f"Choose the function with the arguments to achive the task below please.\nTask : {task}\nNearby Block : {nearby_block}\nNearby Entities : {nearby_entities}\nContext : {context}\nCode from the last round: {last_code}\nError Message: {error_message}\nChat Log: {chat_log}"
+                print("Action agent prompt:\n",human_prompt)
+                output = self.llm.content(system_prompt=system_prompt,query_str=human_prompt, data_dir=data_dir)
+                code = self.extract_jscode(response = output)
+                self.check_name(code=code)
                 return code
-            error_message += js_error
-            iterations += 1
-            print("Current iterations: ", iterations)
+            except Exception as e:
+                print(e)
+                error_message = e
+                iterations += 1
+                continue
 
-        print("You reached tha max iterations.")
+        print("You reached the max iterations.")
         return 
     
     def get_action(self, goal, context="", nearby_block=[], nearby_entities=[], last_code="", error_massage="", chat_log="", retrieval=True):

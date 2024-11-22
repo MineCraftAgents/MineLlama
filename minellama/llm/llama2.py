@@ -34,7 +34,7 @@ class Llama2:
         data_path = "minellama/llm/data/minecraft_data/"
         index_dir = "minellama/llm/data/chached_data/" + data_dir
 
-        print("\n================Called LLM with RAG====================")
+        print("\n================ Called LLM ====================")
         query_wrapper_prompt = PromptTemplate("[INST]<<SYS>>\n" + system_prompt + "<</SYS>>\n"+ human_prompt + "\n{query_str}[/INST]")
         # query_wrapper_prompt.format(query_str=query_str)
 
