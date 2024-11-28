@@ -208,7 +208,7 @@ class RecipeAgent:
                 query_str = f'Please tell me how to obtain "{query_item}". To get some "{query_item}", you need '
                 human_prompt = f"This is the current status. Inventory: {inventory} Nearby block: {self.nearby_block} Biome: I am in {self.biome}. Memory: {failed_memory}  Error from the last round: {error}"
                 print(human_prompt)
-                response = self.llm.content(system_prompt=system_prompt, human_prompt=human_prompt, query_str=query_str, data_dir = "recipe", persist_index=True, use_general_dir=False, similarity_top_k=3)
+                response = self.llm.content(system_prompt=system_prompt, human_prompt=human_prompt, query_str=query_str, data_dir = "extended_recipe", persist_index=True, use_general_dir=False, similarity_top_k=3)
                 # print(response)
                 # print("\n")
                 response = self.extract_dict_from_str(response)
