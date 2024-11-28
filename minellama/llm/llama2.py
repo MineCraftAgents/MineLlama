@@ -29,25 +29,21 @@ class Llama2:
             cache_dir=cache_dir, use_auth_token=self.auth_token, torch_dtype=torch.float16, 
             rope_scaling={"type": "dynamic", "factor": 2}, load_in_8bit=True, device_map='auto') 
 
-
-
     ###with RAG
-    def content(self, system_prompt="",  query_str="", index_dir="", persist_index=True, similarity_top_k = 1, context_window=4096, max_new_tokens=1024):
-        data_path = "data/minecraft_data/"+ index_dir
-        data_path = Path(__file__).parent / data_path
-        file_path = f"{str(data_path)}/{index_dir}.txt"
-        index_dir = "data/db/"+index_dir
-        index_dir = Path(__file__).parent / index_dir
+    def content(self, system_prompt="", human_prompt="", query_str="", data_dir="", persist_index=True, use_general_dir=True, similarity_top_k = 4, context_window=4096, max_new_tokens=1024):#persist_index=True, similarity_top_k = 1 から変更している。
+        data_path = "minellama/llm/data/minecraft_data/"
+        index_dir = "minellama/llm/data/chached_data/" + data_dir
 
-        print("\n================Called LLM with RAG====================")
-        query_wrapper_prompt = PromptTemplate("[INST]<<SYS>>\n" + system_prompt + "<</SYS>>\n\n{query_str}[/INST]")
-        query_wrapper_prompt.format(query_str=query_str)
+        print("\n================ Called LLM ====================")
+        query_wrapper_prompt = PromptTemplate("[INST]<<SYS>>\n" + system_prompt + "<</SYS>>\n"+ human_prompt + "\n{query_str}[/INST]")
+        # query_wrapper_prompt.format(query_str=query_str)
 
 
         llm = HuggingFaceLLM(context_window=context_window,
                             # max_new_tokens=256,
                             max_new_tokens=max_new_tokens,
                             # system_prompt=system_prompt,
+                            # generate_kwargs={"temperature": 0.0, "do_sample": False},
                             query_wrapper_prompt=query_wrapper_prompt,
                             model=self.model,
                             device_map="auto",
@@ -63,35 +59,56 @@ class Llama2:
             embed_model=embeddings
         )
         set_global_service_context(service_context)
+        
+        # ragのファイルの読み込みを指定したディレクトリ内すべてのファイルにする場合。
+        # -------------------------------------------------------------------------------------------
+        general_dir = os.path.join(data_path, "general")
+        ref_dir = os.path.join(data_path, data_dir)
+
+        file_list =[
+            os.path.join(ref_dir, file_name) 
+            for file_name in os.listdir(ref_dir)
+        ]
+        if use_general_dir:
+            file_list = file_list + [
+            os.path.join(general_dir, file_name) 
+                for file_name in os.listdir(general_dir)
+            ] 
 
         if persist_index:
             if not os.path.isdir(index_dir):
                 print("No vector index found. Making new one...")
                 nodes=[]
-                with open(file_path, 'r', encoding='utf-8') as file:
-                    for line_number, text in enumerate(file, start=1):
-                        node = TextNode(text=text.strip(), id_=f"line_{line_number}")
-                        nodes.append(node)
+                idnum = 1
+                for ref_filename in file_list:
+                    ref_path = f"{ref_filename}"
+                    with open(ref_path, 'r', encoding='utf-8') as file:
+                        for line_number, text in enumerate(file, start=idnum):
+                            node = TextNode(text=text.strip(), id_=f"line_{line_number}")
+                            idnum = idnum + 1
+                            if node.text:
+                                nodes.append(node)
                 index = VectorStoreIndex(nodes)
                 index.storage_context.persist(persist_dir=index_dir)
                 print("Vector index stored.")
-
             storage_context = StorageContext.from_defaults(persist_dir=index_dir)
             index = load_index_from_storage(storage_context)
 
         else:
             print("Without Vector DB.")
             nodes=[]
-            with open(file_path, 'r', encoding='utf-8') as file:
-                for line_number, text in enumerate(file, start=1):
-                    node = TextNode(text=text.strip(), id_=f"line_{line_number}")
-                    nodes.append(node)
+            for ref_filename in file_list:
+                ref_path = f"{ref_filename}"
+                with open(ref_path, 'r', encoding='utf-8') as file:
+                    for line_number, text in enumerate(file, start=1):
+                        node = TextNode(text=text.strip(), id_=f"line_{line_number}")
+                        if node.text:
+                            nodes.append(node)
             index = VectorStoreIndex(nodes)
-
+        #-------------------------------------------------------------------------------------------
+        
         query_engine = index.as_query_engine(similarity_top_k=similarity_top_k)
-
         response = query_engine.query(query_str)
         print(response.get_formatted_sources())
-        print(response)
         return str(response)
-    
+  

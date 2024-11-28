@@ -5,10 +5,8 @@ async function mine(bot, name, count, tool=null){
     }
 
     let blockName;
-    if (tool !== null){
-        const equipedTool = bot.inventory.findInventoryItem(mcData.itemsByName[tool].id);
-        await bot.equip(equipedTool, "hand");
-    }
+    const maxTryTime = 90 * 1000; // 最大試行時間を30秒に設定
+    const startTime = Date.now();
 
     if (name === "cobblestone") {
         blockName = "stone";
@@ -17,16 +15,34 @@ async function mine(bot, name, count, tool=null){
     } else {
         blockName = name;
     }
-    // function getRandomChoice() {
-    //     const randomNumber = Math.floor(Math.random() * 3) - 1;
-    //     return randomNumber;
-    // }
 
-    let itemCount = bot.inventory.count(mcData.itemsByName[name].id);
+    const blocksRequiringIronPickaxe = ["gold_ore", "diamond_ore", "emerald_ore", "redstone_ore"];
+    if (blockName === "iron_ore") {
+        tool = "stone_pickaxe"
+    } else if (blocksRequiringIronPickaxe.includes(blockName)) {
+        tool = "iron_pickaxe";
+    }
+    if (tool !== null){
+        const equipedTool = bot.inventory.findInventoryItem(mcData.itemsByName[tool].id);
+        if(!equipedTool) {
+            bot.chat(`You don't have a tool: ${tool} `)
+            return
+        }
+        await bot.equip(equipedTool, "hand");
+    }
+
+
+    // let itemCount = bot.inventory.count(mcData.itemsByName[name].id);
+    let itemCount = 0;
     while (itemCount < count){
         // let x = getRandomChoice();
         // let y = getRandomChoice();
         // let z = getRandomChoice();
+        const elapsedTime = Date.now() - startTime;
+        if (elapsedTime >= maxTryTime) {
+            bot.chat(`Failed to mine ${name} within ${maxTryTime / 1000} seconds.`);
+            return;
+        }
         const targetBlock = await exploreUntil(bot, new Vec3(1, 0, 1), 60, () => {
             const targetBlock = bot.findBlocks({
                 matching: mcData.blocksByName[blockName].id,
@@ -41,8 +57,11 @@ async function mine(bot, name, count, tool=null){
         bot.chat(`This is targetBlock: ${blockName}, ${targetBlock}`);
         await mineBlock(bot, blockName, 1);
         bot.chat(`${targetBlock.length} ${name} mined.`);
-        itemCount = bot.inventory.count(mcData.itemsByName[name].id);
+        // itemCount = bot.inventory.count(mcData.itemsByName[name].id);
+        itemCount += 1;
     }
+
+    bot.chat(`Result: Mined ${itemCount} ${name} in total.`);
 
     if (tool !== null){
         await bot.unequip("hand");

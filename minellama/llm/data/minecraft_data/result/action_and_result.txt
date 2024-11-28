@@ -1,0 +1,8 @@
+{"action": craft, "name": name, "count": number} means crafting "name" in the amount of "count". Therefore, if the number of "name" in the inventory increases by "count" from before to after, it is considered a success.
+{"action": mine, "name": name, "count": number} means mining "name" in the amount of "count". Therefore, if the number of "name" in the inventory increases by "count" from before to after, it is considered a success.
+{"action": collect, "name": name, "count": number} means collecting "name" in the amount of "count". Therefore, if the number of "name" in the inventory increases by "count" from before to after, it is considered a success.
+{"action": smelt, "name": name, "count": number} means smelting "name" in the amount of "count" to obtain item with furnace. Therefore, if the number of "name" in the inventory increases by "count" from before to after, it is considered a success.
+{"action": kill, "name": name, "count": number} means defeating monsters or entities called "name" in the amount of "count".
+{"action": fish, "name": name, "count": number} means fishing to obtain "count" of "name". Therefore, if the number of "name" in the inventory increases by "count" from before to after, it is considered a success.
+{"action": harvest, "name": name, "count": number} means harvesting "name" in the amount of "count". Therefore, if the number of "name" in the inventory increases by "count" from before to after, it is considered a success.
+{"action": tillAndPlant, "name": name, "count": number} will plant "name" in the tilled field according to the "count" specified. In other words, it will be considered successful if the number of "name" in the inventory decreases by "count" before and after the action.

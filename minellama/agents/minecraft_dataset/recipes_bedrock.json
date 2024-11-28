@@ -1,0 +1,7694 @@
+{
+  "bookshelf": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 6,
+        "book": 3
+      }
+    }
+  ],
+  "bowl": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 3
+      }
+    }
+  ],
+  "acacia_button": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 1
+      }
+    }
+  ],
+  "birch_button": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 1
+      }
+    }
+  ],
+  "dark_oak_button": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 1
+      }
+    }
+  ],
+  "jungle_button": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 1
+      }
+    }
+  ],
+  "spruce_button": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 1
+      }
+    }
+  ],
+  "chest": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 8
+      }
+    }
+  ],
+  "daylight_detector": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass": 3,
+        "quartz": 3,
+        "wooden_slab": 3
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass": 3,
+        "quartz": 3,
+        "crimson_slab": 3
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass": 3,
+        "quartz": 3,
+        "mangrove_slab": 3
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass": 3,
+        "quartz": 3,
+        "warped_slab": 3
+      }
+    }
+  ],
+  "fire_charge": [
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "blaze_powder": 1,
+        "charcoal": 1,
+        "gunpowder": 1
+      }
+    },
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "blaze_powder": 1,
+        "coal": 1,
+        "gunpowder": 1
+      }
+    }
+  ],
+  "jukebox": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 8,
+        "diamond": 1
+      }
+    }
+  ],
+  "note_block": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 8,
+        "redstone": 1
+      }
+    }
+  ],
+  "stone_block_slab": [
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "cobblestone": 3
+      }
+    },
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "nether_bricks": 3
+      }
+    },
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "sandstone": 3
+      }
+    },
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "bricks": 3
+      }
+    },
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "stonebrick": 3
+      }
+    },
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "smooth_stone": 3
+      }
+    },
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "quartz_block": 3
+      }
+    }
+  ],
+  "painting": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 8,
+        "wool": 1
+      }
+    }
+  ],
+  "piston": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 3,
+        "cobblestone": 4,
+        "iron_ingot": 1,
+        "redstone": 1
+      }
+    }
+  ],
+  "acacia_pressure_plate": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 2
+      }
+    }
+  ],
+  "birch_pressure_plate": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 2
+      }
+    }
+  ],
+  "dark_oak_pressure_plate": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 2
+      }
+    }
+  ],
+  "jungle_pressure_plate": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 2
+      }
+    }
+  ],
+  "spruce_pressure_plate": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 2
+      }
+    }
+  ],
+  "stick": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "bamboo": 2
+      }
+    },
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 2
+      }
+    }
+  ],
+  "stone_block_slab4": [
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "stone": 3
+      }
+    },
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "stonebrick": 3
+      }
+    },
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "red_sandstone": 3
+      }
+    },
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "sandstone": 3
+      }
+    },
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "quartz_block": 3
+      }
+    }
+  ],
+  "torch": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "charcoal": 1,
+        "stick": 1
+      }
+    },
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "coal": 1,
+        "stick": 1
+      }
+    }
+  ],
+  "acacia_trapdoor": [
+    {
+      "count": 2,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 6
+      }
+    }
+  ],
+  "birch_trapdoor": [
+    {
+      "count": 2,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 6
+      }
+    }
+  ],
+  "dark_oak_trapdoor": [
+    {
+      "count": 2,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 6
+      }
+    }
+  ],
+  "jungle_trapdoor": [
+    {
+      "count": 2,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 6
+      }
+    }
+  ],
+  "spruce_trapdoor": [
+    {
+      "count": 2,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 6
+      }
+    }
+  ],
+  "oak_trapdoor": [
+    {
+      "count": 2,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 6
+      }
+    }
+  ],
+  "tripwire_hook": [
+    {
+      "count": 2,
+      "type": "crafting_table",
+      "ingredients": {
+        "iron_ingot": 1,
+        "stick": 1,
+        "planks": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "iron_ingot": 1,
+        "stick": 1,
+        "planks": 1
+      }
+    }
+  ],
+  "oak_button": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 1
+      }
+    }
+  ],
+  "oak_pressure_plate": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 2
+      }
+    }
+  ],
+  "crafting_table": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 4
+      }
+    }
+  ],
+  "acacia_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 6
+      }
+    }
+  ],
+  "white_bed": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "wool": 3,
+        "planks": 3
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "white_bed": 1,
+        "ink_sac": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "white_bed": 1,
+        "lime_dye": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "white_bed": 1,
+        "yellow_dye": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "white_bed": 1,
+        "light_blue_dye": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "white_bed": 1,
+        "magenta_dye": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "white_bed": 1,
+        "orange_dye": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "white_bed": 1,
+        "bone_meal": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "white_bed": 1,
+        "black_dye": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "white_bed": 1,
+        "brown_dye": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "white_bed": 1,
+        "blue_dye": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "white_bed": 1,
+        "white_dye": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "white_bed": 1,
+        "red_dye": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "white_bed": 1,
+        "green_dye": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "white_bed": 1,
+        "cocoa_beans": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "white_bed": 1,
+        "lapis_lazuli": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "white_bed": 1,
+        "purple_dye": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "white_bed": 1,
+        "cyan_dye": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "white_bed": 1,
+        "light_gray_dye": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "white_bed": 1,
+        "gray_dye": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "white_bed": 1,
+        "pink_dye": 1
+      }
+    }
+  ],
+  "birch_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 6
+      }
+    }
+  ],
+  "quartz_block": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stone_block_slab": 2
+      }
+    },
+    {
+      "count": 2,
+      "type": "crafting_table",
+      "ingredients": {
+        "quartz_block": 2
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "quartz": 4
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "quartz_block": 1
+      }
+    }
+  ],
+  "stonebrick": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stone_block_slab": 2
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stonebrick": 1,
+        "vine": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stonebrick": 1,
+        "moss_block": 1
+      }
+    },
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "stone": 4
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "stonebrick": 1
+      }
+    }
+  ],
+  "dark_oak_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 6
+      }
+    }
+  ],
+  "red_sandstone": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stone_block_slab2": 2
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "sand": 4
+      }
+    },
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "red_sandstone": 4
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "red_sandstone": 1
+      }
+    }
+  ],
+  "sandstone": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stone_block_slab": 2
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "sand": 4
+      }
+    },
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "sandstone": 4
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "sandstone": 1
+      }
+    }
+  ],
+  "jungle_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 6
+      }
+    }
+  ],
+  "purpur_block": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stone_block_slab2": 2
+      }
+    },
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "popped_chorus_fruit": 4
+      }
+    }
+  ],
+  "loom": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "string": 2,
+        "planks": 2
+      }
+    }
+  ],
+  "acacia_boat": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 5,
+        "wooden_shovel": 1
+      }
+    }
+  ],
+  "acacia_chest_boat": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "chest": 1,
+        "acacia_boat": 1
+      }
+    }
+  ],
+  "acacia_door": [
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 6
+      }
+    }
+  ],
+  "fence": [
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 4,
+        "stick": 2
+      }
+    }
+  ],
+  "acacia_fence_gate": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 4,
+        "planks": 2
+      }
+    }
+  ],
+  "planks": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "log": 1
+      }
+    },
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "wood": 1
+      }
+    }
+  ],
+  "wood": [
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "log": 4
+      }
+    }
+  ],
+  "wooden_slab": [
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 3
+      }
+    }
+  ],
+  "activator_rail": [
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "iron_ingot": 6,
+        "stick": 2,
+        "redstone_torch": 1
+      }
+    }
+  ],
+  "amethyst_block": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "amethyst_shard": 4
+      }
+    }
+  ],
+  "stone": [
+    {
+      "count": 2,
+      "type": "crafting_table",
+      "ingredients": {
+        "stone": 1,
+        "cobblestone": 1
+      }
+    },
+    {
+      "count": 2,
+      "type": "crafting_table",
+      "ingredients": {
+        "cobblestone": 2,
+        "quartz": 2
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stone": 1,
+        "quartz": 1
+      }
+    },
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "stone": 4
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "cobblestone": 1
+      }
+    }
+  ],
+  "andesite_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "stone": 6
+      }
+    }
+  ],
+  "cobblestone_wall": [
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "stone": 6
+      }
+    },
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "bricks": 6
+      }
+    },
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "cobblestone": 6
+      }
+    },
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "end_stone_bricks": 6
+      }
+    },
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "mossy_cobblestone": 6
+      }
+    },
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "stonebrick": 6
+      }
+    },
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "nether_bricks": 6
+      }
+    },
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "prismarine": 6
+      }
+    },
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "red_nether_bricks": 6
+      }
+    },
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "red_sandstone": 6
+      }
+    },
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "sandstone": 6
+      }
+    }
+  ],
+  "anvil": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "iron_block": 3,
+        "iron_ingot": 4
+      }
+    }
+  ],
+  "armor_stand": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 6,
+        "stone_block_slab": 1
+      }
+    }
+  ],
+  "arrow": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "flint": 1,
+        "stick": 1,
+        "feather": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "arrow": 8,
+        "lingering_potion": 1
+      }
+    }
+  ],
+  "field_masoned_banner_pattern": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "paper": 1,
+        "bricks": 1
+      }
+    }
+  ],
+  "creeper_banner_pattern": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "paper": 1,
+        "skull": 1
+      }
+    }
+  ],
+  "flower_banner_pattern": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "paper": 1,
+        "red_flower": 1
+      }
+    }
+  ],
+  "skull_banner_pattern": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "paper": 1,
+        "skull": 1
+      }
+    }
+  ],
+  "mojang_banner_pattern": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "paper": 1,
+        "enchanted_golden_apple": 1
+      }
+    }
+  ],
+  "bordure_indented_banner_pattern": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "paper": 1,
+        "vine": 1
+      }
+    }
+  ],
+  "barrel": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 6,
+        "wooden_slab": 2
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 6,
+        "crimson_slab": 2
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 6,
+        "mangrove_slab": 2
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 6,
+        "warped_slab": 2
+      }
+    }
+  ],
+  "empty_map": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "empty_map": 1,
+        "compass": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "paper": 8,
+        "compass": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "paper": 9
+      }
+    }
+  ],
+  "beacon": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass": 5,
+        "nether_star": 1,
+        "obsidian": 3
+      }
+    }
+  ],
+  "beehive": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 6,
+        "honeycomb": 3
+      }
+    }
+  ],
+  "beetroot_soup": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "bowl": 1,
+        "beetroots": 6
+      }
+    }
+  ],
+  "birch_boat": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 5,
+        "wooden_shovel": 1
+      }
+    }
+  ],
+  "birch_chest_boat": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "chest": 1,
+        "birch_boat": 1
+      }
+    }
+  ],
+  "birch_door": [
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 6
+      }
+    }
+  ],
+  "birch_fence_gate": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 4,
+        "planks": 2
+      }
+    }
+  ],
+  "banner": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "wool": 6,
+        "stick": 1
+      }
+    }
+  ],
+  "black_candle": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "candle": 1,
+        "black_dye": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "candle": 1,
+        "ink_sac": 1
+      }
+    }
+  ],
+  "carpet": [
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "wool": 2
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "carpet": 8,
+        "black_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "carpet": 8,
+        "blue_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "carpet": 8,
+        "brown_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "carpet": 8,
+        "cyan_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "carpet": 8,
+        "gray_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "carpet": 8,
+        "green_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "carpet": 8,
+        "light_blue_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "carpet": 8,
+        "light_gray_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "carpet": 8,
+        "lime_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "carpet": 8,
+        "magenta_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "carpet": 8,
+        "orange_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "carpet": 8,
+        "pink_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "carpet": 8,
+        "purple_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "carpet": 8,
+        "red_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "carpet": 8,
+        "yellow_dye": 1
+      }
+    }
+  ],
+  "concrete_powder": [
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "black_dye": 1,
+        "sand": 4,
+        "gravel": 4
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "ink_sac": 1,
+        "sand": 4,
+        "gravel": 4
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "blue_dye": 1,
+        "sand": 4,
+        "gravel": 4
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "lapis_lazuli": 1,
+        "sand": 4,
+        "gravel": 4
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "brown_dye": 1,
+        "sand": 4,
+        "gravel": 4
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "cocoa_beans": 1,
+        "sand": 4,
+        "gravel": 4
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "cyan_dye": 1,
+        "sand": 4,
+        "gravel": 4
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "gray_dye": 1,
+        "sand": 4,
+        "gravel": 4
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "green_dye": 1,
+        "sand": 4,
+        "gravel": 4
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "light_blue_dye": 1,
+        "sand": 4,
+        "gravel": 4
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "light_gray_dye": 1,
+        "sand": 4,
+        "gravel": 4
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "lime_dye": 1,
+        "sand": 4,
+        "gravel": 4
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "magenta_dye": 1,
+        "sand": 4,
+        "gravel": 4
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "orange_dye": 1,
+        "sand": 4,
+        "gravel": 4
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "pink_dye": 1,
+        "sand": 4,
+        "gravel": 4
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "purple_dye": 1,
+        "sand": 4,
+        "gravel": 4
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "red_dye": 1,
+        "sand": 4,
+        "gravel": 4
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "white_dye": 1,
+        "sand": 4,
+        "gravel": 4
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "bone_meal": 1,
+        "sand": 4,
+        "gravel": 4
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "yellow_dye": 1,
+        "sand": 4,
+        "gravel": 4
+      }
+    }
+  ],
+  "black_dye": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "ink_sac": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "wither_rose": 1
+      }
+    }
+  ],
+  "stained_glass": [
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass": 8,
+        "black_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass": 8,
+        "ink_sac": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass": 8,
+        "blue_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass": 8,
+        "lapis_lazuli": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass": 8,
+        "brown_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass": 8,
+        "cocoa_beans": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass": 8,
+        "cyan_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass": 8,
+        "gray_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass": 8,
+        "green_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass": 8,
+        "light_blue_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass": 8,
+        "light_gray_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass": 8,
+        "lime_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass": 8,
+        "magenta_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass": 8,
+        "orange_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass": 8,
+        "pink_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass": 8,
+        "purple_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass": 8,
+        "red_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass": 8,
+        "white_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass": 8,
+        "bone_meal": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass": 8,
+        "yellow_dye": 1
+      }
+    }
+  ],
+  "stained_glass_pane": [
+    {
+      "count": 16,
+      "type": "crafting_table",
+      "ingredients": {
+        "stained_glass": 6
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass_pane": 8,
+        "black_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass_pane": 8,
+        "blue_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass_pane": 8,
+        "brown_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass_pane": 8,
+        "cyan_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass_pane": 8,
+        "gray_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass_pane": 8,
+        "green_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass_pane": 8,
+        "light_blue_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass_pane": 8,
+        "light_gray_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass_pane": 8,
+        "lime_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass_pane": 8,
+        "magenta_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass_pane": 8,
+        "orange_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass_pane": 8,
+        "pink_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass_pane": 8,
+        "purple_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass_pane": 8,
+        "red_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass_pane": 8,
+        "white_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass_pane": 8,
+        "yellow_dye": 1
+      }
+    }
+  ],
+  "stained_hardened_clay": [
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "terracotta": 8,
+        "black_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "terracotta": 8,
+        "ink_sac": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "terracotta": 8,
+        "blue_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "terracotta": 8,
+        "lapis_lazuli": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "terracotta": 8,
+        "brown_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "terracotta": 8,
+        "cocoa_beans": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "terracotta": 8,
+        "cyan_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "terracotta": 8,
+        "gray_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "terracotta": 8,
+        "green_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "terracotta": 8,
+        "light_blue_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "terracotta": 8,
+        "light_gray_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "terracotta": 8,
+        "lime_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "terracotta": 8,
+        "magenta_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "terracotta": 8,
+        "orange_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "terracotta": 8,
+        "pink_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "terracotta": 8,
+        "purple_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "terracotta": 8,
+        "red_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "terracotta": 8,
+        "white_dye": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "terracotta": 8,
+        "bone_meal": 1
+      }
+    },
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "terracotta": 8,
+        "yellow_dye": 1
+      }
+    }
+  ],
+  "blackstone_slab": [
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "blackstone": 3
+      }
+    }
+  ],
+  "blackstone_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "blackstone": 6
+      }
+    }
+  ],
+  "blackstone_wall": [
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "blackstone": 6
+      }
+    }
+  ],
+  "blast_furnace": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "iron_ingot": 5,
+        "furnace": 1,
+        "smooth_stone": 3
+      }
+    }
+  ],
+  "blaze_powder": [
+    {
+      "count": 2,
+      "type": "crafting_table",
+      "ingredients": {
+        "blaze_rod": 1
+      }
+    }
+  ],
+  "blue_candle": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "candle": 1,
+        "blue_dye": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "candle": 1,
+        "lapis_lazuli": 1
+      }
+    }
+  ],
+  "blue_dye": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "red_flower": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "lapis_lazuli": 1
+      }
+    }
+  ],
+  "blue_ice": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "packed_ice": 9
+      }
+    }
+  ],
+  "oak_boat": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 5,
+        "wooden_shovel": 1
+      }
+    }
+  ],
+  "bone_block": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "bone_meal": 9
+      }
+    }
+  ],
+  "bone_meal": [
+    {
+      "count": 9,
+      "type": "crafting_table",
+      "ingredients": {
+        "bone_block": 1
+      }
+    },
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "bone": 1
+      }
+    }
+  ],
+  "book": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "paper": 3,
+        "leather": 1
+      }
+    }
+  ],
+  "bow": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 3,
+        "string": 3
+      }
+    }
+  ],
+  "bread": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "wheat": 3
+      }
+    }
+  ],
+  "brewing_stand": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "blaze_rod": 1,
+        "cobblestone": 3
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "blaze_rod": 1,
+        "blackstone": 3
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "blaze_rod": 1,
+        "cobbled_deepslate": 3
+      }
+    }
+  ],
+  "bricks": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "brick": 4
+      }
+    }
+  ],
+  "brick_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "bricks": 6
+      }
+    }
+  ],
+  "brown_candle": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "candle": 1,
+        "brown_dye": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "candle": 1,
+        "cocoa_beans": 1
+      }
+    }
+  ],
+  "brown_dye": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "cocoa_beans": 1
+      }
+    }
+  ],
+  "bucket": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "iron_ingot": 3
+      }
+    },
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "milk_bucket": 3,
+        "sugar": 2,
+        "egg": 1,
+        "wheat": 3
+      }
+    }
+  ],
+  "cake": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "milk_bucket": 3,
+        "sugar": 2,
+        "egg": 1,
+        "wheat": 3
+      }
+    }
+  ],
+  "campfire": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 3,
+        "coal": 1,
+        "log": 3
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 3,
+        "charcoal": 1,
+        "log": 3
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 3,
+        "charcoal": 1,
+        "wood": 3
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 3,
+        "coal": 1,
+        "crimson_stem": 3
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 3,
+        "coal": 1,
+        "wood": 3
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 3,
+        "coal": 1,
+        "stripped_crimson_stem": 3
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 3,
+        "coal": 1,
+        "stripped_warped_stem": 3
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 3,
+        "coal": 1,
+        "warped_stem": 3
+      }
+    }
+  ],
+  "candle": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "string": 1,
+        "honeycomb": 1
+      }
+    }
+  ],
+  "carrot_on_a_stick": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "fishing_rod": 1,
+        "carrot": 1
+      }
+    }
+  ],
+  "cartography_table": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "paper": 2,
+        "planks": 4
+      }
+    }
+  ],
+  "cauldron": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "iron_ingot": 7
+      }
+    }
+  ],
+  "chain": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "iron_nugget": 2,
+        "iron_ingot": 1
+      }
+    }
+  ],
+  "oak_chest_boat": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "chest": 1,
+        "oak_boat": 1
+      }
+    }
+  ],
+  "chest_minecart": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "chest": 1,
+        "minecart": 1
+      }
+    }
+  ],
+  "chiseled_deepslate": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "cobbled_deepslate_slab": 2
+      }
+    }
+  ],
+  "chiseled_nether_bricks": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stone_block_slab": 2
+      }
+    }
+  ],
+  "chiseled_polished_blackstone": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "polished_blackstone_slab": 2
+      }
+    }
+  ],
+  "clay": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "clay_ball": 4
+      }
+    }
+  ],
+  "clock": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "gold_ingot": 4,
+        "redstone": 1
+      }
+    }
+  ],
+  "coal": [
+    {
+      "count": 9,
+      "type": "crafting_table",
+      "ingredients": {
+        "coal_block": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "deepslate_coal_ore": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "coal_ore": 1
+      }
+    }
+  ],
+  "coal_block": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "coal": 9
+      }
+    }
+  ],
+  "dirt": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "dirt": 2,
+        "gravel": 2
+      }
+    }
+  ],
+  "cobbled_deepslate_slab": [
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "cobbled_deepslate": 3
+      }
+    }
+  ],
+  "cobbled_deepslate_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "cobbled_deepslate": 6
+      }
+    }
+  ],
+  "cobbled_deepslate_wall": [
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "cobbled_deepslate": 6
+      }
+    }
+  ],
+  "cobblestone_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "cobblestone": 6
+      }
+    }
+  ],
+  "string": [
+    {
+      "count": 9,
+      "type": "crafting_table",
+      "ingredients": {
+        "cobweb": 1
+      }
+    }
+  ],
+  "comparator": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "redstone_torch": 3,
+        "quartz": 1,
+        "stone": 3
+      }
+    }
+  ],
+  "compass": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "iron_ingot": 4,
+        "redstone": 1
+      }
+    }
+  ],
+  "composter": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "wooden_slab": 7
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "crimson_slab": 7
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "mangrove_slab": 7
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "warped_slab": 7
+      }
+    }
+  ],
+  "conduit": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "nautilus_shell": 8,
+        "heart_of_the_sea": 1
+      }
+    }
+  ],
+  "cookie": [
+    {
+      "count": 8,
+      "type": "crafting_table",
+      "ingredients": {
+        "wheat": 2,
+        "cocoa_beans": 1
+      }
+    }
+  ],
+  "copper_block": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "copper_ingot": 9
+      }
+    }
+  ],
+  "cut_copper": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "copper_block": 4
+      }
+    }
+  ],
+  "cut_copper_slab": [
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "cut_copper": 3
+      }
+    }
+  ],
+  "cut_copper_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "cut_copper": 6
+      }
+    }
+  ],
+  "exposed_cut_copper": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "exposed_copper": 4
+      }
+    }
+  ],
+  "exposed_cut_copper_slab": [
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "exposed_cut_copper": 3
+      }
+    }
+  ],
+  "exposed_cut_copper_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "exposed_cut_copper": 6
+      }
+    }
+  ],
+  "oxidized_cut_copper": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "oxidized_copper": 4
+      }
+    }
+  ],
+  "oxidized_cut_copper_slab": [
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "oxidized_cut_copper": 3
+      }
+    }
+  ],
+  "oxidized_cut_copper_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "oxidized_cut_copper": 6
+      }
+    }
+  ],
+  "waxed_cut_copper": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "waxed_copper_block": 4
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "cut_copper": 1,
+        "honeycomb": 1
+      }
+    }
+  ],
+  "waxed_cut_copper_slab": [
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "waxed_cut_copper": 3
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "cut_copper_slab": 1,
+        "honeycomb": 1
+      }
+    }
+  ],
+  "waxed_cut_copper_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "waxed_cut_copper": 6
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "cut_copper_stairs": 1,
+        "honeycomb": 1
+      }
+    }
+  ],
+  "waxed_exposed_cut_copper": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "waxed_exposed_copper": 4
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "exposed_cut_copper": 1,
+        "honeycomb": 1
+      }
+    }
+  ],
+  "waxed_exposed_cut_copper_slab": [
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "waxed_exposed_cut_copper": 3
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "exposed_cut_copper_slab": 1,
+        "honeycomb": 1
+      }
+    }
+  ],
+  "waxed_exposed_cut_copper_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "waxed_exposed_cut_copper": 6
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "exposed_cut_copper_stairs": 1,
+        "honeycomb": 1
+      }
+    }
+  ],
+  "waxed_oxidized_cut_copper": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "waxed_oxidized_copper": 4
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "oxidized_cut_copper": 1,
+        "honeycomb": 1
+      }
+    }
+  ],
+  "waxed_oxidized_cut_copper_slab": [
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "waxed_oxidized_cut_copper": 3
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "oxidized_cut_copper_slab": 1,
+        "honeycomb": 1
+      }
+    }
+  ],
+  "waxed_oxidized_cut_copper_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "waxed_oxidized_cut_copper": 6
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "oxidized_cut_copper_stairs": 1,
+        "honeycomb": 1
+      }
+    }
+  ],
+  "waxed_weathered_cut_copper": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "waxed_weathered_copper": 4
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "weathered_cut_copper": 1,
+        "honeycomb": 1
+      }
+    }
+  ],
+  "waxed_weathered_cut_copper_slab": [
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "waxed_weathered_cut_copper": 3
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "weathered_cut_copper_slab": 1,
+        "honeycomb": 1
+      }
+    }
+  ],
+  "waxed_weathered_cut_copper_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "waxed_weathered_cut_copper": 6
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "weathered_cut_copper_stairs": 1,
+        "honeycomb": 1
+      }
+    }
+  ],
+  "weathered_cut_copper": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "weathered_copper": 4
+      }
+    }
+  ],
+  "weathered_cut_copper_slab": [
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "weathered_cut_copper": 3
+      }
+    }
+  ],
+  "weathered_cut_copper_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "weathered_cut_copper": 6
+      }
+    }
+  ],
+  "crimson_button": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 1
+      }
+    }
+  ],
+  "crimson_door": [
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 6
+      }
+    }
+  ],
+  "crimson_fence": [
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 4,
+        "stick": 2
+      }
+    }
+  ],
+  "crimson_fence_gate": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 4,
+        "planks": 2
+      }
+    }
+  ],
+  "crimson_hyphae": [
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "crimson_stem": 4
+      }
+    }
+  ],
+  "crimson_pressure_plate": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 2
+      }
+    }
+  ],
+  "crimson_sign": [
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 6,
+        "stick": 1
+      }
+    }
+  ],
+  "crimson_slab": [
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 3
+      }
+    }
+  ],
+  "crimson_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 6
+      }
+    }
+  ],
+  "crimson_trapdoor": [
+    {
+      "count": 2,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 6
+      }
+    }
+  ],
+  "crossbow": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 3,
+        "iron_ingot": 1,
+        "string": 2,
+        "tripwire_hook": 1
+      }
+    }
+  ],
+  "cyan_candle": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "candle": 1,
+        "cyan_dye": 1
+      }
+    }
+  ],
+  "cyan_dye": [
+    {
+      "count": 2,
+      "type": "crafting_table",
+      "ingredients": {
+        "blue_dye": 1,
+        "green_dye": 1
+      }
+    },
+    {
+      "count": 2,
+      "type": "crafting_table",
+      "ingredients": {
+        "lapis_lazuli": 1,
+        "green_dye": 1
+      }
+    }
+  ],
+  "dark_oak_boat": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 5,
+        "wooden_shovel": 1
+      }
+    }
+  ],
+  "dark_oak_chest_boat": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "chest": 1,
+        "dark_oak_boat": 1
+      }
+    }
+  ],
+  "dark_oak_door": [
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 6
+      }
+    }
+  ],
+  "dark_oak_fence_gate": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 4,
+        "planks": 2
+      }
+    }
+  ],
+  "prismarine": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "prismarine_shard": 8,
+        "black_dye": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "prismarine_shard": 8,
+        "ink_sac": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "prismarine_shard": 4
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "prismarine_shard": 9
+      }
+    }
+  ],
+  "deepslate_brick_slab": [
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "deepslate_bricks": 3
+      }
+    }
+  ],
+  "deepslate_brick_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "deepslate_bricks": 6
+      }
+    }
+  ],
+  "deepslate_brick_wall": [
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "deepslate_bricks": 6
+      }
+    }
+  ],
+  "deepslate_bricks": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "polished_deepslate": 4
+      }
+    }
+  ],
+  "deepslate_tile_slab": [
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "deepslate_tiles": 3
+      }
+    }
+  ],
+  "deepslate_tile_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "deepslate_tiles": 6
+      }
+    }
+  ],
+  "deepslate_tile_wall": [
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "deepslate_tiles": 6
+      }
+    }
+  ],
+  "deepslate_tiles": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "deepslate_bricks": 4
+      }
+    }
+  ],
+  "detector_rail": [
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "iron_ingot": 6,
+        "stone_pressure_plate": 1,
+        "redstone": 1
+      }
+    }
+  ],
+  "diamond": [
+    {
+      "count": 9,
+      "type": "crafting_table",
+      "ingredients": {
+        "diamond_block": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "deepslate_diamond_ore": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "diamond_ore": 1
+      }
+    }
+  ],
+  "diamond_axe": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "diamond": 3,
+        "stick": 2
+      }
+    }
+  ],
+  "diamond_block": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "diamond": 9
+      }
+    }
+  ],
+  "diamond_boots": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "diamond": 4
+      }
+    }
+  ],
+  "diamond_chestplate": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "diamond": 8
+      }
+    }
+  ],
+  "diamond_helmet": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "diamond": 5
+      }
+    }
+  ],
+  "diamond_hoe": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "diamond": 2,
+        "stick": 2
+      }
+    }
+  ],
+  "diamond_leggings": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "diamond": 7
+      }
+    }
+  ],
+  "diamond_pickaxe": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "diamond": 3,
+        "stick": 2
+      }
+    }
+  ],
+  "diamond_shovel": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "diamond": 1,
+        "stick": 2
+      }
+    }
+  ],
+  "diamond_sword": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "diamond": 2,
+        "stick": 1
+      }
+    }
+  ],
+  "diorite_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "stone": 6
+      }
+    }
+  ],
+  "dispenser": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "cobblestone": 7,
+        "bow": 1,
+        "redstone": 1
+      }
+    }
+  ],
+  "dried_kelp": [
+    {
+      "count": 9,
+      "type": "crafting_table",
+      "ingredients": {
+        "dried_kelp_block": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "kelp": 1
+      }
+    }
+  ],
+  "dried_kelp_block": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "dried_kelp": 9
+      }
+    }
+  ],
+  "dripstone_block": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "pointed_dripstone": 4
+      }
+    }
+  ],
+  "dropper": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "cobblestone": 7,
+        "redstone": 1
+      }
+    }
+  ],
+  "emerald": [
+    {
+      "count": 9,
+      "type": "crafting_table",
+      "ingredients": {
+        "emerald_block": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "deepslate_emerald_ore": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "emerald_ore": 1
+      }
+    }
+  ],
+  "emerald_block": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "emerald": 9
+      }
+    }
+  ],
+  "enchanting_table": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "book": 1,
+        "diamond": 2,
+        "obsidian": 4
+      }
+    }
+  ],
+  "end_stone_brick_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "end_stone_bricks": 6
+      }
+    }
+  ],
+  "end_stone_bricks": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "end_stone": 4
+      }
+    }
+  ],
+  "end_crystal": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass": 7,
+        "ender_eye": 1,
+        "ghast_tear": 1
+      }
+    }
+  ],
+  "end_rod": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "blaze_rod": 1,
+        "popped_chorus_fruit": 1
+      }
+    }
+  ],
+  "ender_chest": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "obsidian": 8,
+        "ender_eye": 1
+      }
+    }
+  ],
+  "ender_eye": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "ender_pearl": 1,
+        "blaze_powder": 1
+      }
+    }
+  ],
+  "oak_fence_gate": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 4,
+        "planks": 2
+      }
+    }
+  ],
+  "fermented_spider_eye": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "spider_eye": 1,
+        "brown_mushroom": 1,
+        "sugar": 1
+      }
+    }
+  ],
+  "fishing_rod": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 3,
+        "string": 2
+      }
+    }
+  ],
+  "fletching_table": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "flint": 2,
+        "planks": 4
+      }
+    }
+  ],
+  "flint_and_steel": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "iron_ingot": 1,
+        "flint": 1
+      }
+    }
+  ],
+  "potted_flowering_azalea_bush": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "brick": 3
+      }
+    }
+  ],
+  "furnace": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "cobblestone": 8
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "blackstone": 8
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "cobbled_deepslate": 8
+      }
+    }
+  ],
+  "glass_bottle": [
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass": 3
+      }
+    },
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "honey_bottle": 4
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "honey_bottle": 1
+      }
+    }
+  ],
+  "glass_pane": [
+    {
+      "count": 16,
+      "type": "crafting_table",
+      "ingredients": {
+        "glass": 6
+      }
+    }
+  ],
+  "glow_frame": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "frame": 1,
+        "glow_ink_sac": 1
+      }
+    }
+  ],
+  "glowstone": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "glowstone_dust": 4
+      }
+    }
+  ],
+  "gold_block": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "gold_ingot": 9
+      }
+    }
+  ],
+  "gold_ingot": [
+    {
+      "count": 9,
+      "type": "crafting_table",
+      "ingredients": {
+        "gold_block": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "gold_nugget": 9
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "deepslate_gold_ore": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "nether_gold_ore": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "gold_ore": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "raw_gold": 1
+      }
+    }
+  ],
+  "gold_nugget": [
+    {
+      "count": 9,
+      "type": "crafting_table",
+      "ingredients": {
+        "gold_ingot": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "golden_sword": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "golden_shovel": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "golden_pickaxe": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "golden_axe": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "golden_hoe": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "golden_helmet": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "golden_chestplate": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "golden_leggings": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "golden_boots": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "golden_horse_armor": 1
+      }
+    }
+  ],
+  "golden_apple": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "gold_ingot": 8,
+        "apple": 1
+      }
+    }
+  ],
+  "golden_axe": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "gold_ingot": 3,
+        "stick": 2
+      }
+    }
+  ],
+  "golden_boots": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "gold_ingot": 4
+      }
+    }
+  ],
+  "golden_carrot": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "gold_nugget": 8,
+        "carrot": 1
+      }
+    }
+  ],
+  "golden_chestplate": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "gold_ingot": 8
+      }
+    }
+  ],
+  "golden_helmet": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "gold_ingot": 5
+      }
+    }
+  ],
+  "golden_hoe": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "gold_ingot": 2,
+        "stick": 2
+      }
+    }
+  ],
+  "golden_leggings": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "gold_ingot": 7
+      }
+    }
+  ],
+  "golden_pickaxe": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "gold_ingot": 3,
+        "stick": 2
+      }
+    }
+  ],
+  "powered_rail": [
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "gold_ingot": 6,
+        "stick": 1,
+        "redstone": 1
+      }
+    }
+  ],
+  "golden_shovel": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "gold_ingot": 1,
+        "stick": 2
+      }
+    }
+  ],
+  "golden_sword": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "gold_ingot": 2,
+        "stick": 1
+      }
+    }
+  ],
+  "granite_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "stone": 6
+      }
+    }
+  ],
+  "gray_candle": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "candle": 1,
+        "gray_dye": 1
+      }
+    }
+  ],
+  "gray_dye": [
+    {
+      "count": 2,
+      "type": "crafting_table",
+      "ingredients": {
+        "black_dye": 1,
+        "white_dye": 1
+      }
+    },
+    {
+      "count": 2,
+      "type": "crafting_table",
+      "ingredients": {
+        "black_dye": 1,
+        "bone_meal": 1
+      }
+    },
+    {
+      "count": 2,
+      "type": "crafting_table",
+      "ingredients": {
+        "ink_sac": 1,
+        "bone_meal": 1
+      }
+    },
+    {
+      "count": 2,
+      "type": "crafting_table",
+      "ingredients": {
+        "ink_sac": 1,
+        "white_dye": 1
+      }
+    }
+  ],
+  "green_candle": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "candle": 1,
+        "green_dye": 1
+      }
+    }
+  ],
+  "grindstone": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 2,
+        "stone_block_slab4": 1,
+        "planks": 2
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 2,
+        "stone_block_slab": 1,
+        "planks": 2
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 2,
+        "stone_block_slab2": 1,
+        "planks": 2
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 2,
+        "stone_block_slab3": 1,
+        "planks": 2
+      }
+    }
+  ],
+  "hay_block": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "wheat": 9
+      }
+    }
+  ],
+  "heavy_weighted_pressure_plate": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "iron_ingot": 2
+      }
+    }
+  ],
+  "honey_block": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "honey_bottle": 4
+      }
+    }
+  ],
+  "honey_bottle": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "honey_block": 1,
+        "glass_bottle": 4
+      }
+    }
+  ],
+  "sugar": [
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "honey_bottle": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "sugar_cane": 1
+      }
+    }
+  ],
+  "honeycomb_block": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "honeycomb": 4
+      }
+    }
+  ],
+  "hopper": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "iron_ingot": 5,
+        "chest": 1
+      }
+    }
+  ],
+  "hopper_minecart": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "hopper": 1,
+        "minecart": 1
+      }
+    }
+  ],
+  "copper_ingot": [
+    {
+      "count": 9,
+      "type": "crafting_table",
+      "ingredients": {
+        "copper_block": 1
+      }
+    },
+    {
+      "count": 9,
+      "type": "crafting_table",
+      "ingredients": {
+        "waxed_copper_block": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "deepslate_copper_ore": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "copper_ore": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "raw_copper": 1
+      }
+    }
+  ],
+  "iron_axe": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "iron_ingot": 3,
+        "stick": 2
+      }
+    }
+  ],
+  "iron_bars": [
+    {
+      "count": 16,
+      "type": "crafting_table",
+      "ingredients": {
+        "iron_ingot": 6
+      }
+    }
+  ],
+  "iron_block": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "iron_ingot": 9
+      }
+    }
+  ],
+  "iron_boots": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "iron_ingot": 4
+      }
+    }
+  ],
+  "iron_chestplate": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "iron_ingot": 8
+      }
+    }
+  ],
+  "iron_door": [
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "iron_ingot": 6
+      }
+    }
+  ],
+  "iron_helmet": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "iron_ingot": 5
+      }
+    }
+  ],
+  "iron_hoe": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "iron_ingot": 2,
+        "stick": 2
+      }
+    }
+  ],
+  "iron_ingot": [
+    {
+      "count": 9,
+      "type": "crafting_table",
+      "ingredients": {
+        "iron_block": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "iron_nugget": 9
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "deepslate_iron_ore": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "iron_ore": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "raw_iron": 1
+      }
+    }
+  ],
+  "iron_leggings": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "iron_ingot": 7
+      }
+    }
+  ],
+  "iron_nugget": [
+    {
+      "count": 9,
+      "type": "crafting_table",
+      "ingredients": {
+        "iron_ingot": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "iron_shovel": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "iron_pickaxe": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "iron_axe": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "iron_sword": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "iron_hoe": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "chainmail_helmet": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "chainmail_chestplate": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "chainmail_leggings": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "chainmail_boots": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "iron_helmet": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "iron_chestplate": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "iron_leggings": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "iron_boots": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "iron_horse_armor": 1
+      }
+    }
+  ],
+  "iron_pickaxe": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "iron_ingot": 3,
+        "stick": 2
+      }
+    }
+  ],
+  "iron_shovel": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "iron_ingot": 1,
+        "stick": 2
+      }
+    }
+  ],
+  "iron_sword": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "iron_ingot": 2,
+        "stick": 1
+      }
+    }
+  ],
+  "iron_trapdoor": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "iron_ingot": 4
+      }
+    }
+  ],
+  "frame": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 8,
+        "leather": 1
+      }
+    }
+  ],
+  "jungle_boat": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 5,
+        "wooden_shovel": 1
+      }
+    }
+  ],
+  "jungle_chest_boat": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "chest": 1,
+        "jungle_boat": 1
+      }
+    }
+  ],
+  "jungle_door": [
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 6
+      }
+    }
+  ],
+  "jungle_fence_gate": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 4,
+        "planks": 2
+      }
+    }
+  ],
+  "ladder": [
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 7
+      }
+    }
+  ],
+  "lantern": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "iron_nugget": 8,
+        "torch": 1
+      }
+    }
+  ],
+  "lapis_block": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "lapis_lazuli": 9
+      }
+    }
+  ],
+  "lapis_lazuli": [
+    {
+      "count": 9,
+      "type": "crafting_table",
+      "ingredients": {
+        "lapis_block": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "deepslate_lapis_ore": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "lapis_ore": 1
+      }
+    }
+  ],
+  "lead": [
+    {
+      "count": 2,
+      "type": "crafting_table",
+      "ingredients": {
+        "string": 4,
+        "slime_ball": 1
+      }
+    }
+  ],
+  "leather": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "rabbit_hide": 4
+      }
+    }
+  ],
+  "leather_boots": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "leather": 4
+      }
+    }
+  ],
+  "leather_chestplate": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "leather": 8
+      }
+    }
+  ],
+  "leather_helmet": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "leather": 5
+      }
+    }
+  ],
+  "leather_horse_armor": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "leather": 7
+      }
+    }
+  ],
+  "leather_leggings": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "leather": 7
+      }
+    }
+  ],
+  "lectern": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "wooden_slab": 4,
+        "bookshelf": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "crimson_slab": 4,
+        "bookshelf": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "mangrove_slab": 4,
+        "bookshelf": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "warped_slab": 4,
+        "bookshelf": 1
+      }
+    }
+  ],
+  "lever": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 1,
+        "cobblestone": 1
+      }
+    }
+  ],
+  "light_blue_candle": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "candle": 1,
+        "light_blue_dye": 1
+      }
+    }
+  ],
+  "light_blue_dye": [
+    {
+      "count": 2,
+      "type": "crafting_table",
+      "ingredients": {
+        "blue_dye": 1,
+        "white_dye": 1
+      }
+    },
+    {
+      "count": 2,
+      "type": "crafting_table",
+      "ingredients": {
+        "blue_dye": 1,
+        "bone_meal": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "red_flower": 1
+      }
+    },
+    {
+      "count": 2,
+      "type": "crafting_table",
+      "ingredients": {
+        "lapis_lazuli": 1,
+        "bone_meal": 1
+      }
+    },
+    {
+      "count": 2,
+      "type": "crafting_table",
+      "ingredients": {
+        "lapis_lazuli": 1,
+        "white_dye": 1
+      }
+    }
+  ],
+  "light_gray_candle": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "candle": 1,
+        "light_gray_dye": 1
+      }
+    }
+  ],
+  "light_gray_dye": [
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "black_dye": 1,
+        "white_dye": 2
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "red_flower": 1
+      }
+    },
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "black_dye": 1,
+        "bone_meal": 2
+      }
+    },
+    {
+      "count": 2,
+      "type": "crafting_table",
+      "ingredients": {
+        "gray_dye": 1,
+        "bone_meal": 1
+      }
+    },
+    {
+      "count": 2,
+      "type": "crafting_table",
+      "ingredients": {
+        "gray_dye": 1,
+        "white_dye": 1
+      }
+    },
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "ink_sac": 1,
+        "bone_meal": 2
+      }
+    },
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "ink_sac": 1,
+        "white_dye": 2
+      }
+    }
+  ],
+  "light_weighted_pressure_plate": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "gold_ingot": 2
+      }
+    }
+  ],
+  "lightning_rod": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "copper_ingot": 3
+      }
+    }
+  ],
+  "lime_candle": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "candle": 1,
+        "lime_dye": 1
+      }
+    }
+  ],
+  "lime_dye": [
+    {
+      "count": 2,
+      "type": "crafting_table",
+      "ingredients": {
+        "green_dye": 1,
+        "white_dye": 1
+      }
+    },
+    {
+      "count": 2,
+      "type": "crafting_table",
+      "ingredients": {
+        "green_dye": 1,
+        "bone_meal": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "sea_pickle": 1
+      }
+    }
+  ],
+  "jack_o_lantern": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "carved_pumpkin": 1,
+        "torch": 1
+      }
+    }
+  ],
+  "lodestone": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stonebrick": 8,
+        "netherite_ingot": 1
+      }
+    }
+  ],
+  "magenta_candle": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "candle": 1,
+        "magenta_dye": 1
+      }
+    }
+  ],
+  "magenta_dye": [
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "blue_dye": 1,
+        "red_dye": 1,
+        "pink_dye": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "red_flower": 1
+      }
+    },
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "blue_dye": 1,
+        "red_dye": 2,
+        "bone_meal": 1
+      }
+    },
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "blue_dye": 1,
+        "red_dye": 2,
+        "white_dye": 1
+      }
+    },
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "lapis_lazuli": 1,
+        "red_dye": 2,
+        "bone_meal": 1
+      }
+    },
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "lapis_lazuli": 1,
+        "red_dye": 2,
+        "white_dye": 1
+      }
+    },
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "lapis_lazuli": 1,
+        "red_dye": 1,
+        "pink_dye": 1
+      }
+    },
+    {
+      "count": 2,
+      "type": "crafting_table",
+      "ingredients": {
+        "double_plant": 1
+      }
+    },
+    {
+      "count": 2,
+      "type": "crafting_table",
+      "ingredients": {
+        "purple_dye": 1,
+        "pink_dye": 1
+      }
+    }
+  ],
+  "magma_block": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "magma_cream": 4
+      }
+    }
+  ],
+  "magma_cream": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "blaze_powder": 1,
+        "slime_ball": 1
+      }
+    }
+  ],
+  "mangrove_boat": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 5,
+        "wooden_shovel": 1
+      }
+    }
+  ],
+  "mangrove_button": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 1
+      }
+    }
+  ],
+  "mangrove_chest_boat": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "chest": 1,
+        "mangrove_boat": 1
+      }
+    }
+  ],
+  "mangrove_door": [
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 6
+      }
+    }
+  ],
+  "mangrove_fence": [
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 4,
+        "stick": 2
+      }
+    }
+  ],
+  "mangrove_fence_gate": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 4,
+        "planks": 2
+      }
+    }
+  ],
+  "mangrove_pressure_plate": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 2
+      }
+    }
+  ],
+  "mangrove_sign": [
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 6,
+        "stick": 1
+      }
+    }
+  ],
+  "mangrove_slab": [
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 3
+      }
+    }
+  ],
+  "mangrove_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 6
+      }
+    }
+  ],
+  "mangrove_trapdoor": [
+    {
+      "count": 2,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 6
+      }
+    }
+  ],
+  "melon": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "melon_slice": 9
+      }
+    }
+  ],
+  "melon_seeds": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "melon_slice": 1
+      }
+    }
+  ],
+  "minecart": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "iron_ingot": 5
+      }
+    }
+  ],
+  "moss_carpet": [
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "moss_block": 2
+      }
+    }
+  ],
+  "mossy_cobblestone": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "cobblestone": 1,
+        "vine": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "cobblestone": 1,
+        "moss_block": 1
+      }
+    }
+  ],
+  "mossy_cobblestone_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "mossy_cobblestone": 6
+      }
+    }
+  ],
+  "mossy_stone_brick_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "stonebrick": 6
+      }
+    }
+  ],
+  "mud_brick_slab": [
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "mud_bricks": 3
+      }
+    }
+  ],
+  "mud_brick_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "mud_bricks": 6
+      }
+    }
+  ],
+  "mud_brick_wall": [
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "mud_bricks": 6
+      }
+    }
+  ],
+  "mud_bricks": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "packed_mud": 4
+      }
+    }
+  ],
+  "muddy_mangrove_roots": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "mangrove_roots": 1,
+        "mud": 1
+      }
+    }
+  ],
+  "mushroom_stew": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "brown_mushroom": 1,
+        "red_mushroom": 1,
+        "bowl": 1
+      }
+    }
+  ],
+  "nether_bricks": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "netherbrick": 4
+      }
+    }
+  ],
+  "nether_brick_fence": [
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "nether_bricks": 4,
+        "netherbrick": 2
+      }
+    }
+  ],
+  "nether_brick_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "nether_bricks": 6
+      }
+    }
+  ],
+  "nether_wart_block": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "nether_wart": 9
+      }
+    }
+  ],
+  "netherite_block": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "netherite_ingot": 9
+      }
+    }
+  ],
+  "netherite_ingot": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "netherite_scrap": 4,
+        "gold_ingot": 4
+      }
+    },
+    {
+      "count": 9,
+      "type": "crafting_table",
+      "ingredients": {
+        "netherite_block": 1
+      }
+    }
+  ],
+  "oak_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 6
+      }
+    }
+  ],
+  "observer": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "cobblestone": 6,
+        "redstone": 2,
+        "quartz": 1
+      }
+    }
+  ],
+  "orange_candle": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "candle": 1,
+        "orange_dye": 1
+      }
+    }
+  ],
+  "orange_dye": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "red_flower": 1
+      }
+    },
+    {
+      "count": 2,
+      "type": "crafting_table",
+      "ingredients": {
+        "red_dye": 1,
+        "yellow_dye": 1
+      }
+    }
+  ],
+  "packed_ice": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "ice": 9
+      }
+    }
+  ],
+  "packed_mud": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "mud": 1,
+        "wheat": 1
+      }
+    }
+  ],
+  "paper": [
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "sugar_cane": 3
+      }
+    }
+  ],
+  "pink_candle": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "candle": 1,
+        "pink_dye": 1
+      }
+    }
+  ],
+  "pink_dye": [
+    {
+      "count": 2,
+      "type": "crafting_table",
+      "ingredients": {
+        "red_dye": 1,
+        "white_dye": 1
+      }
+    },
+    {
+      "count": 2,
+      "type": "crafting_table",
+      "ingredients": {
+        "double_plant": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "red_flower": 1
+      }
+    },
+    {
+      "count": 2,
+      "type": "crafting_table",
+      "ingredients": {
+        "red_dye": 1,
+        "bone_meal": 1
+      }
+    }
+  ],
+  "polished_andesite_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "stone": 6
+      }
+    }
+  ],
+  "polished_basalt": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "basalt": 4
+      }
+    }
+  ],
+  "polished_blackstone": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "blackstone": 4
+      }
+    }
+  ],
+  "polished_blackstone_brick_slab": [
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "polished_blackstone_bricks": 3
+      }
+    }
+  ],
+  "polished_blackstone_brick_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "polished_blackstone_bricks": 6
+      }
+    }
+  ],
+  "polished_blackstone_brick_wall": [
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "polished_blackstone_bricks": 6
+      }
+    }
+  ],
+  "polished_blackstone_bricks": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "polished_blackstone": 4
+      }
+    }
+  ],
+  "polished_blackstone_button": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "polished_blackstone": 1
+      }
+    }
+  ],
+  "polished_blackstone_pressure_plate": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "polished_blackstone": 2
+      }
+    }
+  ],
+  "polished_blackstone_slab": [
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "polished_blackstone": 3
+      }
+    }
+  ],
+  "polished_blackstone_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "polished_blackstone": 6
+      }
+    }
+  ],
+  "polished_blackstone_wall": [
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "polished_blackstone": 6
+      }
+    }
+  ],
+  "polished_deepslate": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "cobbled_deepslate": 4
+      }
+    }
+  ],
+  "polished_deepslate_slab": [
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "polished_deepslate": 3
+      }
+    }
+  ],
+  "polished_deepslate_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "polished_deepslate": 6
+      }
+    }
+  ],
+  "polished_deepslate_wall": [
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "polished_deepslate": 6
+      }
+    }
+  ],
+  "polished_diorite_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "stone": 6
+      }
+    }
+  ],
+  "polished_granite_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "stone": 6
+      }
+    }
+  ],
+  "prismarine_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "prismarine": 6
+      }
+    }
+  ],
+  "prismarine_brick_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "prismarine": 6
+      }
+    }
+  ],
+  "dark_prismarine_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "prismarine": 6
+      }
+    }
+  ],
+  "pumpkin_pie": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "pumpkin": 1,
+        "sugar": 1,
+        "egg": 1
+      }
+    }
+  ],
+  "pumpkin_seeds": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "pumpkin": 1
+      }
+    }
+  ],
+  "purple_candle": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "candle": 1,
+        "purple_dye": 1
+      }
+    }
+  ],
+  "purple_dye": [
+    {
+      "count": 2,
+      "type": "crafting_table",
+      "ingredients": {
+        "blue_dye": 1,
+        "red_dye": 1
+      }
+    },
+    {
+      "count": 2,
+      "type": "crafting_table",
+      "ingredients": {
+        "lapis_lazuli": 1,
+        "red_dye": 1
+      }
+    }
+  ],
+  "purpur_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "purpur_block": 6
+      }
+    }
+  ],
+  "quartz_bricks": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "quartz_block": 4
+      }
+    }
+  ],
+  "quartz_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "quartz_block": 6
+      }
+    }
+  ],
+  "rabbit_stew": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "bowl": 1,
+        "baked_potato": 1,
+        "carrot": 1,
+        "brown_mushroom": 1,
+        "cooked_rabbit": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "bowl": 1,
+        "baked_potato": 1,
+        "carrot": 1,
+        "red_mushroom": 1,
+        "cooked_rabbit": 1
+      }
+    }
+  ],
+  "rail": [
+    {
+      "count": 16,
+      "type": "crafting_table",
+      "ingredients": {
+        "iron_ingot": 6,
+        "stick": 1
+      }
+    }
+  ],
+  "raw_copper": [
+    {
+      "count": 9,
+      "type": "crafting_table",
+      "ingredients": {
+        "raw_copper_block": 1
+      }
+    }
+  ],
+  "raw_copper_block": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "raw_copper": 9
+      }
+    }
+  ],
+  "raw_gold": [
+    {
+      "count": 9,
+      "type": "crafting_table",
+      "ingredients": {
+        "raw_gold_block": 1
+      }
+    }
+  ],
+  "raw_gold_block": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "raw_gold": 9
+      }
+    }
+  ],
+  "raw_iron": [
+    {
+      "count": 9,
+      "type": "crafting_table",
+      "ingredients": {
+        "raw_iron_block": 1
+      }
+    }
+  ],
+  "raw_iron_block": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "raw_iron": 9
+      }
+    }
+  ],
+  "music_disc_5": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "disc_fragment_5": 9
+      }
+    }
+  ],
+  "recovery_compass": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "echo_shard": 8,
+        "compass": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "echo_shard": 8,
+        "lodestone_compass": 1
+      }
+    }
+  ],
+  "red_candle": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "candle": 1,
+        "red_dye": 1
+      }
+    }
+  ],
+  "red_dye": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "beetroots": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "red_flower": 1
+      }
+    },
+    {
+      "count": 2,
+      "type": "crafting_table",
+      "ingredients": {
+        "double_plant": 1
+      }
+    }
+  ],
+  "red_nether_bricks": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "netherbrick": 2,
+        "nether_wart": 2
+      }
+    }
+  ],
+  "red_nether_brick_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "red_nether_bricks": 6
+      }
+    }
+  ],
+  "red_sandstone_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "red_sandstone": 6
+      }
+    }
+  ],
+  "redstone": [
+    {
+      "count": 9,
+      "type": "crafting_table",
+      "ingredients": {
+        "redstone_block": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "deepslate_redstone_ore": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "redstone_ore": 1
+      }
+    }
+  ],
+  "redstone_block": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "redstone": 9
+      }
+    }
+  ],
+  "redstone_lamp": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "redstone": 4,
+        "glowstone": 1
+      }
+    }
+  ],
+  "redstone_torch": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "redstone": 1,
+        "stick": 1
+      }
+    }
+  ],
+  "repeater": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "redstone_torch": 2,
+        "redstone": 1,
+        "stone": 3
+      }
+    }
+  ],
+  "respawn_anchor": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "crying_obsidian": 6,
+        "glowstone": 3
+      }
+    }
+  ],
+  "sandstone_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "sandstone": 6
+      }
+    }
+  ],
+  "scaffolding": [
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "bamboo": 6,
+        "string": 1
+      }
+    }
+  ],
+  "sea_lantern": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "prismarine_shard": 4,
+        "prismarine_crystals": 5
+      }
+    }
+  ],
+  "shears": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "iron_ingot": 2
+      }
+    }
+  ],
+  "shield": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 6,
+        "iron_ingot": 1
+      }
+    }
+  ],
+  "shulker_box": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "shulker_shell": 2,
+        "chest": 1
+      }
+    }
+  ],
+  "acacia_sign": [
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 6,
+        "stick": 1
+      }
+    }
+  ],
+  "birch_sign": [
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 6,
+        "stick": 1
+      }
+    }
+  ],
+  "dark_oak_sign": [
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 6,
+        "stick": 1
+      }
+    }
+  ],
+  "jungle_sign": [
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 6,
+        "stick": 1
+      }
+    }
+  ],
+  "oak_sign": [
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 6,
+        "stick": 1
+      }
+    }
+  ],
+  "spruce_sign": [
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 6,
+        "stick": 1
+      }
+    }
+  ],
+  "slime_block": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "slime_ball": 9
+      }
+    }
+  ],
+  "slime_ball": [
+    {
+      "count": 9,
+      "type": "crafting_table",
+      "ingredients": {
+        "slime_block": 1
+      }
+    }
+  ],
+  "smithing_table": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "iron_ingot": 2,
+        "planks": 4
+      }
+    }
+  ],
+  "smoker": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "log": 4,
+        "furnace": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "crimson_stem": 4,
+        "furnace": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "wood": 4,
+        "furnace": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stripped_crimson_stem": 4,
+        "furnace": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stripped_warped_stem": 4,
+        "furnace": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "warped_stem": 4,
+        "furnace": 1
+      }
+    }
+  ],
+  "smooth_quartz_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "quartz_block": 6
+      }
+    }
+  ],
+  "smooth_red_sandstone_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "red_sandstone": 6
+      }
+    }
+  ],
+  "smooth_sandstone_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "sandstone": 6
+      }
+    }
+  ],
+  "snow_block": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "snowball": 4
+      }
+    }
+  ],
+  "snow": [
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "snow_block": 3
+      }
+    }
+  ],
+  "soul_campfire": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 3,
+        "soul_soil": 1,
+        "crimson_stem": 3
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 3,
+        "soul_sand": 1,
+        "crimson_stem": 3
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 3,
+        "soul_soil": 1,
+        "log": 3
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 3,
+        "soul_sand": 1,
+        "log": 3
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 3,
+        "soul_soil": 1,
+        "wood": 3
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 3,
+        "soul_sand": 1,
+        "wood": 3
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 3,
+        "soul_soil": 1,
+        "stripped_crimson_stem": 3
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 3,
+        "soul_sand": 1,
+        "stripped_crimson_stem": 3
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 3,
+        "soul_soil": 1,
+        "stripped_warped_stem": 3
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 3,
+        "soul_sand": 1,
+        "stripped_warped_stem": 3
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 3,
+        "soul_soil": 1,
+        "warped_stem": 3
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 3,
+        "soul_sand": 1,
+        "warped_stem": 3
+      }
+    }
+  ],
+  "soul_lantern": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "iron_nugget": 8,
+        "soul_torch": 1
+      }
+    }
+  ],
+  "soul_torch": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "coal": 1,
+        "stick": 1,
+        "soul_sand": 1
+      }
+    },
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "coal": 1,
+        "stick": 1,
+        "soul_soil": 1
+      }
+    }
+  ],
+  "glistering_melon_slice": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "gold_nugget": 8,
+        "melon_slice": 1
+      }
+    }
+  ],
+  "spruce_boat": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 5,
+        "wooden_shovel": 1
+      }
+    }
+  ],
+  "spruce_chest_boat": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "chest": 1,
+        "spruce_boat": 1
+      }
+    }
+  ],
+  "spruce_door": [
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 6
+      }
+    }
+  ],
+  "spruce_fence_gate": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 4,
+        "planks": 2
+      }
+    }
+  ],
+  "spruce_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 6
+      }
+    }
+  ],
+  "spyglass": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "amethyst_shard": 1,
+        "copper_ingot": 2
+      }
+    }
+  ],
+  "sticky_piston": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "slime_ball": 1,
+        "piston": 1
+      }
+    }
+  ],
+  "stone_axe": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "cobblestone": 3,
+        "stick": 2
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "blackstone": 3,
+        "stick": 2
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "cobbled_deepslate": 3,
+        "stick": 2
+      }
+    }
+  ],
+  "stone_brick_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "stonebrick": 6
+      }
+    }
+  ],
+  "stone_button": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stone": 1
+      }
+    }
+  ],
+  "stone_hoe": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "cobblestone": 2,
+        "stick": 2
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "blackstone": 2,
+        "stick": 2
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "cobbled_deepslate": 2,
+        "stick": 2
+      }
+    }
+  ],
+  "stone_pickaxe": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "cobblestone": 3,
+        "stick": 2
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "blackstone": 3,
+        "stick": 2
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "cobbled_deepslate": 3,
+        "stick": 2
+      }
+    }
+  ],
+  "stone_pressure_plate": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stone": 2
+      }
+    }
+  ],
+  "stone_shovel": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "cobblestone": 1,
+        "stick": 2
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "blackstone": 1,
+        "stick": 2
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "cobbled_deepslate": 1,
+        "stick": 2
+      }
+    }
+  ],
+  "stone_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "stone": 6
+      }
+    }
+  ],
+  "stone_sword": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "cobblestone": 2,
+        "stick": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "blackstone": 2,
+        "stick": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "cobbled_deepslate": 2,
+        "stick": 1
+      }
+    }
+  ],
+  "stonecutter": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "iron_ingot": 1,
+        "stone": 3
+      }
+    }
+  ],
+  "wool": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "string": 4
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "ink_sac": 1,
+        "wool": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "lime_dye": 1,
+        "wool": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "yellow_dye": 1,
+        "wool": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "light_blue_dye": 1,
+        "wool": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "magenta_dye": 1,
+        "wool": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "orange_dye": 1,
+        "wool": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "bone_meal": 1,
+        "wool": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "black_dye": 1,
+        "wool": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "brown_dye": 1,
+        "wool": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "blue_dye": 1,
+        "wool": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "white_dye": 1,
+        "wool": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "red_dye": 1,
+        "wool": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "green_dye": 1,
+        "wool": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "cocoa_beans": 1,
+        "wool": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "lapis_lazuli": 1,
+        "wool": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "purple_dye": 1,
+        "wool": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "cyan_dye": 1,
+        "wool": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "light_gray_dye": 1,
+        "wool": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "gray_dye": 1,
+        "wool": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "pink_dye": 1,
+        "wool": 1
+      }
+    }
+  ],
+  "stripped_crimson_hyphae": [
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "stripped_crimson_stem": 4
+      }
+    }
+  ],
+  "stripped_warped_hyphae": [
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "stripped_warped_stem": 4
+      }
+    }
+  ],
+  "suspicious_stew": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "brown_mushroom": 1,
+        "red_mushroom": 1,
+        "bowl": 1,
+        "red_flower": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "brown_mushroom": 1,
+        "red_mushroom": 1,
+        "bowl": 1,
+        "dandelion": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "brown_mushroom": 1,
+        "red_mushroom": 1,
+        "bowl": 1,
+        "wither_rose": 1
+      }
+    }
+  ],
+  "target": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "redstone": 4,
+        "hay_block": 1
+      }
+    }
+  ],
+  "tinted_glass": [
+    {
+      "count": 2,
+      "type": "crafting_table",
+      "ingredients": {
+        "amethyst_shard": 4,
+        "glass": 1
+      }
+    }
+  ],
+  "tnt": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "gunpowder": 5,
+        "sand": 4
+      }
+    }
+  ],
+  "tnt_minecart": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "tnt": 1,
+        "minecart": 1
+      }
+    }
+  ],
+  "trapped_chest": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "chest": 1,
+        "tripwire_hook": 1
+      }
+    }
+  ],
+  "turtle_helmet": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "scute": 5
+      }
+    }
+  ],
+  "warped_button": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 1
+      }
+    }
+  ],
+  "warped_door": [
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 6
+      }
+    }
+  ],
+  "warped_fence": [
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 4,
+        "stick": 2
+      }
+    }
+  ],
+  "warped_fence_gate": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "stick": 4,
+        "planks": 2
+      }
+    }
+  ],
+  "warped_fungus_on_a_stick": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "fishing_rod": 1,
+        "warped_fungus": 1
+      }
+    }
+  ],
+  "warped_hyphae": [
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "warped_stem": 4
+      }
+    }
+  ],
+  "warped_pressure_plate": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 2
+      }
+    }
+  ],
+  "warped_sign": [
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 6,
+        "stick": 1
+      }
+    }
+  ],
+  "warped_slab": [
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 3
+      }
+    }
+  ],
+  "warped_stairs": [
+    {
+      "count": 4,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 6
+      }
+    }
+  ],
+  "warped_trapdoor": [
+    {
+      "count": 2,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 6
+      }
+    }
+  ],
+  "waxed_copper_block": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "copper_block": 1,
+        "honeycomb": 1
+      }
+    }
+  ],
+  "waxed_exposed_copper": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "exposed_copper": 1,
+        "honeycomb": 1
+      }
+    }
+  ],
+  "waxed_oxidized_copper": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "oxidized_copper": 1,
+        "honeycomb": 1
+      }
+    }
+  ],
+  "waxed_weathered_copper": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "weathered_copper": 1,
+        "honeycomb": 1
+      }
+    }
+  ],
+  "wheat": [
+    {
+      "count": 9,
+      "type": "crafting_table",
+      "ingredients": {
+        "hay_block": 1
+      }
+    }
+  ],
+  "white_candle": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "candle": 1,
+        "white_dye": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "candle": 1,
+        "bone_meal": 1
+      }
+    }
+  ],
+  "white_dye": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "bone_meal": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "red_flower": 1
+      }
+    }
+  ],
+  "wooden_axe": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 3,
+        "stick": 2
+      }
+    }
+  ],
+  "oak_door": [
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 6
+      }
+    }
+  ],
+  "wooden_hoe": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 2,
+        "stick": 2
+      }
+    }
+  ],
+  "wooden_pickaxe": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 3,
+        "stick": 2
+      }
+    }
+  ],
+  "wooden_shovel": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 1,
+        "stick": 2
+      }
+    }
+  ],
+  "wooden_sword": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "planks": 2,
+        "stick": 1
+      }
+    }
+  ],
+  "writable_book": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "book": 1,
+        "ink_sac": 1,
+        "feather": 1
+      }
+    }
+  ],
+  "yellow_candle": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "candle": 1,
+        "yellow_dye": 1
+      }
+    }
+  ],
+  "yellow_dye": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "dandelion": 1
+      }
+    },
+    {
+      "count": 2,
+      "type": "crafting_table",
+      "ingredients": {
+        "double_plant": 1
+      }
+    }
+  ],
+  "firework_rocket": [
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "paper": 1,
+        "gunpowder": 1,
+        "firework_star": 1
+      }
+    },
+    {
+      "count": 3,
+      "type": "crafting_table",
+      "ingredients": {
+        "paper": 1,
+        "gunpowder": 1
+      }
+    }
+  ],
+  "firework_star": [
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "gunpowder": 1,
+        "ink_sac": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "gunpowder": 1,
+        "lime_dye": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "gunpowder": 1,
+        "yellow_dye": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "gunpowder": 1,
+        "light_blue_dye": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "gunpowder": 1,
+        "magenta_dye": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "gunpowder": 1,
+        "orange_dye": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "gunpowder": 1,
+        "bone_meal": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "gunpowder": 1,
+        "black_dye": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "gunpowder": 1,
+        "brown_dye": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "gunpowder": 1,
+        "blue_dye": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "gunpowder": 1,
+        "white_dye": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "gunpowder": 1,
+        "red_dye": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "gunpowder": 1,
+        "green_dye": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "gunpowder": 1,
+        "cocoa_beans": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "gunpowder": 1,
+        "lapis_lazuli": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "gunpowder": 1,
+        "purple_dye": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "gunpowder": 1,
+        "cyan_dye": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "gunpowder": 1,
+        "light_gray_dye": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "gunpowder": 1,
+        "gray_dye": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "crafting_table",
+      "ingredients": {
+        "gunpowder": 1,
+        "pink_dye": 1
+      }
+    }
+  ],
+  "stone_block_slab3": [
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "end_stone_bricks": 3
+      }
+    },
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "stone": 3
+      }
+    },
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "red_sandstone": 3
+      }
+    }
+  ],
+  "stone_block_slab2": [
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "red_sandstone": 3
+      }
+    },
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "prismarine": 3
+      }
+    },
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "purpur_block": 3
+      }
+    },
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "mossy_cobblestone": 3
+      }
+    },
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "red_nether_bricks": 3
+      }
+    },
+    {
+      "count": 6,
+      "type": "crafting_table",
+      "ingredients": {
+        "sandstone": 3
+      }
+    }
+  ],
+  "charcoal": [
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "wood": 1
+      }
+    },
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "log": 1
+      }
+    }
+  ],
+  "cracked_deepslate_bricks": [
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "deepslate_bricks": 1
+      }
+    }
+  ],
+  "cracked_deepslate_tiles": [
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "deepslate_tiles": 1
+      }
+    }
+  ],
+  "deepslate": [
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "cobbled_deepslate": 1
+      }
+    }
+  ],
+  "cracked_polished_blackstone_bricks": [
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "polished_blackstone_bricks": 1
+      }
+    }
+  ],
+  "netherite_scrap": [
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "ancient_debris": 1
+      }
+    }
+  ],
+  "smooth_basalt": [
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "basalt": 1
+      }
+    }
+  ],
+  "smooth_stone": [
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "stone": 1
+      }
+    }
+  ],
+  "glass": [
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "sand": 1
+      }
+    }
+  ],
+  "sponge": [
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "sponge": 1
+      }
+    }
+  ],
+  "green_dye": [
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "cactus": 1
+      }
+    }
+  ],
+  "terracotta": [
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "clay": 1
+      }
+    }
+  ],
+  "netherbrick": [
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "netherrack": 1
+      }
+    }
+  ],
+  "cracked_nether_bricks": [
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "nether_bricks": 1
+      }
+    }
+  ],
+  "quartz": [
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "nether_quartz_ore": 1
+      }
+    }
+  ],
+  "white_glazed_terracotta": [
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "stained_hardened_clay": 1
+      }
+    }
+  ],
+  "orange_glazed_terracotta": [
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "stained_hardened_clay": 1
+      }
+    }
+  ],
+  "magenta_glazed_terracotta": [
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "stained_hardened_clay": 1
+      }
+    }
+  ],
+  "light_blue_glazed_terracotta": [
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "stained_hardened_clay": 1
+      }
+    }
+  ],
+  "yellow_glazed_terracotta": [
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "stained_hardened_clay": 1
+      }
+    }
+  ],
+  "lime_glazed_terracotta": [
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "stained_hardened_clay": 1
+      }
+    }
+  ],
+  "pink_glazed_terracotta": [
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "stained_hardened_clay": 1
+      }
+    }
+  ],
+  "gray_glazed_terracotta": [
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "stained_hardened_clay": 1
+      }
+    }
+  ],
+  "light_gray_glazed_terracotta": [
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "stained_hardened_clay": 1
+      }
+    }
+  ],
+  "cyan_glazed_terracotta": [
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "stained_hardened_clay": 1
+      }
+    }
+  ],
+  "purple_glazed_terracotta": [
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "stained_hardened_clay": 1
+      }
+    }
+  ],
+  "blue_glazed_terracotta": [
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "stained_hardened_clay": 1
+      }
+    }
+  ],
+  "brown_glazed_terracotta": [
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "stained_hardened_clay": 1
+      }
+    }
+  ],
+  "green_glazed_terracotta": [
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "stained_hardened_clay": 1
+      }
+    }
+  ],
+  "red_glazed_terracotta": [
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "stained_hardened_clay": 1
+      }
+    }
+  ],
+  "black_glazed_terracotta": [
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "stained_hardened_clay": 1
+      }
+    }
+  ],
+  "cooked_porkchop": [
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "porkchop": 1
+      }
+    }
+  ],
+  "cooked_cod": [
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "cod": 1
+      }
+    }
+  ],
+  "cooked_salmon": [
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "salmon": 1
+      }
+    }
+  ],
+  "cooked_beef": [
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "beef": 1
+      }
+    }
+  ],
+  "cooked_chicken": [
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "chicken": 1
+      }
+    }
+  ],
+  "baked_potato": [
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "potato": 1
+      }
+    }
+  ],
+  "cooked_rabbit": [
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "rabbit": 1
+      }
+    }
+  ],
+  "brick": [
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "clay_ball": 1
+      }
+    }
+  ],
+  "cooked_mutton": [
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "mutton": 1
+      }
+    }
+  ],
+  "popped_chorus_fruit": [
+    {
+      "count": 1,
+      "type": "furnace",
+      "ingredients": {
+        "chorus_fruit": 1
+      }
+    }
+  ]
+}
