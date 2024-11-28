@@ -438,24 +438,6 @@ class Minellama:
 
 
     # ======== ROLE ========= 
-
-    def create_daily_report(self):
-        print("~~~~~~~~~~create_daily_report~~~~~~~~~~")
-        report = f"""
-        day : {self.num_of_date} \n
-        achieved subgoal : {self.subgoal_memory_success} \n
-        failed subgoal : {self.subgoal_memory_failed} \n
-        final inventory : {self.inventory} \n
-        errors : {self.error}\n
-        chat log : {self.chat_log}\n
-        """
-        self.num_of_date = self.num_of_date + 1
-        self.subgoal_memory_success = []
-        self.subgoal_memory_failed = []
-        self.chat_log = ""
-        return report
-
-    
     def execute_task(self, task:dict):
         # If the function is in this list, use current goal algorithm to decompose recipes.
         rollout_functions =["craft", "mine", "smelt", "collect"]
@@ -512,7 +494,7 @@ class Minellama:
             for todo in self.todaysgoal:
                 # --- Generate TODO_datail ---
                 #self.todo_detail = [{"action": "collect", "name": "wheat_seeds", "count": 1}]
-                self.todo_detail = self.role_agent.make_todo_detail(dream=self.dream, todo=todo, inventory=self.inventory, biome=self.biome, nearby_block=self.nearby_block, nearby_entities=self.nearby_entities, memory=memory_txt)
+                self.todo_detail = self.role_agent.make_todo_detail(todo=todo, inventory=self.inventory, biome=self.biome, nearby_block=self.nearby_block, nearby_entities=self.nearby_entities, memory=memory_txt)
                 print(f"\033[34m\n**** TODO datail ****\n\nDAY {self.num_of_date}\n\nTODO:\n{todo}\n\nTODO detail:\n{self.todo_detail}\n\033[0m")  
                 self.daily_executed_tasks += self.todo_detail
 

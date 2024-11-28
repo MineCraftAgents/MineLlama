@@ -84,14 +84,16 @@ class RoleAgent:
                         return extracted_response
                 else:
                     error_message = "Invalid Error. No list found."
+                iterations += 1
             except Exception as e :
                 print("Unexpected error was occured. Trying again ...")
                 print(e)
+                iterations += 1
                 continue
         
         return extracted_response
     
-    def make_todo_detail(self, dream, todo, inventory, biome, nearby_block, nearby_entities, memory, max_iterations=10):
+    def make_todo_detail(self, todo, inventory, biome, nearby_block, nearby_entities, memory, max_iterations=10):
         system_prompt = """
         You are providing support for Minecraft gameplay. Your task is to output the actions the player should take in Minecraft based on the given short sentences according to the instructions below. The output should be a list with elements of type Python dict. Each dict should have the format:
         [{{"action": action name, "name": name of the item or entity, "count": number of items}}]
@@ -124,7 +126,7 @@ class RoleAgent:
         iterations = 0
         error_message = ""
         while iterations < max_iterations:
-            query_str = f"To Do: {todo}, Inventory: {inventory}, Nearby block: {nearby_block}, Nearby entities: {nearby_entities}, Dream: {dream}, Memory: {memory}, error message:{error_message}, what does the player have to do today? "
+            query_str = f"To Do: {todo}, Inventory: {inventory}, Nearby block: {nearby_block}, Nearby entities: {nearby_entities}, Memory: {memory}, error message:{error_message}, what does the player have to do today? "
             human_prompt = ""
             error_message = ""
             try :
