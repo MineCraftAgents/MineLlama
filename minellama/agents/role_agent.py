@@ -84,6 +84,7 @@ class RoleAgent:
                         return extracted_response
                 else:
                     error_message = "Invalid Error. No list found."
+                    print(response)
                 iterations += 1
             except Exception as e :
                 print("Unexpected error was occured. Trying again ...")
