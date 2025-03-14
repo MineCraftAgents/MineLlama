@@ -8,11 +8,18 @@ MineLlama is based on the [MineDojo / Voyager](https://github.com/MineDojo/Voyag
 We tested our environment on Python 3.10.13.
 
 ## Clone repo
+```
 git clone https://github.com/MineCraftAgents/MineLlama.git
+```
+```
+cd MineLlama
+```
 
 ## Create conda env
 ```
 conda create -n minellama python=3.10.13
+```
+```
 conda activate minellama
 ```
 Then, install torch as below.
