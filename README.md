@@ -26,14 +26,13 @@ Then, install torch as below.
 ```
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu117 --upgrade
 ```
-Then, install from requirements.txt.
 ```
 pip install -r requirements.txt
 ```
 
 ## Node.js install
 ```
-cd MineLlama/minellama/env/mineflayer
+cd ./minellama/env/mineflayer
 npm install -g npx
 npm install
 cd mineflayer-collectblock
