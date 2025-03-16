@@ -4,6 +4,10 @@ import random
 import math
 import re
 import copy
+import sys
+from rich import print
+from rich.tree import Tree
+import time
 
 class RecipeAgent:
     def __init__(self,llm=None):
@@ -158,45 +162,46 @@ class RecipeAgent:
 
     def query_wrapper(self, query_item:str)->dict[int]:
         system_prompt = """
-    Please list the items and their quantities needed to craft items.
-    If there are multiple choices, please only pick the easiest one to achieve. 
-    If crafting is easier, please set required ingriedients in "required_items".
-    If there is no required_items, please set "None" in "required_items".
-    If you think it is easier to break blocks to get the item than to craft, please set "None" in "required_items". But crafting is usually easier.
-    Use the json-like format provided in the examples below for your answers.
+        Please list the items and their quantities needed to craft items.
+        If there are multiple choices, please only pick the easiest one to achieve. 
+        If crafting is easier, please set required ingriedients in "required_items".
+        If there is no required_items, please set "None" in "required_items".
+        If you think it is easier to break blocks to get the item than to craft, please set "None" in "required_items". But crafting is usually easier.
+        Use the json-like format provided in the examples below for your answers.
 
-    Example 1: 
-    stick: To craft (1 stick), you need (2 bamboo) with (crafting_table). To craft (4 stick), you need (2 planks) with (crafting_table). You can get (stick) by breaking (deadbush) block without any tool. You can get (stick) by breaking (oak_leaves) block without any tool. You can get (stick) by breaking (spruce_leaves) block without any tool. You can get (stick) by killing (witch). 
-    Then, pick the easiest one like
-    {{"name": "stick", "count": 4, "required_items": {{"planks": 2, "crafting_table": 1}}, "action":"You can craft stick with crafting_table."}}
+        Example 1: 
+        stick: To craft (1 stick), you need (2 bamboo) with (crafting_table). To craft (4 stick), you need (2 planks) with (crafting_table). You can get (stick) by breaking (deadbush) block without any tool. You can get (stick) by breaking (oak_leaves) block without any tool. You can get (stick) by breaking (spruce_leaves) block without any tool. You can get (stick) by killing (witch). 
+        Then, pick the easiest one like
+        {{"name": "stick", "count": 4, "required_items": {{"planks": 2, "crafting_table": 1}}, "action":"You can craft stick with crafting_table."}}
 
-    Example 2: 
-    white_bed: To craft (1 white_bed), you need (3 wool, 3 planks) with (crafting_table). To craft (1 white_bed), you need (1 white_bed, 1 ink_sac) with (crafting_table). To craft (1 white_bed), you need (1 white_bed, 1 lime_dye) with (crafting_table). To craft (1 white_bed), you need (1 white_bed, 1 pink_dye) with (crafting_table). You can get (white_bed) by breaking (white_bed) block with (wooden_pickaxe). 
-    Then, pick the easiest one like
-    {{"name": "white_bed", "count": 1, "required_items": {{"wool": 3, "planks":3, "crafting_table":1}}, "action":"You can craft white_bed with ingredients."}}
+        Example 2: 
+        white_bed: To craft (1 white_bed), you need (3 wool, 3 planks) with (crafting_table). To craft (1 white_bed), you need (1 white_bed, 1 ink_sac) with (crafting_table). To craft (1 white_bed), you need (1 white_bed, 1 lime_dye) with (crafting_table). To craft (1 white_bed), you need (1 white_bed, 1 pink_dye) with (crafting_table). You can get (white_bed) by breaking (white_bed) block with (wooden_pickaxe). 
+        Then, pick the easiest one like
+        {{"name": "white_bed", "count": 1, "required_items": {{"wool": 3, "planks":3, "crafting_table":1}}, "action":"You can craft white_bed with ingredients."}}
 
-    Example 3:
-    smooth_stone: To obtain (1 smooth_stone), smelt (1 stone) using (furnace). You can get (smooth_stone) by breaking (smooth_stone) block with (wooden_pickaxe). 
-    Then, answer like
-    {{"name": "smooth_stone", "count": 1, "required_items": {{"stone":1, "furnace":1}}, "action":"You can smelt stone to get smooth_stone."}}
+        Example 3:
+        smooth_stone: To obtain (1 smooth_stone), smelt (1 stone) using (furnace). You can get (smooth_stone) by breaking (smooth_stone) block with (wooden_pickaxe). 
+        Then, answer like
+        {{"name": "smooth_stone", "count": 1, "required_items": {{"stone":1, "furnace":1}}, "action":"You can smelt stone to get smooth_stone."}}
 
-    Example 4:
-    command_block: There is no requirement.
-    Then, answer like
-    {{"name": "command_block", "count": 1, "required_items": "None", "action":"You should break command_block."}}
+        Example 4:
+        command_block: There is no requirement.
+        Then, answer like
+        {{"name": "command_block", "count": 1, "required_items": "None", "action":"You should break command_block."}}
 
-    Example 5:
-    emerald_block: To craft (1 emerald_block), you need (9 emerald) with (crafting_table). You can get (emerald_block) by breaking (emerald_block) block with (iron_pickaxe). 
-    Then, pick the easiest one like
-    {{"name": "emerald_block", "count": 1, "required_items": {{"iron_pickaxe": 1}}, "action":"You should break emerald_block with iron_pickaxe."}}
+        Example 5:
+        emerald_block: To craft (1 emerald_block), you need (9 emerald) with (crafting_table). You can get (emerald_block) by breaking (emerald_block) block with (iron_pickaxe). 
+        Then, pick the easiest one like
+        {{"name": "emerald_block", "count": 1, "required_items": {{"iron_pickaxe": 1}}, "action":"You should break emerald_block with iron_pickaxe."}}
 
-    Note that when you need no materials to get the item, you must answer "None" for "required_items".
-    Remember to focus on the format as demonstrated in the examples. 
+        Note that when you need no materials to get the item, you must answer "None" for "required_items".
+        Remember to focus on the format as demonstrated in the examples. 
 
-    Here are tips:
-    1. For planks, it is easier to craft from logs than breaking blocks.
-    2. For stick, it is　easier to craft from planks.
-    """
+        Here are tips:
+        1. For planks, it is easier to craft from logs than breaking blocks.
+        2. For stick, it is　easier to craft from planks.
+        """
+
         # print(prompt)
         max_request = 10
         inventory = self.inventory_to_sentence()
@@ -224,29 +229,96 @@ class RecipeAgent:
         return response
 
 
-    def resolve_dependency_all(self,init_list:list[str]):
-        def resolve_dependency_from_list(query_item_list:list[str])-> list[dict]:
-            return [ self.query_wrapper(item) for item in query_item_list]
-        dependency_list:list[dict] = []
-        resolved_edge:list[str] = []
-        unresolved_edge:list[str] = init_list
+    # def resolve_dependency_all(self,init_list:list[str]):
+        
+    #     def resolve_dependency_from_list(query_item_list:list[str])-> list[dict]:
+    #         return [ self.query_wrapper(item) for item in query_item_list]
+        
+    #     dependency_list:list[dict] = []
+    #     resolved_edge:list[str] = []
+    #     unresolved_edge:list[str] = init_list
+    #     resolve_count = 10
+
+    #     while len(unresolved_edge) and (resolve_count > 0):
+    #         print(resolved_edge)
+    #         print(unresolved_edge)
+    #         dependency_list += resolve_dependency_from_list(unresolved_edge)
+    #         resolved_edge += unresolved_edge
+    #         unresolved_edge = []
+    #         for dep in dependency_list:
+    #             print("Dependency: ",dep)
+    #             if isinstance(dep["required_items"],dict):
+    #                 for value in dep["required_items"].keys():
+    #                     if (value not in resolved_edge) and (value != ""):
+    #                         unresolved_edge.append(value)
+            
+    #         resolve_count -= 1
+    #         unresolved_edge = list(set(unresolved_edge))
+    #     return dependency_list
+
+
+    def resolve_dependency_all(self, init_list: list[str]):
+        def resolve_dependency_from_list(query_item_list: list[str]) -> list[dict]:
+            return [self.query_wrapper(item) for item in query_item_list]
+
+        dependency_list: list[dict] = []
+        resolved_edge: list[str] = []
+        unresolved_edge: list[str] = init_list
         resolve_count = 10
+        dependency_tree = {}  # Store parent-child relationships for visualization
+
+        def build_tree(tree: Tree, node: str, seen_nodes: set):
+            """Recursively build the dependency tree"""
+            if node in seen_nodes:
+                return  # Prevent infinite loops
+
+            seen_nodes.add(node)
+            if node in dependency_tree:
+                sub_tree = tree.add(f"[cyan]{node}[/cyan]")
+                for child in dependency_tree[node]:
+                    build_tree(sub_tree, child, seen_nodes)
+            else:
+                tree.add(f"[white]{node}[/white]")  # Leaf node
+
+        def print_status():
+            """Display dependencies as a tree"""
+            print("\033[H\033[J", end="")  # Clear terminal
+            print("[bold green]✔ Resolved Dependencies:[/bold green]")
+
+            tree = Tree("[green]Root[/green]")
+            seen_nodes = set()
+            for root in dependency_tree.keys():
+                build_tree(tree, root, seen_nodes)
+
+            print(tree)
+            print(f"\n[bold yellow]⚠ Remaining Dependencies: {resolve_count}[/bold yellow]\n")
+            sys.stdout.flush()
 
         while len(unresolved_edge) and (resolve_count > 0):
-            print(resolved_edge)
-            print(unresolved_edge)
-            dependency_list += resolve_dependency_from_list(unresolved_edge)
+            print_status()
+            time.sleep(0.5)  # Pause for visualization effect
+
+            new_dependencies = resolve_dependency_from_list(unresolved_edge)
+            dependency_list += new_dependencies
             resolved_edge += unresolved_edge
             unresolved_edge = []
-            for dep in dependency_list:
-                print("Dependency: ",dep)
-                if isinstance(dep["required_items"],dict):
+
+            for dep in new_dependencies:
+                item = dep["name"]
+                if item not in dependency_tree:
+                    dependency_tree[item] = []
+
+                if isinstance(dep["required_items"], dict):
                     for value in dep["required_items"].keys():
-                        if (value not in resolved_edge) and (value != ""):
+                        if value not in resolved_edge:
                             unresolved_edge.append(value)
-            
+                        dependency_tree[item].append(value)
+
             resolve_count -= 1
             unresolved_edge = list(set(unresolved_edge))
+
+        print_status()  # Final update
+        print("\n[bold green]✅ Dependency Resolution Complete![/bold green]")
         return dependency_list
 
     def create_recipe_dict(self, dependency_list:list):
@@ -354,7 +426,8 @@ class RecipeAgent:
 
     def current_goal_algorithm(self, task:dict, context="", max_iterations=3):
         print("\n============= Current Goal Algorithm ==============")
-        print(task)
+        print(f"task:{task}")
+        print(f"self.recipe_dependency_list:{self.recipe_dependency_list}")
         for name, count in task.items():
             # taskのアイテムの不足分
             lack_task = self.get_inventory_diff(task,name)
