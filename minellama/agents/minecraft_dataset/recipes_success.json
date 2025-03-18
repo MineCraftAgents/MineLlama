@@ -15,6 +15,14 @@
                 "crafting_table": 1
             },
             "action": "You can craft planks with crafting_table."
+        },
+        {
+            "name": "planks",
+            "count": 4,
+            "required_items": {
+                "log": 1
+            },
+            "action": "You can craft planks from logs without using a crafting table."
         }
     ],
     "stick": [
@@ -50,6 +58,14 @@
                 "planks": 4
             },
             "action": "You can craft crafting_table with 4 planks."
+        },
+        {
+            "name": "crafting_table",
+            "count": 1,
+            "required_items": {
+                "planks": 4
+            },
+            "action": "You can craft crafting_table with planks."
         }
     ],
     "wooden_pickaxe": [

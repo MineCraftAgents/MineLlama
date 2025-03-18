@@ -14,7 +14,7 @@ mud: You can get (mud) by breaking (mud) block without any tool.
 crimson_nylium: You can get (crimson_nylium) by breaking (crimson_nylium) block without any tool. 
 warped_nylium: You can get (warped_nylium) by breaking (warped_nylium) block without any tool. 
 cobblestone: You can get (cobblestone) by breaking (stone) block with (wooden_pickaxe). You can get (cobblestone) by breaking (cobblestone) block with (wooden_pickaxe). You can get (cobblestone) by breaking (infested_cobblestone) block with (wooden_pickaxe). 
-planks: To craft (4 planks), you need (1 log) with (crafting_table). To craft (4 planks), you need (1 wood) with (crafting_table). You can get (planks) by breaking (planks) block without any tool. 
+planks: To craft (4 planks), you need (1 log) without crafting_table. To craft (4 planks), you need (1 wood) without crafting_table. You can get (planks) by breaking (planks) block without any tool. 
 sapling: You can get (sapling) by breaking (sapling) block without any tool. 
 mangrove_propagule: You can get (mangrove_propagule) by breaking (mangrove_propagule) block without any tool. You can get (mangrove_propagule) by breaking (potted_mangrove_propagule) block without any tool. 
 bedrock: There is no required item.
@@ -152,7 +152,7 @@ purpur_block: To craft (1 purpur_block), you need (2 stone_block_slab2) with (cr
 purpur_stairs: To craft (4 purpur_stairs), you need (6 purpur_block) with (crafting_table). You can get (purpur_stairs) by breaking (purpur_stairs) block with (wooden_pickaxe). 
 mob_spawner: There is no required item.
 chest: To craft (1 chest), you need (8 planks) with (crafting_table). You can get (chest) by breaking (chest) block without any tool. 
-crafting_table: To craft (1 crafting_table), you need (4 planks) with (crafting_table). You can get (crafting_table) by breaking (crafting_table) block without any tool. 
+crafting_table: To craft (1 crafting_table), you need (4 planks) without (crafting_table).
 farmland: There is no required item.
 furnace: To craft (1 furnace), you need (8 cobblestone) with (crafting_table). To craft (1 furnace), you need (8 blackstone) with (crafting_table). To craft (1 furnace), you need (8 cobbled_deepslate) with (crafting_table). You can get (furnace) by breaking (lit_furnace) block with (wooden_pickaxe). You can get (furnace) by breaking (furnace) block with (wooden_pickaxe). 
 ladder: To craft (3 ladder), you need (7 stick) with (crafting_table). You can get (ladder) by breaking (ladder) block without any tool. 
