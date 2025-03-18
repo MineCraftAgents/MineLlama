@@ -422,11 +422,14 @@ class RecipeAgent:
         for name, count in task.items():
             # Task inventory check
             lack_task = self.get_inventory_diff(task, name)
+            # current task(item) already existed 
             if lack_task == 0:
                 text = f"You already have {task}.\n"
                 print(text)
                 context += text
                 return None, context
+            
+            # current task(item) is not existed 
             else:
                 # Infinite loop check
                 if name in self.current_goal_memory:
@@ -444,7 +447,7 @@ class RecipeAgent:
                     self.iterations = 0
                     #self.get_recipe(name)
                     print("\nResolving recipe dependencies...")
-                    dependency_list = self.resolve_dependency_all([query_item_name])
+                    dependency_list = self.resolve_dependency_all([name])
                     self.recipe_dependency_list = self.create_recipe_dict(dependency_list=dependency_list)
 
                 

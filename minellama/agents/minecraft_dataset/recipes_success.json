@@ -39,6 +39,14 @@
                 "log": 1
             },
             "action": "You can craft planks from a log without a crafting table."
+        },
+        {
+            "name": "planks",
+            "count": 4,
+            "required_items": {
+                "log": 1
+            },
+            "action": "You can craft planks from a log without a crafting_table."
         }
     ],
     "stick": [
