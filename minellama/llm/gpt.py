@@ -10,7 +10,7 @@ import os
 
 
 class GPT:
-    def __init__(self,llm_model="gpt-4o-mini"):
+    def __init__(self,llm_model="gpt-3.5-turbo"):
         self.name = llm_model
 
     ###with RAG
