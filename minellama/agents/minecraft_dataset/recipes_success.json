@@ -23,6 +23,22 @@
                 "log": 1
             },
             "action": "You can craft planks from logs without using a crafting table."
+        },
+        {
+            "name": "planks",
+            "count": 4,
+            "required_items": {
+                "log": 1
+            },
+            "action": "You can craft planks from a log."
+        },
+        {
+            "name": "planks",
+            "count": 4,
+            "required_items": {
+                "log": 1
+            },
+            "action": "You can craft planks from a log without a crafting table."
         }
     ],
     "stick": [
@@ -162,6 +178,12 @@
             "count": 1,
             "required_items": null,
             "action": "You can get log by breaking log block without any tool."
+        },
+        {
+            "name": "log",
+            "count": 1,
+            "required_items": null,
+            "action": "You should break log block."
         }
     ],
     "sand": [

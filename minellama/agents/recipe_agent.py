@@ -161,6 +161,7 @@ class RecipeAgent:
         return sentence
 
     def query_wrapper(self, query_item:str)->dict[int]:
+        print("def query_wrapper is invoked")
         system_prompt = """
         Please list the items and their quantities needed to craft items.
         If there are multiple choices, please only pick the easiest one to achieve. 
@@ -212,7 +213,7 @@ class RecipeAgent:
             try:
                 query_str = f'Please tell me how to obtain "{query_item}". To get some "{query_item}", you need '
                 human_prompt = f"This is the current status. Inventory: {inventory} Nearby block: {self.nearby_block} Biome: I am in {self.biome}. Error from the last round: {error}"
-                print(human_prompt)
+                print(f"human_prompt:{human_prompt}")
                 response = self.llm.content(system_prompt=system_prompt, human_prompt=human_prompt, query_str=query_str, data_dir = "extended_recipe", persist_index=True, use_general_dir=False, similarity_top_k=3)
                 # print(response)
                 # print("\n")
@@ -229,43 +230,8 @@ class RecipeAgent:
         return response
 
 
-    # def resolve_dependency_all(self,init_list:list[str]):
-        
-    #     def resolve_dependency_from_list(query_item_list:list[str])-> list[dict]:
-    #         return [ self.query_wrapper(item) for item in query_item_list]
-        
-    #     dependency_list:list[dict] = []
-    #     resolved_edge:list[str] = []
-    #     unresolved_edge:list[str] = init_list
-    #     resolve_count = 10
-
-    #     while len(unresolved_edge) and (resolve_count > 0):
-    #         print(resolved_edge)
-    #         print(unresolved_edge)
-    #         dependency_list += resolve_dependency_from_list(unresolved_edge)
-    #         resolved_edge += unresolved_edge
-    #         unresolved_edge = []
-    #         for dep in dependency_list:
-    #             print("Dependency: ",dep)
-    #             if isinstance(dep["required_items"],dict):
-    #                 for value in dep["required_items"].keys():
-    #                     if (value not in resolved_edge) and (value != ""):
-    #                         unresolved_edge.append(value)
-            
-    #         resolve_count -= 1
-    #         unresolved_edge = list(set(unresolved_edge))
-    #     return dependency_list
-
-
     def resolve_dependency_all(self, init_list: list[str]):
-        def resolve_dependency_from_list(query_item_list: list[str]) -> list[dict]:
-            return [self.query_wrapper(item) for item in query_item_list]
-
-        dependency_list: list[dict] = []
-        resolved_edge: list[str] = []
-        unresolved_edge: list[str] = init_list
-        resolve_count = 10
-        dependency_tree = {}  # Store parent-child relationships for visualization
+        print("def resolve_dependency_all is invoked")
 
         def build_tree(tree: Tree, node: str, seen_nodes: set):
             """Recursively build the dependency tree"""
@@ -291,19 +257,27 @@ class RecipeAgent:
                 build_tree(tree, root, seen_nodes)
 
             print(tree)
-            print(f"\n[bold yellow]⚠ Remaining Dependencies: {resolve_count}[/bold yellow]\n")
             sys.stdout.flush()
 
-        while len(unresolved_edge) and (resolve_count > 0):
-            print_status()
-            time.sleep(0.5)  # Pause for visualization effect
+        dependency_list: list[dict] = []
+        resolved_edge: list[str] = []
+        unresolved_edge: list[str] = init_list
+        
+        dependency_tree = {}  # Store parent-child relationships for visualization
 
-            new_dependencies = resolve_dependency_from_list(unresolved_edge)
+        while len(unresolved_edge):
+            print_status()
+            print(f"unresolved_edge:{unresolved_edge} ")
+            #time.sleep(0.5)  # Pause for visualization effect
+            
+            # record the results from query_wrraper
+            #new_dependencies is [ {'name': 'stick', 'count': 4, 'required_items': {'planks': 2, 'crafting_table': 1}, 'action': 'You can craft stick with crafting_table.'}, ...,]
+            new_dependencies = [self.query_wrapper(item) for item in unresolved_edge]
             dependency_list += new_dependencies
             resolved_edge += unresolved_edge
             unresolved_edge = []
-
-            for dep in new_dependencies:
+            for dep in new_dependencies:# dependency extraction
+                print(f"dep:{dep}")
                 item = dep["name"]
                 if item not in dependency_tree:
                     dependency_tree[item] = []
@@ -314,7 +288,8 @@ class RecipeAgent:
                             unresolved_edge.append(value)
                         dependency_tree[item].append(value)
 
-            resolve_count -= 1
+                    
+                
             unresolved_edge = list(set(unresolved_edge))
 
         print_status()  # Final update
@@ -329,13 +304,6 @@ class RecipeAgent:
             recipe_dict[item["name"]] = item
         return recipe_dict
 
-    def get_recipe(self, query_item_name:str): 
-        print("\nResolving recipe dependencies...")
-        dependency_list = self.resolve_dependency_all([query_item_name])
-        self.recipe_dependency_list = self.create_recipe_dict(dependency_list=dependency_list)
-
-
-    
     def reset_recipe(self, all_reset=True, recursive_reset=False, recipe={}):
         if all_reset:
             self.recipe_dependency_list = {}
@@ -402,8 +370,6 @@ class RecipeAgent:
 
 
 
-
-
     # ========= Current Goal Algorithm ========
     # インベントリとのアイテムの個数の比較
     #そのループの初期のインベントリのアイテムの状態を記録したことですでに取得済みのアイテムに関してもさらに採取できるように変更。
@@ -424,25 +390,48 @@ class RecipeAgent:
             return item_dict[item_name]
 
 
-    def current_goal_algorithm(self, task:dict, context="", max_iterations=3):
+    def current_goal_algorithm(self, task: dict, context="", max_iterations=3):
+        print("def current_goal_algorithm is invoked")
         print("\n============= Current Goal Algorithm ==============")
         print(f"task:{task}")
+        
+        # Visualize self.recipe_dependency_list
+        def build_tree(tree: Tree, node: str, highlight_task: str):
+            """Recursively build the recipe dependency tree"""
+            if node in self.recipe_dependency_list:
+                recipe = self.recipe_dependency_list[node]
+                # Highlight the current task in red
+                node_label = f"[bold red]{node}[/bold red]" if node in task else f"[cyan]{node}[/cyan]"
+                sub_tree = tree.add(node_label)
+
+                if isinstance(recipe["required_items"], dict):
+                    for child in recipe["required_items"].keys():
+                        build_tree(sub_tree, child, highlight_task)
+            else:
+                tree.add(f"[white]{node}[/white]")  # Base item
+
+        # Construct the tree
+        recipe_tree = Tree("[green]Recipe Dependency Tree[/green]")
+        for root in self.recipe_dependency_list.keys():
+            build_tree(recipe_tree, root, highlight_task=list(task.keys())[0])
+
+        print(recipe_tree)  # Display the tree
+
         print(f"self.recipe_dependency_list:{self.recipe_dependency_list}")
+
         for name, count in task.items():
-            # taskのアイテムの不足分
-            lack_task = self.get_inventory_diff(task,name)
+            # Task inventory check
+            lack_task = self.get_inventory_diff(task, name)
             if lack_task == 0:
                 text = f"You already have {task}.\n"
                 print(text)
                 context += text
                 return None, context
             else:
-                # 無限ループの判定
+                # Infinite loop check
                 if name in self.current_goal_memory:
-                    # とりあえず3回までの繰り返しは認める。なぜなら、レシピが複雑になれば、一つのルートで同じアイテムが複数回必要になる可能性もあるため。
                     if self.iterations > max_iterations:
-                        print(f"There might be an infinit loop in recipe dependencies.\n{task}")
-                        # 無限ループがある場合は、切り上げて、アイテムの採取に取り掛かる。
+                        print(f"There might be an infinite loop in recipe dependencies.\n{task}")
                         context = self.recipe_dependency_list[name]["action"]
                         return task, context
                     else:
@@ -451,41 +440,44 @@ class RecipeAgent:
                     self.current_goal_memory.append(name)
 
                 if name not in self.recipe_dependency_list:
-                    # 無限ループmemoryはリセット
                     self.current_goal_memory = []
                     self.iterations = 0
-                    self.get_recipe(name)
-                    
-                recipe = self.recipe_dependency_list[name] #辞書型{'count': 1, 'type': 'crafting_table', 'required_items': {'iron_ingot': 3, 'stick': 2}}
+                    #self.get_recipe(name)
+                    print("\nResolving recipe dependencies...")
+                    dependency_list = self.resolve_dependency_all([query_item_name])
+                    self.recipe_dependency_list = self.create_recipe_dict(dependency_list=dependency_list)
+
+                
+                recipe = self.recipe_dependency_list[name]
                 context = recipe["action"]
-                # recipeがNoneなら、スタートノードであるということ。探索を行う
+                
+                #will end current goal algorithm and return
                 if recipe["required_items"] is None:
                     return task, context
 
-                # recipeが存在する場合は、材料をチェックする。
                 for key, value in recipe["required_items"].items():
-                    #　材料の不足数
                     if name in self.current_goal_memory:
-                        # self.current_goal_memoryに入っている場合は、無限ループの可能性があり、必要数を乗算すると非常に大きな値になってしまうため、デフォルト値を使う。
                         required_amount = value
                     else:
                         required_amount = math.ceil(lack_task / recipe['count']) * value
-                    lack_ingredients = self.get_inventory_diff({key:required_amount},key)
-                    if  lack_ingredients == 0:
+                    
+                    lack_ingredients = self.get_inventory_diff({key: required_amount}, key)
+                    if lack_ingredients == 0:
                         print(f"You have {key}\n")
                     else:
                         print(f"You don't have {key}. Searching more deeply for {key}...\n")
-                        # self.goal_items = [{key:value}] + self.goal_items
-                        next_goal, context = self.current_goal_algorithm({key:required_amount}, context)
+                        next_goal, context = self.current_goal_algorithm({key: required_amount}, context)
                         return next_goal, context
-                
-                print(f"You already have all ingredients for {task}. ")
-                return task, context
 
+            print(f"You already have all ingredients for {task}. ")
+            print("\n End============= Current Goal Algorithm ==============")
+            return task, context
 
     def set_current_goal(self, task:dict):
+        print("def set_current_goal is invoked")
         print(f"Called set_current_goal: {task}")
         for key, value in task.items():
+            print(f"set_current_goal===key:{key} value: {value}====in task.items()")
             #　念の為アイテム名がマインクラフト内に存在するか確認。
             try:
                 self.check_item_name(key)
@@ -498,5 +490,5 @@ class RecipeAgent:
                 error = e
                 return None, error
         
-        
+            
 
