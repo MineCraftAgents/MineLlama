@@ -161,7 +161,7 @@ class RecipeAgent:
         return sentence
 
     def query_wrapper(self, query_item:str)->dict[int]:
-        print("def query_wrapper is invoked")
+        print("\n def query_wrapper is invoked")
         system_prompt = """
         Please list the items and their quantities needed to craft items.
         If there are multiple choices, please only pick the easiest one to achieve. 
@@ -231,7 +231,7 @@ class RecipeAgent:
 
 
     def resolve_dependency_all(self, init_list: list[str]):
-        print("def resolve_dependency_all is invoked")
+        print("\n def resolve_dependency_all is invoked")
 
         def build_tree(tree: Tree, node: str, seen_nodes: set):
             """Recursively build the dependency tree"""
@@ -259,25 +259,15 @@ class RecipeAgent:
             print(tree)
             sys.stdout.flush()
 
-        dependency_list: list[dict] = []
-        resolved_edge: list[str] = []
-        unresolved_edge: list[str] = init_list
-        
-        dependency_tree = {}  # Store parent-child relationships for visualization
-
-        while len(unresolved_edge):
-            print_status()
-            print(f"unresolved_edge:{unresolved_edge} ")
-            #time.sleep(0.5)  # Pause for visualization effect
-            
-            # record the results from query_wrraper
-            #new_dependencies is [ {'name': 'stick', 'count': 4, 'required_items': {'planks': 2, 'crafting_table': 1}, 'action': 'You can craft stick with crafting_table.'}, ...,]
-            new_dependencies = [self.query_wrapper(item) for item in unresolved_edge]
-            dependency_list += new_dependencies
-            resolved_edge += unresolved_edge
-            unresolved_edge = []
-            for dep in new_dependencies:# dependency extraction
-                print(f"dep:{dep}")
+        def extract_dependencies(new_dependencies, dependency_tree, resolved_edge):
+            """
+            Extracts dependencies from new_dependencies and updates:
+            - dependency_tree (for visualization)
+            - unresolved_edge (for next iteration)
+            """
+            unresolved = []
+            for dep in new_dependencies:
+                print(f"Processing dependency: {dep}")
                 item = dep["name"]
                 if item not in dependency_tree:
                     dependency_tree[item] = []
@@ -285,16 +275,33 @@ class RecipeAgent:
                 if isinstance(dep["required_items"], dict):
                     for value in dep["required_items"].keys():
                         if value not in resolved_edge:
-                            unresolved_edge.append(value)
+                            unresolved.append(value)
                         dependency_tree[item].append(value)
 
-                    
-                
-            unresolved_edge = list(set(unresolved_edge))
+            return list(set(unresolved))  # Remove duplicates before returning
+
+        dependency_list: list[dict] = []
+        resolved_edge: list[str] = []
+        unresolved_edge: list[str] = init_list
+        dependency_tree = {}  # Store parent-child relationships for visualization
+
+        while len(unresolved_edge):
+            print_status()
+            print(f"unresolved_edge: {unresolved_edge}")
+
+            # Fetch new dependencies using query_wrapper
+            new_dependencies = [self.query_wrapper(item) for item in unresolved_edge]
+            dependency_list += new_dependencies
+            resolved_edge += unresolved_edge
+
+            # Extract and update unresolved dependencies
+            unresolved_edge = extract_dependencies(new_dependencies, dependency_tree, resolved_edge)
 
         print_status()  # Final update
         print("\n[bold green]✅ Dependency Resolution Complete![/bold green]")
         return dependency_list
+
+
 
     def create_recipe_dict(self, dependency_list:list):
         recipe_dict = {}
@@ -391,7 +398,7 @@ class RecipeAgent:
 
 
     def current_goal_algorithm(self, task: dict, context="", max_iterations=3):
-        print("def current_goal_algorithm is invoked")
+        print("\ndef current_goal_algorithm is invoked")
         print("\n============= Current Goal Algorithm ==============")
         print(f"task:{task}")
         
