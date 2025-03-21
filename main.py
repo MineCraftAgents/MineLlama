@@ -8,11 +8,12 @@ minellama = Minellama(
     openai_api_key=openai_api_key,
     hf_auth_token=hf_auth_token,
     mc_port="38174",
-    llm = "gpt", #"llama" or "gpt"
-    llm_model = "gpt-4", #"meta-llama/Llama-2-70b-chat-hf" or "meta-llama/Llama-2-7b-chat-hf" for Llama2, "gpt-3.5-turbo" or "gpt-4" for GPT
+    llm = "llama", #"llama" or "gpt"
+    llm_model = "meta-llama/Llama-2-70b-chat-hf", #"meta-llama/Llama-2-70b-chat-hf" or "meta-llama/Llama-2-7b-chat-hf" for Llama2, "gpt-3.5-turbo" or "gpt-4" for GPT
     local_llm_path = None, # If you have local Llama2, set the path to the directory. If None, it will create the model dir in minellama/llm/ .
     difficulty= "peaceful",
-    record_file= "./log.txt" # the ouput file 
+    record_file= "./log.txt", # the ouput file 
+    rag_switch=False 
 )
 
 

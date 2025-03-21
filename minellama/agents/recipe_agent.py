@@ -204,7 +204,7 @@ class RecipeAgent:
         """
 
         # print(prompt)
-        max_request = 10
+        max_request = 5
         inventory = self.inventory_to_sentence()
         error = self.error
         # failed_memory = self.failed_memory_to_sentence(item=query_item)
@@ -226,6 +226,7 @@ class RecipeAgent:
                 print(e)
                 error = e
                 max_request -= 1
+                print(f"max_request left {max_request} times")
                 continue
         return response
 

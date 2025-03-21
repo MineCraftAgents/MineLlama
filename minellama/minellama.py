@@ -27,6 +27,7 @@ class Minellama:
         local_llm_path: str = None, # If you have local Llama2, set the path to the directory. If None, it will create the model dir in minellama/llm/ .
         hf_auth_token: str = "", # Hugging face auth token.
         record_file: str = "./log.txt", # the output file to record the result.
+        rag_switch = True,
     ):
         # init env
         self.env = VoyagerEnv(
@@ -36,15 +37,16 @@ class Minellama:
         )
         self.env_wait_ticks = env_wait_ticks
         self.max_iterations_rollout = max_iterations
+        self.rag_switch=rag_switch
 
         # set LLM
         if llm == "llama":
-            print("Llama2 called")
-            self.llm = Llama2(hf_auth_token=hf_auth_token, llm_model=llm_model, local_llm_path=local_llm_path)
+            print(f"Llama2 called with rag_switch:{self.rag_switch}")
+            self.llm = Llama2(hf_auth_token=hf_auth_token, llm_model=llm_model, local_llm_path=local_llm_path,rag_switch=self.rag_switch)
         elif llm == "gpt":
-            print("GPT called")
+            print(f"GPT called with rag_switch:{self.rag_switch}")
             os.environ["OPENAI_API_KEY"] = openai_api_key
-            self.llm = GPT(llm_model=llm_model)
+            self.llm = GPT(llm_model=llm_model,rag_switch=rag_switch)
         else:
             # This is for baseline without LLM
             raise ValueError("No LLM selected.")
