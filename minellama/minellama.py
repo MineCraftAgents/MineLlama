@@ -39,6 +39,8 @@ class Minellama:
         self.max_iterations_rollout = max_iterations
         self.rag_switch=rag_switch
 
+        self.llm_model_name=llm_model
+
         # set LLM
         if llm == "llama":
             print(f"Llama2 called with rag_switch:{self.rag_switch}")
@@ -109,27 +111,88 @@ class Minellama:
         for primitives in self.control_primitives:
             programs += f"{primitives}\n\n"
         return programs
-    
+
+
     def record_log(self, success=False, todo=""):
-        with open(self.record_file, "a") as f:
-            text = f"\n\nNUM_OF_DATE: {self.num_of_date}"
-            text += f"Role: {self.role}\n"
-            text += f"DREAM: {self.dream}\n"
-            text += f"SELECTING_TO_DO: {todo}"
-            text += f"TASK: {self.next_task}\n"
-            text += f"SUCCESS: {success}\n"
-            text += f"INVENTORY: {self.inventory}\n"
-            text += f"SUBGOAL_MEMORY: {self.subgoal_memory}\n"
-            text += f"SUBGOAL_SUCCESS: {self.subgoal_memory_success}\n"
-            text += f"SUBGOAL_FAILED: {self.subgoal_memory_failed}\n"
-            text += f"ACTION_MEMORY: {self.action_agent.memory}\n"
-            text += f"LAST_ERROR_MASSAGE: {self.error}\n"
-            text += f"LAST_CHAT_LOG: {self.chat_log}\n"
-            text += f"LAST_CODE_AND_CONTEXT: {self.last_code}\n{self.last_context}\n"
-            text += f"RECIPE_PATHS:\n{self.recipe_agent.paths}\n"
-            text += f"STEP_COUNT: {self.step_count}\n"
-            text += f"TIME: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n"
-            f.write(text)  
+
+        try:
+            # Create base experiment_results directory
+            base_dir = os.path.join(".", "experiment_results")
+            os.makedirs(base_dir, exist_ok=True)
+
+            # Build model-specific directory name
+            model_dir_name = self.llm_model_name
+            if self.rag_switch:
+                model_dir_name += " with rag"
+            
+            model_dir = os.path.join(base_dir, model_dir_name)
+            os.makedirs(model_dir, exist_ok=True)
+
+            # Set log file path under model directory
+            self.record_file = os.path.join(model_dir, "log.txt")
+
+            # Append to log.txt
+            with open(self.record_file, "a") as f:
+                text = f"\n\nNUM_OF_DATE: {self.num_of_date}"
+                text += f"Role: {self.role}\n"
+                text += f"DREAM: {self.dream}\n"
+                text += f"SELECTING_TO_DO: {todo}"
+                text += f"TASK: {self.next_task}\n"
+                text += f"SUCCESS: {success}\n"
+                text += f"INVENTORY: {self.inventory}\n"
+                text += f"SUBGOAL_MEMORY: {self.subgoal_memory}\n"
+                text += f"SUBGOAL_SUCCESS: {self.subgoal_memory_success}\n"
+                text += f"SUBGOAL_FAILED: {self.subgoal_memory_failed}\n"
+                text += f"ACTION_MEMORY: {self.action_agent.memory}\n"
+                text += f"LAST_ERROR_MASSAGE: {self.error}\n"
+                text += f"LAST_CHAT_LOG: {self.chat_log}\n"
+                text += f"LAST_CODE_AND_CONTEXT: {self.last_code}\n{self.last_context}\n"
+                text += f"RECIPE_PATHS:\n{self.recipe_agent.paths}\n"
+                text += f"STEP_COUNT: {self.step_count}\n"
+                text += f"TIME: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n"
+                f.write(text)
+
+            # Create task-specific subdirectory under the model directory
+            task_dir = os.path.join(model_dir, str(self.next_task))
+            os.makedirs(task_dir, exist_ok=True)
+
+            # Determine next available incremental filename
+            existing_files = [f for f in os.listdir(task_dir) if f.endswith(".json") and f[:-5].isdigit()]
+            existing_indices = [int(f[:-5]) for f in existing_files]
+            next_index = max(existing_indices, default=0) + 1
+            json_path = os.path.join(task_dir, f"{next_index}.json")
+
+            # Prepare dictionary for JSON
+            log_data = {
+                "NUM_OF_DATE": self.num_of_date,
+                "Role": self.role,
+                "DREAM": self.dream,
+                "SELECTING_TO_DO": todo,
+                "TASK": self.next_task,
+                "SUCCESS": success,
+                "INVENTORY": self.inventory,
+                "SUBGOAL_MEMORY": self.subgoal_memory,
+                "SUBGOAL_SUCCESS": self.subgoal_memory_success,
+                "SUBGOAL_FAILED": self.subgoal_memory_failed,
+                "ACTION_MEMORY": str(self.action_agent.memory),
+                "LAST_ERROR_MASSAGE": str(self.error),
+                "LAST_CHAT_LOG": self.chat_log,
+                "LAST_CODE_AND_CONTEXT": {
+                    "code": self.last_code,
+                    "context": self.last_context,
+                },
+                "RECIPE_PATHS": self.recipe_agent.paths,
+                "STEP_COUNT": self.step_count,
+                "TIME": datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+            }
+
+            with open(json_path, "w") as json_file:
+                json.dump(log_data, json_file, indent=4)
+
+
+        except Exception as e:
+            # Log the exception (optional: write to a separate error log)
+            print(f"[WARN] Failed to save JSON log for task '{self.next_task}': {e}")
 
     def process_inventory(self, inventory_rawdata:dict):
         log_list = ["oak_log", "birch_log", "spruce_log", "jungle_log", "acacia_log", "dark_oak_log", "mangrove_log"]
