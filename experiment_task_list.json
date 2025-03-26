@@ -4,7 +4,6 @@
     {"wooden_pickaxe":1},
     {"wooden_sword":1},
     {"wooden_shovel":1},
-    {"wooden_sword":1},
     {"wooden_axe":1},
     {"wooden_hoe":1},
     {"stone_sword":1},
@@ -17,5 +16,5 @@
     {"iron_pickaxe":1},
     {"iron_axe":1},
     {"iron_hoe":1}
-
+    
 ]

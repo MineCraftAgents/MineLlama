@@ -63,6 +63,14 @@
                 "log": 1
             },
             "action": "You can craft planks with log without crafting_table."
+        },
+        {
+            "name": "planks",
+            "count": 4,
+            "required_items": {
+                "log": 1
+            },
+            "action": "You can craft planks without a crafting_table."
         }
     ],
     "stick": [
@@ -144,6 +152,22 @@
                 "cobblestone": 3,
                 "stick": 2
             }
+        },
+        {
+            "name": "stone_pickaxe",
+            "count": 1,
+            "required_items": {
+                "stick": 2,
+                "cobblestone": 3,
+                "crafting_table": 1
+            },
+            "action": "You can craft stone_pickaxe with crafting_table."
+        },
+        {
+            "name": "stone_pickaxe",
+            "count": 1,
+            "required_items": null,
+            "action": "You should break stone_pickaxe."
         }
     ],
     "iron_ingot": [
@@ -183,6 +207,16 @@
                 "planks": 1,
                 "stick": 2
             }
+        },
+        {
+            "name": "wooden_shovel",
+            "count": 1,
+            "required_items": {
+                "planks": 1,
+                "stick": 2,
+                "crafting_table": 1
+            },
+            "action": "You can craft wooden_shovel with crafting_table."
         }
     ],
     "stone_shovel": [
@@ -308,6 +342,14 @@
                 "wooden_pickaxe": 1
             },
             "action": "You should break stone with wooden_pickaxe."
+        },
+        {
+            "name": "cobblestone",
+            "count": 1,
+            "required_items": {
+                "wooden_pickaxe": 1
+            },
+            "action": "You should break stone or cobblestone block with wooden_pickaxe."
         }
     ],
     "stone_sword": [
@@ -344,6 +386,16 @@
                 "crafting_table": 1
             },
             "action": "You can craft stone_hoe with crafting_table."
+        },
+        {
+            "name": "stone_hoe",
+            "count": 1,
+            "required_items": {
+                "cobblestone": 2,
+                "stick": 2,
+                "crafting_table": 1
+            },
+            "action": "You can craft stone_hoe with ingredients."
         }
     ]
 }
