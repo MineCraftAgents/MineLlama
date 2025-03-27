@@ -3,7 +3,6 @@ The source code of MineLlama
 
 
 # Installation
-MineLlama is based on the [MineDojo / Voyager](https://github.com/MineDojo/Voyager?tab=readme-ov-file#installation) environment. Therefore, if you encounter any issues during the installation process, please follow the instruction [here](https://github.com/MineDojo/Voyager?tab=readme-ov-file#installation).
 
 We tested our environment on Python 3.10.13.
 
