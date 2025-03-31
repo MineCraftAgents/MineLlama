@@ -6,6 +6,71 @@
             "ingredients": {
                 "log": 1
             }
+        },
+        {
+            "name": "planks",
+            "count": 4,
+            "required_items": {
+                "log": 1,
+                "crafting_table": 1
+            },
+            "action": "You can craft planks with crafting_table."
+        },
+        {
+            "name": "planks",
+            "count": 4,
+            "required_items": {
+                "log": 1
+            },
+            "action": "You can craft planks from logs without using a crafting table."
+        },
+        {
+            "name": "planks",
+            "count": 4,
+            "required_items": {
+                "log": 1
+            },
+            "action": "You can craft planks from a log."
+        },
+        {
+            "name": "planks",
+            "count": 4,
+            "required_items": {
+                "log": 1
+            },
+            "action": "You can craft planks from a log without a crafting table."
+        },
+        {
+            "name": "planks",
+            "count": 4,
+            "required_items": {
+                "log": 1
+            },
+            "action": "You can craft planks from a log without a crafting_table."
+        },
+        {
+            "name": "planks",
+            "count": 4,
+            "required_items": {
+                "log": 1
+            },
+            "action": "You can craft planks from log."
+        },
+        {
+            "name": "planks",
+            "count": 4,
+            "required_items": {
+                "log": 1
+            },
+            "action": "You can craft planks with log without crafting_table."
+        },
+        {
+            "name": "planks",
+            "count": 4,
+            "required_items": {
+                "log": 1
+            },
+            "action": "You can craft planks without a crafting_table."
         }
     ],
     "stick": [
@@ -15,6 +80,15 @@
             "ingredients": {
                 "planks": 2
             }
+        },
+        {
+            "name": "stick",
+            "count": 4,
+            "required_items": {
+                "planks": 2,
+                "crafting_table": 1
+            },
+            "action": "You can craft stick with crafting_table."
         }
     ],
     "crafting_table": [
@@ -24,6 +98,30 @@
             "ingredients": {
                 "planks": 4
             }
+        },
+        {
+            "name": "crafting_table",
+            "count": 1,
+            "required_items": {
+                "planks": 4
+            },
+            "action": "You can craft crafting_table with 4 planks."
+        },
+        {
+            "name": "crafting_table",
+            "count": 1,
+            "required_items": {
+                "planks": 4
+            },
+            "action": "You can craft crafting_table with planks."
+        },
+        {
+            "name": "crafting_table",
+            "count": 1,
+            "required_items": {
+                "log": 1
+            },
+            "action": "You can craft crafting_table from log."
         }
     ],
     "wooden_pickaxe": [
@@ -34,6 +132,16 @@
                 "planks": 3,
                 "stick": 2
             }
+        },
+        {
+            "name": "wooden_pickaxe",
+            "count": 1,
+            "required_items": {
+                "planks": 3,
+                "stick": 2,
+                "crafting_table": 1
+            },
+            "action": "You can craft wooden_pickaxe with crafting_table."
         }
     ],
     "stone_pickaxe": [
@@ -44,6 +152,22 @@
                 "cobblestone": 3,
                 "stick": 2
             }
+        },
+        {
+            "name": "stone_pickaxe",
+            "count": 1,
+            "required_items": {
+                "stick": 2,
+                "cobblestone": 3,
+                "crafting_table": 1
+            },
+            "action": "You can craft stone_pickaxe with crafting_table."
+        },
+        {
+            "name": "stone_pickaxe",
+            "count": 1,
+            "required_items": null,
+            "action": "You should break stone_pickaxe."
         }
     ],
     "iron_ingot": [
@@ -63,6 +187,16 @@
                 "planks": 2,
                 "stick": 2
             }
+        },
+        {
+            "name": "wooden_hoe",
+            "count": 1,
+            "required_items": {
+                "planks": 2,
+                "stick": 2,
+                "crafting_table": 1
+            },
+            "action": "You can craft wooden_hoe with crafting_table."
         }
     ],
     "wooden_shovel": [
@@ -73,6 +207,16 @@
                 "planks": 1,
                 "stick": 2
             }
+        },
+        {
+            "name": "wooden_shovel",
+            "count": 1,
+            "required_items": {
+                "planks": 1,
+                "stick": 2,
+                "crafting_table": 1
+            },
+            "action": "You can craft wooden_shovel with crafting_table."
         }
     ],
     "stone_shovel": [
@@ -83,6 +227,175 @@
                 "cobblestone": 1,
                 "stick": 2
             }
+        },
+        {
+            "name": "stone_shovel",
+            "count": 1,
+            "required_items": {
+                "stick": 2,
+                "cobblestone": 1,
+                "crafting_table": 1
+            },
+            "action": "You can craft stone_shovel with crafting_table."
+        }
+    ],
+    "furnace": [
+        {
+            "count": 1,
+            "type": "crafting_table",
+            "ingredients": {
+                "cobblestone": 8
+            }
+        }
+    ],
+    "wooden_sword": [
+        {
+            "count": 1,
+            "type": "crafting_table",
+            "ingredients": {
+                "planks": 2,
+                "stick": 1
+            }
+        },
+        {
+            "name": "wooden_sword",
+            "count": 1,
+            "required_items": {
+                "stick": 1,
+                "planks": 2,
+                "crafting_table": 1
+            },
+            "action": "You can craft wooden_sword with crafting_table."
+        }
+    ],
+    "log": [
+        {
+            "name": "log",
+            "count": 1,
+            "required_items": null,
+            "action": "You can get log by breaking log block without any tool."
+        },
+        {
+            "name": "log",
+            "count": 1,
+            "required_items": null,
+            "action": "You should break log block."
+        },
+        {
+            "name": "log",
+            "count": 1,
+            "required_items": null,
+            "action": "You can break log block to get log."
+        },
+        {
+            "name": "log",
+            "count": 1,
+            "required_items": null,
+            "action": "You should break oak_log."
+        },
+        {
+            "name": "log",
+            "count": 1,
+            "required_items": null,
+            "action": "You should break oak_log or birch_log."
+        },
+        {
+            "name": "log",
+            "count": 1,
+            "required_items": null,
+            "action": "You should break oak_log block."
+        }
+    ],
+    "sand": [
+        {
+            "name": "sand",
+            "count": 1,
+            "required_items": null,
+            "action": "You can get sand by breaking sand block without any tool."
+        }
+    ],
+    "wooden_axe": [
+        {
+            "name": "wooden_axe",
+            "count": 1,
+            "required_items": {
+                "planks": 3,
+                "stick": 2,
+                "crafting_table": 1
+            },
+            "action": "You can craft wooden_axe with crafting_table."
+        }
+    ],
+    "cobblestone": [
+        {
+            "name": "cobblestone",
+            "count": 1,
+            "required_items": {
+                "wooden_pickaxe": 1
+            },
+            "action": "You should break stone block with wooden_pickaxe."
+        },
+        {
+            "name": "cobblestone",
+            "count": 1,
+            "required_items": {
+                "wooden_pickaxe": 1
+            },
+            "action": "You should break stone with wooden_pickaxe."
+        },
+        {
+            "name": "cobblestone",
+            "count": 1,
+            "required_items": {
+                "wooden_pickaxe": 1
+            },
+            "action": "You should break stone or cobblestone block with wooden_pickaxe."
+        }
+    ],
+    "stone_sword": [
+        {
+            "name": "stone_sword",
+            "count": 1,
+            "required_items": {
+                "stick": 1,
+                "cobblestone": 2,
+                "crafting_table": 1
+            },
+            "action": "You can craft stone_sword with crafting_table."
+        }
+    ],
+    "stone_axe": [
+        {
+            "name": "stone_axe",
+            "count": 1,
+            "required_items": {
+                "stick": 2,
+                "cobblestone": 3,
+                "crafting_table": 1
+            },
+            "action": "You can craft stone_axe with crafting_table."
+        }
+    ],
+    "stone_hoe": [
+        {
+            "name": "stone_hoe",
+            "count": 1,
+            "required_items": {
+                "stick": 2,
+                "cobblestone": 2,
+                "crafting_table": 1
+            },
+            "action": "You can craft stone_hoe with crafting_table."
+        },
+        {
+            "name": "stone_hoe",
+            "count": 1,
+            "required_items": {
+                "cobblestone": 2,
+                "stick": 2,
+                "crafting_table": 1
+            },
+            "action": "You can craft stone_hoe with ingredients."
         }
     ]
 }

@@ -26,8 +26,7 @@ async function harvest(bot, itemName = "wheat", count = 1) {
         }
     }
 
-    bot.chat(`${harvestedCount} ${itemName} harvested.`);
-    bot.chat(`Inventory: ${bot.inventory.items().map(item => item.name).join(', ')}`);
+    bot.chat(`Result: ${harvestedCount} ${itemName} harvested in total.`);
 }
 
 async function waitForGrowth(bot, itemName, timeout) {

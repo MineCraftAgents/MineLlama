@@ -183,7 +183,16 @@
       ]
     },
     {
-      "name": "gilded_blackstone"
+      "name": "gilded_blackstone",
+      "material": "mineable/pickaxe",
+      "harvestTools": [
+        "wooden_pickaxe",
+        "stone_pickaxe",
+        "golden_pickaxe",
+        "iron_pickaxe",
+        "diamond_pickaxe",
+        "netherite_pickaxe"
+      ]
     }
   ],
   "log": [
@@ -424,7 +433,9 @@
       "name": "acacia_leaves"
     },
     {
-      "name": "azalea_leaves"
+      "name": "azalea_leaves",
+      "material": "leaves;mineable/hoe",
+      "harvestTools": null
     },
     {
       "name": "birch_leaves"
@@ -442,7 +453,9 @@
       "name": "jungle_leaves"
     },
     {
-      "name": "mangrove_leaves"
+      "name": "mangrove_leaves",
+      "material": "leaves;mineable/hoe",
+      "harvestTools": null
     },
     {
       "name": "oak_leaves"
@@ -496,7 +509,9 @@
       "harvestTools": null
     },
     {
-      "name": "brown_mushroom_block"
+      "name": "brown_mushroom_block",
+      "material": "mineable/axe",
+      "harvestTools": null
     },
     {
       "name": "potted_brown_mushroom"
@@ -512,7 +527,9 @@
       "name": "potted_red_mushroom"
     },
     {
-      "name": "red_mushroom_block"
+      "name": "red_mushroom_block",
+      "material": "mineable/axe",
+      "harvestTools": null
     }
   ],
   "gold_block": [
@@ -714,7 +731,9 @@
       "name": "fern"
     },
     {
-      "name": "grass"
+      "name": "grass",
+      "material": "mineable/shovel",
+      "harvestTools": null
     },
     {
       "name": "large_fern"
@@ -1515,7 +1534,9 @@
       ]
     },
     {
-      "name": "lava_cauldron"
+      "name": "lava_cauldron",
+      "material": null,
+      "harvestTools": null
     },
     {
       "name": "powder_snow_cauldron"
@@ -4576,7 +4597,9 @@
       "harvestTools": null
     },
     {
-      "name": "azalea_leaves"
+      "name": "azalea_leaves",
+      "material": "leaves;mineable/hoe",
+      "harvestTools": null
     },
     {
       "name": "potted_azalea_bush"
@@ -5188,7 +5211,9 @@
   ],
   "amethyst_cluster": [
     {
-      "name": "amethyst_cluster"
+      "name": "amethyst_cluster",
+      "material": "mineable/pickaxe",
+      "harvestTools": null
     }
   ],
   "andesite": [
@@ -5208,7 +5233,9 @@
   ],
   "azalea_leaves": [
     {
-      "name": "azalea_leaves"
+      "name": "azalea_leaves",
+      "material": "leaves;mineable/hoe",
+      "harvestTools": null
     }
   ],
   "azure_bluet": [
@@ -5221,7 +5248,9 @@
   ],
   "bee_nest": [
     {
-      "name": "bee_nest"
+      "name": "bee_nest",
+      "material": "mineable/axe",
+      "harvestTools": null
     }
   ],
   "beetroot": [
@@ -5347,7 +5376,9 @@
   ],
   "blue_ice": [
     {
-      "name": "blue_ice"
+      "name": "blue_ice",
+      "material": "mineable/pickaxe",
+      "harvestTools": null
     }
   ],
   "blue_orchid": [
@@ -5385,7 +5416,9 @@
   ],
   "bookshelf": [
     {
-      "name": "bookshelf"
+      "name": "bookshelf",
+      "material": "mineable/axe",
+      "harvestTools": null
     }
   ],
   "brain_coral": [
@@ -5453,7 +5486,9 @@
   ],
   "brown_mushroom_block": [
     {
-      "name": "brown_mushroom_block"
+      "name": "brown_mushroom_block",
+      "material": "mineable/axe",
+      "harvestTools": null
     }
   ],
   "brown_shulker_box": [
@@ -5506,12 +5541,16 @@
   ],
   "campfire": [
     {
-      "name": "campfire"
+      "name": "campfire",
+      "material": "mineable/axe",
+      "harvestTools": null
     }
   ],
   "glow_berries": [
     {
-      "name": "cave_vines"
+      "name": "cave_vines",
+      "material": "plant;mineable/axe",
+      "harvestTools": null
     },
     {
       "name": "cave_vines_plant"
@@ -5547,22 +5586,37 @@
   ],
   "chorus_flower": [
     {
-      "name": "chorus_flower"
+      "name": "chorus_flower",
+      "material": "plant;mineable/axe",
+      "harvestTools": null
     }
   ],
   "chorus_fruit": [
     {
-      "name": "chorus_plant"
+      "name": "chorus_plant",
+      "material": "plant;mineable/axe",
+      "harvestTools": null
     }
   ],
   "clay": [
     {
-      "name": "clay"
+      "name": "clay",
+      "material": "mineable/shovel",
+      "harvestTools": null
     }
   ],
   "coal_ore": [
     {
-      "name": "coal_ore"
+      "name": "coal_ore",
+      "material": "mineable/pickaxe",
+      "harvestTools": [
+        "wooden_pickaxe",
+        "stone_pickaxe",
+        "golden_pickaxe",
+        "iron_pickaxe",
+        "diamond_pickaxe",
+        "netherite_pickaxe"
+      ]
     }
   ],
   "coarse_dirt": [
@@ -5587,12 +5641,21 @@
   ],
   "bone_meal": [
     {
-      "name": "composter"
+      "name": "composter",
+      "material": "mineable/axe",
+      "harvestTools": null
     }
   ],
   "copper_ore": [
     {
-      "name": "copper_ore"
+      "name": "copper_ore",
+      "material": "mineable/pickaxe",
+      "harvestTools": [
+        "stone_pickaxe",
+        "iron_pickaxe",
+        "diamond_pickaxe",
+        "netherite_pickaxe"
+      ]
     }
   ],
   "cornflower": [
@@ -5618,7 +5681,16 @@
   ],
   "crimson_nylium": [
     {
-      "name": "crimson_nylium"
+      "name": "crimson_nylium",
+      "material": "mineable/pickaxe",
+      "harvestTools": [
+        "wooden_pickaxe",
+        "stone_pickaxe",
+        "golden_pickaxe",
+        "iron_pickaxe",
+        "diamond_pickaxe",
+        "netherite_pickaxe"
+      ]
     }
   ],
   "cut_red_sandstone": [
@@ -5847,55 +5919,126 @@
   ],
   "deepslate": [
     {
-      "name": "deepslate"
+      "name": "deepslate",
+      "material": "mineable/pickaxe",
+      "harvestTools": [
+        "wooden_pickaxe",
+        "stone_pickaxe",
+        "golden_pickaxe",
+        "iron_pickaxe",
+        "diamond_pickaxe",
+        "netherite_pickaxe"
+      ]
     },
     {
-      "name": "infested_deepslate"
+      "name": "infested_deepslate",
+      "material": "mineable/pickaxe",
+      "harvestTools": null
     }
   ],
   "deepslate_coal_ore": [
     {
-      "name": "deepslate_coal_ore"
+      "name": "deepslate_coal_ore",
+      "material": "mineable/pickaxe",
+      "harvestTools": [
+        "wooden_pickaxe",
+        "stone_pickaxe",
+        "golden_pickaxe",
+        "iron_pickaxe",
+        "diamond_pickaxe",
+        "netherite_pickaxe"
+      ]
     }
   ],
   "deepslate_copper_ore": [
     {
-      "name": "deepslate_copper_ore"
+      "name": "deepslate_copper_ore",
+      "material": "mineable/pickaxe",
+      "harvestTools": [
+        "stone_pickaxe",
+        "iron_pickaxe",
+        "diamond_pickaxe",
+        "netherite_pickaxe"
+      ]
     }
   ],
   "deepslate_diamond_ore": [
     {
-      "name": "deepslate_diamond_ore"
+      "name": "deepslate_diamond_ore",
+      "material": "mineable/pickaxe",
+      "harvestTools": [
+        "iron_pickaxe",
+        "diamond_pickaxe",
+        "netherite_pickaxe"
+      ]
     }
   ],
   "deepslate_emerald_ore": [
     {
-      "name": "deepslate_emerald_ore"
+      "name": "deepslate_emerald_ore",
+      "material": "mineable/pickaxe",
+      "harvestTools": [
+        "iron_pickaxe",
+        "diamond_pickaxe",
+        "netherite_pickaxe"
+      ]
     }
   ],
   "deepslate_gold_ore": [
     {
-      "name": "deepslate_gold_ore"
+      "name": "deepslate_gold_ore",
+      "material": "mineable/pickaxe",
+      "harvestTools": [
+        "iron_pickaxe",
+        "diamond_pickaxe",
+        "netherite_pickaxe"
+      ]
     }
   ],
   "deepslate_iron_ore": [
     {
-      "name": "deepslate_iron_ore"
+      "name": "deepslate_iron_ore",
+      "material": "mineable/pickaxe",
+      "harvestTools": [
+        "stone_pickaxe",
+        "iron_pickaxe",
+        "diamond_pickaxe",
+        "netherite_pickaxe"
+      ]
     }
   ],
   "deepslate_lapis_ore": [
     {
-      "name": "deepslate_lapis_ore"
+      "name": "deepslate_lapis_ore",
+      "material": "mineable/pickaxe",
+      "harvestTools": [
+        "stone_pickaxe",
+        "iron_pickaxe",
+        "diamond_pickaxe",
+        "netherite_pickaxe"
+      ]
     }
   ],
   "deepslate_redstone_ore": [
     {
-      "name": "deepslate_redstone_ore"
+      "name": "deepslate_redstone_ore",
+      "material": "mineable/pickaxe",
+      "harvestTools": [
+        "iron_pickaxe",
+        "diamond_pickaxe",
+        "netherite_pickaxe"
+      ]
     }
   ],
   "diamond_ore": [
     {
-      "name": "diamond_ore"
+      "name": "diamond_ore",
+      "material": "mineable/pickaxe",
+      "harvestTools": [
+        "iron_pickaxe",
+        "diamond_pickaxe",
+        "netherite_pickaxe"
+      ]
     }
   ],
   "diorite": [
@@ -5920,7 +6063,13 @@
   ],
   "emerald_ore": [
     {
-      "name": "emerald_ore"
+      "name": "emerald_ore",
+      "material": "mineable/pickaxe",
+      "harvestTools": [
+        "iron_pickaxe",
+        "diamond_pickaxe",
+        "netherite_pickaxe"
+      ]
     }
   ],
   "end_stone_brick_slab": [
@@ -5945,7 +6094,16 @@
   ],
   "ender_chest": [
     {
-      "name": "ender_chest"
+      "name": "ender_chest",
+      "material": "mineable/pickaxe",
+      "harvestTools": [
+        "wooden_pickaxe",
+        "stone_pickaxe",
+        "golden_pickaxe",
+        "iron_pickaxe",
+        "diamond_pickaxe",
+        "netherite_pickaxe"
+      ]
     }
   ],
   "fern": [
@@ -5981,27 +6139,41 @@
   ],
   "glass": [
     {
-      "name": "glass"
+      "name": "glass",
+      "material": "default",
+      "harvestTools": null
     }
   ],
   "glass_pane": [
     {
-      "name": "glass_pane"
+      "name": "glass_pane",
+      "material": "default",
+      "harvestTools": null
     }
   ],
   "glow_lichen": [
     {
-      "name": "glow_lichen"
+      "name": "glow_lichen",
+      "material": "vine_or_glow_lichen;plant;mineable/axe",
+      "harvestTools": null
     }
   ],
   "glowstone": [
     {
-      "name": "glowstone"
+      "name": "glowstone",
+      "material": "default",
+      "harvestTools": null
     }
   ],
   "gold_ore": [
     {
-      "name": "gold_ore"
+      "name": "gold_ore",
+      "material": "mineable/pickaxe",
+      "harvestTools": [
+        "iron_pickaxe",
+        "diamond_pickaxe",
+        "netherite_pickaxe"
+      ]
     }
   ],
   "granite": [
@@ -6021,7 +6193,9 @@
   ],
   "grass": [
     {
-      "name": "grass"
+      "name": "grass",
+      "material": "mineable/shovel",
+      "harvestTools": null
     },
     {
       "name": "tall_grass"
@@ -6034,7 +6208,9 @@
   ],
   "flint": [
     {
-      "name": "gravel"
+      "name": "gravel",
+      "material": "mineable/shovel",
+      "harvestTools": null
     }
   ],
   "gray_banner": [
@@ -6139,7 +6315,9 @@
   ],
   "hanging_roots": [
     {
-      "name": "hanging_roots"
+      "name": "hanging_roots",
+      "material": "plant;mineable/axe",
+      "harvestTools": null
     }
   ],
   "horn_coral": [
@@ -6159,7 +6337,9 @@
   ],
   "ice": [
     {
-      "name": "ice"
+      "name": "ice",
+      "material": "mineable/pickaxe",
+      "harvestTools": null
     }
   ],
   "mossy_stone_bricks": [
@@ -6175,7 +6355,16 @@
       "name": "infested_stone"
     },
     {
-      "name": "stone"
+      "name": "stone",
+      "material": "mineable/pickaxe",
+      "harvestTools": [
+        "wooden_pickaxe",
+        "stone_pickaxe",
+        "golden_pickaxe",
+        "iron_pickaxe",
+        "diamond_pickaxe",
+        "netherite_pickaxe"
+      ]
     }
   ],
   "stone_bricks": [
@@ -6188,7 +6377,14 @@
   ],
   "iron_ore": [
     {
-      "name": "iron_ore"
+      "name": "iron_ore",
+      "material": "mineable/pickaxe",
+      "harvestTools": [
+        "stone_pickaxe",
+        "iron_pickaxe",
+        "diamond_pickaxe",
+        "netherite_pickaxe"
+      ]
     }
   ],
   "jack_o_lantern": [
@@ -6239,12 +6435,21 @@
   ],
   "lapis_ore": [
     {
-      "name": "lapis_ore"
+      "name": "lapis_ore",
+      "material": "mineable/pickaxe",
+      "harvestTools": [
+        "stone_pickaxe",
+        "iron_pickaxe",
+        "diamond_pickaxe",
+        "netherite_pickaxe"
+      ]
     }
   ],
   "large_amethyst_bud": [
     {
-      "name": "large_amethyst_bud"
+      "name": "large_amethyst_bud",
+      "material": "mineable/pickaxe",
+      "harvestTools": null
     }
   ],
   "light_blue_banner": [
@@ -6477,12 +6682,16 @@
   ],
   "mangrove_leaves": [
     {
-      "name": "mangrove_leaves"
+      "name": "mangrove_leaves",
+      "material": "leaves;mineable/hoe",
+      "harvestTools": null
     }
   ],
   "mangrove_propagule": [
     {
-      "name": "mangrove_propagule"
+      "name": "mangrove_propagule",
+      "material": "plant;mineable/axe",
+      "harvestTools": null
     },
     {
       "name": "potted_mangrove_propagule"
@@ -6490,7 +6699,9 @@
   ],
   "medium_amethyst_bud": [
     {
-      "name": "medium_amethyst_bud"
+      "name": "medium_amethyst_bud",
+      "material": "mineable/pickaxe",
+      "harvestTools": null
     }
   ],
   "melon": [
@@ -6525,7 +6736,9 @@
   ],
   "mycelium": [
     {
-      "name": "mycelium"
+      "name": "mycelium",
+      "material": "mineable/shovel",
+      "harvestTools": null
     }
   ],
   "nether_brick_slab": [
@@ -6545,7 +6758,16 @@
   ],
   "nether_gold_ore": [
     {
-      "name": "nether_gold_ore"
+      "name": "nether_gold_ore",
+      "material": "mineable/pickaxe",
+      "harvestTools": [
+        "wooden_pickaxe",
+        "stone_pickaxe",
+        "golden_pickaxe",
+        "iron_pickaxe",
+        "diamond_pickaxe",
+        "netherite_pickaxe"
+      ]
     }
   ],
   "nether_quartz_ore": [
@@ -6555,7 +6777,9 @@
   ],
   "nether_sprouts": [
     {
-      "name": "nether_sprouts"
+      "name": "nether_sprouts",
+      "material": "default",
+      "harvestTools": null
     }
   ],
   "note_block": [
@@ -6697,7 +6921,9 @@
   ],
   "packed_ice": [
     {
-      "name": "packed_ice"
+      "name": "packed_ice",
+      "material": "mineable/pickaxe",
+      "harvestTools": null
     }
   ],
   "peony": [
@@ -6775,7 +7001,9 @@
   ],
   "podzol": [
     {
-      "name": "podzol"
+      "name": "podzol",
+      "material": "mineable/shovel",
+      "harvestTools": null
     }
   ],
   "polished_andesite": [
@@ -6818,7 +7046,9 @@
   ],
   "poisonous_potato": [
     {
-      "name": "potatoes"
+      "name": "potatoes",
+      "material": "plant;mineable/axe",
+      "harvestTools": null
     }
   ],
   "red_tulip": [
@@ -6975,7 +7205,9 @@
   ],
   "red_mushroom_block": [
     {
-      "name": "red_mushroom_block"
+      "name": "red_mushroom_block",
+      "material": "mineable/axe",
+      "harvestTools": null
     }
   ],
   "red_nether_brick_slab": [
@@ -7035,7 +7267,13 @@
   ],
   "redstone_ore": [
     {
-      "name": "redstone_ore"
+      "name": "redstone_ore",
+      "material": "mineable/pickaxe",
+      "harvestTools": [
+        "iron_pickaxe",
+        "diamond_pickaxe",
+        "netherite_pickaxe"
+      ]
     }
   ],
   "rooted_dirt": [
@@ -7060,37 +7298,51 @@
   ],
   "sculk": [
     {
-      "name": "sculk"
+      "name": "sculk",
+      "material": "mineable/hoe",
+      "harvestTools": null
     }
   ],
   "sculk_catalyst": [
     {
-      "name": "sculk_catalyst"
+      "name": "sculk_catalyst",
+      "material": "mineable/hoe",
+      "harvestTools": null
     }
   ],
   "sculk_sensor": [
     {
-      "name": "sculk_sensor"
+      "name": "sculk_sensor",
+      "material": "mineable/hoe",
+      "harvestTools": null
     }
   ],
   "sculk_shrieker": [
     {
-      "name": "sculk_shrieker"
+      "name": "sculk_shrieker",
+      "material": "mineable/hoe",
+      "harvestTools": null
     }
   ],
   "sculk_vein": [
     {
-      "name": "sculk_vein"
+      "name": "sculk_vein",
+      "material": "mineable/hoe",
+      "harvestTools": null
     }
   ],
   "sea_lantern": [
     {
-      "name": "sea_lantern"
+      "name": "sea_lantern",
+      "material": "default",
+      "harvestTools": null
     }
   ],
   "seagrass": [
     {
-      "name": "seagrass"
+      "name": "seagrass",
+      "material": "default",
+      "harvestTools": null
     },
     {
       "name": "tall_seagrass"
@@ -7108,7 +7360,9 @@
   ],
   "small_amethyst_bud": [
     {
-      "name": "small_amethyst_bud"
+      "name": "small_amethyst_bud",
+      "material": "mineable/pickaxe",
+      "harvestTools": null
     }
   ],
   "small_dripleaf": [
@@ -7153,12 +7407,30 @@
   ],
   "snow": [
     {
-      "name": "snow"
+      "name": "snow",
+      "material": "mineable/shovel",
+      "harvestTools": [
+        "wooden_shovel",
+        "stone_shovel",
+        "golden_shovel",
+        "iron_shovel",
+        "diamond_shovel",
+        "netherite_shovel"
+      ]
     }
   ],
   "snow_block": [
     {
-      "name": "snow"
+      "name": "snow",
+      "material": "mineable/shovel",
+      "harvestTools": [
+        "wooden_shovel",
+        "stone_shovel",
+        "golden_shovel",
+        "iron_shovel",
+        "diamond_shovel",
+        "netherite_shovel"
+      ]
     },
     {
       "name": "snow_block"
@@ -7166,7 +7438,9 @@
   ],
   "soul_campfire": [
     {
-      "name": "soul_campfire"
+      "name": "soul_campfire",
+      "material": "mineable/axe",
+      "harvestTools": null
     }
   ],
   "spruce_fence": [
@@ -7216,7 +7490,9 @@
   ],
   "stonecutter": [
     {
-      "name": "stonecutter"
+      "name": "stonecutter",
+      "material": null,
+      "harvestTools": null
     }
   ],
   "stripped_acacia_wood": [
@@ -7256,7 +7532,9 @@
   ],
   "sweet_berries": [
     {
-      "name": "sweet_berry_bush"
+      "name": "sweet_berry_bush",
+      "material": "plant;mineable/axe",
+      "harvestTools": null
     }
   ],
   "terracotta": [
@@ -7281,12 +7559,16 @@
   ],
   "turtle_egg": [
     {
-      "name": "turtle_egg"
+      "name": "turtle_egg",
+      "material": "default",
+      "harvestTools": null
     }
   ],
   "twisting_vines": [
     {
-      "name": "twisting_vines"
+      "name": "twisting_vines",
+      "material": "plant;mineable/axe",
+      "harvestTools": null
     },
     {
       "name": "twisting_vines_plant"
@@ -7294,12 +7576,23 @@
   ],
   "vine": [
     {
-      "name": "vine"
+      "name": "vine",
+      "material": "vine_or_glow_lichen;plant;mineable/axe",
+      "harvestTools": null
     }
   ],
   "warped_nylium": [
     {
-      "name": "warped_nylium"
+      "name": "warped_nylium",
+      "material": "mineable/pickaxe",
+      "harvestTools": [
+        "wooden_pickaxe",
+        "stone_pickaxe",
+        "golden_pickaxe",
+        "iron_pickaxe",
+        "diamond_pickaxe",
+        "netherite_pickaxe"
+      ]
     }
   ],
   "waxed_copper_block": [
@@ -7309,7 +7602,9 @@
   ],
   "weeping_vines": [
     {
-      "name": "weeping_vines"
+      "name": "weeping_vines",
+      "material": "plant;mineable/axe",
+      "harvestTools": null
     },
     {
       "name": "weeping_vines_plant"
@@ -7322,7 +7617,9 @@
   ],
   "wheat": [
     {
-      "name": "wheat"
+      "name": "wheat",
+      "material": "plant;mineable/axe",
+      "harvestTools": null
     }
   ],
   "white_banner": [

@@ -3,7 +3,6 @@ The source code of MineLlama
 
 
 # Installation
-MineLlama is based on the [MineDojo / Voyager](https://github.com/MineDojo/Voyager?tab=readme-ov-file#installation) environment. Therefore, if you encounter any issues during the installation process, please follow the instruction [here](https://github.com/MineDojo/Voyager?tab=readme-ov-file#installation).
 
 We tested our environment on Python 3.10.13.
 
@@ -29,18 +28,62 @@ npm install
 ```
 
 ## Minecraft Instance Install 
-MineLlama depends on Minecraft game. You need to install an official [Mineraft](https://www.minecraft.net/en-us) game (version 1.19).
+MineLlama depends on Minecraft game. You need to install an official [Mineraft](https://www.minecraft.net/en-us) game (version 1.19).<br>
+Or you can use Minecraft Forge. To install Minecraft Forge, follow the instructions below:
+### Minecraft Forge Install
+1. You need to install JDK(Java Development Kit) version 8 or higher to run.
+2. Install Forge 1.20.1 
+```
+~$ mkdir forge-1
+~$ cd forge-1
+forge-1$ wget https://maven.minecraftforge.net/net/minecraftforge/forge/1.20.1-47.3.0/forge-1.20.1-47.3.0-mdk.zip
+```
+3. Install Gradle 8.1.1
+```
+forge-1$ mkdir opt
+forge-1$ mkdir opt/gradle
+forge-1$ cd opt/gradle
+forge-1/opt/gradle$ wget https://services.gradle.org/distributions/gradle-8.1.1-bin.zip
+forge-1/opt/gradle$ unzip gradle-8.1.1-bin.zip
+```
+4. Check if it works
+```
+forge-1/opt/gradle$ cd ../..
+forge-1$ export PATH=$PATH:/opt/gradle/gradle-8.1.1/bin 
+forge-1$ gradle -v
+```
+If it works, you can get the version infomation below.
+If it doesn't work, there might be a problem with JDK version. Check [here](https://docs.gradle.org/8.1.1/userguide/installation.html)
+```
+------------------------------------------------------------
+Gradle 8.1.1
+------------------------------------------------------------
 
-### Fabric Mods install
-You need to install fabric mods. Please follow the instruction by MineDojo/Voyager [here](https://github.com/MineDojo/Voyager/blob/main/installation/fabric_mods_install.md).
+Build time: ...
+```
+Then, you should add path to bashrc.
+```
+forge-1$ echo 'export PATH=$PATH:/opt/gradle/gradle-8.1.1/bin' >> ~/.bashrc
+forge-1$ source ~/.bashrc
+```
+5. Build gradle
+```
+forge-1$ gradle build
+```
+6. Run Minecraft Forge to start the game.
+```
+forge-1$ gradle runclient
+```
 
-After installing, please follow the instructions below:
-1. Select the version you want to play and start the game.
+
+### Open to LAN in Minecraft game.
+
+1. Start the game.
 2. Select `Singleplayer` and create a new world.
-3. Set Game Mode to `Creative` and Difficulty to `Peaceful`.
+3. Set Game Mode to `Survival` and Difficulty to `Peaceful`.
 4. After the world is created, press `Esc` and select `Open to LAN`.
 5. Select `Allow cheats: ON` and press `Start LAN World`.
-6. You will see a port number in the chat log, that is your `mc-port`, use this number to instantiate Voyager later.
+6. You can set a port number there. That is your `mc-port`, use this number to instantiate Voyager later.
 
 
 # How to use MineLlama
@@ -63,7 +106,7 @@ minellama = Minellama(
     openai_api_key=openai_api_key,
     hf_auth_token=hf_auth_token,
     mc_port="MINECRAFT_PORT_KEY",
-    llm = "llama", #"llama" or "gpt"
+    llm = "llama", # For now, it only works with "llama"
     llm_model = "meta-llama/Llama-2-70b-chat-hf", #"meta-llama/Llama-2-70b-chat-hf" or "meta-llama/Llama-2-7b-chat-hf" for Llama2, "gpt-3.5-turbo" or "gpt-4" for GPT
     local_llm_path = None, # If you have local Llama2, set the path to the directory. If None, it will create the model dir in minellama/llm/ .
     difficulty= "peaceful",
@@ -81,19 +124,22 @@ In MineLlama, you can choose LLM from Meta's Llama2 or OpenAI's GPT.
 * Set `llm_model = "meta-llama/Llama-2-70b-chat-hf"`. You can use other size model (e.g. 7b or 13b), but we recommend 70b in terms of the performance.
 * If you already have the local Llama2 model or you want to choose the directory to save the model, please set the path in `local_llm_path`. If you don't set the path, it will create the model directory in MineLlama/minellama/llm.
 
-
-### OpenAI's GPT
-* You need OpenAI API Key.
-* Set `llm = "gpt"`.
-* Choose `gpt-3.5-turbo` or `gpt-4` for `llm_model`.
-
-
-
-
+### How to run Role
+You can run role inference in Minellama.
+The agent acts according to the assigned role. <br>
+In MineLlama/main.py,
+```python
+role = "Smith" # Farmer, Adventurer, Fisher, Lumberjack, etc.
+minellama.inference_role(role=role, max_number_of_days=3)# 3 days
+```
 
 After modifying main.py, run it.
 ```
 python main.py
+```
+or
+```
+python main.py --llm llama --llm_model meta-llama/Llama-2-70b-chat-hf --rag_switch False --experiment_number_total 5
 ```
 You can see the bot join the Minecraft world.
 # Observe the bot

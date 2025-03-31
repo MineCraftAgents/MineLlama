@@ -13,5 +13,4 @@ logs/mineflayer/
 /minellama/llm/data/modified_minecraft_data/unused/
 /minellama/agents/unused/
 /minellama/unused/
-/minellama/llm/data/chached_data/action/
-/minellama/llm/data/chached_data/recipe/
+/experiment_results

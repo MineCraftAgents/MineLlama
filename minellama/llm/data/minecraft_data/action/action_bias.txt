@@ -1,0 +1,1 @@
+wheat_seeds: If you want to collect wheat_seeds, you'd better to output "await mine(bot, grass, 8)" or "await mine(bot, fern, 8)". 
