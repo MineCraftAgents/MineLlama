@@ -39,9 +39,9 @@ minellama = Minellama(
 )
 
 # Load experiment task list
-# task_list = [{"stick":1},{"wooden_pickaxe":1}]
-with open("experiment_task_list.json", "r") as f:
-    task_list = json.load(f)
+task_list = [{"stick":1},{"wooden_pickaxe":1}]
+# with open("experiment_task_list.json", "r") as f:
+#     task_list = json.load(f)
 
 # Run experiments
 for experiment_number in range(args.experiment_number_total):

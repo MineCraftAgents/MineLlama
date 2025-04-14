@@ -414,19 +414,33 @@ class RecipeAgent:
         print(f"task:{task}")
         
         # Visualize self.recipe_dependency_list
-        def build_tree(tree: Tree, node: str, highlight_task: str):
-            """Recursively build the recipe dependency tree"""
+        def build_tree(tree: Tree, node: str, highlight_task: str, parent_quantity: int = 1):
+            """Recursively build the recipe dependency tree with quantities"""
             if node in self.recipe_dependency_list:
                 recipe = self.recipe_dependency_list[node]
-                # Highlight the current task in red
-                node_label = f"[bold red]{node}[/bold red]" if node in task else f"[cyan]{node}[/cyan]"
+                produced_count = recipe.get("count", 1)
+                label_quantity = f"(x{produced_count})" if produced_count != 1 else ""
+                node_label = (
+                    f"[bold red]{node} {label_quantity}[/bold red]" if node == highlight_task
+                    else f"[cyan]{node} {label_quantity}[/cyan]"
+                )
                 sub_tree = tree.add(node_label)
 
+                # ✅ Base item with no required_items
+                if recipe.get("required_items") is None:
+                    sub_tree.add(f"[white]{node} (x{parent_quantity})[/white]")
+                    return
+
+                # Recurse on required items
                 if isinstance(recipe["required_items"], dict):
-                    for child in recipe["required_items"].keys():
-                        build_tree(sub_tree, child, highlight_task)
+                    for child_name, child_qty in recipe["required_items"].items():
+                        if child_name in self.recipe_dependency_list:
+                            build_tree(sub_tree, child_name, highlight_task, parent_quantity=child_qty)
+                        else:
+                            sub_tree.add(f"[white]{child_name} (x{child_qty})[/white]")
             else:
-                tree.add(f"[white]{node}[/white]")  # Base item
+                # Unknown fallback (should rarely happen)
+                tree.add(f"[white]{node} (x{parent_quantity})[/white]")
 
         # Construct the tree
         recipe_tree = Tree("[green]Recipe Dependency Tree[/green]")
@@ -440,14 +454,11 @@ class RecipeAgent:
         for name, count in task.items():
             # Task inventory check
             lack_task = self.get_inventory_diff(task, name)
-            # current task(item) already existed 
             if lack_task == 0:
                 text = f"You already have {task}.\n"
                 print(text)
                 context += text
                 return None, context
-            
-            # current task(item) is not existed 
             else:
                 # Infinite loop check
                 if name in self.current_goal_memory:
@@ -463,25 +474,24 @@ class RecipeAgent:
                 if name not in self.recipe_dependency_list:
                     self.current_goal_memory = []
                     self.iterations = 0
-                    #self.get_recipe(name)
                     print("\nResolving recipe dependencies...")
                     dependency_list = self.resolve_dependency_all([name])
                     self.recipe_dependency_list = self.create_recipe_dict(dependency_list=dependency_list)
 
-                
                 recipe = self.recipe_dependency_list[name]
                 context = recipe["action"]
-                
-                #will end current goal algorithm and return
+
+                # End if base item
                 if recipe["required_items"] is None:
                     return task, context
 
+                # Check and recurse for each ingredient
                 for key, value in recipe["required_items"].items():
                     if name in self.current_goal_memory:
                         required_amount = value
                     else:
                         required_amount = math.ceil(lack_task / recipe['count']) * value
-                    
+
                     lack_ingredients = self.get_inventory_diff({key: required_amount}, key)
                     if lack_ingredients == 0:
                         print(f"You have {key}\n")
@@ -490,7 +500,7 @@ class RecipeAgent:
                         next_goal, context = self.current_goal_algorithm({key: required_amount}, context)
                         return next_goal, context
 
-            print(f"You already have all ingredients for {task}. ")
+            print(f"You already have all ingredients for {task}.")
             print("\n End============= Current Goal Algorithm ==============")
             return task, context
 

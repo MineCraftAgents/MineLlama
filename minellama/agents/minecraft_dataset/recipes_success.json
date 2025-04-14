@@ -122,6 +122,14 @@
                 "log": 1
             },
             "action": "You can craft crafting_table from log."
+        },
+        {
+            "name": "crafting_table",
+            "count": 1,
+            "required_items": {
+                "planks": 4
+            },
+            "action": "You can craft crafting_table without any tool."
         }
     ],
     "wooden_pickaxe": [
