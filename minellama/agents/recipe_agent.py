@@ -56,7 +56,21 @@ class RecipeAgent:
         self.use_recipe_data_success = True
 
         self.iterations = 0
-    
+        # ✅ Add this line to initialize difficulty tracking
+        self.item_difficulty = {}  # {"stick": 5, "planks": 2, ...}
+
+    # ✅ Add this method to RecipeAgent
+    def adjust_difficulty(self, item: str, success: bool):
+        if item not in self.item_difficulty:
+            self.item_difficulty[item] = 5  # default medium difficulty
+
+        if success:
+            self.item_difficulty[item] = max(1, self.item_difficulty[item] - 1)
+        else:
+            self.item_difficulty[item] = min(100, self.item_difficulty[item] + 1)
+
+        print(f"📊 Difficulty of '{item}' is now {self.item_difficulty[item]}")
+
     # item名がMinecraftに存在するかどうか判定
     def check_item_name(self, name:str):
         if name in self.mc_items:
@@ -166,6 +180,8 @@ class RecipeAgent:
 
     def query_wrapper(self, query_item:str)->dict[int]:
         print("\n def query_wrapper is invoked")
+        if query_item not in self.item_difficulty:
+            self.item_difficulty[query_item] = 5
         system_prompt = """
         Please list the items and their quantities needed to craft items.
         If there are multiple choices, please only pick the easiest one to achieve. 
@@ -208,9 +224,9 @@ class RecipeAgent:
         Note that when you need no materials to get the item, you must answer "None" for "required_items".
         Remember to focus on the format as demonstrated in the examples. 
 
-        Here are tips:
-        1. For planks, it is easier to craft from log than breaking blocks.
-        2. For stick, it is easier to craft from planks.
+        When choosing a recipe from multiple options, use the difficulty list provided.
+        Prefer items with lower difficulty scores. Avoid using items with high difficulty unless necessary.
+
         """
 
         # print(prompt)
@@ -222,7 +238,21 @@ class RecipeAgent:
         while max_request > 0:
             try:
                 query_str = f'Please tell me how to obtain "{query_item}". To get some "{query_item}", you need '
-                human_prompt = f"This is the current status. Inventory: {inventory} Nearby block: {self.nearby_block} Biome: I am in {self.biome}. Error from the last round: {error}"
+                # Format difficulty info into string
+                difficulty_info = "\n".join([
+                    f"{item}: {score}" for item, score in sorted(self.item_difficulty.items(), key=lambda x: x[1])
+                ]) or "None available yet."
+
+                human_prompt = (
+                    f"This is the current status.\n"
+                    f"Inventory: {inventory}\n"
+                    f"Nearby block: {self.nearby_block}\n"
+                    f"Biome: I am in {self.biome}.\n"
+                    f"Error from the last round: {error}\n\n"
+                    f"Here is the difficulty list for items (lower = easier):\n"
+                    f"{difficulty_info}"
+                )
+
                 print(f"human_prompt:{human_prompt}")
                 response = self.llm.content(system_prompt=system_prompt, human_prompt=human_prompt, query_str=query_str, data_dir = "extended_recipe", persist_index=True, use_general_dir=False, similarity_top_k=3)
                 # print(response)
@@ -239,6 +269,8 @@ class RecipeAgent:
                 print(f"max_request left {max_request} times")
                 continue
         return response
+
+
 
 
     def resolve_dependency_all(self, init_list: list[str]):
@@ -407,7 +439,6 @@ class RecipeAgent:
         else:
             return item_dict[item_name]
 
-
     def current_goal_algorithm(self, task: dict, context="", max_iterations=3):
         print("\ndef current_goal_algorithm is invoked")
         print("\n============= Current Goal Algorithm ==============")
@@ -426,12 +457,10 @@ class RecipeAgent:
                 )
                 sub_tree = tree.add(node_label)
 
-                # ✅ Base item with no required_items
                 if recipe.get("required_items") is None:
                     sub_tree.add(f"[white]{node} (x{parent_quantity})[/white]")
                     return
 
-                # Recurse on required items
                 if isinstance(recipe["required_items"], dict):
                     for child_name, child_qty in recipe["required_items"].items():
                         if child_name in self.recipe_dependency_list:
@@ -439,20 +468,15 @@ class RecipeAgent:
                         else:
                             sub_tree.add(f"[white]{child_name} (x{child_qty})[/white]")
             else:
-                # Unknown fallback (should rarely happen)
                 tree.add(f"[white]{node} (x{parent_quantity})[/white]")
 
-        # Construct the tree
         recipe_tree = Tree("[green]Recipe Dependency Tree[/green]")
         for root in self.recipe_dependency_list.keys():
             build_tree(recipe_tree, root, highlight_task=list(task.keys())[0])
-
-        print(recipe_tree)  # Display the tree
-
+        print(recipe_tree)
         print(f"self.recipe_dependency_list:{self.recipe_dependency_list}")
 
         for name, count in task.items():
-            # Task inventory check
             lack_task = self.get_inventory_diff(task, name)
             if lack_task == 0:
                 text = f"You already have {task}.\n"
@@ -460,7 +484,6 @@ class RecipeAgent:
                 context += text
                 return None, context
             else:
-                # Infinite loop check
                 if name in self.current_goal_memory:
                     if self.iterations > max_iterations:
                         print(f"There might be an infinite loop in recipe dependencies.\n{task}")
@@ -481,11 +504,9 @@ class RecipeAgent:
                 recipe = self.recipe_dependency_list[name]
                 context = recipe["action"]
 
-                # End if base item
                 if recipe["required_items"] is None:
                     return task, context
 
-                # Check and recurse for each ingredient
                 for key, value in recipe["required_items"].items():
                     if name in self.current_goal_memory:
                         required_amount = value
@@ -495,14 +516,16 @@ class RecipeAgent:
                     lack_ingredients = self.get_inventory_diff({key: required_amount}, key)
                     if lack_ingredients == 0:
                         print(f"You have {key}\n")
+                        continue
                     else:
                         print(f"You don't have {key}. Searching more deeply for {key}...\n")
                         next_goal, context = self.current_goal_algorithm({key: required_amount}, context)
                         return next_goal, context
 
-            print(f"You already have all ingredients for {task}.")
-            print("\n End============= Current Goal Algorithm ==============")
-            return task, context
+        print(f"You already have all ingredients for {task}.")
+        print("\n End============= Current Goal Algorithm ==============")
+        return task, context
+
 
     def set_current_goal(self, task:dict):
         print("def set_current_goal is invoked")

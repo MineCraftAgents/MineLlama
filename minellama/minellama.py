@@ -459,6 +459,10 @@ class Minellama:
                     # 成功したactionおよびレシピの記録。あとで使い回すため
                     self.action_agent.save_action(subgoal, code)
                     self.recipe_agent.save_success_recipe(subgoal)
+                    # ✅ Adjust difficulty on success
+                    for item in subgoal:
+                        self.recipe_agent.adjust_difficulty(item, success=True)
+                    
                     #　もともとinference関数で設定していた大目標の達成の確認
                     task_done = self.recipe_agent.complete_checker(self.next_task)
                     if task_done:
@@ -468,6 +472,10 @@ class Minellama:
                         break
                 else:
                     self.subgoal_memory_failed.append(subgoal)
+                    # ❌ Adjust difficulty on failure
+                    for item in subgoal:
+                        self.recipe_agent.adjust_difficulty(item, success=False)
+
                     iterations += 1
                     print(f"You faild the task: {subgoal}")
                     print(f"You are doing the same action for {iterations} times.")
