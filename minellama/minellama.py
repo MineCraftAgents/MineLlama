@@ -40,22 +40,27 @@ class Minellama:
         self.rag_switch=rag_switch
 
         self.llm_model_name=llm_model
+        self.non_RAG_llm = llm_model
 
         # set LLM
         if llm == "llama":
             print(f"Llama2 called with rag_switch:{self.rag_switch}")
             self.llm = Llama2(hf_auth_token=hf_auth_token, llm_model=llm_model, local_llm_path=local_llm_path,rag_switch=self.rag_switch)
+            
+            self.non_RAG_llm = Llama2(hf_auth_token=hf_auth_token, llm_model=llm_model, local_llm_path=local_llm_path,rag_switch=False)
         elif llm == "gpt":
             print(f"GPT called with rag_switch:{self.rag_switch}")
             os.environ["OPENAI_API_KEY"] = openai_api_key
             self.llm = GPT(llm_model=llm_model,rag_switch=rag_switch)
+            
+            self.non_RAG_llm = GPT(llm_model=llm_model,rag_switch=False)
         else:
             # This is for baseline without LLM
             raise ValueError("No LLM selected.")
         
         self.func_list=["craft", "mine", "smelt", "collect", "kill", "fish", "tillAndPlant", "harvest"]    
 
-        self.recipe_agent = RecipeAgent(llm=self.llm)
+        self.recipe_agent = RecipeAgent(llm=self.llm, non_RAG_llm=self.non_RAG_llm)
         self.action_agent = ActionAgent(llm=self.llm)
         self.role_agent = RoleAgent(llm=self.llm, func_list=self.func_list)
         self.dream_agent = DreamAgent(llm=self.llm)

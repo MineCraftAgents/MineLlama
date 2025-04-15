@@ -10,10 +10,15 @@ from rich.tree import Tree
 import time
 
 import sys
+import os
 sys.setrecursionlimit(3000)  # 再帰の深さの制限を2000に設定
 
+# sys.path.append("/home/data/kato/Minellama/MineLlama/minellama/llm")
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'llm')))
+from gpt import GPT
+
 class RecipeAgent:
-    def __init__(self,llm=None):
+    def __init__(self,llm=None, non_RAG_llm=None):
         self.data_path = str(Path(__file__).parent / "minecraft_dataset")
         with open(f"{self.data_path}/recipes_bedrock.json", "r") as f:
             self.recipe_data = json.load(f)
@@ -31,7 +36,9 @@ class RecipeAgent:
 
         #biome: 後にレシピルートの選択でLLMを用いる可能性がある。
         self.llm = llm
-
+        #* RAGを使わずにアイテムを処理するためのLLM
+        self.non_RAG_llm = non_RAG_llm
+        
         self.inventory={}
         self.initial_inventory = {}
         self.biome = ""
@@ -237,6 +244,7 @@ class RecipeAgent:
 
         while max_request > 0:
             try:
+                print("query_item:", query_item)
                 query_str = f'Please tell me how to obtain "{query_item}". To get some "{query_item}", you need '
                 # Format difficulty info into string
                 difficulty_info = "\n".join([
@@ -254,7 +262,39 @@ class RecipeAgent:
                 )
 
                 print(f"human_prompt:{human_prompt}")
-                response = self.llm.content(system_prompt=system_prompt, human_prompt=human_prompt, query_str=query_str, data_dir = "extended_recipe", persist_index=True, use_general_dir=False, similarity_top_k=3)
+                # print("human prompt type : ", type(human_prompt))
+                
+                print(f"query_str:{query_str}")
+                
+                # response = self.llm.content(system_prompt=system_prompt, human_prompt=human_prompt, query_str=query_str, data_dir = "extended_recipe", persist_index=True, use_general_dir=False, similarity_top_k=3)
+                
+                #* query_itemで検索
+                with open("/home/data/kato/Minellama/MineLlama/minellama/llm/data/minecraft_data/item_key/item_dict.json") as f:
+                    item_dict = json.load(f)
+                
+                if query_item in item_dict:
+                    item_description = item_dict[query_item]
+                else:
+                    raise Exception(f"{query_item} is not in item_dict.json. Please check the file.")
+                
+                #* item_descriptionを使ってpromptを作成
+                human_prompt_with_json = human_prompt = (
+                    f"This is the current status.\n"
+                    f"Inventory: {inventory}\n"
+                    f"Nearby block: {self.nearby_block}\n"
+                    f"Biome: I am in {self.biome}.\n"
+                    f"Error from the last round: {error}\n\n"
+                    f"Here is the difficulty list for items (lower = easier):\n"
+                    f"{difficulty_info}\n\n"
+                    f"Here is the item description for {query_item}:{item_description}\n"
+                    f"please tell me how to obtain {query_item}.\n"
+                    f"To get some {query_item}, you need "
+                )
+                
+                print(f"human_prompt_with_json:{human_prompt_with_json}")
+                
+                response = self.non_RAG_llm.content(system_prompt=system_prompt, human_prompt=human_prompt_with_json, query_str=query_str, data_dir = "extended_recipe", persist_index=True, use_general_dir=False, similarity_top_k=3)
+                
                 # print(response)
                 # print("\n")
                 response = self.extract_dict_from_str(response)
