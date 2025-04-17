@@ -13,9 +13,6 @@ import sys
 import os
 sys.setrecursionlimit(3000)  # 再帰の深さの制限を2000に設定
 
-# sys.path.append("/home/data/kato/Minellama/MineLlama/minellama/llm")
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'llm')))
-from gpt import GPT
 
 class RecipeAgent:
     def __init__(self,llm=None, non_RAG_llm=None):
@@ -269,7 +266,9 @@ class RecipeAgent:
                 # response = self.llm.content(system_prompt=system_prompt, human_prompt=human_prompt, query_str=query_str, data_dir = "extended_recipe", persist_index=True, use_general_dir=False, similarity_top_k=3)
                 
                 #* query_itemで検索
-                with open("/home/data/kato/Minellama/MineLlama/minellama/llm/data/minecraft_data/item_key/item_dict.json") as f:
+                current_dir = os.path.dirname(__file__)
+                json_path = os.path.join(current_dir, '..', 'llm', 'data', 'minecraft_data', 'item_key', 'item_dict.json')
+                with open(json_path) as f:
                     item_dict = json.load(f)
                 
                 if query_item in item_dict:
