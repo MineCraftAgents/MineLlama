@@ -22,7 +22,7 @@
             "required_items": {
                 "log": 1
             },
-            "action": "You can craft planks from logs without using a crafting table."
+            "action": "You can craft planks from log without using a crafting table."
         },
         {
             "name": "planks",
@@ -71,6 +71,22 @@
                 "log": 1
             },
             "action": "You can craft planks without a crafting_table."
+        },
+        {
+            "name": "planks",
+            "count": 4,
+            "required_items": {
+                "log": 1
+            },
+            "action": "You can craft planks from ."
+        },
+        {
+            "name": "planks",
+            "count": 4,
+            "required_items": {
+                "log": 1
+            },
+            "action": "You can craft planks with log."
         }
     ],
     "stick": [
@@ -197,6 +213,16 @@
                 "crafting_table": 1
             },
             "action": "You can craft wooden_hoe with crafting_table."
+        },
+        {
+            "name": "wooden_hoe",
+            "count": 1,
+            "required_items": {
+                "planks": 2,
+                "stick": 2,
+                "crafting_table": 1
+            },
+            "action": "You can craft wooden_hoe with planks and stick using crafting_table."
         }
     ],
     "wooden_shovel": [
@@ -217,6 +243,26 @@
                 "crafting_table": 1
             },
             "action": "You can craft wooden_shovel with crafting_table."
+        },
+        {
+            "name": "wooden_shovel",
+            "count": 1,
+            "required_items": {
+                "planks": 2,
+                "stick": 1,
+                "crafting_table": 1
+            },
+            "action": "You can craft wooden_shovel with crafting_table."
+        },
+        {
+            "name": "wooden_shovel",
+            "count": 1,
+            "required_items": {
+                "planks": 1,
+                "stick": 2,
+                "crafting_table": 1
+            },
+            "action": "You can craft wooden_shovel with planks and stick using crafting_table."
         }
     ],
     "stone_shovel": [
@@ -304,6 +350,24 @@
             "count": 1,
             "required_items": null,
             "action": "You should break oak_log block."
+        },
+        {
+            "name": "log",
+            "count": 1,
+            "required_items": null,
+            "action": "You should break a tree."
+        },
+        {
+            "name": "log",
+            "count": 4,
+            "required_items": null,
+            "action": "You can break grass_block or dirt blocks to get log."
+        },
+        {
+            "name": "log",
+            "count": 4,
+            "required_items": null,
+            "action": "You can break log block with any tool."
         }
     ],
     "sand": [
@@ -324,6 +388,26 @@
                 "crafting_table": 1
             },
             "action": "You can craft wooden_axe with crafting_table."
+        },
+        {
+            "name": "wooden_axe",
+            "count": 1,
+            "required_items": {
+                "planks": 3,
+                "stick": 2,
+                "crafting_table": 1
+            },
+            "action": "You can craft wooden_axe with planks, stick, and crafting_table."
+        },
+        {
+            "name": "wooden_axe",
+            "count": 1,
+            "required_items": {
+                "planks": 3,
+                "stick": 2,
+                "crafting_table": 1
+            },
+            "action": "You can craft wooden_axe with planks and stick using crafting_table."
         }
     ],
     "cobblestone": [

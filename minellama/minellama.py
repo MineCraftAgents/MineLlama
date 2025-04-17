@@ -168,18 +168,18 @@ class Minellama:
                 "Role": self.role,
                 "DREAM": self.dream,
                 "SELECTING_TO_DO": todo,
-                "TASK": self.next_task,
+                "TASK": str(self.next_task),
                 "SUCCESS": success,
-                "INVENTORY": self.inventory,
-                "SUBGOAL_MEMORY": self.subgoal_memory,
-                "SUBGOAL_SUCCESS": self.subgoal_memory_success,
-                "SUBGOAL_FAILED": self.subgoal_memory_failed,
+                "INVENTORY": str(self.inventory),
+                "SUBGOAL_MEMORY": str(self.subgoal_memory),
+                "SUBGOAL_SUCCESS": str(self.subgoal_memory_success),
+                "SUBGOAL_FAILED": str(self.subgoal_memory_failed),
                 "ACTION_MEMORY": str(self.action_agent.memory),
                 "LAST_ERROR_MASSAGE": str(self.error),
-                "LAST_CHAT_LOG": self.chat_log,
+                "LAST_CHAT_LOG": str(self.chat_log),
                 "LAST_CODE_AND_CONTEXT": {
-                    "code": self.last_code,
-                    "context": self.last_context,
+                    "code": str(self.last_code),
+                    "context": str(self.last_context),
                 },
                 "RECIPE_PATHS": self.recipe_agent.paths,
                 "STEP_COUNT": self.step_count,
@@ -481,6 +481,8 @@ class Minellama:
                         self.recipe_agent.reset_recipe(all_reset=False, recursive_reset=False, recipe=subgoal)
 
         except Exception as e:
+            if self.next_task is not None:
+                self.failed_list.append(self.next_task)
             print(e)
 
         return success

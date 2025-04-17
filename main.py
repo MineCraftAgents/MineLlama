@@ -3,6 +3,10 @@ import json
 from minellama import Minellama
 import config
 
+import sys
+sys.setrecursionlimit(2000)  # 再帰の深さの制限を2000に設定
+
+
 # Load API keys from config
 openai_api_key = config.OPEN_AI_API_KEY
 hf_auth_token = config.HUGGING_FACE_AUTH_KEY
@@ -29,7 +33,7 @@ args.rag_switch = args.rag_switch.lower() == "true"
 minellama = Minellama(
     openai_api_key=openai_api_key,
     hf_auth_token=hf_auth_token,
-    mc_port="38174",
+    mc_port="mc_port_num",
     llm=args.llm,
     llm_model=args.llm_model,
     local_llm_path=None,  # Default is None
@@ -42,6 +46,9 @@ minellama = Minellama(
 # task_list = [{"stick":1},{"wooden_pickaxe":1}]
 with open("experiment_task_list.json", "r") as f:
     task_list = json.load(f)
+
+# with open("complement_task_list.json", "r") as f:
+#     task_list = json.load(f)
 
 # Run experiments
 for experiment_number in range(args.experiment_number_total):

@@ -9,6 +9,9 @@ from rich import print
 from rich.tree import Tree
 import time
 
+import sys
+sys.setrecursionlimit(3000)  # 再帰の深さの制限を2000に設定
+
 class RecipeAgent:
     def __init__(self,llm=None):
         self.data_path = str(Path(__file__).parent / "minecraft_dataset")
@@ -59,7 +62,8 @@ class RecipeAgent:
         if name in self.mc_items:
             return
         else:
-            error = f"There is no item called {name} in Minecraft game."
+            # error = f"There is no item called {name} in Minecraft game."
+            error = f"Use correct item name registered in Minecraft Game."
             raise Exception(error)
         
     def complete_checker(self, goal:dict):
@@ -122,7 +126,7 @@ class RecipeAgent:
             json_dict = matched.group(1).strip()
             return json.loads(json_dict.replace("'", '"'))
         else:
-            raise Exception("No json dict found. Trying again.")
+            raise Exception("No python dict found. Trying again.")#"Please output python-dict data."
         
     def check_keys_of_response(self,response:dict) -> None:
         if not (set(response.keys()) == set(["name", "count", "required_items", "action"])):
@@ -168,7 +172,8 @@ class RecipeAgent:
         If crafting is easier, please set required ingriedients in "required_items".
         If there is no required_items, please set "None" in "required_items".
         If you think it is easier to break blocks to get the item than to craft, please set "None" in "required_items". But crafting is usually easier.
-        Use the json-like format provided in the examples below for your answers.
+        When you use item name in your answer, use correct item name in Minecraft game.
+        Use the python-dict-like format provided in the examples below for your answers.
 
         Example 1: 
         stick: To craft (1 stick), you need (2 bamboo) with (crafting_table). To craft (4 stick), you need (2 planks) with (crafting_table). You can get (stick) by breaking (deadbush) block without any tool. You can get (stick) by breaking (oak_leaves) block without any tool. You can get (stick) by breaking (spruce_leaves) block without any tool. You can get (stick) by killing (witch). 
@@ -176,21 +181,26 @@ class RecipeAgent:
         {{"name": "stick", "count": 4, "required_items": {{"planks": 2, "crafting_table": 1}}, "action":"You can craft stick with crafting_table."}}
 
         Example 2: 
+        stick: To craft (2 crafting_table), you need (8 planks). To craft (8 planks), you need (2 log) without any tool.  
+        Then, pick the easiest one like
+        {{"name": "stick", "count": 4, "required_items": {{"planks": 2, "crafting_table": 1}}, "action":"You can craft stick with crafting_table."}}
+
+        Example 3: 
         white_bed: To craft (1 white_bed), you need (3 wool, 3 planks) with (crafting_table). To craft (1 white_bed), you need (1 white_bed, 1 ink_sac) with (crafting_table). To craft (1 white_bed), you need (1 white_bed, 1 lime_dye) with (crafting_table). To craft (1 white_bed), you need (1 white_bed, 1 pink_dye) with (crafting_table). You can get (white_bed) by breaking (white_bed) block with (wooden_pickaxe). 
         Then, pick the easiest one like
         {{"name": "white_bed", "count": 1, "required_items": {{"wool": 3, "planks":3, "crafting_table":1}}, "action":"You can craft white_bed with ingredients."}}
 
-        Example 3:
+        Example 4:
         smooth_stone: To obtain (1 smooth_stone), smelt (1 stone) using (furnace). You can get (smooth_stone) by breaking (smooth_stone) block with (wooden_pickaxe). 
         Then, answer like
         {{"name": "smooth_stone", "count": 1, "required_items": {{"stone":1, "furnace":1}}, "action":"You can smelt stone to get smooth_stone."}}
 
-        Example 4:
+        Example 5:
         command_block: There is no requirement.
         Then, answer like
         {{"name": "command_block", "count": 1, "required_items": "None", "action":"You should break command_block."}}
 
-        Example 5:
+        Example 6:
         emerald_block: To craft (1 emerald_block), you need (9 emerald) with (crafting_table). You can get (emerald_block) by breaking (emerald_block) block with (iron_pickaxe). 
         Then, pick the easiest one like
         {{"name": "emerald_block", "count": 1, "required_items": {{"iron_pickaxe": 1}}, "action":"You should break emerald_block with iron_pickaxe."}}
@@ -199,8 +209,8 @@ class RecipeAgent:
         Remember to focus on the format as demonstrated in the examples. 
 
         Here are tips:
-        1. For planks, it is easier to craft from logs than breaking blocks.
-        2. For stick, it is　easier to craft from planks.
+        1. For planks, it is easier to craft from log than breaking blocks.
+        2. For stick, it is easier to craft from planks.
         """
 
         # print(prompt)

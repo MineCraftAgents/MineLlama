@@ -28,7 +28,7 @@ class Llama2:
             cache_dir=cache_dir, use_auth_token=self.auth_token)
         self.model = AutoModelForCausalLM.from_pretrained(self.name, 
             cache_dir=cache_dir, use_auth_token=self.auth_token, torch_dtype=torch.float16, 
-            rope_scaling={"type": "dynamic", "factor": 2}, load_in_8bit=True, device_map='auto') 
+            rope_scaling={"type": "dynamic", "factor": 2}, load_in_8bit=False, device_map='auto')#load_in_8bit=True:original 
 
     ###with RAG or without RAG
     def content(
