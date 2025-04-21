@@ -13,6 +13,8 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 ```
 Then, install from requirements.txt.
 ```
+git clone https://github.com/MineCraftAgents/MineLlama.git
+cd MineLlama
 pip install -r requirements.txt
 ```
 
