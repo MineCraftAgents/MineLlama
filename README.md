@@ -6,6 +6,12 @@ The source code of MineLlama
 
 We tested our environment on Python 3.10.13.
 
+## Conda
+```
+conda create -n minellama python=3.10.13
+conda activate minellama
+```
+
 ## pip install
 First, install torch as below (Please skip if your pc does not hav a GPU).
 ```
