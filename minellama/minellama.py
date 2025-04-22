@@ -60,7 +60,9 @@ class Minellama:
         
         self.func_list=["craft", "mine", "smelt", "collect", "kill", "fish", "tillAndPlant", "harvest"]    
 
+        #* RAGを使わないエージェントを追加
         self.recipe_agent = RecipeAgent(llm=self.llm, non_RAG_llm=self.non_RAG_llm)
+        # self.recipe_agent = RecipeAgent(llm=self.llm)
         self.action_agent = ActionAgent(llm=self.llm)
         self.role_agent = RoleAgent(llm=self.llm, func_list=self.func_list)
         self.dream_agent = DreamAgent(llm=self.llm)
