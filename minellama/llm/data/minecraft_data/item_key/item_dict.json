@@ -1474,5 +1474,14 @@
     "tipped_arrow": "There is no required item.",
     "knowledge_book": "There is no required item.",
     "debug_stick": "There is no required item.",
-    "frogspawn": "There is no required item."
+    "frogspawn": "There is no required item.",
+    "oak_log": "You can get (oak_log) by breaking (oak_log) block without any tool.",
+    "spruce_log": "You can get (spruce_log) by breaking (spruce_log) block without any tool.",
+    "birch_log": "You can get (irch_log) by breaking (irch_log) block without any tool.",
+    "jungle_log": "You can get (jungle_log) by breaking (jungle_log) block without any tool.",
+    "acacia_log": "You can get (acacia_log) by breaking (acacia_log) block without any tool.",
+    "dark_oak_log": "You can get (dark_oak_log) by breaking (dark_oak_log) block without any tool.",
+    "mangrove_log": "You can get (mangrove_log) by breaking (mangrove_log) block without any tool.",
+    "cherry_log": "You can get (cherry_log) by breaking (cherry_log) block without any tool.",
+    "pale_oak_log": "You can get (pale_oak_log) by breaking (pale_oak_log) block without any tool."
 }
