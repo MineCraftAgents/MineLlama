@@ -6,13 +6,21 @@ The source code of MineLlama
 
 We tested our environment on Python 3.10.13.
 
+## Conda
+```
+conda create -n minellama python=3.10.13
+conda activate minellama
+```
+
 ## pip install
-First, install torch as below.
+First, install torch as below (Please skip if your pc does not hav a GPU).
 ```
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu117 --upgrade
 ```
 Then, install from requirements.txt.
 ```
+git clone https://github.com/MineCraftAgents/MineLlama.git
+cd MineLlama
 pip install -r requirements.txt
 ```
 
@@ -37,6 +45,7 @@ Or you can use Minecraft Forge. To install Minecraft Forge, follow the instructi
 ~$ mkdir forge-1
 ~$ cd forge-1
 forge-1$ wget https://maven.minecraftforge.net/net/minecraftforge/forge/1.20.1-47.3.0/forge-1.20.1-47.3.0-mdk.zip
+forge-1$ unzip forge-1.20.1-47.3.0-mdk.zip
 ```
 3. Install Gradle 8.1.1
 ```

@@ -13,9 +13,6 @@ import sys
 import os
 # sys.setrecursionlimit(10000)  # 再帰の深さの制限を2000に設定
 
-# sys.path.append("/home/data/kato/Minellama/MineLlama/minellama/llm")
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'llm')))
-# from  gpt import GPT
 
 class RecipeAgent:
     def __init__(self,llm=None, non_RAG_llm=None):
@@ -189,6 +186,7 @@ class RecipeAgent:
         print("\n def query_wrapper is invoked")
         if query_item not in self.item_difficulty:
             self.item_difficulty[query_item] = 5
+
         system_prompt = """
         Please list the items and their quantities needed to craft items.
         If there are multiple choices, please only pick the easiest one to achieve. 
@@ -198,35 +196,53 @@ class RecipeAgent:
         When you use item name in your answer, use correct item name in Minecraft game.
         Use the python-dict-like format provided in the examples below for your answers.
 
-        Example 1: 
-        stick: To craft (1 stick), you need (2 bamboo) with (crafting_table). To craft (4 stick), you need (2 planks) with (crafting_table). You can get (stick) by breaking (deadbush) block without any tool. You can get (stick) by breaking (oak_leaves) block without any tool. You can get (stick) by breaking (spruce_leaves) block without any tool. You can get (stick) by killing (witch). 
+        Example 1:
+        Here is the difficulty list for items (lower = easier):
+        planks: 4
+        deadbush: 11
+        log: 4
+        stone_sword: 5
+        cobblestone: 5
+        crafting_table: 5
+        bamboo: 7
+        Here is the item description for stick: To craft (1 stick), you need (2 bamboo) with (crafting_table). To craft (4 stick), you need (2 planks) with (crafting_table). You can get (stick) by breaking (deadbush) block without any tool. You can get (stick) by breaking (oak_leaves) block without any tool. You can get (stick) by breaking (spruce_leaves) block without any tool. You can get (stick) by killing (witch). 
+        please tell me how to obtain stick.
+
         Then, pick the easiest one like
         {{"name": "stick", "count": 4, "required_items": {{"planks": 2, "crafting_table": 1}}, "action":"You can craft stick with crafting_table."}}
-
+        
         Example 2: 
-        stick: To craft (2 crafting_table), you need (8 planks). To craft (8 planks), you need (2 log) without any tool.  
-        Then, pick the easiest one like
-        {{"name": "stick", "count": 4, "required_items": {{"planks": 2, "crafting_table": 1}}, "action":"You can craft stick with crafting_table."}}
-
-        Example 3: 
-        white_bed: To craft (1 white_bed), you need (3 wool, 3 planks) with (crafting_table). To craft (1 white_bed), you need (1 white_bed, 1 ink_sac) with (crafting_table). To craft (1 white_bed), you need (1 white_bed, 1 lime_dye) with (crafting_table). To craft (1 white_bed), you need (1 white_bed, 1 pink_dye) with (crafting_table). You can get (white_bed) by breaking (white_bed) block with (wooden_pickaxe). 
+        Here is the difficulty list for items (lower = easier):
+        planks: 4
+        log: 4
+        stone_sword: 5
+        cobblestone: 5
+        stick: 5
+        crafting_table: 5
+        wooden_pickaxe: 5
+        bamboo: 7
+        Here is the item description for white_bed: To craft (1 white_bed), you need (3 wool, 3 planks) with (crafting_table). To craft (1 white_bed), you need (1 white_bed, 1 ink_sac) with (crafting_table). To craft (1 white_bed), you need (1 white_bed, 1 lime_dye) with (crafting_table). To craft (1 white_bed), you need (1 white_bed, 1 pink_dye) with (crafting_table). You can get (white_bed) by breaking (white_bed) block with (wooden_pickaxe). 
+        please tell me how to obtain white_bed.
+        
         Then, pick the easiest one like
         {{"name": "white_bed", "count": 1, "required_items": {{"wool": 3, "planks":3, "crafting_table":1}}, "action":"You can craft white_bed with ingredients."}}
 
-        Example 4:
-        smooth_stone: To obtain (1 smooth_stone), smelt (1 stone) using (furnace). You can get (smooth_stone) by breaking (smooth_stone) block with (wooden_pickaxe). 
-        Then, answer like
-        {{"name": "smooth_stone", "count": 1, "required_items": {{"stone":1, "furnace":1}}, "action":"You can smelt stone to get smooth_stone."}}
-
-        Example 5:
-        command_block: There is no requirement.
-        Then, answer like
-        {{"name": "command_block", "count": 1, "required_items": "None", "action":"You should break command_block."}}
-
-        Example 6:
-        emerald_block: To craft (1 emerald_block), you need (9 emerald) with (crafting_table). You can get (emerald_block) by breaking (emerald_block) block with (iron_pickaxe). 
+        Example 3:
+        Here is the difficulty list for items (lower = easier):
+        planks: 4
+        log: 4
+        stone_sword: 5
+        cobblestone: 5
+        stick: 5
+        crafting_table: 5
+        wooden_pickaxe: 5
+        bamboo: 8
+        Here is the item description for emerald_block: To craft (1 emerald_block), you need (9 emerald) with (crafting_table). You can get (emerald_block) by breaking (emerald_block) block with (iron_pickaxe). 
+        please tell me how to obtain emerald_block.
+        
         Then, pick the easiest one like
         {{"name": "emerald_block", "count": 1, "required_items": {{"iron_pickaxe": 1}}, "action":"You should break emerald_block with iron_pickaxe."}}
+
 
         Note that when you need no materials to get the item, you must answer "None" for "required_items".
         Remember to focus on the format as demonstrated in the examples. 
@@ -268,49 +284,40 @@ class RecipeAgent:
                     f"{item}: {score}" for item, score in sorted(self.item_difficulty.items(), key=lambda x: x[1])
                 ]) or "None available yet."
 
-                human_prompt = (
+                #* query_itemで検索
+                current_dir = os.path.dirname(__file__)
+                json_path = os.path.join(current_dir, '..', 'llm', 'data', 'minecraft_data', 'item_key', 'item_dict.json')
+                with open(json_path) as f:
+                    item_dict = json.load(f)
+                
+                if query_item in item_dict:
+                    item_description = item_dict[query_item]
+                else:
+                    # raise Exception(f"{query_item} is not in item_dict.json. Please check the file.")
+                    #? exceptionではなくwarningに変更
+                    print(f"[WARNING] {query_item} is not in item_dict.json. Please check the file.")
+                    item_description = "No description available."
+                    
+                
+                #* item_descriptionを使ってpromptを作成
+                human_prompt_with_json = (
                     f"This is the current status.\n"
                     f"Inventory: {inventory}\n"
                     f"Nearby block: {self.nearby_block}\n"
                     f"Biome: I am in {self.biome}.\n"
                     f"Error from the last round: {error}\n\n"
                     f"Here is the difficulty list for items (lower = easier):\n"
-                    f"{difficulty_info}"
+                    f"{difficulty_info}\n\n"
+                    f"Here is the item description for {query_item}:{item_description}\n"
+                    f"please tell me how to obtain {query_item}.\n"
+                    # f"To get some {query_item}, you need "
                 )
-
-                print(f"human_prompt:{human_prompt}")
-                # print("human prompt type : ", type(human_prompt))
-                
-                print(f"query_str:{query_str}")
-                
-                response = self.llm.content(system_prompt=system_prompt, human_prompt=human_prompt, query_str=query_str, data_dir = "extended_recipe", persist_index=True, use_general_dir=False, similarity_top_k=3)
-                
-                # #* query_itemで検索
-                # with open("/home/data/kato/Minellama/MineLlama/minellama/llm/data/minecraft_data/item_key/item_dict.json") as f:
-                #     item_dict = json.load(f)
-                
-                # if query_item in item_dict:
-                #     item_description = item_dict[query_item]
-                # else:
-                #     raise Exception(f"{query_item} is not in item_dict.json. Please check the file.")
-                
-                # #* item_descriptionを使ってpromptを作成
-                # human_prompt_with_json = human_prompt = (
-                #     f"This is the current status.\n"
-                #     f"Inventory: {inventory}\n"
-                #     f"Nearby block: {self.nearby_block}\n"
-                #     f"Biome: I am in {self.biome}.\n"
-                #     f"Error from the last round: {error}\n\n"
-                #     f"Here is the difficulty list for items (lower = easier):\n"
-                #     f"{difficulty_info}\n\n"
-                #     f"Here is the item description for {query_item}:{item_description}\n"
-                #     f"please tell me how to obtain {query_item}.\n"
-                #     f"To get some {query_item}, you need "
-                # )
                 
                 # print(f"human_prompt_with_json:{human_prompt_with_json}")
                 
-                # response = self.non_RAG_llm.content(system_prompt=system_prompt, human_prompt=human_prompt_with_json, query_str=query_str, data_dir = "extended_recipe", persist_index=True, use_general_dir=False, similarity_top_k=3)
+                response = self.non_RAG_llm.content(system_prompt=system_prompt, human_prompt=human_prompt_with_json, query_str=query_str, data_dir = "extended_recipe", persist_index=True, use_general_dir=False, similarity_top_k=3)
+                
+                print("raw response: \n", response)
                 
                 # print(response)
                 # print("\n")
