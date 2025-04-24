@@ -4,6 +4,7 @@ import os
 import time
 from typing import Dict
 from datetime import datetime
+import timeout_decorator
 
 import minellama.utils as U
 from .env import VoyagerEnv
@@ -371,7 +372,7 @@ class Minellama:
     def close(self):
         self.env.close()
 
-
+    @timeout_decorator.timeout(300)
     def step(self, code, subgoal=None):
         self.step_count += 1
         print("Code in this step:\n", code)
@@ -451,12 +452,17 @@ class Minellama:
                 self.last_code = code
                 self.last_context = context
 
-                self.step(
-                    code = code,
-                    subgoal = subgoal,
-                )
-
-                subgoal_done = self.recipe_agent.complete_checker(subgoal)
+                try:
+                    self.step(
+                        code = code,
+                        subgoal = subgoal,
+                    )
+                    subgoal_done = self.recipe_agent.complete_checker(subgoal)
+                except timeout_decorator.TimeoutError:
+                    print("Timeout error : this step takes too long time.")
+                    subgoal_done = False
+                
+                
                 if subgoal_done:
                     print(f"\033[31m+++++++ SUBGOAL COMPLETED : {subgoal} +++++++\033[0m")
                     self.subgoal_memory_success.append(subgoal)
@@ -496,6 +502,8 @@ class Minellama:
                         self.recipe_agent.reset_recipe(all_reset=False, recursive_reset=False, recipe=subgoal)
 
         except Exception as e:
+            if self.next_task is not None:
+                self.failed_list.append(self.next_task)
             print(e)
 
         return success
