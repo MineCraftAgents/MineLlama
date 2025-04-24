@@ -11,11 +11,11 @@ import time
 
 import sys
 import os
-sys.setrecursionlimit(3000)  # 再帰の深さの制限を2000に設定
+# sys.setrecursionlimit(10000)  # 再帰の深さの制限を2000に設定
 
 # sys.path.append("/home/data/kato/Minellama/MineLlama/minellama/llm")
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'llm')))
-from gpt import GPT
+# from  gpt import GPT
 
 class RecipeAgent:
     def __init__(self,llm=None, non_RAG_llm=None):
@@ -237,11 +237,28 @@ class RecipeAgent:
         """
 
         # print(prompt)
-        max_request = 5
+        max_log_ref = 3# #3:保持している過去の成功データを試す回数
+        max_request = 5 #5:LLMにポストする回数
         inventory = self.inventory_to_sentence()
         error = self.error
         # failed_memory = self.failed_memory_to_sentence(item=query_item)
-
+        # if query_item in self.recipe_data_success:
+        #     print(f"{query_item} was crafted in previous execution. Loading last recipe....")
+        #     correct_key = ['name', 'count', 'required_items', 'action']
+        #     for i in range(len(self.recipe_data_success[query_item])):
+        #         time.sleep(1)
+        #         response = self.recipe_data_success[query_item][i]
+        #         # 正しい形式で保存されているかを確認する
+        #         key = list(response.keys())
+        #         count = 0
+        #         for k in range(len(key)):
+        #             if key[i] == correct_key[i]:
+        #                 count += 1
+        #         if count == 4:        
+        #             print("There is a correct format data in the log.", response)
+        #             return response
+        #     print("There is no log which satisfies condition.")
+            
         while max_request > 0:
             try:
                 print("query_item:", query_item)
@@ -266,34 +283,34 @@ class RecipeAgent:
                 
                 print(f"query_str:{query_str}")
                 
-                # response = self.llm.content(system_prompt=system_prompt, human_prompt=human_prompt, query_str=query_str, data_dir = "extended_recipe", persist_index=True, use_general_dir=False, similarity_top_k=3)
+                response = self.llm.content(system_prompt=system_prompt, human_prompt=human_prompt, query_str=query_str, data_dir = "extended_recipe", persist_index=True, use_general_dir=False, similarity_top_k=3)
                 
-                #* query_itemで検索
-                with open("/home/data/kato/Minellama/MineLlama/minellama/llm/data/minecraft_data/item_key/item_dict.json") as f:
-                    item_dict = json.load(f)
+                # #* query_itemで検索
+                # with open("/home/data/kato/Minellama/MineLlama/minellama/llm/data/minecraft_data/item_key/item_dict.json") as f:
+                #     item_dict = json.load(f)
                 
-                if query_item in item_dict:
-                    item_description = item_dict[query_item]
-                else:
-                    raise Exception(f"{query_item} is not in item_dict.json. Please check the file.")
+                # if query_item in item_dict:
+                #     item_description = item_dict[query_item]
+                # else:
+                #     raise Exception(f"{query_item} is not in item_dict.json. Please check the file.")
                 
-                #* item_descriptionを使ってpromptを作成
-                human_prompt_with_json = human_prompt = (
-                    f"This is the current status.\n"
-                    f"Inventory: {inventory}\n"
-                    f"Nearby block: {self.nearby_block}\n"
-                    f"Biome: I am in {self.biome}.\n"
-                    f"Error from the last round: {error}\n\n"
-                    f"Here is the difficulty list for items (lower = easier):\n"
-                    f"{difficulty_info}\n\n"
-                    f"Here is the item description for {query_item}:{item_description}\n"
-                    f"please tell me how to obtain {query_item}.\n"
-                    f"To get some {query_item}, you need "
-                )
+                # #* item_descriptionを使ってpromptを作成
+                # human_prompt_with_json = human_prompt = (
+                #     f"This is the current status.\n"
+                #     f"Inventory: {inventory}\n"
+                #     f"Nearby block: {self.nearby_block}\n"
+                #     f"Biome: I am in {self.biome}.\n"
+                #     f"Error from the last round: {error}\n\n"
+                #     f"Here is the difficulty list for items (lower = easier):\n"
+                #     f"{difficulty_info}\n\n"
+                #     f"Here is the item description for {query_item}:{item_description}\n"
+                #     f"please tell me how to obtain {query_item}.\n"
+                #     f"To get some {query_item}, you need "
+                # )
                 
-                print(f"human_prompt_with_json:{human_prompt_with_json}")
+                # print(f"human_prompt_with_json:{human_prompt_with_json}")
                 
-                response = self.non_RAG_llm.content(system_prompt=system_prompt, human_prompt=human_prompt_with_json, query_str=query_str, data_dir = "extended_recipe", persist_index=True, use_general_dir=False, similarity_top_k=3)
+                # response = self.non_RAG_llm.content(system_prompt=system_prompt, human_prompt=human_prompt_with_json, query_str=query_str, data_dir = "extended_recipe", persist_index=True, use_general_dir=False, similarity_top_k=3)
                 
                 # print(response)
                 # print("\n")
@@ -585,4 +602,6 @@ class RecipeAgent:
                 return None, error
         
             
-
+if __name__=="__main__":
+    ra = RecipeAgent()
+    print(ra.recipe_data_success)

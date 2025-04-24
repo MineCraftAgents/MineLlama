@@ -1,12 +1,12 @@
-Biome No.1 [Ocean] / specific item : Sea grass, kelp / specific entities : cod, salmon 
-Biome No.2 [Deep Ocean] / specific item : magma blocks / specific entities : guardian, elder guardian 
-Biome No.3 [Warm Ocean] / specific item :  seagrass, coral reefs, sea pickles / specific entities : none
-Biome No.4 [Lukewarm Ocean] / specific item : dirt clay, kelp, seagrass / specific entities : cod, salmon
-Biome No.5 [Deep Lukewarm Ocean] / specific item : prismarine, sponges / specific entities : guardians, elder guardians
-Biome No.6 [Cold Ocean] / specific item : dirt / specific entities : Salmon 
-Biome No.7 [Deep Cold Ocean] / specific item : prismarine, sponges / specific entities : guardians, elder guardians
-Biome No.8 [Frozen Ocean] / specific item : ice, packed ice, blue ice / specific entities : Strays, polar bears
-Biome No.9 [Deep Frozen Ocean] / specific item : blue ice  / specific entities : salmon, cod, Polar bears, rabbits, strays
+Biome No.01 [Ocean] / specific item : Sea grass, kelp / specific entities : cod, salmon 
+Biome No.02 [Deep Ocean] / specific item : magma blocks / specific entities : guardian, elder guardian 
+Biome No.03 [Warm Ocean] / specific item :  seagrass, coral reefs, sea pickles / specific entities : none
+Biome No.04 [Lukewarm Ocean] / specific item : dirt clay, kelp, seagrass / specific entities : cod, salmon
+Biome No.05 [Deep Lukewarm Ocean] / specific item : prismarine, sponges / specific entities : guardians, elder guardians
+Biome No.06 [Cold Ocean] / specific item : dirt / specific entities : Salmon 
+Biome No.07 [Deep Cold Ocean] / specific item : prismarine, sponges / specific entities : guardians, elder guardians
+Biome No.08 [Frozen Ocean] / specific item : ice, packed ice, blue ice / specific entities : Strays, polar bears
+Biome No.09 [Deep Frozen Ocean] / specific item : blue ice  / specific entities : salmon, cod, Polar bears, rabbits, strays
 Biome No.10 [Mushroom Fields] / specific item : mycelium, mushrooms  / specific entities : mooshrooms
 Biome No.11 [Jagged Peaks] / specific item : snow blocks, coal, iron_ore emerald / specific entities : goats
 Biome No.12 [Frozen Peaks] / specific item : snow blocks, packed ice / specific entities : goats

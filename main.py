@@ -4,7 +4,7 @@ from minellama import Minellama
 import config
 
 import sys
-sys.setrecursionlimit(2000)  # 再帰の深さの制限を2000に設定
+sys.setrecursionlimit(1000)  # 再帰の深さの制限を2000に設定
 
 
 # Load API keys from config
@@ -16,7 +16,7 @@ parser = argparse.ArgumentParser(description="Run Minellama experiments.")
 
 parser.add_argument("--llm", type=str, default="gpt", choices=["gpt", "llama"],
                     help="Choose the LLM backend: 'gpt' for OpenAI or 'llama' for LLaMA2")
-parser.add_argument("--llm_model", type=str, default="gpt-4",
+parser.add_argument("--llm_model", type=str, default="gpt-3.5-turbo",
                     help="Model name: 'gpt-3.5-turbo', 'gpt-4', or LLaMA2 model like 'meta-llama/Llama-2-70b-chat-hf'")
 parser.add_argument("--rag_switch", type=str, default="True", choices=["True", "False"],
                     help="Enable or disable RAG retrieval (True/False)")

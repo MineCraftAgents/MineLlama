@@ -1,6 +1,14 @@
 {
     "planks": [
         {
+            "name": "planks",
+            "count": 4,
+            "required_items": {
+                "log": 1
+            },
+            "action": "You can craft planks from log without using a crafting table."
+        },
+        {
             "count": 4,
             "type": "crafting_table",
             "ingredients": {
@@ -15,14 +23,6 @@
                 "crafting_table": 1
             },
             "action": "You can craft planks with crafting_table."
-        },
-        {
-            "name": "planks",
-            "count": 4,
-            "required_items": {
-                "log": 1
-            },
-            "action": "You can craft planks from log without using a crafting table."
         },
         {
             "name": "planks",
@@ -90,13 +90,6 @@
         }
     ],
     "stick": [
-        {
-            "count": 4,
-            "type": "crafting_table",
-            "ingredients": {
-                "planks": 2
-            }
-        },
         {
             "name": "stick",
             "count": 4,
