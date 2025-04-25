@@ -12,10 +12,12 @@ parser = argparse.ArgumentParser(description="Run Minellama experiments.")
 
 parser.add_argument("--llm", type=str, default="gpt", choices=["gpt", "llama"],
                     help="Choose the LLM backend: 'gpt' for OpenAI or 'llama' for LLaMA2")
-parser.add_argument("--llm_model", type=str, default="gpt-4",
+parser.add_argument("--llm_model", type=str, default="gpt-3.5-turbo",
                     help="Model name: 'gpt-3.5-turbo', 'gpt-4', or LLaMA2 model like 'meta-llama/Llama-2-70b-chat-hf'")
 parser.add_argument("--rag_switch", type=str, default="True", choices=["True", "False"],
                     help="Enable or disable RAG retrieval (True/False)")
+parser.add_argument("--search_switch", type=str, default="True", choices=["True", "False"],
+                    help="Enable or disable prior search of item information(recipe agent) (True/False)")
 parser.add_argument("--experiment_number_total", type=int, default=10,
                     help="Total number of experiments to run")
 
@@ -24,6 +26,7 @@ args = parser.parse_args()
 
 # Convert rag_switch from string to boolean
 args.rag_switch = args.rag_switch.lower() == "true"
+args.search_switch = args.search_switch.lower() == "true"
 
 # Initialize Minellama with arguments
 minellama = Minellama(
@@ -35,7 +38,8 @@ minellama = Minellama(
     local_llm_path=None,  # Default is None
     difficulty="peaceful",
     record_file="./log.txt",  # Output file
-    rag_switch=args.rag_switch
+    rag_switch=args.rag_switch,
+    search_switch=args.search_switch
 )
 
 # Load experiment task list
