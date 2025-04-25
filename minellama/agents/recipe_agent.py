@@ -15,7 +15,7 @@ sys.setrecursionlimit(3000)  # 再帰の深さの制限を2000に設定
 
 
 class RecipeAgent:
-    def __init__(self,llm=None, non_RAG_llm=None):
+    def __init__(self,llm=None, search_switch=False):
         self.data_path = str(Path(__file__).parent / "minecraft_dataset")
         with open(f"{self.data_path}/recipes_bedrock.json", "r") as f:
             self.recipe_data = json.load(f)
@@ -33,8 +33,8 @@ class RecipeAgent:
 
         #biome: 後にレシピルートの選択でLLMを用いる可能性がある。
         self.llm = llm
-        #* RAGを使わずにアイテムを処理するためのLLM
-        self.non_RAG_llm = non_RAG_llm
+        #* RAGを使わずにアイテムを処理するために検索を行っている場合に、LLMにそれを示す変数
+        self.search_switch = search_switch
         
         self.inventory={}
         self.initial_inventory = {}
@@ -297,8 +297,9 @@ class RecipeAgent:
                 )
                 
                 print(f"human_prompt_with_json:{human_prompt_with_json}")
-                
-                response = self.non_RAG_llm.content(system_prompt=system_prompt, human_prompt=human_prompt_with_json, query_str=query_str, data_dir = "extended_recipe", persist_index=True, use_general_dir=False, similarity_top_k=3)
+
+                response = self.llm.content(system_prompt=system_prompt, human_prompt=human_prompt_with_json, query_str=query_str, data_dir = "extended_recipe", persist_index=True, use_general_dir=False, search_exist=self.search_switch, similarity_top_k=3)
+                # response = self.non_RAG_llm.content(system_prompt=system_prompt, human_prompt=human_prompt_with_json, query_str=query_str, data_dir = "extended_recipe", persist_index=True, use_general_dir=False, similarity_top_k=3)
                 
                 print("raw response: \n", response)
                 
