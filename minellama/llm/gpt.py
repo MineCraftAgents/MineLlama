@@ -23,6 +23,7 @@ class GPT:
         data_dir="",
         persist_index=True,
         use_general_dir=True,
+        search_exist=False,
         similarity_top_k=4,
         context_window=4096,
         max_new_tokens=1024
@@ -44,14 +45,13 @@ class GPT:
             human_prompt=human_prompt
         )
 
-        if not self.rag_switch:
+        if (not self.rag_switch) or search_exist:
             # === Non-RAG Mode ===
             prompt = f"{system_prompt}\n{human_prompt}\n{query_str}"
             response = llm.complete(prompt)  # Adjust if your llm object uses a different method
             return str(response)
 
         # === RAG Path ===
-
         embeddings = LangchainEmbedding(
             HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
         )
