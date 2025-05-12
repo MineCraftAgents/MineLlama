@@ -145,7 +145,18 @@ class RecipeAgent:
             return json.loads(json_dict.replace("'", '"'))
         else:
             raise Exception("No python dict found. Trying again.")#"Please output python-dict data."
-        
+    
+    def relocate_req_items(self, res):
+        priority_tools = ['crafting_table','wooden_pickaxe','stone_pickaxe','iron_pickaxe', 'furnace', 'wooden_hoe','wooden_shovel']
+        priority_reqitem = {}
+        normal_reqitem = {}
+        for name, count in res["required_items"].items():
+            if name in priority_tools:
+                priority_reqitem[name] = count
+            else :
+                normal_reqitem[name] = count
+        return dict(**priority_reqitem, **normal_reqitem)
+            
     def check_keys_of_response(self,response:dict) -> None:
         if not (set(response.keys()) == set(["name", "count", "required_items", "action"])):
             raise KeyError
@@ -415,6 +426,7 @@ class RecipeAgent:
                 # print(response)
                 # print("\n")
                 response = self.extract_dict_from_str(response)
+                response["required_items"] = self.relocate_req_items(response)
                 print("Extracted Dict: \n", response)
                 self.check_keys_of_response(response)
                 self.item_name_validation(response)
