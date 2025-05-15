@@ -634,8 +634,9 @@ class RecipeAgent:
                         if child_name in self.recipe_dependency_list:
                             if isinstance(self.recipe_dependency_list[child_name]["required_items"], dict):
                                 if recipe["name"] in self.recipe_dependency_list[child_name]["required_items"]:# prevent programs from execute infinite loop
-                                    sub_tree.add(f"[white]{child_name} (x{child_qty})[/white]")
-                                    return
+                                    self.recipe_dependency_list[child_name]["required_items"].pop(recipe["name"])
+                                    # sub_tree.add(f"[white]{child_name} (x{child_qty})[/white]")
+                                    # return
                             build_tree(sub_tree, child_name, highlight_task, parent_quantity=child_qty)
                         else:
                             sub_tree.add(f"[white]{child_name} (x{child_qty})[/white]")
