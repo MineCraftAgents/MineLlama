@@ -15,6 +15,20 @@
     {"iron_shovel":1},
     {"iron_pickaxe":1},
     {"iron_axe":1},
-    {"iron_hoe":1}
-    
+    {"iron_hoe":1},
+    {"chest":1},
+    {"furnace":1},
+    {"cooked_porkchop":1},
+    {"cooked_beef":1},
+    {"cooked_chicken":1},
+    {"glass":1},
+    {"bed":1}, 
+    {"cookie":1},
+    {"egg":1},
+    {"boat":1},
+    {"smoker":1},
+    {"barrel":1},
+    {"oak_fence":1},
+    {"wooden_door":1},
+    {"campfire":1}
 ]
