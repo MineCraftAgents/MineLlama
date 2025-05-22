@@ -13,7 +13,7 @@ conda activate minellama
 ```
 
 ## pip install
-First, install torch as below (Please skip if your pc does not hav a GPU).
+First, install torch as below (Please skip if your pc does not have a GPU).
 ```
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu117 --upgrade
 ```
@@ -40,39 +40,39 @@ MineLlama depends on Minecraft game. You need to install an official [Mineraft](
 Or you can use Minecraft Forge. To install Minecraft Forge, follow the instructions below:
 ### Minecraft Forge Install
 1. You need to install JDK(Java Development Kit) version 8 or higher to run.
-2. Install Forge 1.20.1 
+2. Install Forge 1.19 
 ```
 ~$ mkdir forge-1
 ~$ cd forge-1
-forge-1$ wget https://maven.minecraftforge.net/net/minecraftforge/forge/1.20.1-47.3.0/forge-1.20.1-47.3.0-mdk.zip
-forge-1$ unzip forge-1.20.1-47.3.0-mdk.zip
+forge-1$ wget https://maven.minecraftforge.net/net/minecraftforge/forge/1.19-41.1.0/forge-1.19-41.1.0-mdk.zip
+forge-1$ unzip forge-1.19-47.1.0-mdk.zip
 ```
-3. Install Gradle 8.1.1
+3. Install Gradle 7.5
 ```
 forge-1$ mkdir opt
 forge-1$ mkdir opt/gradle
 forge-1$ cd opt/gradle
-forge-1/opt/gradle$ wget https://services.gradle.org/distributions/gradle-8.1.1-bin.zip
-forge-1/opt/gradle$ unzip gradle-8.1.1-bin.zip
+forge-1/opt/gradle$ wget https://services.gradle.org/distributions/gradle-7.5-bin.zip
+forge-1/opt/gradle$ unzip gradle-7.5-bin.zip
 ```
 4. Check if it works
 ```
 forge-1/opt/gradle$ cd ../..
-forge-1$ export PATH=$PATH:/opt/gradle/gradle-8.1.1/bin 
+forge-1$ export PATH=$PATH:/opt/gradle/gradle-7.5/bin 
 forge-1$ gradle -v
 ```
 If it works, you can get the version infomation below.
 If it doesn't work, there might be a problem with JDK version. Check [here](https://docs.gradle.org/8.1.1/userguide/installation.html)
 ```
 ------------------------------------------------------------
-Gradle 8.1.1
+Gradle 7.5
 ------------------------------------------------------------
 
 Build time: ...
 ```
 Then, you should add path to bashrc.
 ```
-forge-1$ echo 'export PATH=$PATH:/opt/gradle/gradle-8.1.1/bin' >> ~/.bashrc
+forge-1$ echo 'export PATH=$PATH:/opt/gradle/gradle-7.5/bin' >> ~/.bashrc
 forge-1$ source ~/.bashrc
 ```
 5. Build gradle
@@ -148,7 +148,7 @@ python main.py
 ```
 or
 ```
-python main.py --llm llama --llm_model meta-llama/Llama-2-70b-chat-hf --rag_switch False --experiment_number_total 5
+python main.py --llm llama --llm_model meta-llama/Llama-2-70b-chat-hf --rag_switch False --search_switch False --experiment_number_total 5
 ```
 You can see the bot join the Minecraft world.
 # Observe the bot
