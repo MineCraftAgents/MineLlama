@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 import random
 import math
+import numpy as np
 import re
 import copy
 import sys
@@ -11,7 +12,7 @@ import time
 
 import sys
 import os
-sys.setrecursionlimit(3000)  # 再帰の深さの制限を2000に設定
+# sys.setrecursionlimit(10000)  # 再帰の深さの制限を2000に設定
 
 
 class RecipeAgent:
@@ -148,15 +149,21 @@ class RecipeAgent:
     
     def relocate_req_items(self, res):
         priority_tools = ['crafting_table','wooden_pickaxe','stone_pickaxe','iron_pickaxe', 'furnace', 'wooden_hoe','wooden_shovel']
+        root_tools = ['log','stone']
         priority_reqitem = {}
         normal_reqitem = {}
-        for name, count in res["required_items"].items():
-            if name in priority_tools:
-                priority_reqitem[name] = count
-            else :
-                normal_reqitem[name] = count
-        return dict(**priority_reqitem, **normal_reqitem)
-            
+        if (res["required_items"] is not None) and (res["name"] in root_tools):
+            res["required_items"] = None
+        if isinstance(res["required_items"], dict):
+            for name, count in res["required_items"].items():
+                if name in priority_tools:
+                    priority_reqitem[name] = count
+                else :
+                    normal_reqitem[name] = count
+            return dict(**priority_reqitem, **normal_reqitem)
+        else :
+            return res["required_items"]
+        
     def check_keys_of_response(self,response:dict) -> None:
         if not (set(response.keys()) == set(["name", "count", "required_items", "action"])):
             raise KeyError
@@ -198,6 +205,7 @@ class RecipeAgent:
         if query_item not in self.item_difficulty:
             self.item_difficulty[query_item] = 5
         if self.search_switch:
+            # 自動検索を行う場合のプロンプト
             system_prompt = """
             Please list the items and their quantities needed to craft items.
             I'll give you some descriptions about target item, they indicates how to get target item. You must select one of them and answer along its recipe.
@@ -242,7 +250,7 @@ class RecipeAgent:
             answer :
                 There are 5 recipes to get/craft white bed. However, according to the difficulty list for items, you can get planks easily.(= The diffculty of planks is benieth 5(default). ) Therefore, you must choose the recipe using planks. In addition, white_bed requires crafting_table to craft, so you must add it in "required_items".
                 In conclusion, your answer is
-                {{"name": "white_bed", "count": 1, "required_items": {{"wool": 3, "planks":3, "crafting_table":1}}, "action":"You can craft white_bed with ingredients."}}
+                {{"name": "white_bed", "count": 1, "required_items": {{"crafting_table":1, "wool": 3, "planks":3}}, "action":"You can craft white_bed with ingredients."}}
 
             Note that when you need no materials to get the item, you must answer "null" as a index of "required_items". e.g : "required_items": null
             Remember to focus on the format as demonstrated in the examples. 
@@ -256,7 +264,7 @@ class RecipeAgent:
             system_prompt = """
             Please list the items and their quantities needed to craft items.
             If RAG system is active, you will receive some recipes of target items via RAG data. If not, please search recipes from your knowledge about Minecraft game.
-            As a help of your choice, I give you a data which indicates the difficulty of requiring each item. Its format is ("item_name" : difficulty(int, default difficulty is 5)). The lower "difficulty" parameter is, the more easily you can get the item. Please choose the most easiest recipe. 
+            As a help of your choice, I give you a data which indicates the difficulty of requiring each item. Its format is ("item_name" : difficulty(int, default difficulty is 5)). The lower "difficulty" parameter is, the more easily you can get the item. Please choose the most easiest recipe.
             If there are multiple choices, please only pick the easiest one to achieve. 
             If crafting is easier, please set required ingriedients in "required_items".
             If there is no required_items, please set "null" in "required_items".
@@ -295,8 +303,8 @@ class RecipeAgent:
             answer :
                 There are 5 recipes to get/craft white bed. However, according to the difficulty list for items, you can get planks easily.(= The diffculty of planks is benieth 5(default). ) Therefore, you must choose the recipe using planks. In addition, white_bed requires crafting_table to craft, so you must add it in "required_items".
                 In conclusion, your answer is
-                {{"name": "white_bed", "count": 1, "required_items": {{"wool": 3, "planks":3, "crafting_table":1}}, "action":"You can craft white_bed with ingredients."}}
-
+                {{"name": "white_bed", "count": 1, "required_items": {{"crafting_table":1, "wool": 3, "planks":3}}, "action":"You can craft white_bed with ingredients."}}
+            
             Note that when you need no materials to get the item, you must answer "null" as a index of "required_items". e.g : "required_items": null
             Remember to focus on the format as demonstrated in the examples. 
 
@@ -441,6 +449,7 @@ class RecipeAgent:
 
 
 
+
     def resolve_dependency_all(self, init_list: list[str]):
         print("\n def resolve_dependency_all is invoked")
 
@@ -510,6 +519,7 @@ class RecipeAgent:
 
         print_status()  # Final update
         print("\n[bold green]✅ Dependency Resolution Complete![/bold green]")
+        print(dependency_list)
         return dependency_list
 
 
@@ -607,7 +617,7 @@ class RecipeAgent:
         else:
             return item_dict[item_name]
 
-    def current_goal_algorithm(self, task: dict, context="", max_iterations=3):
+    def current_goal_algorithm(self, task: dict, context="", max_iterations=3, print_deptree=True):
         print("\ndef current_goal_algorithm is invoked")
         print("\n============= Current Goal Algorithm ==============")
         print(f"task:{task}")
@@ -616,6 +626,7 @@ class RecipeAgent:
         def build_tree(tree: Tree, node: str, highlight_task: str, parent_quantity: int = 1):
             """Recursively build the recipe dependency tree with quantities"""
             if node in self.recipe_dependency_list:
+                # print("build_tree invoked", node, tree)
                 recipe = self.recipe_dependency_list[node]
                 produced_count = recipe.get("count", 1)
                 label_quantity = f"(x{produced_count})" if produced_count != 1 else ""
@@ -630,10 +641,10 @@ class RecipeAgent:
                     return
 
                 if isinstance(recipe["required_items"], dict):
-                    for child_name, child_qty in recipe["required_items"].items():
+                    for child_name, child_qty in list(recipe["required_items"].items()):
                         if child_name in self.recipe_dependency_list:
                             if isinstance(self.recipe_dependency_list[child_name]["required_items"], dict):
-                                if recipe["name"] in self.recipe_dependency_list[child_name]["required_items"]:# prevent programs from execute infinite loop
+                                if(recipe["name"] in self.recipe_dependency_list[child_name]["required_items"]) or (recipe["name"] == child_name):# prevent programs from execute infinite loop
                                     self.recipe_dependency_list[child_name]["required_items"].pop(recipe["name"])
                                     # sub_tree.add(f"[white]{child_name} (x{child_qty})[/white]")
                                     # return
@@ -646,7 +657,9 @@ class RecipeAgent:
         recipe_tree = Tree("[green]Recipe Dependency Tree[/green]")
         for root in self.recipe_dependency_list.keys():
             build_tree(recipe_tree, root, highlight_task=list(task.keys())[0])
-        print(recipe_tree)
+        # print(recipe_tree)
+        if print_deptree:
+            print(recipe_tree)
         print(f"self.recipe_dependency_list:{self.recipe_dependency_list}")
 
         for name, count in task.items():
@@ -692,7 +705,7 @@ class RecipeAgent:
                         continue
                     else:
                         print(f"You don't have {key}. Searching more deeply for {key}...\n")
-                        next_goal, context = self.current_goal_algorithm({key: required_amount}, context)
+                        next_goal, context = self.current_goal_algorithm({key: required_amount}, context, print_deptree=False)
                         return next_goal, context
 
         print(f"You already have all ingredients for {task}.")
@@ -703,6 +716,8 @@ class RecipeAgent:
     def set_current_goal(self, task:dict):
         print("def set_current_goal is invoked")
         print(f"Called set_current_goal: {task}")
+        # if "crafting_table" not in self.inventory:
+        #     self.current_goal_algorithm({"crafting_table": 1})
         for key, value in task.items():
             print(f"set_current_goal===key:{key} value: {value}====in task.items()")
             #　念の為アイテム名がマインクラフト内に存在するか確認。
@@ -718,4 +733,6 @@ class RecipeAgent:
                 return None, error
         
             
-
+if __name__=="__main__":
+    ra = RecipeAgent()
+    print(ra.recipe_data_success)
