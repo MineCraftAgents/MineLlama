@@ -4,7 +4,7 @@
 cd /Users/drp2024/Desktop/forge-1
 
 # Add Gradle to the PATH
-export PATH=$PATH:/opt/gradle/gradle-8.8/bin
+export PATH=$PATH:/opt/gradle/gradle-7.5/bin
 
 # Display Gradle version
 gradle -v
