@@ -39,6 +39,7 @@ class Llama2:
         data_dir="",
         persist_index=True,
         use_general_dir=True,
+        search_exist=False,
         similarity_top_k=4,
         context_window=4096,
         max_new_tokens=1024
@@ -59,7 +60,7 @@ class Llama2:
             tokenizer=self.tokenizer
         )
 
-        if not self.rag_switch:
+        if (not self.rag_switch) or search_exist:
             # === Non-RAG Mode ===
             prompt = query_wrapper_prompt.format(query_str=query_str)
             response = llm.complete(prompt)  # Use appropriate method for your HuggingFaceLLM class

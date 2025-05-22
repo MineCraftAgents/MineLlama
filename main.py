@@ -20,6 +20,8 @@ parser.add_argument("--llm_model", type=str, default="gpt-3.5-turbo",
                     help="Model name: 'gpt-3.5-turbo', 'gpt-4', or LLaMA2 model like 'meta-llama/Llama-2-70b-chat-hf'")
 parser.add_argument("--rag_switch", type=str, default="True", choices=["True", "False"],
                     help="Enable or disable RAG retrieval (True/False)")
+parser.add_argument("--search_switch", type=str, default="True", choices=["True", "False"],
+                    help="Enable or disable prior search of item information(recipe agent) (True/False)")
 parser.add_argument("--experiment_number_total", type=int, default=10,
                     help="Total number of experiments to run")
 
@@ -28,23 +30,55 @@ args = parser.parse_args()
 
 # Convert rag_switch from string to boolean
 args.rag_switch = args.rag_switch.lower() == "true"
+args.search_switch = args.search_switch.lower() == "true"
 
 # Initialize Minellama with arguments
 minellama = Minellama(
     openai_api_key=openai_api_key,
     hf_auth_token=hf_auth_token,
-    mc_port="mc_port_num",
+    mc_port="45295",
     llm=args.llm,
     llm_model=args.llm_model,
     local_llm_path=None,  # Default is None
     difficulty="peaceful",
     record_file="./log.txt",  # Output file
-    rag_switch=args.rag_switch
+    rag_switch=args.rag_switch,
+    search_switch=args.search_switch
 )
 
 # Load experiment task list
 #task_list = [{"stick":1},{"wooden_pickaxe":1}]
-task_list = [{"stick":1}]
+task_list = [
+    {"iron_pickaxe":1},
+    {"iron_sword":1},
+    {"iron_shovel":1},
+    {"iron_axe":1},
+    {"iron_hoe":1},
+]
+"""
+    {"stick":1},
+    {"crafting_table":1},
+    {"wooden_pickaxe":1},
+    {"wooden_sword":1},
+    {"wooden_shovel":1},
+    {"wooden_axe":1},
+    {"wooden_hoe":1},
+    {"stone_sword":1},
+    {"stone_shovel":1},
+    {"stone_pickaxe":1},
+    {"stone_axe":1},
+    {"stone_hoe":1},
+    {"chest":1},
+    {"furnace":1},
+    {"cooked_porkchop":1},
+    {"cooked_beef":1},
+    {"cooked_chicken":1},
+    {"glass":1},
+    {"bed":1}, 
+    {"cookie":1},
+    {"egg":1},
+"""
+
 # with open("experiment_task_list.json", "r") as f:
 #     task_list = json.load(f)
 

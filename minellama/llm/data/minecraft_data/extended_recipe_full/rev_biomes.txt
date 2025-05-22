@@ -1,0 +1,53 @@
+Biome No.01 [Ocean] / specific item : Sea grass, kelp / specific entities : cod, salmon 
+Biome No.02 [Deep Ocean] / specific item : magma blocks / specific entities : guardian, elder guardian 
+Biome No.03 [Warm Ocean] / specific item :  seagrass, coral reefs, sea pickles / specific entities : none
+Biome No.04 [Lukewarm Ocean] / specific item : dirt clay, kelp, seagrass / specific entities : cod, salmon
+Biome No.05 [Deep Lukewarm Ocean] / specific item : prismarine, sponges / specific entities : guardians, elder guardians
+Biome No.06 [Cold Ocean] / specific item : dirt / specific entities : Salmon 
+Biome No.07 [Deep Cold Ocean] / specific item : prismarine, sponges / specific entities : guardians, elder guardians
+Biome No.08 [Frozen Ocean] / specific item : ice, packed ice, blue ice / specific entities : Strays, polar bears
+Biome No.09 [Deep Frozen Ocean] / specific item : blue ice  / specific entities : salmon, cod, Polar bears, rabbits, strays
+Biome No.10 [Mushroom Fields] / specific item : mycelium, mushrooms  / specific entities : mooshrooms
+Biome No.11 [Jagged Peaks] / specific item : snow blocks, coal, iron_ore emerald / specific entities : goats
+Biome No.12 [Frozen Peaks] / specific item : snow blocks, packed ice / specific entities : goats
+Biome No.13 [Stony Peaks] / specific item : none  / specific entities : none
+Biome No.14 [Meadow] / specific item : Blue orchids, tulips, lilies, bee nest / specific entities : pillager outposts, Sheep, donkeys, rabbits
+Biome No.15 [Cherry Grove] / specific item : dandelions, poppies, pink petals / specific entities : cherry trees 
+Biome No.16 [Grove] / specific item : snow blocks, dirt / specific entities : Rabbits, wolves, foxes
+Biome No.17 [Snowy Slopes] : The snowy slopes generate on beneath the mountain peaks and are covered multiple layers of snow blocks and powder snow, with some sides also having stone cliffs. Goats spawn in this biome alongside rabbits. This is the only mountain biome where igloos can generate, making it one of the three biomes where igloos naturally generate.
+Biome No.18 [Windswept Hills] / specific item : none / specific entities : llamas
+Biome No.19 [Windswept  Hills] / specific item : none / specific entities : none
+Biome No.20 [Windswept Forest] / specific item : none  / specific entities : none
+Biome No.21 [Forest] / specific item : mushrooms / specific entities : wolf
+Biome No.22 [Flower Forest] / specific item : none / specific entities : rabbit
+Biome No.23 [Taiga] / specific item : Ferns, berry bushes / specific entities : wolf, fox, rabbit, Pillager outpost
+Biome No.24 [Old Growth Pine Taiga] / specific item : Mossy cobblestone, mushrooms, podzol / specific entities : wolf, fox
+Biome No.25 [Old Growth Spruce Taiga] / specific item : none / specific entities : none
+Biome No.26 [Snowy Taiga] / specific item : none / specific entities : fox, igloo, outpost
+Biome No.27 [Birch Forest] / specific item : none / specific entities : none
+Biome No.28 [Old Growth Birch Forest] / specific item : none / specific entities : none
+Biome No.29 [Dark Forest] / specific item : mushroom  / specific entities : woodland mansion
+Biome No.30 [Jungle] / specific item : pyramid, melon, cocoa, Melon, pumpkin / specific entities : panda, parrot, Ocelot
+Biome No.31 [Sparse Jungle] / specific item : melon / specific entities : parrots, ocelot, panda
+Biome No.32 [Bamboo Jungle] / specific item : podzol, bamboo / specific entities : ocelot, parrot, panda
+Biome No.33 [River] / specific item : none / specific entities : none
+Biome No.34 [Frozen River] / specific item : none / specific entities : Salmon, rabbit, polar bear, Stray
+Biome No.35 [Swamp] / specific item : Clay, dirt, vines, Mushrooms, sugar cane, blue orchid / specific entities : Frog, Swamp Hut, black cat, Slimes
+Biome No.36 [Mangrove Swamp] / specific item : mud block / specific entities : Frog, Slime
+Biome No.37 [Beach] / specific item : none / specific entities : none
+Biome No.38 [Snowy Beach] / specific item :none / specific entities : rabbit
+Biome No.39 [Stony Shore] / specific item : none / specific entities : none
+Biome No.40 [Plains] / specific item : Pillager outpost / specific item : none
+Biome No.41 [Sunflower Plains] / specific item : sunflowers / specific entities : none
+Biome No.42 [Snowy Plains] / specific item : Sugar cane / specific entities : rabbit, polar bear, stray 
+Biome No.43 [Ice spikes] / specific item : packed ice / specific entities : rabbit, polar bear, stray
+Biome No.44 [Desert] / specific item : sand dunes, dead bushes, cacti, Sandstone, fossil, Sugar cane / specific entities : rabbit, husk, desert wells, desert pyramids, Pillager outposts
+Biome No.45 [Savanna] / specific item : none / specific entities : Pillager outposts, Armadillo, horse, llama 
+Biome No.46 [Savanna Plateau] / specific item : none / specific entities : Armadillo, horse, llama
+Biome No.47 [Windswept Savanna] / specific item : none / specific entities : Massive waterfalls, lavafalls, llamas
+Biome No.48 [Bedlands] / specific item : Red sand, Gold ore, terracotta / specific entities : none
+Biome No.49 [Wooded Bedlands] / specific item : none / specific entities : none
+Biome No.50 [Eroded Bedlands] / specific item : terracotta, red sand / specific entities : none
+Biome No.51 [Deep Dark] / specific item : sculk, mushroom / specific entities : warden
+Biome No.52 [Dripstone Caves] / specific item : dripstone block, stalactites, stalagmites, Copper ore / specific entities : none
+Biome No.53 [Lush Caves] / specific item : moss carpets, azalea bushes, spore blossoms, clay / specific entities :  axolotls, Tropical fish

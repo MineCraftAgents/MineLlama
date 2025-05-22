@@ -13,7 +13,7 @@ dirt_with_roots: You can get (dirt_with_roots) by breaking (dirt_with_roots) blo
 mud: You can get (mud) by breaking (mud) block without any tool. 
 crimson_nylium: You can get (crimson_nylium) by breaking (crimson_nylium) block with (wooden_pickaxe), so you need (1 wooden_pickaxe). 
 warped_nylium: You can get (warped_nylium) by breaking (warped_nylium) block with (wooden_pickaxe), so you need (1 wooden_pickaxe). 
-cobblestone: You can get (cobblestone) by breaking (stone) block with (wooden_pickaxe), so you need (1 wooden_pickaxe). You can get (cobblestone) by breaking (cobblestone) block with (wooden_pickaxe), so you need (1 wooden_pickaxe). 
+cobblestone: You can get (cobblestone) by breaking (stone) block with (wooden_pickaxe), so you need (1 wooden_pickaxe). You can get (cobblestone) by breaking (cobblestone) block with (wooden_pickaxe), so you need (1 wooden_pickaxe).
 planks: To craft (4 planks), you need (1 log) without (crafting_table). To craft (4 planks), you need (1 wood) without (crafting_table). You can get (planks) by breaking (planks) block without any tool. 
 sapling: You can get (sapling) by breaking (sapling) block without any tool. 
 mangrove_propagule: You can get (mangrove_propagule) by breaking (mangrove_propagule) block without any tool. 
@@ -22,7 +22,6 @@ sand: You can get (sand) by breaking (sand) block without any tool.
 gravel: You can get (gravel) by breaking (gravel) block without any tool. 
 coal_ore: You can get (coal_ore) by breaking (coal_ore) block with (wooden_pickaxe), so you need (1 wooden_pickaxe). 
 deepslate_coal_ore: You can get (deepslate_coal_ore) by breaking (deepslate_coal_ore) block with (wooden_pickaxe), so you need (1 wooden_pickaxe). 
-iron_ore: You can get (iron_ore) by breaking (iron_ore) block with (stone_pickaxe), so you need (1 stone_pickaxe). 
 deepslate_iron_ore: You can get (deepslate_iron_ore) by breaking (deepslate_iron_ore) block with (stone_pickaxe), so you need (1 stone_pickaxe). 
 copper_ore: You can get (copper_ore) by breaking (copper_ore) block with (stone_pickaxe), so you need (1 stone_pickaxe). 
 deepslate_copper_ore: You can get (deepslate_copper_ore) by breaking (deepslate_copper_ore) block with (stone_pickaxe), so you need (1 stone_pickaxe). 
@@ -440,7 +439,7 @@ lapis_lazuli: To craft (9 lapis_lazuli), you need (1 lapis_block) with (crafting
 quartz: To obtain (1 quartz), smelt (1 nether_quartz_ore) using (furnace). You can get (quartz) by breaking (quartz_ore) block with (wooden_pickaxe), so you need (1 wooden_pickaxe). 
 amethyst_shard: You can get (amethyst_shard) by breaking (amethyst_cluster) block without any tool. 
 raw_iron: To craft (9 raw_iron), you need (1 raw_iron_block) with (crafting_table). You can get (raw_iron) by breaking (iron_ore) block with (stone_pickaxe), so you need (1 stone_pickaxe). You can get (raw_iron) by breaking (deepslate_iron_ore) block with (stone_pickaxe), so you need (1 stone_pickaxe). 
-iron_ingot: To craft (9 iron_ingot), you need (1 iron_block) with (crafting_table). To craft (1 iron_ingot), you need (9 iron_nugget) with (crafting_table). To obtain (1 iron_ingot), smelt (1 deepslate_iron_ore) using (furnace). To obtain (1 iron_ingot), smelt (1 iron_ore) using (furnace). To obtain (1 iron_ingot), smelt (1 raw_iron) using (furnace). You can get (iron_ingot) by killing (husk,iron_golem,zombie,zombie_villager). 
+iron_ingot: To obtain (1 iron_ingot), smelt (1 raw_iron) using (furnace). 
 raw_copper: To craft (9 raw_copper), you need (1 raw_copper_block) with (crafting_table). You can get (raw_copper) by breaking (copper_ore) block with (stone_pickaxe), so you need (1 stone_pickaxe). You can get (raw_copper) by breaking (deepslate_copper_ore) block with (stone_pickaxe), so you need (1 stone_pickaxe). 
 copper_ingot: To craft (9 copper_ingot), you need (1 copper_block) with (crafting_table). To craft (9 copper_ingot), you need (1 waxed_copper_block) with (crafting_table). To obtain (1 copper_ingot), smelt (1 deepslate_copper_ore) using (furnace). To obtain (1 copper_ingot), smelt (1 copper_ore) using (furnace). To obtain (1 copper_ingot), smelt (1 raw_copper) using (furnace). 
 raw_gold: To craft (9 raw_gold), you need (1 raw_gold_block) with (crafting_table). You can get (raw_gold) by breaking (gold_ore) block with (iron_pickaxe), so you need (1 iron_pickaxe). You can get (raw_gold) by breaking (deepslate_gold_ore) block with (iron_pickaxe), so you need (1 iron_pickaxe). 

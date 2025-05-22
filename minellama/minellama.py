@@ -4,6 +4,7 @@ import os
 import time
 from typing import Dict
 from datetime import datetime
+import timeout_decorator
 
 import minellama.utils as U
 from .env import VoyagerEnv
@@ -28,6 +29,7 @@ class Minellama:
         hf_auth_token: str = "", # Hugging face auth token.
         record_file: str = "./log.txt", # the output file to record the result.
         rag_switch = True,
+        search_switch = False,
     ):
         # init env
         self.env = VoyagerEnv(
@@ -40,20 +42,18 @@ class Minellama:
         self.rag_switch=rag_switch
 
         self.llm_model_name=llm_model
-        self.non_RAG_llm = llm_model
-
+        self.search_switch = search_switch
+        
         # set LLM
         if llm == "llama":
             print(f"Llama2 called with rag_switch:{self.rag_switch}")
             self.llm = Llama2(hf_auth_token=hf_auth_token, llm_model=llm_model, local_llm_path=local_llm_path,rag_switch=self.rag_switch)
             
-            self.non_RAG_llm = Llama2(hf_auth_token=hf_auth_token, llm_model=llm_model, local_llm_path=local_llm_path,rag_switch=False)
         elif llm == "gpt":
             print(f"GPT called with rag_switch:{self.rag_switch}")
             os.environ["OPENAI_API_KEY"] = openai_api_key
             self.llm = GPT(llm_model=llm_model,rag_switch=rag_switch)
             
-            self.non_RAG_llm = GPT(llm_model=llm_model,rag_switch=False)
         else:
             # This is for baseline without LLM
             raise ValueError("No LLM selected.")
@@ -61,7 +61,7 @@ class Minellama:
         self.func_list=["craft", "mine", "smelt", "collect", "kill", "fish", "tillAndPlant", "harvest"]    
 
         #* RAGを使わないエージェントを追加
-        self.recipe_agent = RecipeAgent(llm=self.llm, non_RAG_llm=self.non_RAG_llm)
+        self.recipe_agent = RecipeAgent(llm=self.llm, search_switch=self.search_switch)
         # self.recipe_agent = RecipeAgent(llm=self.llm)
         self.action_agent = ActionAgent(llm=self.llm)
         self.role_agent = RoleAgent(llm=self.llm, func_list=self.func_list)
@@ -371,7 +371,7 @@ class Minellama:
     def close(self):
         self.env.close()
 
-
+    @timeout_decorator.timeout(300)
     def step(self, code, subgoal=None):
         self.step_count += 1
         print("Code in this step:\n", code)
@@ -451,12 +451,17 @@ class Minellama:
                 self.last_code = code
                 self.last_context = context
 
-                self.step(
-                    code = code,
-                    subgoal = subgoal,
-                )
-
-                subgoal_done = self.recipe_agent.complete_checker(subgoal)
+                try:
+                    self.step(
+                        code = code,
+                        subgoal = subgoal,
+                    )
+                    subgoal_done = self.recipe_agent.complete_checker(subgoal)
+                except timeout_decorator.TimeoutError:
+                    print("Timeout error : this step takes too long time.")
+                    subgoal_done = False
+                
+                
                 if subgoal_done:
                     print(f"\033[31m+++++++ SUBGOAL COMPLETED : {subgoal} +++++++\033[0m")
                     self.subgoal_memory_success.append(subgoal)
@@ -505,9 +510,12 @@ class Minellama:
     def inference(self, task=None, sub_goals=[], reset_mode="hard", reset_env=True):
         self.task_list = copy.deepcopy(task)
         print("TASK LIST: ",self.task_list)
-
+        # 毎回リセットがなければ成功するのか？
+        # self.reset(reset_env=reset_env, reset_mode=reset_mode)
+        # self.rollout(task={"crafting_table": 1})
         for item in self.task_list:
             self.reset(reset_env=reset_env, reset_mode=reset_mode)
+            # self.rollout(task={"crafting_table": 1})
             success = self.rollout(task=item)
             print("This is the final record of the inventory: ", self.inventory)
             self.record_log(success=success)

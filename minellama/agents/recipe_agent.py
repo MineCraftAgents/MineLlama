@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 import random
 import math
+import numpy as np
 import re
 import copy
 import sys
@@ -15,7 +16,7 @@ import os
 
 
 class RecipeAgent:
-    def __init__(self,llm=None, non_RAG_llm=None):
+    def __init__(self,llm=None, search_switch=False):
         self.data_path = str(Path(__file__).parent / "minecraft_dataset")
         with open(f"{self.data_path}/recipes_bedrock.json", "r") as f:
             self.recipe_data = json.load(f)
@@ -33,8 +34,8 @@ class RecipeAgent:
 
         #biome: 後にレシピルートの選択でLLMを用いる可能性がある。
         self.llm = llm
-        #* RAGを使わずにアイテムを処理するためのLLM
-        self.non_RAG_llm = non_RAG_llm
+        #* RAGを使わずにアイテムを処理するために検索を行っている場合に、LLMにそれを示す変数
+        self.search_switch = search_switch
         
         self.inventory={}
         self.initial_inventory = {}
@@ -145,6 +146,23 @@ class RecipeAgent:
             return json.loads(json_dict.replace("'", '"'))
         else:
             raise Exception("No python dict found. Trying again.")#"Please output python-dict data."
+    
+    def relocate_req_items(self, res):
+        priority_tools = ['crafting_table','wooden_pickaxe','stone_pickaxe','iron_pickaxe', 'furnace', 'wooden_hoe','wooden_shovel']
+        root_tools = ['log','stone']
+        priority_reqitem = {}
+        normal_reqitem = {}
+        if (res["required_items"] is not None) and (res["name"] in root_tools):
+            res["required_items"] = None
+        if isinstance(res["required_items"], dict):
+            for name, count in res["required_items"].items():
+                if name in priority_tools:
+                    priority_reqitem[name] = count
+                else :
+                    normal_reqitem[name] = count
+            return dict(**priority_reqitem, **normal_reqitem)
+        else :
+            return res["required_items"]
         
     def check_keys_of_response(self,response:dict) -> None:
         if not (set(response.keys()) == set(["name", "count", "required_items", "action"])):
@@ -186,94 +204,177 @@ class RecipeAgent:
         print("\n def query_wrapper is invoked")
         if query_item not in self.item_difficulty:
             self.item_difficulty[query_item] = 5
+        if self.search_switch:
+            # 自動検索を行う場合のプロンプト
+            system_prompt = """
+            Please list the items and their quantities needed to craft items.
+            I'll give you some descriptions about target item, they indicates how to get target item. You must select one of them and answer along its recipe.
+            As a help of your choice, I also give you a data which indicates the difficulty of requiring each item. Its format is ("item_name" : difficulty(int, default difficulty is 5)). The lower "difficulty" parameter is, the more easily you can get the item. Please choose the most easiest recipe. 
+            If there are multiple choices, please only pick the easiest one to achieve. 
+            If crafting is easier, please set required ingriedients in "required_items".
+            If there is no required_items, please set "null" in "required_items".
+            If you think it is easier to break blocks to get the item than to craft, please set "null" in "required_items". But crafting is usually easier.
+            When you use item name in your answer, use correct item name in Minecraft game.
+            Use the python-dict-like format provided in the examples below for your answers. Hense do not change lines in your answer.
 
-        system_prompt = """
-        Please list the items and their quantities needed to craft items.
-        If there are multiple choices, please only pick the easiest one to achieve. 
-        If crafting is easier, please set required ingriedients in "required_items".
-        If there is no required_items, please set "None" in "required_items".
-        If you think it is easier to break blocks to get the item than to craft, please set "None" in "required_items". But crafting is usually easier.
-        When you use item name in your answer, use correct item name in Minecraft game.
-        Use the python-dict-like format provided in the examples below for your answers.
+            Example 1:
+            query :
+                Here is the difficulty list for items (lower = easier):
+                planks: 4
+                deadbush: 11
+                log: 4
+                stone_sword: 5
+                cobblestone: 5
+                crafting_table: 5
+                bamboo: 7
+                Here is the item description for stick: To craft (1 stick), you need (2 bamboo). To craft (4 stick), you need (2 planks). You can get (stick) by breaking (deadbush) block without any tool. You can get (stick) by breaking (oak_leaves) block without any tool. You can get (stick) by breaking (spruce_leaves) block without any tool. You can get (stick) by killing (witch). 
+                please tell me how to obtain stick.
+            answer :
+                There are 6 recipes to get/craft stick. However, according to the difficulty list for items, you can get planks more easily than deadbush and bamboo(= difficulty of planks is lower than that of deadbush and bamboo). Therefore, you must choose the recipe using planks. 
+                In conclusion, your answer is
+                {{"name": "stick", "count": 4, "required_items": {{"planks": 2}}, "action":"You can craft stick."}}
 
-        Example 1:
-        Here is the difficulty list for items (lower = easier):
-        planks: 4
-        deadbush: 11
-        log: 4
-        stone_sword: 5
-        cobblestone: 5
-        crafting_table: 5
-        bamboo: 7
-        Here is the item description for stick: To craft (1 stick), you need (2 bamboo) with (crafting_table). To craft (4 stick), you need (2 planks) with (crafting_table). You can get (stick) by breaking (deadbush) block without any tool. You can get (stick) by breaking (oak_leaves) block without any tool. You can get (stick) by breaking (spruce_leaves) block without any tool. You can get (stick) by killing (witch). 
-        please tell me how to obtain stick.
+            Example 2: 
+            query :
+                Here is the difficulty list for items (lower = easier):
+                planks: 4
+                log: 4
+                stone_sword: 5
+                cobblestone: 5
+                stick: 5
+                crafting_table: 5
+                wooden_pickaxe: 5
+                bamboo: 7
+                Here is the item description for white_bed: To craft (1 white_bed), you need (3 wool, 3 planks) with (crafting_table). To craft (1 white_bed), you need (1 white_bed, 1 ink_sac) with (crafting_table). To craft (1 white_bed), you need (1 white_bed, 1 lime_dye) with (crafting_table). To craft (1 white_bed), you need (1 white_bed, 1 pink_dye) with (crafting_table). You can get (white_bed) by breaking (white_bed) block with (wooden_pickaxe). 
+                please tell me how to obtain white_bed.
+            answer :
+                There are 5 recipes to get/craft white bed. However, according to the difficulty list for items, you can get planks easily.(= The diffculty of planks is benieth 5(default). ) Therefore, you must choose the recipe using planks. In addition, white_bed requires crafting_table to craft, so you must add it in "required_items".
+                In conclusion, your answer is
+                {{"name": "white_bed", "count": 1, "required_items": {{"crafting_table":1, "wool": 3, "planks":3}}, "action":"You can craft white_bed with ingredients."}}
 
-        Then, pick the easiest one like
-        {{"name": "stick", "count": 4, "required_items": {{"planks": 2, "crafting_table": 1}}, "action":"You can craft stick with crafting_table."}}
-        
-        Example 2: 
-        Here is the difficulty list for items (lower = easier):
-        planks: 4
-        log: 4
-        stone_sword: 5
-        cobblestone: 5
-        stick: 5
-        crafting_table: 5
-        wooden_pickaxe: 5
-        bamboo: 7
-        Here is the item description for white_bed: To craft (1 white_bed), you need (3 wool, 3 planks) with (crafting_table). To craft (1 white_bed), you need (1 white_bed, 1 ink_sac) with (crafting_table). To craft (1 white_bed), you need (1 white_bed, 1 lime_dye) with (crafting_table). To craft (1 white_bed), you need (1 white_bed, 1 pink_dye) with (crafting_table). You can get (white_bed) by breaking (white_bed) block with (wooden_pickaxe). 
-        please tell me how to obtain white_bed.
-        
-        Then, pick the easiest one like
-        {{"name": "white_bed", "count": 1, "required_items": {{"wool": 3, "planks":3, "crafting_table":1}}, "action":"You can craft white_bed with ingredients."}}
+            Note that when you need no materials to get the item, you must answer "null" as a index of "required_items". e.g : "required_items": null
+            Remember to focus on the format as demonstrated in the examples. 
 
-        Example 3:
-        Here is the difficulty list for items (lower = easier):
-        planks: 4
-        log: 4
-        stone_sword: 5
-        cobblestone: 5
-        stick: 5
-        crafting_table: 5
-        wooden_pickaxe: 5
-        bamboo: 8
-        Here is the item description for emerald_block: To craft (1 emerald_block), you need (9 emerald) with (crafting_table). You can get (emerald_block) by breaking (emerald_block) block with (iron_pickaxe). 
-        please tell me how to obtain emerald_block.
-        
-        Then, pick the easiest one like
-        {{"name": "emerald_block", "count": 1, "required_items": {{"iron_pickaxe": 1}}, "action":"You should break emerald_block with iron_pickaxe."}}
+            When choosing a recipe from multiple options, use the difficulty list provided.
+            Prefer items with lower difficulty scores. Avoid using items with high difficulty unless necessary.
 
+            """
+        else :
+            # レシピ文の自動検索を行わない場合のプロンプト
+            system_prompt = """
+            Please list the items and their quantities needed to craft items.
+            If RAG system is active, you will receive some recipes of target items via RAG data. If not, please search recipes from your knowledge about Minecraft game.
+            As a help of your choice, I give you a data which indicates the difficulty of requiring each item. Its format is ("item_name" : difficulty(int, default difficulty is 5)). The lower "difficulty" parameter is, the more easily you can get the item. Please choose the most easiest recipe.
+            If there are multiple choices, please only pick the easiest one to achieve. 
+            If crafting is easier, please set required ingriedients in "required_items".
+            If there is no required_items, please set "null" in "required_items".
+            If you think it is easier to break blocks to get the item than to craft, please set "null" in "required_items". But crafting is usually easier.
+            When you use item name in your answer, use correct item name in Minecraft game.
+            Use the python-dict-like format provided in the examples below for your answers. Hense do not change lines in your answer.
 
-        Note that when you need no materials to get the item, you must answer "None" for "required_items".
-        Remember to focus on the format as demonstrated in the examples. 
+            Example 1:
+            query :
+                Here is the difficulty list for items (lower = easier):
+                planks: 4
+                deadbush: 11
+                log: 4
+                stone_sword: 5
+                cobblestone: 5
+                crafting_table: 5
+                bamboo: 7
+                please tell me how to obtain stick.
+            answer :
+                There are 6 recipes to get/craft stick. However, according to the difficulty list for items, you can get planks more easily than deadbush and bamboo(= difficulty of planks is lower than that of deadbush and bamboo). Therefore, you must choose the recipe using planks.
+                In conclusion, your answer is
+                {{"name": "stick", "count": 4, "required_items": {{"planks": 2}}, "action":"You can craft stick."}}
 
-        When choosing a recipe from multiple options, use the difficulty list provided.
-        Prefer items with lower difficulty scores. Avoid using items with high difficulty unless necessary.
+            Example 2: 
+            query :
+                Here is the difficulty list for items (lower = easier):
+                planks: 4
+                log: 4
+                stone_sword: 5
+                cobblestone: 5
+                stick: 5
+                crafting_table: 5
+                wooden_pickaxe: 5
+                bamboo: 7
+                please tell me how to obtain white_bed.
+            answer :
+                There are 5 recipes to get/craft white bed. However, according to the difficulty list for items, you can get planks easily.(= The diffculty of planks is benieth 5(default). ) Therefore, you must choose the recipe using planks. In addition, white_bed requires crafting_table to craft, so you must add it in "required_items".
+                In conclusion, your answer is
+                {{"name": "white_bed", "count": 1, "required_items": {{"crafting_table":1, "wool": 3, "planks":3}}, "action":"You can craft white_bed with ingredients."}}
+            
+            Note that when you need no materials to get the item, you must answer "null" as a index of "required_items". e.g : "required_items": null
+            Remember to focus on the format as demonstrated in the examples. 
 
-        """
+            When choosing a recipe from multiple options, use the difficulty list provided.
+            Prefer items with lower difficulty scores. Avoid using items with high difficulty unless necessary.
 
+            """        
+            #original query
+            """
+            Please list the items and their quantities needed to craft items.
+            If there are multiple choices, please only pick the easiest one to achieve. 
+            If crafting is easier, please set required ingriedients in "required_items".
+            If there is no required_items, please set "None" in "required_items".
+            If you think it is easier to break blocks to get the item than to craft, please set "None" in "required_items". But crafting is usually easier.
+            When you use item name in your answer, use correct item name in Minecraft game.
+            Use the python-dict-like format provided in the examples below for your answers
+            Example 1:
+            Here is the difficulty list for items (lower = easier):
+            planks: 4
+            deadbush: 11
+            log: 4
+            stone_sword: 5
+            cobblestone: 5
+            crafting_table: 5
+            bamboo: 7
+            Here is the item description for stick: To craft (1 stick), you need (2 bamboo) with (crafting_table). To craft (4 stick), you need (2 planks) with (crafting_table). You can get (stick) by breaking (deadbush) block without any tool. You can get (stick) by breaking (oak_leaves) block without any tool. You can get (stick) by breaking (spruce_leaves) block without any tool. You can get (stick) by killing (witch). 
+            please tell me how to obtain stick
+            Then, pick the easiest one like
+            {{"name": "stick", "count": 4, "required_items": {{"planks": 2, "crafting_table": 1}}, "action":"You can craft stick with crafting_table."}}
+
+            Example 2: 
+            Here is the difficulty list for items (lower = easier):
+            planks: 4
+            log: 4
+            stone_sword: 5
+            cobblestone: 5
+            stick: 5
+            crafting_table: 5
+            wooden_pickaxe: 5
+            bamboo: 7
+            Here is the item description for white_bed: To craft (1 white_bed), you need (3 wool, 3 planks) with (crafting_table). To craft (1 white_bed), you need (1 white_bed, 1 ink_sac) with (crafting_table). To craft (1 white_bed), you need (1 white_bed, 1 lime_dye) with (crafting_table). To craft (1 white_bed), you need (1 white_bed, 1 pink_dye) with (crafting_table). You can get (white_bed) by breaking (white_bed) block with (wooden_pickaxe). 
+            please tell me how to obtain white_bed.
+
+            Then, pick the easiest one like
+            {{"name": "white_bed", "count": 1, "required_items": {{"wool": 3, "planks":3, "crafting_table":1}}, "action":"You can craft white_bed with ingredients."}
+            Example 3:
+            Here is the difficulty list for items (lower = easier):
+            planks: 4
+            log: 4
+            stone_sword: 5
+            cobblestone: 5
+            stick: 5
+            crafting_table: 5
+            wooden_pickaxe: 5
+            bamboo: 8
+            Here is the item description for emerald_block: To craft (1 emerald_block), you need (9 emerald) with (crafting_table). You can get (emerald_block) by breaking (emerald_block) block with (iron_pickaxe). 
+            please tell me how to obtain emerald_block.
+
+            Then, pick the easiest one like
+            {{"name": "emerald_block", "count": 1, "required_items": {{"iron_pickaxe": 1}}, "action":"You should break emerald_block with iron_pickaxe."}
+            Note that when you need no materials to get the item, you must answer "None" for "required_items".
+            Remember to focus on the format as demonstrated in the examples.
+            When choosing a recipe from multiple options, use the difficulty list provided.
+            Prefer items with lower difficulty scores. Avoid using items with high difficulty unless necessary
+            """
         # print(prompt)
-        max_log_ref = 3# #3:保持している過去の成功データを試す回数
         max_request = 5 #5:LLMにポストする回数
         inventory = self.inventory_to_sentence()
         error = self.error
         # failed_memory = self.failed_memory_to_sentence(item=query_item)
-        # if query_item in self.recipe_data_success:
-        #     print(f"{query_item} was crafted in previous execution. Loading last recipe....")
-        #     correct_key = ['name', 'count', 'required_items', 'action']
-        #     for i in range(len(self.recipe_data_success[query_item])):
-        #         time.sleep(1)
-        #         response = self.recipe_data_success[query_item][i]
-        #         # 正しい形式で保存されているかを確認する
-        #         key = list(response.keys())
-        #         count = 0
-        #         for k in range(len(key)):
-        #             if key[i] == correct_key[i]:
-        #                 count += 1
-        #         if count == 4:        
-        #             print("There is a correct format data in the log.", response)
-        #             return response
-        #     print("There is no log which satisfies condition.")
             
         while max_request > 0:
             try:
@@ -283,45 +384,57 @@ class RecipeAgent:
                 difficulty_info = "\n".join([
                     f"{item}: {score}" for item, score in sorted(self.item_difficulty.items(), key=lambda x: x[1])
                 ]) or "None available yet."
+                if self.search_switch:        
+                    #* query_itemで検索
+                    current_dir = os.path.dirname(__file__)
+                    json_path = os.path.join(current_dir, '..', 'llm', 'data', 'minecraft_data', 'item_key', 'item_dict.json')
+                    with open(json_path) as f:
+                        item_dict = json.load(f)
 
-                #* query_itemで検索
-                current_dir = os.path.dirname(__file__)
-                json_path = os.path.join(current_dir, '..', 'llm', 'data', 'minecraft_data', 'item_key', 'item_dict.json')
-                with open(json_path) as f:
-                    item_dict = json.load(f)
+                    if query_item in item_dict:
+                        item_description = item_dict[query_item]
+                    else:
+                        # raise Exception(f"{query_item} is not in item_dict.json. Please check the file.")
+                        #? exceptionではなくwarningに変更
+                        print(f"[WARNING] {query_item} is not in item_dict.json. Please check the file.")
+                        item_description = "No description available."
                 
-                if query_item in item_dict:
-                    item_description = item_dict[query_item]
-                else:
-                    # raise Exception(f"{query_item} is not in item_dict.json. Please check the file.")
-                    #? exceptionではなくwarningに変更
-                    print(f"[WARNING] {query_item} is not in item_dict.json. Please check the file.")
-                    item_description = "No description available."
-                    
-                
-                #* item_descriptionを使ってpromptを作成
-                human_prompt_with_json = (
-                    f"This is the current status.\n"
-                    f"Inventory: {inventory}\n"
-                    f"Nearby block: {self.nearby_block}\n"
-                    f"Biome: I am in {self.biome}.\n"
-                    f"Error from the last round: {error}\n\n"
-                    f"Here is the difficulty list for items (lower = easier):\n"
-                    f"{difficulty_info}\n\n"
-                    f"Here is the item description for {query_item}:{item_description}\n"
-                    f"please tell me how to obtain {query_item}.\n"
-                    # f"To get some {query_item}, you need "
-                )
-                
+                    #* item_descriptionを使ってpromptを作成
+                    human_prompt_with_json = (
+                        f"This is the current status.\n"
+                        f"Inventory: {inventory}\n"
+                        f"Nearby block: {self.nearby_block}\n"
+                        f"Biome: I am in {self.biome}.\n"
+                        f"Error from the last round: {error}\n\n"
+                        f"Here is the difficulty list for items (lower = easier):\n"
+                        f"{difficulty_info}\n\n"
+                        f"Here is the item description for {query_item}:{item_description}\n"
+                        f"please tell me how to obtain {query_item}.\n"
+                        # f"To get some {query_item}, you need "
+                    )
+                else :
+                    #* item_descriptionを使用せずにpromptを作成
+                    human_prompt_with_json = (
+                        f"This is the current status.\n"
+                        f"Inventory: {inventory}\n"
+                        f"Nearby block: {self.nearby_block}\n"
+                        f"Biome: I am in {self.biome}.\n"
+                        f"Error from the last round: {error}\n\n"
+                        f"Here is the difficulty list for items (lower = easier):\n"
+                        f"{difficulty_info}\n\n"
+                        f"please tell me how to obtain {query_item}.\n"
+                        # f"To get some {query_item}, you need "
+                    )
                 # print(f"human_prompt_with_json:{human_prompt_with_json}")
                 
-                response = self.non_RAG_llm.content(system_prompt=system_prompt, human_prompt=human_prompt_with_json, query_str=query_str, data_dir = "extended_recipe", persist_index=True, use_general_dir=False, similarity_top_k=3)
+                response = self.llm.content(system_prompt=system_prompt, human_prompt=human_prompt_with_json, query_str=query_str, data_dir = "extended_recipe", persist_index=True, use_general_dir=False, search_exist=self.search_switch, similarity_top_k=3)
                 
                 print("raw response: \n", response)
                 
                 # print(response)
                 # print("\n")
                 response = self.extract_dict_from_str(response)
+                response["required_items"] = self.relocate_req_items(response)
                 print("Extracted Dict: \n", response)
                 self.check_keys_of_response(response)
                 self.item_name_validation(response)
@@ -406,6 +519,7 @@ class RecipeAgent:
 
         print_status()  # Final update
         print("\n[bold green]✅ Dependency Resolution Complete![/bold green]")
+        print(dependency_list)
         return dependency_list
 
 
@@ -503,7 +617,7 @@ class RecipeAgent:
         else:
             return item_dict[item_name]
 
-    def current_goal_algorithm(self, task: dict, context="", max_iterations=3):
+    def current_goal_algorithm(self, task: dict, context="", max_iterations=3, print_deptree=True):
         print("\ndef current_goal_algorithm is invoked")
         print("\n============= Current Goal Algorithm ==============")
         print(f"task:{task}")
@@ -512,6 +626,7 @@ class RecipeAgent:
         def build_tree(tree: Tree, node: str, highlight_task: str, parent_quantity: int = 1):
             """Recursively build the recipe dependency tree with quantities"""
             if node in self.recipe_dependency_list:
+                # print("build_tree invoked", node, tree)
                 recipe = self.recipe_dependency_list[node]
                 produced_count = recipe.get("count", 1)
                 label_quantity = f"(x{produced_count})" if produced_count != 1 else ""
@@ -526,8 +641,13 @@ class RecipeAgent:
                     return
 
                 if isinstance(recipe["required_items"], dict):
-                    for child_name, child_qty in recipe["required_items"].items():
+                    for child_name, child_qty in list(recipe["required_items"].items()):
                         if child_name in self.recipe_dependency_list:
+                            if isinstance(self.recipe_dependency_list[child_name]["required_items"], dict):
+                                if(recipe["name"] in self.recipe_dependency_list[child_name]["required_items"]) or (recipe["name"] == child_name):# prevent programs from execute infinite loop
+                                    self.recipe_dependency_list[child_name]["required_items"].pop(recipe["name"])
+                                    # sub_tree.add(f"[white]{child_name} (x{child_qty})[/white]")
+                                    # return
                             build_tree(sub_tree, child_name, highlight_task, parent_quantity=child_qty)
                         else:
                             sub_tree.add(f"[white]{child_name} (x{child_qty})[/white]")
@@ -537,7 +657,9 @@ class RecipeAgent:
         recipe_tree = Tree("[green]Recipe Dependency Tree[/green]")
         for root in self.recipe_dependency_list.keys():
             build_tree(recipe_tree, root, highlight_task=list(task.keys())[0])
-        print(recipe_tree)
+        # print(recipe_tree)
+        if print_deptree:
+            print(recipe_tree)
         print(f"self.recipe_dependency_list:{self.recipe_dependency_list}")
 
         for name, count in task.items():
@@ -583,7 +705,7 @@ class RecipeAgent:
                         continue
                     else:
                         print(f"You don't have {key}. Searching more deeply for {key}...\n")
-                        next_goal, context = self.current_goal_algorithm({key: required_amount}, context)
+                        next_goal, context = self.current_goal_algorithm({key: required_amount}, context, print_deptree=False)
                         return next_goal, context
 
         print(f"You already have all ingredients for {task}.")
@@ -594,6 +716,8 @@ class RecipeAgent:
     def set_current_goal(self, task:dict):
         print("def set_current_goal is invoked")
         print(f"Called set_current_goal: {task}")
+        # if "crafting_table" not in self.inventory:
+        #     self.current_goal_algorithm({"crafting_table": 1})
         for key, value in task.items():
             print(f"set_current_goal===key:{key} value: {value}====in task.items()")
             #　念の為アイテム名がマインクラフト内に存在するか確認。
