@@ -30,6 +30,7 @@ class Minellama:
         record_file: str = "./log.txt", # the output file to record the result.
         rag_switch = True,
         search_switch = False,
+        use_fixed_data = True,
     ):
         # init env
         self.env = VoyagerEnv(
@@ -43,6 +44,7 @@ class Minellama:
 
         self.llm_model_name=llm_model
         self.search_switch = search_switch
+        self.use_fixed_data = use_fixed_data
         
         # set LLM
         if llm == "llama":
@@ -61,7 +63,7 @@ class Minellama:
         self.func_list=["craft", "mine", "smelt", "collect", "kill", "fish", "tillAndPlant", "harvest"]    
 
         #* RAGを使わないエージェントを追加
-        self.recipe_agent = RecipeAgent(llm=self.llm, search_switch=self.search_switch)
+        self.recipe_agent = RecipeAgent(llm=self.llm, search_switch=self.search_switch, use_fixed_data=self.use_fixed_data)
         # self.recipe_agent = RecipeAgent(llm=self.llm)
         self.action_agent = ActionAgent(llm=self.llm)
         self.role_agent = RoleAgent(llm=self.llm, func_list=self.func_list)

@@ -18,6 +18,8 @@ parser.add_argument("--rag_switch", type=str, default="True", choices=["True", "
                     help="Enable or disable RAG retrieval (True/False)")
 parser.add_argument("--search_switch", type=str, default="True", choices=["True", "False"],
                     help="Enable or disable prior search of item information(recipe agent) (True/False)")
+parser.add_argument("--use_fixed_data", type=str, default="True", choices=["True", "False"],
+                    help="Use fixed data for the experiment (True/False)")
 parser.add_argument("--experiment_number_total", type=int, default=10,
                     help="Total number of experiments to run")
 
@@ -39,7 +41,8 @@ minellama = Minellama(
     difficulty="peaceful",
     record_file="./log.txt",  # Output file
     rag_switch=args.rag_switch,
-    search_switch=args.search_switch
+    search_switch=args.search_switch,
+    use_fixed_data = args.use_fixed_data
 )
 
 # Load experiment task list
