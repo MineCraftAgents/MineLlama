@@ -148,7 +148,7 @@ python main.py
 ```
 or
 ```
-python main.py --llm llama --llm_model meta-llama/Llama-2-70b-chat-hf --rag_switch False --experiment_number_total 5
+python main.py --llm llama --llm_model meta-llama/Llama-2-70b-chat-hf --rag_switch False --search_switch False --experiment_number_total 5
 ```
 You can see the bot join the Minecraft world.
 # Observe the bot
