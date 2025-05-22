@@ -13,7 +13,7 @@ conda activate minellama
 ```
 
 ## pip install
-First, install torch as below (Please skip if your pc does not hav a GPU).
+First, install torch as below (Please skip if your pc does not have a GPU).
 ```
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu117 --upgrade
 ```
