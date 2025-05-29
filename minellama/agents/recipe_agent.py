@@ -141,6 +141,8 @@ class RecipeAgent:
 
     # ========= recipe dependencies ========     
     def extract_dict_from_str(self,response:str)->dict:
+        #* responseから改行を削除
+        response = response.replace("\n", " ")
         matched = re.search(r'(\{.*\})', response)
         if matched:
             json_dict = matched.group(1).strip()
