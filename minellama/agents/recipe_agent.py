@@ -13,7 +13,7 @@ import time
 import sys
 import os
 # sys.setrecursionlimit(10000)  # 再帰の深さの制限を2000に設定
-
+import traceback
 
 class RecipeAgent:
     def __init__(self,llm=None, search_switch=False, use_fixed_data=True):
@@ -456,6 +456,7 @@ class RecipeAgent:
             except Exception as e:
                 print(e)
                 error = e
+                traceback.print_exc()
                 max_request -= 1
                 print(f"max_request left {max_request} times")
                 continue
@@ -744,6 +745,7 @@ class RecipeAgent:
             except Exception as e:
                 print(e)
                 error = e
+                traceback.print_exc()
                 return None, error
         
             
