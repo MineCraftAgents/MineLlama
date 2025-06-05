@@ -18,6 +18,11 @@ async function craft(bot, name, count = 1) {
       return;
     }
     //Place crafting table first
+    //? crafting tableがない場合は作成する → craftCraftingTableを呼び出す
+    const craftingTableCount = bot.inventory.count(mcData.itemsByName.crafting_table.id);
+    if (craftingTableCount < 1) {
+      await craftCraftingTable(bot);
+    }
     const suitablePosition = bot.entity.position.offset(1, 0, 0);
     const block = bot.blockAt(suitablePosition);
     if (block.name === "grass_block" || block.name === "dirt") {
