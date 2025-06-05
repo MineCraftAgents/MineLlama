@@ -13,10 +13,10 @@ import time
 import sys
 import os
 # sys.setrecursionlimit(10000)  # 再帰の深さの制限を2000に設定
-
+import traceback
 
 class RecipeAgent:
-    def __init__(self,llm=None, search_switch=False):
+    def __init__(self,llm=None, search_switch=False, use_fixed_data=True):
         self.data_path = str(Path(__file__).parent / "minecraft_dataset")
         with open(f"{self.data_path}/recipes_bedrock.json", "r") as f:
             self.recipe_data = json.load(f)
@@ -36,6 +36,7 @@ class RecipeAgent:
         self.llm = llm
         #* RAGを使わずにアイテムを処理するために検索を行っている場合に、LLMにそれを示す変数
         self.search_switch = search_switch
+        self.use_fixed_data = use_fixed_data
         
         self.inventory={}
         self.initial_inventory = {}
@@ -140,6 +141,8 @@ class RecipeAgent:
 
     # ========= recipe dependencies ========     
     def extract_dict_from_str(self,response:str)->dict:
+        #* responseから改行を削除
+        response = response.replace("\n", " ")
         matched = re.search(r'(\{.*\})', response)
         if matched:
             json_dict = matched.group(1).strip()
@@ -387,7 +390,14 @@ class RecipeAgent:
                 if self.search_switch:        
                     #* query_itemで検索
                     current_dir = os.path.dirname(__file__)
-                    json_path = os.path.join(current_dir, '..', 'llm', 'data', 'minecraft_data', 'item_key', 'item_dict.json')
+                    
+                    #* 使うデータセットで場合分け
+                    if self.use_fixed_data:
+                        #* 編集済みデータセットを使用する場合
+                        json_path = os.path.join(current_dir, '..', 'llm', 'data', 'minecraft_data', 'item_key', 'item_dict.json')
+                    else:
+                        #* 元のデータセットを使用する場合
+                        json_path = os.path.join(current_dir, '..', 'llm', 'data', 'minecraft_data', 'item_key_full', 'item_dict.json')
                     with open(json_path) as f:
                         item_dict = json.load(f)
 
@@ -427,7 +437,13 @@ class RecipeAgent:
                     )
                 # print(f"human_prompt_with_json:{human_prompt_with_json}")
                 
-                response = self.llm.content(system_prompt=system_prompt, human_prompt=human_prompt_with_json, query_str=query_str, data_dir = "extended_recipe", persist_index=True, use_general_dir=False, search_exist=self.search_switch, similarity_top_k=3)
+                #* 使うデータセットで場合分け
+                if self.use_fixed_data:
+                    #* 編集済みデータセットを使用する場合
+                    response = self.llm.content(system_prompt=system_prompt, human_prompt=human_prompt_with_json, query_str=query_str, data_dir = "extended_recipe", persist_index=True, use_general_dir=False, search_exist=self.search_switch, similarity_top_k=3)
+                else:
+                    #* 元のデータセットを使用する場合
+                    response = self.llm.content(system_prompt=system_prompt, human_prompt=human_prompt_with_json, query_str=query_str, data_dir = "extended_recipe_full", persist_index=True, use_general_dir=False, search_exist=self.search_switch, similarity_top_k=3)
                 
                 print("raw response: \n", response)
                 
@@ -442,6 +458,7 @@ class RecipeAgent:
             except Exception as e:
                 print(e)
                 error = e
+                traceback.print_exc()
                 max_request -= 1
                 print(f"max_request left {max_request} times")
                 continue
@@ -730,6 +747,7 @@ class RecipeAgent:
             except Exception as e:
                 print(e)
                 error = e
+                traceback.print_exc()
                 return None, error
         
             
