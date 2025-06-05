@@ -143,6 +143,14 @@
                 "log": 1
             },
             "action": "You can craft planks by using 1 log without a crafting table."
+        },
+        {
+            "name": "planks",
+            "count": 4,
+            "required_items": {
+                "log": 1
+            },
+            "action": "You can craft planks using 1 log without a crafting_table."
         }
     ],
     "stick": [
@@ -477,6 +485,26 @@
                 "crafting_table": 1
             },
             "action": "You can craft wooden_hoe with the required items."
+        },
+        {
+            "name": "wooden_hoe",
+            "count": 1,
+            "required_items": {
+                "crafting_table": 1,
+                "planks": 2,
+                "stick": 2
+            },
+            "action": "You can craft wooden_hoe."
+        },
+        {
+            "name": "wooden_hoe",
+            "count": 1,
+            "required_items": {
+                "crafting_table": 1,
+                "planks": 2,
+                "stick": 2
+            },
+            "action": "You can craft wooden_hoe with ingredients."
         }
     ],
     "wooden_shovel": [
@@ -537,6 +565,15 @@
                 "crafting_table": 1
             },
             "action": "You can craft wooden_shovel with the required items."
+        },
+        {
+            "name": "wooden_shovel",
+            "count": 1,
+            "required_items": {
+                "planks": 1,
+                "stick": 2
+            },
+            "action": "You can craft wooden_shovel."
         }
     ],
     "stone_shovel": [
@@ -567,6 +604,16 @@
                 "crafting_table": 1
             },
             "action": "You can craft stone_shovel with cobblestone, stick, and crafting_table."
+        },
+        {
+            "name": "stone_shovel",
+            "count": 1,
+            "required_items": {
+                "crafting_table": 1,
+                "cobblestone": 1,
+                "stick": 2
+            },
+            "action": "You can craft stone_shovel."
         }
     ],
     "furnace": [
@@ -642,6 +689,15 @@
                 "crafting_table": 1
             },
             "action": "You can craft wooden_sword with the required items."
+        },
+        {
+            "name": "wooden_sword",
+            "count": 1,
+            "required_items": {
+                "planks": 2,
+                "stick": 1
+            },
+            "action": "You can craft wooden_sword."
         }
     ],
     "log": [
@@ -746,6 +802,12 @@
             "count": 4,
             "required_items": null,
             "action": "You can get log by breaking log block without any tool."
+        },
+        {
+            "name": "log",
+            "count": 4,
+            "required_items": null,
+            "action": "You can craft log by using 4 wood with crafting_table."
         }
     ],
     "sand": [
@@ -796,6 +858,25 @@
                 "crafting_table": 1
             },
             "action": "You can craft wooden_axe with the required items."
+        },
+        {
+            "name": "wooden_axe",
+            "count": 1,
+            "required_items": {
+                "crafting_table": 1,
+                "planks": 3,
+                "stick": 2
+            },
+            "action": "You can craft wooden_axe."
+        },
+        {
+            "name": "wooden_axe",
+            "count": 1,
+            "required_items": {
+                "planks": 3,
+                "stick": 2
+            },
+            "action": "You can craft wooden_axe."
         }
     ],
     "cobblestone": [
@@ -877,6 +958,25 @@
                 "crafting_table": 1
             },
             "action": "You can craft stone_sword with cobblestone, stick, and crafting_table."
+        },
+        {
+            "name": "stone_sword",
+            "count": 1,
+            "required_items": {
+                "crafting_table": 1,
+                "cobblestone": 2,
+                "stick": 1
+            },
+            "action": "You can craft stone_sword."
+        },
+        {
+            "name": "stone_sword",
+            "count": 1,
+            "required_items": {
+                "cobblestone": 2,
+                "stick": 1
+            },
+            "action": "You can craft stone_sword with ingredients."
         }
     ],
     "stone_axe": [
@@ -889,6 +989,26 @@
                 "crafting_table": 1
             },
             "action": "You can craft stone_axe with crafting_table."
+        },
+        {
+            "name": "stone_axe",
+            "count": 1,
+            "required_items": {
+                "crafting_table": 1,
+                "cobblestone": 3,
+                "stick": 2
+            },
+            "action": "You can craft stone_axe."
+        },
+        {
+            "name": "stone_axe",
+            "count": 1,
+            "required_items": {
+                "crafting_table": 1,
+                "cobblestone": 3,
+                "stick": 2
+            },
+            "action": "You can craft stone_axe with ingredients."
         }
     ],
     "stone_hoe": [
@@ -911,6 +1031,16 @@
                 "crafting_table": 1
             },
             "action": "You can craft stone_hoe with ingredients."
+        },
+        {
+            "name": "stone_hoe",
+            "count": 1,
+            "required_items": {
+                "crafting_table": 1,
+                "cobblestone": 2,
+                "stick": 2
+            },
+            "action": "You can craft stone_hoe."
         }
     ],
     "chest": [
@@ -922,6 +1052,15 @@
                 "crafting_table": 1
             },
             "action": "You can craft chest with ingredients."
+        },
+        {
+            "name": "chest",
+            "count": 1,
+            "required_items": {
+                "crafting_table": 1,
+                "planks": 8
+            },
+            "action": "You can craft chest."
         }
     ],
     "egg": [
@@ -930,6 +1069,12 @@
             "count": 1,
             "required_items": null,
             "action": "You can get egg by killing chicken."
+        },
+        {
+            "name": "egg",
+            "count": 1,
+            "required_items": null,
+            "action": "You can obtain egg without any required items."
         }
     ],
     "iron_pickaxe": [
@@ -1007,6 +1152,15 @@
                 "stick": 2
             },
             "action": "You can craft iron_hoe with ingredients."
+        },
+        {
+            "name": "iron_hoe",
+            "count": 1,
+            "required_items": {
+                "iron_ingot": 2,
+                "stick": 2
+            },
+            "action": "You can craft iron_hoe."
         }
     ],
     "stone": [
@@ -1015,6 +1169,150 @@
             "count": 1,
             "required_items": {},
             "action": "You can obtain stone by smelting cobblestone in a furnace."
+        },
+        {
+            "name": "stone",
+            "count": 1,
+            "required_items": null,
+            "action": "You can obtain stone by smelting cobblestone in a furnace."
+        },
+        {
+            "name": "stone",
+            "count": 1,
+            "required_items": null,
+            "action": "You can obtain stone by smelting 1 cobblestone in a furnace."
+        }
+    ],
+    "campfire": [
+        {
+            "name": "campfire",
+            "count": 1,
+            "required_items": {
+                "crafting_table": 1,
+                "stick": 3,
+                "coal": 1,
+                "log": 3
+            },
+            "action": "You can craft campfire with the following ingredients."
+        },
+        {
+            "name": "campfire",
+            "count": 1,
+            "required_items": {
+                "crafting_table": 1,
+                "stick": 3,
+                "coal": 1,
+                "log": 3
+            },
+            "action": "You can craft campfire with ingredients."
+        },
+        {
+            "name": "campfire",
+            "count": 1,
+            "required_items": {
+                "stick": 3,
+                "coal": 1,
+                "log": 3
+            },
+            "action": "You can craft campfire with ingredients using crafting_table."
+        },
+        {
+            "name": "campfire",
+            "count": 1,
+            "required_items": {
+                "stick": 3,
+                "coal": 1,
+                "log": 3
+            },
+            "action": "You can craft campfire with the following ingredients using a crafting table."
+        }
+    ],
+    "beef": [
+        {
+            "name": "beef",
+            "count": 1,
+            "required_items": null,
+            "action": "You can get beef by killing cow or mooshroom."
+        }
+    ],
+    "cooked_beef": [
+        {
+            "name": "cooked_beef",
+            "count": 1,
+            "required_items": {
+                "furnace": 1,
+                "beef": 1
+            },
+            "action": "You can smelt 1 beef using a furnace to obtain cooked_beef."
+        },
+        {
+            "name": "cooked_beef",
+            "count": 1,
+            "required_items": {
+                "beef": 1
+            },
+            "action": "You can smelt beef using a furnace to obtain cooked_beef."
+        }
+    ],
+    "glass": [
+        {
+            "name": "glass",
+            "count": 1,
+            "required_items": {
+                "sand": 1
+            },
+            "action": "You can smelt 1 sand using a furnace to obtain 1 glass."
+        }
+    ],
+    "smoker": [
+        {
+            "name": "smoker",
+            "count": 1,
+            "required_items": {
+                "furnace": 1,
+                "crafting_table": 1,
+                "log": 4
+            },
+            "action": "You can craft smoker with ingredients."
+        }
+    ],
+    "chicken": [
+        {
+            "name": "chicken",
+            "count": 1,
+            "required_items": null,
+            "action": "You can get chicken by killing chicken."
+        }
+    ],
+    "cooked_chicken": [
+        {
+            "name": "cooked_chicken",
+            "count": 1,
+            "required_items": {
+                "furnace": 1,
+                "chicken": 1
+            },
+            "action": "You can smelt 1 chicken using a furnace to obtain 1 cooked_chicken."
+        },
+        {
+            "name": "cooked_chicken",
+            "count": 1,
+            "required_items": {
+                "furnace": 1,
+                "chicken": 1
+            },
+            "action": "You can smelt chicken using a furnace to obtain cooked_chicken."
+        }
+    ],
+    "oak_boat": [
+        {
+            "name": "oak_boat",
+            "count": 1,
+            "required_items": {
+                "wooden_shovel": 1,
+                "planks": 5
+            },
+            "action": "You can craft oak_boat with ingredients."
         }
     ]
 }

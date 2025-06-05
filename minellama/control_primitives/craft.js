@@ -16,7 +16,10 @@ async function craft(bot, name, count = 1) {
         itemCount = bot.inventory.count(mcData.itemsByName[name].id);
       }
       return;
+    } else {
+      await craftCraftingTable(bot);
     }
+
     //Place crafting table first
     const suitablePosition = bot.entity.position.offset(1, 0, 0);
     const block = bot.blockAt(suitablePosition);
