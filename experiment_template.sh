@@ -28,7 +28,7 @@ for TASK in "${TASK_LIST[@]}"; do
         # === Bot タスク実行 ===
         echo "Starting bot task..."
         cd "$BOT_DIR"
-        python3 server_main.py --llm gpt --llm_model gpt-3.5-turbo --rag_switch True --search_switch False --experiment_number_total 10 --task_item "$TASK"
+        python3 server_main.py --llm gpt --llm_model gpt-3.5-turbo --rag_switch True --search_switch False --use_fixed_data True --task_item "$TASK"
 
         # === タスク終了後サーバーを停止 ===
         echo "Stopping Minecraft server..."

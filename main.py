@@ -33,12 +33,13 @@ args = parser.parse_args()
 # Convert rag_switch from string to boolean
 args.rag_switch = args.rag_switch.lower() == "true"
 args.search_switch = args.search_switch.lower() == "true"
+args.use_fixed_data = args.use_fixed_data.lower() == "true"
 
 # Initialize Minellama with arguments
 minellama = Minellama(
     openai_api_key=openai_api_key,
     hf_auth_token=hf_auth_token,
-    mc_port="25565",
+    mc_port="36287",
     llm=args.llm,
     llm_model=args.llm_model,
     local_llm_path=None,  # Default is None
@@ -52,7 +53,8 @@ minellama = Minellama(
 # Load experiment task list
 #task_list = [{"stick":1},{"wooden_pickaxe":1}]
 task_list = [
-    
+    {"barrel":1},
+    {"white_bed":1},
     {"oak_boat":1},
     {"oak_fence":1},
     {"oak_door":1},
@@ -63,8 +65,7 @@ task_list = [
     {"spruce_fence":1},
     {"spruce_door":1},
     {"cookie":1},
-    {"white_bed":1}, 
-    {"barrel":1},
+     
 ]
 
 """
