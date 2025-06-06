@@ -2,7 +2,7 @@ import os
 import json
 
 #* ここでresultsを指定する
-scan_path = "/absolute/path/to/experiment_results/(target)"
+scan_path = "/absolute/path/to/experiment_results/(target)"  #e.g : /home/user/Minellama/experiment_results/gpt-3.5-turbo
 task_json = "/absolute/path/to/experiment_task_list.json"
 complement_task_json = "/absolute/path/to/complement_task_list.json"
 
