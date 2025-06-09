@@ -3,11 +3,11 @@ TASK_LIST=('stick' 'crafting_table' 'wooden_pickaxe' 'wooden_shovel' 'wooden_axe
 
 
 # パス設定
-SERVER_DIR="/home/data/kato/java_server"
-BOT_DIR="/home/data/kato/Minellama/MineLlama"
-WORLD_DIR="$SERVER_DIR/209_server"
+SERVER_DIR="/path/to/java_server"
+BOT_DIR="/path/to/MineLlama"
+WORLD_DIR="$SERVER_DIR/server_name"
 LOG_FILE="$SERVER_DIR/server.log"
-SCREEN_NAME="minecraft"
+SCREEN_NAME="screen_name"
 
 for TASK in "${TASK_LIST[@]}"; do
     # 実験は10回繰り返す
