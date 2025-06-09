@@ -3,6 +3,8 @@ import json
 from minellama import Minellama
 import config
 
+mc_port_number = "99999"
+
 # Load API keys from config
 openai_api_key = config.OPEN_AI_API_KEY
 hf_auth_token = config.HUGGING_FACE_AUTH_KEY
@@ -29,12 +31,13 @@ args = parser.parse_args()
 # Convert rag_switch from string to boolean
 args.rag_switch = args.rag_switch.lower() == "true"
 args.search_switch = args.search_switch.lower() == "true"
+args.use_fixed_data = args.use_fixed_data.lower() == "true"
 
 # Initialize Minellama with arguments
 minellama = Minellama(
     openai_api_key=openai_api_key,
     hf_auth_token=hf_auth_token,
-    mc_port="38174",
+    mc_port=mc_port_number,
     llm=args.llm,
     llm_model=args.llm_model,
     local_llm_path=None,  # Default is None
