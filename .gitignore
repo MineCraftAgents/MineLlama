@@ -16,3 +16,8 @@ logs/mineflayer/
 /forge-1/
 /forge2_119/
 /minecraft_server/
+/minellama/llm/data/chached_data/action/
+/minellama/llm/data/chached_data/recipe/
+/minellama/llm/data/chached_data/extended_recipe/
+/minellama/llm/data/chached_data/extended_recipe_full/
+/minellama/llm/data/chached_data/result/

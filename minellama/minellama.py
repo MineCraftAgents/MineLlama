@@ -512,12 +512,9 @@ class Minellama:
     def inference(self, task=None, sub_goals=[], reset_mode="hard", reset_env=True):
         self.task_list = copy.deepcopy(task)
         print("TASK LIST: ",self.task_list)
-        # 毎回リセットがなければ成功するのか？
-        # self.reset(reset_env=reset_env, reset_mode=reset_mode)
-        # self.rollout(task={"crafting_table": 1})
+        self.reset(reset_env=reset_env, reset_mode=reset_mode)
         for item in self.task_list:
             self.reset(reset_env=reset_env, reset_mode=reset_mode)
-            # self.rollout(task={"crafting_table": 1})
             success = self.rollout(task=item)
             print("This is the final record of the inventory: ", self.inventory)
             self.record_log(success=success)

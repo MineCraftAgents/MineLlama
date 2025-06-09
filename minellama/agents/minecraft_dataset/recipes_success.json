@@ -1314,5 +1314,16 @@
             },
             "action": "You can craft oak_boat with ingredients."
         }
+    ],
+    "oak_door": [
+        {
+            "name": "oak_door",
+            "count": 3,
+            "required_items": {
+                "crafting_table": 1,
+                "planks": 6
+            },
+            "action": "You can craft oak_door with ingredients."
+        }
     ]
 }
