@@ -131,6 +131,12 @@ hanging_roots
 big_dripleaf
 small_dripleaf_block
 bamboo
+oak_slab
+spruce_slab
+birch_slab
+jungle_slab
+acacia_slab
+dark_oak_slab
 wooden_slab
 mangrove_slab
 crimson_slab
