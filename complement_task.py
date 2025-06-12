@@ -2,9 +2,9 @@ import os
 import json
 
 #* ここでresultsを指定する
-scan_path = "/home/data/kato/Minellama_clean/MineLlama/experiment_results/backup/meta-llama_0407/Llama-2-70b-chat-hf with rag"
-task_json = "/home/data/kato/Minellama_clean/MineLlama/experiment_task_list.json"
-complement_task_json = "/home/data/kato/Minellama_clean/MineLlama/complement_task_list.json"
+scan_path = "/absolute/path/to/experiment_results/(target)"  #e.g : /home/user/Minellama/experiment_results/gpt-3.5-turbo
+task_json = "/absolute/path/to/experiment_task_list.json"
+complement_task_json = "/absolute/path/to/complement_task_list.json"
 
 experiment_number_total = 10
 
