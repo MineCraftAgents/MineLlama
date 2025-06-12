@@ -9,6 +9,7 @@ logs/mineflayer/
 /main_test.py
 .env
 /test.py
+/create_key.py
 /minellama/llm/data/modified_minecraft_data/unused/
 /minellama/agents/unused/
 /minellama/unused/

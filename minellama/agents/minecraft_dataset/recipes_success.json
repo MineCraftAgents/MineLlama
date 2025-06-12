@@ -151,6 +151,14 @@
                 "log": 1
             },
             "action": "You can craft planks using 1 log without a crafting_table."
+        },
+        {
+            "name": "planks",
+            "count": 4,
+            "required_items": {
+                "log": 1
+            },
+            "action": "You can craft planks using 1 log without a crafting table."
         }
     ],
     "stick": [
@@ -574,6 +582,15 @@
                 "stick": 2
             },
             "action": "You can craft wooden_shovel."
+        },
+        {
+            "name": "wooden_shovel",
+            "count": 1,
+            "required_items": {
+                "planks": 1,
+                "stick": 2
+            },
+            "action": "You can craft wooden_shovel with ingredients."
         }
     ],
     "stone_shovel": [
@@ -1041,6 +1058,16 @@
                 "stick": 2
             },
             "action": "You can craft stone_hoe."
+        },
+        {
+            "name": "stone_hoe",
+            "count": 1,
+            "required_items": {
+                "crafting_table": 1,
+                "cobblestone": 2,
+                "stick": 2
+            },
+            "action": "You can craft stone_hoe with the following ingredients."
         }
     ],
     "chest": [
@@ -1161,6 +1188,15 @@
                 "stick": 2
             },
             "action": "You can craft iron_hoe."
+        },
+        {
+            "name": "iron_hoe",
+            "count": 1,
+            "required_items": {
+                "iron_ingot": 2,
+                "stick": 2
+            },
+            "action": "You can craft iron_hoe with ingredients using crafting_table."
         }
     ],
     "stone": [
@@ -1225,6 +1261,26 @@
                 "log": 3
             },
             "action": "You can craft campfire with the following ingredients using a crafting table."
+        },
+        {
+            "name": "campfire",
+            "count": 1,
+            "required_items": {
+                "stick": 3,
+                "coal": 1,
+                "log": 3
+            },
+            "action": "You can craft campfire with the following ingredients using crafting_table."
+        },
+        {
+            "name": "campfire",
+            "count": 1,
+            "required_items": {
+                "stick": 3,
+                "coal": 1,
+                "log": 3
+            },
+            "action": "You can craft campfire with ingredients."
         }
     ],
     "beef": [
@@ -1262,6 +1318,14 @@
                 "sand": 1
             },
             "action": "You can smelt 1 sand using a furnace to obtain 1 glass."
+        },
+        {
+            "name": "glass",
+            "count": 1,
+            "required_items": {
+                "sand": 1
+            },
+            "action": "You can smelt 1 sand using a furnace to obtain glass."
         }
     ],
     "smoker": [
@@ -1324,6 +1388,60 @@
                 "planks": 6
             },
             "action": "You can craft oak_door with ingredients."
+        }
+    ],
+    "birch_door": [
+        {
+            "name": "birch_door",
+            "count": 3,
+            "required_items": {
+                "crafting_table": 1,
+                "planks": 6
+            },
+            "action": "You can craft birch_door with ingredients."
+        }
+    ],
+    "ladder": [
+        {
+            "name": "ladder",
+            "count": 3,
+            "required_items": {
+                "crafting_table": 1,
+                "stick": 7
+            },
+            "action": "You can craft ladder."
+        },
+        {
+            "name": "ladder",
+            "count": 3,
+            "required_items": {
+                "crafting_table": 1,
+                "stick": 7
+            },
+            "action": "You can craft ladder with ingredients."
+        }
+    ],
+    "shears": [
+        {
+            "name": "shears",
+            "count": 1,
+            "required_items": {
+                "crafting_table": 1,
+                "iron_ingot": 2
+            },
+            "action": "You can craft shears."
+        }
+    ],
+    "shield": [
+        {
+            "name": "shield",
+            "count": 1,
+            "required_items": {
+                "crafting_table": 1,
+                "planks": 6,
+                "iron_ingot": 1
+            },
+            "action": "You can craft shield."
         }
     ]
 }

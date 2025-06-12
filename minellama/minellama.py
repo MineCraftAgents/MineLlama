@@ -400,7 +400,7 @@ class Minellama:
     # Recipe decomposition
     def rollout(self, task:dict):
         self.next_task = copy.deepcopy(task)
-        print(f"\033[31m=================　SET TASK : {self.next_task} ====================\033[0m")
+        print(f"\033[31m=================  SET TASK : {self.next_task} ====================\033[0m")
         iterations = 0
         recipe_reset_count = 2
         all_recipe_reset_count = 6
