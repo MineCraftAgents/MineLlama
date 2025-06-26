@@ -4,6 +4,7 @@ from minellama import Minellama
 import config
 
 mc_port_number = "99999"
+server_port_num = "enter your port number"
 
 # Load API keys from config
 openai_api_key = config.OPEN_AI_API_KEY
@@ -38,6 +39,7 @@ minellama = Minellama(
     openai_api_key=openai_api_key,
     hf_auth_token=hf_auth_token,
     mc_port=mc_port_number,
+    server_port=server_port_num,
     llm=args.llm,
     llm_model=args.llm_model,
     local_llm_path=None,  # Default is None
