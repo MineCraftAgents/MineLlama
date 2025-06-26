@@ -11,6 +11,7 @@ hf_auth_token = config.HUGGING_FACE_AUTH_KEY
 
 screen_name = "screen_name"
 mc_port_number = "99999"
+server_port_num = "enter your port number"
 
 # Set up argument parser
 parser = argparse.ArgumentParser(description="Run Minellama experiments.")
@@ -42,6 +43,7 @@ minellama = Minellama(
     openai_api_key=openai_api_key,
     hf_auth_token=hf_auth_token,
     mc_port=mc_port_number,
+    server_port=server_port_num,
     llm=args.llm,
     llm_model=args.llm_model,
     local_llm_path = None, # If you have local Llama2, set the path to the directory. If None, it will create the model dir in minellama/llm/ .
