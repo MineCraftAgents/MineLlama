@@ -18,7 +18,12 @@ async function smelt(bot, itemName, count = 1, fuelName = 'planks') {
       }
       if (fuel === undefined) {
         bot.chat("You don't have any planks.");
-        return;
+        bot.chat("Collecting planks...");
+        await mineWoodLog(bot, 1);
+        await craftPlanks(bot, 4);
+        bot.chat("Planks collected!");
+        fuel = 'planks';
+        // return;
       }
     } else {
       fuel = fuelName;
