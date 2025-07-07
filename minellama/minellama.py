@@ -203,26 +203,48 @@ class Minellama:
             # Log the exception (optional: write to a separate error log)
             print(f"[WARN] Failed to save JSON log for task '{self.next_task}': {e}")
 
+    # def process_inventory(self, inventory_rawdata:dict):
+    #     log_list = ["oak_log", "birch_log", "spruce_log", "jungle_log", "acacia_log", "dark_oak_log", "mangrove_log"]
+    #     planks_list = ["oak_planks", "birch_planks", "spruce_planks", "jungle_planks", "acacia_planks", "dark_oak_planks", "mangrove_planks"]
+    #     inventory = copy.deepcopy(inventory_rawdata)
+    #     inventory_keys = list(inventory.keys())
+    #     log_count = 0
+    #     planks_count = 0
+    #     for key in inventory_keys:
+    #         if key in log_list:
+    #             log_count += inventory[key]
+    #             inventory.pop(key)
+    #         elif key in planks_list:
+    #             planks_count += inventory[key]
+    #             inventory.pop(key)
+
+    #     if log_count > 0 :
+    #         inventory["log"] = log_count
+    #     if planks_count > 0 :
+    #         inventory["planks"] = planks_count
+            
+    #     return inventory
+
     def process_inventory(self, inventory_rawdata:dict):
-        log_list = ["oak_log", "birch_log", "spruce_log", "jungle_log", "acacia_log", "dark_oak_log", "mangrove_log"]
-        planks_list = ["oak_planks", "birch_planks", "spruce_planks", "jungle_planks", "acacia_planks", "dark_oak_planks", "mangrove_planks"]
+        wood_variation = ['oak_', 'birch_', "spruce_", "jungle_", "acacia_", "dark_oak_", "mangrove_"]
+        wooden_items   = ['log', 'planks', "fence", "door", "boat", "slab", "stairs", "button", "pressure_plate", "wooden_trapdoor", "fence_gate", "sign"]
+        integrated_itemname = ["log", "planks", "fence", "wooden_door", "boat", "wooden_slab", "wooden_stairs", "wooden_button", "wooden_pressure_plate", "wooden_trapdoor", "fence_gate", "sign"]
+        # log_list = ["oak_log", "birch_log", "spruce_log", "jungle_log", "acacia_log", "dark_oak_log", "mangrove_log"]
+        # planks_list = ["oak_planks", "birch_planks", "spruce_planks", "jungle_planks", "acacia_planks", "dark_oak_planks", "mangrove_planks"]
         inventory = copy.deepcopy(inventory_rawdata)
         inventory_keys = list(inventory.keys())
         log_count = 0
         planks_count = 0
-        for key in inventory_keys:
-            if key in log_list:
-                log_count += inventory[key]
-                inventory.pop(key)
-            elif key in planks_list:
-                planks_count += inventory[key]
-                inventory.pop(key)
-
-        if log_count > 0 :
-            inventory["log"] = log_count
-        if planks_count > 0 :
-            inventory["planks"] = planks_count
-            
+        for i in range(len(wooden_items)):
+            count = 0
+            for j in range(len(wood_variation)):
+                target_itemname = wood_variation[j]+wooden_items[i]
+                if target_itemname in inventory_keys:
+                    count += inventory[target_itemname]
+                    inventory.pop(target_itemname)
+            if count > 0:
+                inventory[integrated_itemname[i]] = copy.deepcopy(count)
+        print(inventory)
         return inventory
 
     def interpret_events(
