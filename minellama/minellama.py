@@ -438,29 +438,6 @@ class Minellama:
 
             elif "await craft" in code:
                 self.minellama_memory.add_memory({"action": f"craft {target_item}", "result" : result, "error_log": self.error})
-
-            # if error_messages:
-            #     if "await mine" in code:
-            #         failed_item = code.split("'")[1] if "'" in code else code.split('"')[1]
-            #         self.minellama_memory.add_memory({"action": f"mine {failed_item}", "result" : "failed", "log": error})
-                    
-            #         # self.recipe_agent.adjust_difficulty(f"mine {failed_item}", success=False)
-            #     elif "await craft" in code:
-            #         failed_item = code.split("'")[1] if "'" in code else code.split('"')[1]
-            #         self.minellama_memory.add_memory({"action": f"craft {failed_item}", "result" : "failed", "log": error})
-            #         # self.recipe_agent.adjust_difficulty(f"craft {failed_item}", success=False)
-            # else:
-            #     #! inventoryを見て、本当にアイテムを入手できたのかチェック
-            #     print("inventory_before_action:", inventory_before_action)
-            #     inventory_after_action = copy.deepcopy(self.inventory)
-            #     print("inventory_after_action:", inventory_after_action)
-            #     #! 成功したときも記録
-            #     if "await mine" in code:
-            #         failed_item = code.split("'")[1] if "'" in code else code.split('"')[1]
-            #         self.minellama_memory.add_memory({"action": f"mine {failed_item}", "result" : "success", "log": ""})
-            #     elif "await craft" in code:
-            #         failed_item = code.split("'")[1] if "'" in code else code.split('"')[1]
-            #         self.minellama_memory.add_memory({"action": f"craft {failed_item}", "result" : "success", "log": ""})
             
         return observation
 
