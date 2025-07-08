@@ -64,10 +64,6 @@ class RecipeAgent:
         self.iterations = 0
         # ✅ Add this line to initialize difficulty tracking
         self.item_difficulty = {}  # {"stick": 5, "planks": 2, ...}
-        
-        #! テスト
-        self.current_dependency_list = []
-        self.recipe_memory = None
 
     # ✅ Add this method to RecipeAgent
     def adjust_difficulty(self, item: str, success: bool):
@@ -318,7 +314,7 @@ class RecipeAgent:
             When choosing a recipe from multiple options, use the difficulty list provided.
             Prefer items with lower difficulty scores. Avoid using items with high difficulty unless necessary.
 
-            """
+            """        
             #original query
             """
             Please list the items and their quantities needed to craft items.
@@ -413,49 +409,15 @@ class RecipeAgent:
                         print(f"[WARNING] {query_item} is not in item_dict.json. Please check the file.")
                         item_description = "No description available."
                 
-                    #! item_descriptionからitem名を抽出 → ()で閉じた部分
-                    #* item_descriptionから()で囲まれた部分を抽出
-                    item_name_pattern = r'\((.*?)\)'
-                    item_names = re.findall(item_name_pattern, item_description)
-                    #* 4 stick, 2 planksのように数字がついていることがあるので、その場合は削除
-                    item_names = [re.sub(r'\d+', '', item_name).strip() for item_name in item_names]
-                    recipe_content = ""
-                    #* memoryから検索
-                    if self.recipe_memory is not None:
-                        #* memoryからitem_nameを抽出
-                        for item_name in item_names:
-                            if (self.recipe_memory.extract_memory(item_name)) not in recipe_content:
-                               recipe_content += self.recipe_memory.extract_memory(item_name)
-                            # print(f"recipe_content: {recipe_content}")
-                        
-                        #* 未知のアイテムを判別
-                        unknown_items = []
-                        for item_name in item_names:
-                            if not self.recipe_memory.check_item_exists(item_name):
-                                unknown_items.append(item_name)
-                        if unknown_items:
-                            recipe_content += f"No related actions found for the following item: {', '.join(unknown_items)}.\n"
                     #* item_descriptionを使ってpromptを作成
-                    # human_prompt_with_json = (
-                    #     f"This is the current status.\n"
-                    #     f"Inventory: {inventory}\n"
-                    #     f"Nearby block: {self.nearby_block}\n"
-                    #     f"Biome: I am in {self.biome}.\n"
-                    #     f"Error from the last round: {error}\n\n"
-                    #     f"Here is the difficulty list for items (lower = easier):\n"
-                    #     f"{difficulty_info}\n\n"
-                    #     f"Here is the item description for {query_item}:{item_description}\n"
-                    #     f"please tell me how to obtain {query_item}.\n"
-                    #     # f"To get some {query_item}, you need "
-                    # )
                     human_prompt_with_json = (
                         f"This is the current status.\n"
                         f"Inventory: {inventory}\n"
                         f"Nearby block: {self.nearby_block}\n"
                         f"Biome: I am in {self.biome}.\n"
                         f"Error from the last round: {error}\n\n"
-                        f"Here is the difficulty list for items:\n"
-                        f"{recipe_content}\n\n"
+                        f"Here is the difficulty list for items (lower = easier):\n"
+                        f"{difficulty_info}\n\n"
                         f"Here is the item description for {query_item}:{item_description}\n"
                         f"please tell me how to obtain {query_item}.\n"
                         # f"To get some {query_item}, you need "
@@ -476,8 +438,8 @@ class RecipeAgent:
                 # print(f"human_prompt_with_json:{human_prompt_with_json}")
                 
                 #! テスト
-                print("recipe_content:", recipe_content)
-
+                print("difficulty_info:", difficulty_info)
+                
                 #* 使うデータセットで場合分け
                 if self.use_fixed_data:
                     #* 編集済みデータセットを使用する場合
@@ -578,9 +540,6 @@ class RecipeAgent:
         print_status()  # Final update
         print("\n[bold green]✅ Dependency Resolution Complete![/bold green]")
         print(dependency_list)
-        
-        #! テスト minellama.pyに渡す用
-        self.current_dependency_list = dependency_list
         return dependency_list
 
 
@@ -774,12 +733,7 @@ class RecipeAgent:
         return task, context
 
 
-    def set_current_goal(self, task:dict, minellama_memory=None):
-        
-        #! memoryを使う
-        if minellama_memory is not None:
-            self.recipe_memory = copy.deepcopy(minellama_memory)
-        
+    def set_current_goal(self, task:dict):
         print("def set_current_goal is invoked")
         print(f"Called set_current_goal: {task}")
         # if "crafting_table" not in self.inventory:

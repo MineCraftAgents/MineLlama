@@ -13,62 +13,6 @@ from .agents import RoleAgent, DreamAgent, RecipeAgent, ActionAgent, DiaryAgent
 from .llm import Llama2,GPT
 from .control_primitives import load_control_primitives
 
-
-class Memory:
-    def __init__(self):
-        self.action_memory = []
-    
-    def add_memory(self, action_result: Dict):
-        #* self.memory.add_memory({"action": f"craft {failed_item}", "result" : "success", "error_log": ""})の形で入力
-        #* actionがmemoryに存在しない場合
-        if action_result["action"] not in [action["action"] for action in self.action_memory]:
-            action_result["difficulty"] = 4 if action_result["result"] == "success" else 6  # Set initial difficulty based on result
-            self.action_memory.append(action_result)
-            print(f"New action added to memory: {action_result}")
-        
-        else:
-            #* actionがすでに存在する場合
-            for action in self.action_memory:
-                if action["action"] == action_result["action"]:
-                    #* すでに存在するactionのdifficultyを更新
-                    if action["result"] == "success":
-                        action["difficulty"] -= 1  # Decrease difficulty by 1 on success
-                    elif action["result"] == "failed":
-                        action["difficulty"] += 1  # Increase difficulty by 1 on failure
-                    #* logを追記
-                    action["log"] += f"\n{action_result['log']}" if action_result["log"] else ""
-                    print(f"Action memory updated: {action}")
-            
-    #* アイテム名が存在するかどうかだけチェックする関数
-    def check_item_exists(self, item_name: str):
-        #* メモリ内のアクションからitem_nameが存在するかチェック
-        for action in self.action_memory:
-            if item_name in action["action"]:
-                return True
-        return False
-    
-    
-    def extract_memory(self, item_name: str):
-        #* メモリからアクションを抽出 : item_nameに関連するアクションを抽出
-        related_actions = []
-        for action in self.action_memory:
-            if item_name in action["action"]:
-                related_actions.append(action)
-        #* LLMに渡すためにテキスト形式のmemory_contentを作成
-        if not related_actions:
-            # memory_content = f"No related actions found for {item_name} in memory."
-            memory_content = ""
-        else:
-            memory_content = f"Related actions for {item_name}:"
-            for action in related_actions:
-                if action["difficulty"] < 5:
-                    memory_content += f"{action['action']} is easy."
-                elif 5 <= action["difficulty"] < 7:
-                    memory_content += f"{action['action']} is normal."
-                else:
-                    memory_content += f"{action['action']} is hard."
-        return memory_content
-
 class Minellama:
     def __init__(
         self,
@@ -102,9 +46,6 @@ class Minellama:
         self.search_switch = search_switch
         self.use_fixed_data = use_fixed_data
         
-        #! テスト
-        self.minellama_memory = Memory()
-
         # set LLM
         if llm == "llama":
             print(f"Llama2 called with rag_switch:{self.rag_switch}")
@@ -262,48 +203,26 @@ class Minellama:
             # Log the exception (optional: write to a separate error log)
             print(f"[WARN] Failed to save JSON log for task '{self.next_task}': {e}")
 
-    # def process_inventory(self, inventory_rawdata:dict):
-    #     log_list = ["oak_log", "birch_log", "spruce_log", "jungle_log", "acacia_log", "dark_oak_log", "mangrove_log"]
-    #     planks_list = ["oak_planks", "birch_planks", "spruce_planks", "jungle_planks", "acacia_planks", "dark_oak_planks", "mangrove_planks"]
-    #     inventory = copy.deepcopy(inventory_rawdata)
-    #     inventory_keys = list(inventory.keys())
-    #     log_count = 0
-    #     planks_count = 0
-    #     for key in inventory_keys:
-    #         if key in log_list:
-    #             log_count += inventory[key]
-    #             inventory.pop(key)
-    #         elif key in planks_list:
-    #             planks_count += inventory[key]
-    #             inventory.pop(key)
-
-    #     if log_count > 0 :
-    #         inventory["log"] = log_count
-    #     if planks_count > 0 :
-    #         inventory["planks"] = planks_count
-            
-    #     return inventory
-
     def process_inventory(self, inventory_rawdata:dict):
-        wood_variation = ['oak_', 'birch_', "spruce_", "jungle_", "acacia_", "dark_oak_", "mangrove_"]
-        wooden_items   = ['log', 'planks', "fence", "door", "boat", "slab", "stairs", "button", "pressure_plate", "wooden_trapdoor", "fence_gate", "sign"]
-        integrated_itemname = ["log", "planks", "fence", "wooden_door", "boat", "wooden_slab", "wooden_stairs", "wooden_button", "wooden_pressure_plate", "wooden_trapdoor", "fence_gate", "sign"]
-        # log_list = ["oak_log", "birch_log", "spruce_log", "jungle_log", "acacia_log", "dark_oak_log", "mangrove_log"]
-        # planks_list = ["oak_planks", "birch_planks", "spruce_planks", "jungle_planks", "acacia_planks", "dark_oak_planks", "mangrove_planks"]
+        log_list = ["oak_log", "birch_log", "spruce_log", "jungle_log", "acacia_log", "dark_oak_log", "mangrove_log"]
+        planks_list = ["oak_planks", "birch_planks", "spruce_planks", "jungle_planks", "acacia_planks", "dark_oak_planks", "mangrove_planks"]
         inventory = copy.deepcopy(inventory_rawdata)
         inventory_keys = list(inventory.keys())
         log_count = 0
         planks_count = 0
-        for i in range(len(wooden_items)):
-            count = 0
-            for j in range(len(wood_variation)):
-                target_itemname = wood_variation[j]+wooden_items[i]
-                if target_itemname in inventory_keys:
-                    count += inventory[target_itemname]
-                    inventory.pop(target_itemname)
-            if count > 0:
-                inventory[integrated_itemname[i]] = copy.deepcopy(count)
-        print(inventory)
+        for key in inventory_keys:
+            if key in log_list:
+                log_count += inventory[key]
+                inventory.pop(key)
+            elif key in planks_list:
+                planks_count += inventory[key]
+                inventory.pop(key)
+
+        if log_count > 0 :
+            inventory["log"] = log_count
+        if planks_count > 0 :
+            inventory["planks"] = planks_count
+            
         return inventory
 
     def interpret_events(
@@ -389,9 +308,6 @@ class Minellama:
         observation += f"Equipment: {equipment}\n\n"
         self.equipment = equipment
 
-        #! 更新前のインベントリを保存
-        inventory_before_action = copy.deepcopy(self.inventory)
-
         if inventory:
             observation += f"Inventory ({inventory_used}/36): {inventory}\n\n"
             self.inventory_rawdata = inventory
@@ -415,53 +331,6 @@ class Minellama:
             error = self.error
         )
         
-        
-        #! inventoryを見て、本当にアイテムを入手できたのかチェック
-        if code:
-            print("inventory_before_action:", inventory_before_action)
-            inventory_after_action = copy.deepcopy(self.inventory)
-            print("inventory_after_action:", inventory_after_action)
-            target_item = code.split("'")[1] if "'" in code else code.split('"')[1]
-            #* inventory_before_action: {'planks': 4} → inventory_after_action: {'crafting_table': 1, 'log': 1} のようになる
-            #* target_itemがinventory_after_actionに存在して、かつ数が増えていればok
-            success = False
-            if target_item in inventory_after_action:
-                if target_item in inventory_before_action:
-                    if inventory_after_action[target_item] > inventory_before_action[target_item]:
-                        success = True
-                else:
-                    #* target_itemがinventory_before_actionに存在しない場合、つまり新たに入手した場合
-                    success = True
-            result = "success" if success else "failed"
-            if "await mine" in code:
-                    self.minellama_memory.add_memory({"action": f"mine {target_item}", "result" : result, "error_log": self.error})
-
-            elif "await craft" in code:
-                self.minellama_memory.add_memory({"action": f"craft {target_item}", "result" : result, "error_log": self.error})
-
-            # if error_messages:
-            #     if "await mine" in code:
-            #         failed_item = code.split("'")[1] if "'" in code else code.split('"')[1]
-            #         self.minellama_memory.add_memory({"action": f"mine {failed_item}", "result" : "failed", "log": error})
-                    
-            #         # self.recipe_agent.adjust_difficulty(f"mine {failed_item}", success=False)
-            #     elif "await craft" in code:
-            #         failed_item = code.split("'")[1] if "'" in code else code.split('"')[1]
-            #         self.minellama_memory.add_memory({"action": f"craft {failed_item}", "result" : "failed", "log": error})
-            #         # self.recipe_agent.adjust_difficulty(f"craft {failed_item}", success=False)
-            # else:
-            #     #! inventoryを見て、本当にアイテムを入手できたのかチェック
-            #     print("inventory_before_action:", inventory_before_action)
-            #     inventory_after_action = copy.deepcopy(self.inventory)
-            #     print("inventory_after_action:", inventory_after_action)
-            #     #! 成功したときも記録
-            #     if "await mine" in code:
-            #         failed_item = code.split("'")[1] if "'" in code else code.split('"')[1]
-            #         self.minellama_memory.add_memory({"action": f"mine {failed_item}", "result" : "success", "log": ""})
-            #     elif "await craft" in code:
-            #         failed_item = code.split("'")[1] if "'" in code else code.split('"')[1]
-            #         self.minellama_memory.add_memory({"action": f"craft {failed_item}", "result" : "success", "log": ""})
-            
         return observation
 
 
@@ -549,7 +418,7 @@ class Minellama:
                 
                 next_task = self.next_task
 
-                subgoal, context = self.recipe_agent.set_current_goal(next_task, minellama_memory=self.minellama_memory)
+                subgoal, context = self.recipe_agent.set_current_goal(next_task)
                 if subgoal is None:
                     self.last_context = context
                     self.error = context
