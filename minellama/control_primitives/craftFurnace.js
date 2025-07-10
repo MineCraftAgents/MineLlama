@@ -1,4 +1,4 @@
-async function rev_craftFurnace(bot) {
+async function craftFurnace(bot) {
   const furnaceCount = bot.inventory.count(mcData.itemsByName.furnace.id);
   await craftCraftingTable(bot);
   
