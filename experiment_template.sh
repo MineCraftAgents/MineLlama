@@ -1,5 +1,5 @@
 # タスクリスト
-TASK_LIST=('stick' 'crafting_table' 'wooden_pickaxe' 'wooden_shovel' 'wooden_axe' 'wooden_hoe' 'wooden_sword' 'stone_sword' 'stone_shovel' 'stone_pickaxe' 'stone_axe' 'stone_hoe' 'iron_sword' 'iron_shovel' 'iron_pickaxe' 'iron_axe' 'iron_hoe' 'chest' 'furnace' 'glass' 'white_bed' 'oak_boat' 'smoker' 'barrel' 'oak_fence' 'oak_door' 'campfire' 'bucket' 'ladder' 'shears' 'shield')
+TASK_LIST=('stick' 'crafting_table' 'wooden_pickaxe' 'wooden_shovel' 'wooden_axe' 'wooden_hoe' 'wooden_sword' 'stone_sword' 'stone_shovel' 'stone_pickaxe' 'stone_axe' 'stone_hoe' 'iron_sword' 'iron_shovel' 'iron_pickaxe' 'iron_axe' 'iron_hoe' 'chest' 'furnace' 'glass' 'white_bed' 'boat' 'smoker' 'barrel' 'fence' 'wooden_door' 'campfire' 'bucket' 'ladder' 'shears' 'shield')
 
 
 # パス設定
